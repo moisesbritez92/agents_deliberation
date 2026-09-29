@@ -1,0 +1,601 @@
+IEEE
+Power and Energy Technology Systems Journal
+
+                    Received 8 May 2014; revised 05 August 2014; accepted 05 August 2014. Date of publication 24 November 2014;
+                                                      date of current version 26 January 2015.
+                                                        Digital Object Identifier 10.1109/JPETS.2014.2363405
+
+
+
+
+                         Lessons and Experiences in the
+                        Implementation of a Consolidated
+                          Transmission Modeling Data
+                               System at ERCOT
+                    JOHN D. MOSELEY1 , NITIKA V. MAGO1 , W. MACK GRADY2 (Fellow, IEEE),
+                              AND SURYA SANTOSO3 (Senior Member, IEEE)
+                                               1 Electric Reliability Council of Texas, Taylor, TX 76574 USA
+                            2 Department of Electrical and Computer Engineering, Baylor University, Waco, TX 76798 USA
+                       3 Department of Electrical and Computer Engineering, University of Texas at Austin, Austin, TX 78712 USA
+
+                                        CORRESPONDING AUTHOR: J. D. MOSELEY (jmoseley@ercot.com)
+
+
+
+
+         ABSTRACT       On 1 September 2009, as part of a new node-based market implementation, the Electric
+         Reliability Council of Texas transitioned from its then-prevalent data modeling processes to a new network
+         model management system (NMMS) for model data management. This change represented the culmination
+         of nearly four and a half years of planning and development. The NMMS provided several improvements
+         over the then-current data maintenance processes. This paper describes some of the existing issues facing the
+         power industry in the area of power system model data management and explains how solutions to these issues
+         were addressed conceptually in the development of and incorporated into the final design of the NMMS.
+         Further, this paper explains how these concepts of design and usability are now gaining wider recognition
+         and acceptance from the industry.
+
+         INDEX TERMS         Common information model (CIM), Electric Reliability Council of Texas (ERCOT), power
+         system modeling.
+
+
+I. INTRODUCTION                                                                              created larger margins of error than the four load zone-
+
+T     HE rollout of the Network Model Management
+      System (NMMS) represented the solution and/or mit-
+igation to a number of problems that were facing the Elec-
+                                                                                             based prices.
+                                                                                          3) ERCOT did not have a consolidated auditing process of
+                                                                                             model data changes.
+tric Reliability Council of Texas (ERCOT) as it confronted                                4) Generating accurate models representing times in the
+migration from a zone-based to a node-based bulk electricity                                 future was a problematic process due to the existing
+market. Many of the issues with model data management had                                    model maintenance process build around ERCOTs
+existed for a number of years; some were due, in part, to                                    energy management system (EMS) and the EMS
+ERCOTs function as the independent system operator (ISO)                                     system’s inability to represent multiple points in time.
+for 85% of the state of Texas or to its performance of financial                          5) The processes involving data submission did not have
+settlement for the competitive wholesale bulk-power market,                                  the transparency desired by market participants.
+and others were systemic problems in the industry. These                                  6) The model data submission was bifurcated into two
+problems included the following.                                                             internal organizational structures: a transmission plan-
+   1) An ISO does not own transmission equipment used                                        ning department (looking at 1–5 year time lines), and
+       in the data models that simulate the electric grid;                                   an operation department concerned with the real-time
+       consequently, all model data must be submitted to the                                 and near-real-time horizons. In processes shared across
+       ISO by the model data owners.                                                         these structures, such as forward looking transmission
+   2) While data accuracy was an issue in the zonal model                                    congestion hedging, the errors in the individual isolated
+       data, the new 500+ nodal point prices potentially                                     data models were compounded by the migration of
+
+                                 2332-7707 2014 IEEE. Translations and content mining are permitted for academic research only.
+                                      Personal use is also permitted, but republication/redistribution requires IEEE permission.
+12                               See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.      VOLUME 1, 2014
+Moseley et al.: Lessons and Experiences
+
+
+
+       results calculated using one data set to the other data       reduce area interchange to zero. As AGC evolved, frequency
+       set for use in grid operations.                               correction was also incorporated, and area control error
+   7) Since the ERCOT model data for real-time operations            became the standard system operation. As more telemetry
+       were maintained in the EMS, using the vendor’s propri-        became available, other functions, such as load forecasting
+       etary data formats, sharing of data with the submitter        and economic forecasting, were developed. As these systems
+       for the purposes of validation was a problematic task.        became more advanced and computer computational ability
+   8) Coordination of data updates was intermittent, with            increased, EMS began running load flow and contingency
+       little feedback given to the submitter due to the inability   analysis calculations to verify the system was secure in real
+       for detailed tracking of model changes.                       time. From there, other applications and functionality devel-
+   In addition to the issues listed above, a number of               oped, either as integrated portions of the EMS system, or as
+additional items were identified as future concerns. With the        standalone systems with their own support structure. MMS
+unwinding of the vertically integrated transmission service          developed as the economic transactions within the power
+model (in which a single entity owned the generation, trans-         industry became more complex and nonvertically integrated
+mission, and load service area) and the move toward a more           systems became the norm.
+segmented business model, the concepts of data transparency             In this same timeframe in which control system command
+and market power became prominent concerns. ERCOT, as                and control were evolving, the data requirements to operate
+an ISO, was required to coordinate activities between market         the power transmission system also evolved. Simple one-
+players [i.e., between the transmission service providers, the       line drawings and maps were adequate when grid control
+resource entities (REs), and the load serving entities (LSEs)]       was performed using pilot wires for breakers; relatively few
+that in the vertically integrated utility model were being           items were required in the simplified mathematical models
+handled in-house. In addition, market pressures were driving         used in early AGC calculations. However, as the EMS and
+for the incorporation of new data intensive smart-grid related       MMS applications evolved, and ideas like state-estimation
+technologies. There was a realization that these new technolo-       and locational marginal pricing took hold in the industry, the
+gies (solar generation, distributed energy resources, phase-         data requirements grew.
+measurement units, etc.) would need to be factored into grid
+control. The scope of the integration of these technologies          B. COMMON ISSUES WITH DATA COLLECTION
+would need to include both their modeling and use in the EMS         Prior to the development of the NMMS, ERCOT faced a
+and the market management system (MMS), and additionally,            number of issues related to the management of individual
+would need to fold data collection and validation into the           data models used in its operations of the grid management
+ERCOT business processes to review, maintain, and update             systems. When beginning the NMMS system requirements
+data related to the devices. In this environment, with system        gathering in the beginning of 2006, ERCOT performed
+decentralization and emerging technologies, ERCOT needed             an informal survey of several ISOs and RTOs, including
+a more accurate model to utilize more of the capacity of             California ISO (CAISO), midcontinent ISO (formally
+the electric grid, taking it closer to its physical limits than      midwest ISO), and PJM. The survey concluded that the
+it had done so in the past. In addition, the nodal market            process of transmission data gathering was largely confined to
+required more frequent updating of data in the various grid          e-mail-based submission of supporting documents, and that,
+applications, going from a biweekly model load process to a          while ERCOTs processes were somewhat inadequate for the
+weekly model load process.                                           amount and scope of data being gathered, its processes were
+                                                                     in line with industrial norms.
+A. HISTORICAL PROSPECTIVE                                               While at a certain level, all applications require some
+Problems occurring with data management for power                    amount of model data, to help constrain the topic to more
+systems evolved over several decades. Control systems trace          substantive discussions, this paper will focus only on the
+their impetus to pilot-wire controls used in switching of            model data need of the EMS, MMS, the congestion revenue
+transmission equipment. Over time, these implementations             rights (CRRs) system, the outage scheduler (OS), and in long-
+evolved through simple control systems, to provide analog            term system planning. Focus will be directed at common
+telemetry (first on scan, and then continuously), and then into      data-related issues faced in the operation of these systems
+supervisory control and data acquisition (SCADA) controlled          holistically, and how these issues are corrected using a sin-
+systems interfacing with remote terminal units connected to          gular modeling system. In addition to explaining the aspects
+substation equipment.                                                of the NMMS design, the focus will also be directed to
+   During this evolution of technology, new methods of grid          secondary business processes enhanced (or made possible)
+control were being introduced. Once analog telemetry was             by the NMMS system. This includes items, such as one-line
+available on area tie lines on a continuous basis, automatic         maintenance and contingency definition review.
+generation control (AGC) became a possibility. By adding
+telemetry to tie lines for a control area, area interchange          II. ASPECTS OF NMMS DESIGN
+line flows could be monitored. Signals could be sent to              Prior to the nodal market, having recognized many of the
+generators that could raise or lower their power output to           deficiencies with the current model data collecting process,
+
+VOLUME 1, 2014                                                                                                                   13
+                                                                                                            IEEE
+                                                                      Power and Energy Technology Systems Journal
+
+ERCOT had internally set about developing criteria for a new
+approach. The NMMS was initially envisioned as an internal
+data repository integrated with the EMS and addressing defi-
+ciencies with the EMS model data management application.
+When the nodal market redesign was enacted, the scope of
+the NMMS project was expanded and additional requirements
+were added. In designing the NMMS system, ERCOT lever-
+aged a number of observations and lessons learned to aim for
+key aspects in the system design.
+
+A. DATA EXCHANGE USING INDUSTRIAL STANDARDS
+One of the ongoing issues during the operations of the zonal      FIGURE 1. Data submission and processing in the zonal market.
+market was the opacity and inaccessibility of model data
+residing in the ERCOT EMS. When operational or appli-
+                                                                     From these lessons, ERCOT decided to develop a project
+cation issues occurred due to suspected data inaccuracies,
+                                                                  tracking and coordination process that would unify all
+the process for data correction was convoluted. In general,
+                                                                  changes in the model back to the data submission source;
+the process involved two parties [the ISO and the trans-
+                                                                  in short, to build the new system in such a way that every
+mission operator (TO)] who each housed their transmission
+                                                                  model data change would have supporting information of
+network model in a propriety vendor-provided database.
+                                                                  the who, what, when, where, and why to answer any audit
+The standards for data format and storage varied widely
+                                                                  questions concerning data submission. ERCOT designed its
+with the individual vendors (MVA base, per unit versus
+                                                                  change management solution around two interrelated data
+SI, etc.) making confirmation of data accuracy problematic.
+                                                                  packages: one was a CIM-based incremental file, and the
+From this experience, ERCOT decided that all model data
+                                                                  other was a metadata package associated with the CIM file.
+should be exchanged in a common format that could be
+                                                                  While the CIM file contained an incremental XML-formatted
+easily communicated and verified by all interested parties.
+                                                                  data package that described an alteration to the transmission
+However, system planning groups for many years had used
+                                                                  network model, the metadata package contained all of the
+a defacto industrial standard for bus-branch model exchange,
+                                                                  information that supported the change (i.e., submitting party,
+commonly referred to as RAWD format. While the RAWD
+                                                                  time that the change should be implemented (energization
+format was not granular enough to support the kind of data
+                                                                  date), supporting instructions explaining the modeling or
+exchange envisioned by ERCOT, due to historical precedent it
+                                                                  operational capability of any new equipment, etc.). These
+was recognized that downstream support of this format would
+                                                                  two data packets were referred to together as a Network
+be required as well. After a review of the standards available,
+                                                                  Operations Model Change Request (NOMCR).
+and in consultation with external data providing parties,
+                                                                     ERCOT designed a change management process around
+the common information model (CIM) standards [1]–[3]
+                                                                  an application it called the project tracker and coordinator
+developed by EPRI were deemed ideal for data
+                                                                  (PTC). The purpose of the PTC was to facilitate the submis-
+communications.
+                                                                  sion of NOMCRs directly from the outside sources removing
+B. CHANGE MANAGEMENT                                              the intermediate level of data transcription from submitted
+                                                                  documents to model dataset previously performed by ERCOT
+It was clear that this paper and email-based submission
+                                                                  staff (Fig. 2), and allow for the NOMCRs review and testing.
+processes utilized by ERCOT during the zonal market were
+archaic and error prone. TOs and REs were attempting com-
+munication with multiple groups within ERCOT, and each of
+those groups was also manually maintaining independent data
+sources (Fig. 1).
+   Besides the multiple points in the process where error
+could be introduced, an additional issue was the inability
+to tie submitted data changes to the model data in the
+EMS application. Since the data change involved a manual
+key entry into an EMS model dataset based on an interpre-
+tation of a paper document, there was very little possibility
+of being able to track data changes in the EMS back to their
+source documents. An operator might notice a change in the
+EMS one-line of a substation, but finding out who made
+the change, why it was made, or when it occurred was a
+difficult task highly dependent on tribal knowledge within the
+organization.                                                     FIGURE 2. Data submission and processing in the nodal market.
+
+14                                                                                                                  VOLUME 1, 2014
+Moseley et al.: Lessons and Experiences
+
+
+
+This would eventually provide an audit trail from the submis-       model data load approaches, it’s important to minimize the
+sion of a model data change to its implementation in the real-      chances of failure that late in the process.
+time network model being used to run the EMS and other grid
+control applications.                                               C. TEMPORAL CAPABILITY
+   Prior to inclusion in the operational network model, every       One of the many drawbacks with maintaining the data model
+NOMCR is required to undergo five levels of validation,             using the EMS application was that the EMS system repre-
+which are logged and tracked using the PTC.                         sented only a single point in time. This limitation meant that
+   Level 1 is a primitive data check of the incremental file in     data changes could not be modeled or tested until a narrow
+the NOMCR. This level verifies that changes to equipment            window approached before the next model load date, when
+parameters fall within certain tolerances, and that associated      all of the staged changes could be quickly keyed into the
+data are present to support the change (e.g., whether the resis-    application and tested. This limitation meant that changes
+tance for a transmission line falls within a realistic bandwidth,   could have been submitted to ERCOT weeks or months prior
+and whether a generator is associated with a substation that is     to the model load date, but screening and testing had to be
+physically located nearby).                                         delayed until the testing window. In addition, the process did
+   Level 2 is a manual check that verifies that the NOMCR           not allow time for data correction during testing but still prior
+metadata are consistent with its CIM-related data change.           to a model load date. This lack of system capability was also
+The reviewer will also verify that the user data submission         evident in the OS. Since the OS is an application integrated
+is complete, and that the accompanying documentation is             with the core EMS system and shares the same model, the
+sufficient to support the testing process.                          ability of the ISO to study the effects of equipment outage,
+   Level 3 is a screening study performed by an ERCOT engi-         and grant the necessary permissions to the TOs to remove
+neer looking primarily at the viability of using the NOMCR          equipment from service for maintenance or system upgrades
+in an EMS testing platform. The testing consists of analyzing       was greatly impacted. For these reasons, the NMMS system
+the model changes in the NOMCR with respect to their impact         design needed to be temporal in nature, in that rather than
+on the EMS base model power flow solution. The results of           containing a single view of the power system data model, it
+this analysis, while not definitive, are a good screening of data   needed to contain an accurate view of the power system across
+to determine its correctness. Level 3 is the last testing of the    all points in time. This meant that data submissions would be
+NOMCR as an individual change package.                              housed in the dataset in such a way as to allow their inclusion
+   Level 4 testing is integrated testing for a batch of NOMCRs      or exclusion based on date parameters provided to the NMMS
+with energization dates corresponding to a date range using         for the requested model build. CIM was useful for dealing
+the EMS test system, in which the base model data are               with this issue, since the CIM standard already supported the
+expected to be active in the network applications with              concept of incremental model changes. This was coupled with
+the model data from the NOMCRs applied. While the                   the data tracking and testing functionality of the PTC to create
+Level 3 testing screens for effects of individual NOMCRs            a temporally based modeling system.
+on the base model data, the Level 4 testing process screens
+for data clashes within the NOMCRs themselves and for               D. COMMON SCHEMA
+cumulative effects of model changes on the base model               A problem that many ISOs face is that their data collection
+data.                                                               processes tend to be focused on individual applications. This
+   Level 5 testing is full-model testing of all NOMCR changes       means that ISOs tend to have the same departments that main-
+for a given timeframe incorporated into the base model data         tain the individual applications also create and manage data
+across all applications. This is also referred to as integrated     collection for the application as well. This method tends to
+testing. This testing verifies that all of the model changes        cause two primary issues: one being data divergence, and the
+not only function in the EMS, so that all of the additional         other allowing defects in the application logic to be masked
+applications using the data are able to load the new model,         by the manipulation of the data. Market participants placed a
+and that none of the model data changes have affected the           high value on data consistency across all the applications in
+secondary data exchanges that take place between the appli-         the ERCOT ISO, and this concern helped drive consistency
+cations (EMS, MMS, OS, etc.) when used in a real-time live          requirements for the model data that lead to the solution of
+system environment.                                                 using a single dataset for all of the applications that utilized
+   While this testing may appear time-consuming to the              the data. It was also realized that since CIM was being used
+casual reader, it is important to note that the testing is struc-   for communications and data exchange, it could also serve
+tured for two goals. The first is provide faster initial review     as the model schema for the database. The CIM standard,
+for NOMCRs, screening for common mistakes and allowing              while ostensibly a data exchange standard, serves as the core
+for prompt correction so as to not slow the updating process.       schema for the design for the ERCOT data model schema.
+The other goal is to structure the time-intensive testing toward    This was seen as a good choice for several reasons. First, the
+the end of the process. Since integrated testing involves load-     CIM is a well-documented standard and is focused on the
+ing all of the applications in a test environment, and time         modeling of the power transmission system. Also, while using
+constraints become more pressing later in the process as the        the CIM standard for data storage, the number of times that
+
+VOLUME 1, 2014                                                                                                                    15
+                                                                                                                 IEEE
+                                                                           Power and Energy Technology Systems Journal
+
+the data-model format is required to change when transfer-                    of modeling with as much fidelity as its holding appli-
+ring from one system to another is reduced. Finally, the end                  cation will support. Breaker-node models are mapped
+resulting schema was less work to maintain, and if the NMMS                   into ad hoc bus-branch models based on switch and
+had a different internal schema (other than CIM), any schema                  breaker positions telemetry at run time for the power
+modifications (new device attributes, equipment classes, etc.)                flow calculation. After the solution to the power flow
+would require changes to not only the internal schema, but to                 calculation is obtained, the results are mapped back
+a NMMS-CIM data adapter, while housing the data in a CIM                      into the breaker-node model for display purposes. This
+schema removed this requirement.                                              type of model typically is used to support real-time
+                                                                              operations using an EMS.
+E. EXTENDIBILITY                                                          Since the NMMS was designed as a single consolidated
+One of the lessons learned with the zonal experience was               modeling environment, it was necessary that the system be
+that system extendibility and flexibility were key components          able to produce both formats. The CIM model that the NMMS
+to the success of the organization. In ERCOT, during zonal             created was already a breaker-node model (since NMMS
+operations, systems required enhancement as conditions in              was the single source, effort was made to make the model
+the field dictated. For example, as dc ties became prevalent,          schema as granular as possible). This left development of a
+it was necessary to somehow simulate their effects on the              topology processor module to take the CIM model produced
+grid as part of the power flow solution calculated by the              by the NMMS and create a bus-branch representation for
+EMS. A dc tie was a component not directly supported by                transmission planning purposes [5].
+the ERCOT EMS system model and due to implementation
+limitations, along with costs that would be associated with            G. ABILITY FOR DATA ADAPTATION
+EMS enhancements to directly support the modeling of dc                Given the past difficulties with application to application data
+ties, it was considered necessary to instead model the dc tie as       migration, there was a strong drive by the NMMS design-
+a generator and load on a common bus (all model components             ers to develop any new infrastructure on widely accepted
+supported by the EMS). However, it was soon apparent that              industrial standards, and build flexibility into both the NMMS
+this solution is not ideal in that it in turn leads to other issues:   system and the corresponding business processes. Utilizing
+i.e., when attempting to use combinations of standard model            existing industrial standards (at least in theory) will reduce
+devices to build a customized representation of another model          integration costs by allowing vendors to develop applications
+device, other unforeseen issues arise. For example, if the dc          that integrate to the standard rather than integrating to yet
+tie is partially modeled as a synchronous machine, what is the         another application. Having an open source standard and
+reactive curve for a dc tie? Does it apply? Will not having            using flat file format for data migration (as opposed to a mes-
+the curve modeled cause the EMS to fail? In this respect,              sage bus) allowed for the capability of ERCOT personnel to
+using CIM in the implementation of the base schema provided            write internal applications that can manipulate the CIM/XML
+a readily expendable platform, with methods of extending               model data file, allowing for data changes to the model to
+and adapting the available schema as necessary to support an           support individual grid applications without impacting other
+implementation tailored to a user’s needs. This allowed for            downstream systems.
+the base CIM schema to be extended in areas to collect data
+that were specific to the ERCOT ISO’s nodal market opera-              III. SUPPORTING COMPONENTS
+tions. For example, the CIM 10 standard provided no support            In addition to the direct CIM data import components needed
+for the modeling of combined cycle plant transition states,            for the NMMS to provide data to the downstream systems,
+which was necessary for the ERCOT MMS in determining                   a number of additional supporting components were also
+which combined-cycle power plant configuration was most                identified. These components primarily took the shape of sec-
+desirable for grid operations [4].                                     ondary applications that mined the information in the NMMS
+                                                                       CIM model and through the use of application logic produced
+F. TOPOLOGY PROCESSING                                                 a model data-related product necessary for one or more of
+Within the power industry, there are two primary varieties of          the applications. Examples of these products from these sec-
+models:                                                                ondary applications include: graphical one-line displays of
+ 1) Bus-Branch Models: A traditional model for power-                  various areas of the electrical grid (primarily substation lay-
+     flow calculations, consisting of generation buses, load           outs); data deliveries to the OS providing temporal informa-
+     buses, and a swing bus. Breakers and switches are                 tion of new or deleted equipment (helping to control outage
+     collapsed into the bus, and only the transmission lines           information submission); contingency definition generation
+     and transformers form the branches. This type of model            that is used to autodefine contingency scenarios based on the
+     tends to aggregate all devices with zero impedance to             latest topological information; and so on.
+     the Bus that represents them, and is typically used in
+     long-term planning studies.                                       A. TOPOLOGICAL ONE-LINE GENERATION
+ 2) Breaker-Node Models: These models attempt to repre-                The ERCOT EMS system has a full set of substation
+     sent the reality of the actual power system, and consist          one-line diagrams integrated with the SCADA system and
+
+16                                                                                                                        VOLUME 1, 2014
+Moseley et al.: Lessons and Experiences
+
+
+
+used by the operators in grid control. Prior to NMMS, the          C. CONTINGENCY DEFINITION GENERATION
+processes and applications necessary to maintain the one           Building on the success of an initial pilot project for the
+lines used in EMS were built and retained along with the           OS related equipment file, it was quickly realized that the
+data model in the EMS domain. With the new NMMS, this              same electrical equipment element-tracing algorithm that was
+business process would be too complicated and time con-            utilized by the OS had other applications. In the past, the
+stricting to allow for the model updating schedule envisioned      definitions of contingencies (scenarios modeled in the EMS
+by ERCOT. ERCOT developed a new process built around the           to simulate the loss of pieces of equipment, to verify that no
+NMMS, and developed the capabilities to read a CIM model           single loss of any piece of equipment would lead to a condi-
+scheduled for loading in the EMS, compare it with a previ-         tion where any of the remaining pieces of equipment would
+ously loaded CIM model, identify the differences between the       be overloaded) were hand-modeled. A modeler would review
+two models, and determine which one-line diagrams required         the connectivity of the current breaking devices isolating a
+updating based on the model changes. Once these changes are        transmission line or transformer, and then create the contin-
+verified, an entirely new set of one-line diagrams is produced     gency definition by manually entering all of those associated
+for the EMS model load, ensuring that every model has an           devices and their postcontingency position (i.e., the scenario
+accurate set of one-line diagrams associated with it. This new     might call for circuit breakers to be open to show a situation
+process has since been recognized as a far superior process to     in which a line-to-ground fault might cause the breakers to
+the one-line diagram process used in the zonal market.             open on an overcurrent condition). This process was very
+   As a part of the old process, in the past, typically the one    manual and prone to error. In addition, changes in modeled
+lines were manually updated as part of the manual data model       topology could invalidate any of the contingencies. Using the
+change process. Paper documents listing the changes in the         OS tracer program, and extending the CIM model with a few
+EMS data model were given to the EMS modeler, who deter-           attributes, ERCOT was able to automate the process of con-
+mined which changes required one-line diagram changes;             tingency definition production, allowing for the creation of
+these changes were then manually modeled. This process             better contingency scenarios and a more complete simulation
+was prone to error, sometimes missing the necessary one-line       of all possible contingency scenarios [6].
+diagram changes. The problem was further compounded by
+the fact that the time at which the one-line diagram errors
+                                                                   D. POSTPROCESSOR FORMATTING APPLICATIONS
+were most likely to be detected was when they were inspected
+                                                                   A number of applications were developed for meeting niche
+by the grid operations department either as part of a grid
+evolution or due to an emergency in the area. For example, if      ERCOT business needs. These were primarily applications
+a breaker switching action was being performed, the operator       that read the CIM model file and extracted either human-
+might discover that the one-line diagram was incorrect and         readable reports for the model (i.e., lists of transmission lines
+                                                                   with corresponding MVA ratings) or small data packages for
+that the breaker was incorrectly mapped in the one line if the
+                                                                   application support (i.e., the settlements and billing depart-
+breaker status indicator of the wrong breaker changed on the
+                                                                   ment needing an XML-formatted file listing substation to
+one line. By automating the task of telemetry mapping using
+the base model data in the NMMS, modeling error could be           load zone mappings). The open nature of the CIM allowed
+reduced (which is not to say that the submitted data could not     for these to be written and tested quickly, and therefore
+                                                                   allowed quick implementation into the business process. This
+be wrong, or that the breaker could not be wired incorrectly
+                                                                   approach left open a possible phase-out approach for these
+in the field, but that at least one source of error introduction
+                                                                   applications when better functionality was available for inte-
+was eliminated).
+                                                                   gration into the core systems, rendering some of the postpro-
+B. OUTAGE SCHEDULING (RELATED EQUIPMENT)                           cessing unnecessary.
+This was perhaps the first case in which ERCOT determined
+that a simple CIM importer for the data model would be             IV. OTHER DEVELOPMENTS IN DATA
+insufficient. In this case, the OS had a business process that     COLLECTING EFFORTS
+needed to be provided with a list for each piece of equipment      The use of CIM in data exchange communications is a rel-
+that can be outaged, that is, a list of all equipment that is      atively new area for the power industry, but one that has
+electrically connected to that piece of equipment. This list       been needed for some time. In the past, data exchange has
+would be used to supplement the OS web-based user inter-           been limited to low-fidelity bus-branch models used by the
+face and to grant the TO using the system access to that           TO planning departments, and this was considered antiquated
+information when entering an outage. For example, if the TO        for the processes that the constructed models were used for,
+selected a transmission link for an outage, the line disconnects   since it primarily consisted of aspects of long-term trans-
+would be displayed to the user, to determine if those pieces of    mission planning. However, accurate modeling has taken on
+equipment should also be added to the outage request. This         additional importance with the decline of vertical integration
+enhancement is used by the ERCOT ISO as a passive way to           and the introduction of new market products, and the net
+gain more accurate outage information from the submitting          effect has been to push the grid closer and closer to its
+TO.                                                                physical limitations. While ERCOT has been at the forefront
+
+VOLUME 1, 2014                                                                                                                   17
+                                                                                                           IEEE
+                                                                     Power and Energy Technology Systems Journal
+
+with its use of CIM, other organizations have also made          required to support dynamic models (this is scheduled to be
+progress.                                                        implemented in the NMMS by the end of 2014).
+
+A. EUROPEAN NETWORK OF TRANSMISSION SYSTEM                       C. PJM MODELING PROCESSES
+OPERATORS FOR ELECTRICITY MIGRATING TO CIM                       PJM uses a project tracking and change coordination data
+Earlier this year, the European Network of Transmission          submission portal that they designed internally for model
+System Operators for Electricity (ENTSO-E) announced that        data submission (new equipment, updates, etc.). PJMs system
+it would be using IEC base CIM 16 as its basis for an            called eDART contains a network model application that is
+extended model data exchange standard called the Common          used to collect data needed to model planned system changes.
+Grid Model Exchange Standard (CGMES) as part of its              This data are interpreted and coded to prepare updates and
+ten-year network development plan (TYNDP) to create pan-         input; in addition, the model changes are forwarded to other
+European network models. The CGMES is primarily devel-           PJM groups to incorporate these changes, as appropriate, into
+oped to meet necessary requirements for TSO data exchanges       models used by day-ahead markets, and so on [11].
+in the areas of system planning and system operation (i.e.,         The data can be submitted to PJM in several formats, which
+TYNDP and network codes) and was initially published in          is then interpreted by internal personnel and modeled into a
+December 2013.                                                   single staging environment. Once the models are built, they
+   This change has been driven by a number of the same           are loaded into offline EMS environments, tested, and pro-
+factors that drove ERCOTs development of the NMMS [7].           moted to online. Once the EMS model is validated, it is sent
+Currently, ENTSO-E is looking to use the CIM format to           to downstream applications as a customized CIM common
+perform not only data exchange of power system equipment         power system model or other CIM export profiles from the
+and grid topology but also use the CIM to exchange case          single staging environment. Some downstream systems are
+information and load-flow study results (this area of CIM        updated incrementally from an EMS model difference report.
+is referred to as steady state hypothesis information). Other    PJM does this model load four times a year, with an additional
+areas of CIM (one-line diagram layouts and geographic loca-      focus on collecting member projects for the summer and
+tional information) are currently under draft in the ENTSO-E     winter seasonal updates for each model. Given the amount of
+CGMES [8]. ERCOT CIM usage does not currently support            time that the model must remain relevant, PJM uses double
+those areas either, but is currently evaluating their usage as   modeling and switch configurations to represent changing
+well.                                                            topology. Currently, PJM has begun using the CIM format
+                                                                 internally for model creation and updates, but are not using
+B. DETAILED MODEL EXCHANGE IN NORTH AMERICAN                     CIM for data submissions from their members or model
+ELECTRIC RELIABILITY CORPORATION                                 exchange to external parties. Data submissions for planning
+Recently the System Analysis and Modeling Subcommit-             and the planning model building processes are independent
+tee presented a set of findings from the Modeling Working        tasks from the real-time data submission processes.
+Group [9] including the recognition of the following:
+   1) a growing need for more accurate interconnection           D. CALIFORNIA ISO
+      power-flow and dynamics cases;                             Currently, CAISO have the entities external to the ISO submit
+   2) issues concerning proprietary models and nonstandard       their model changes manually to an internal ISO employee
+      components that are impacting the development of           who then interacts with their enterprise model management
+      dynamics cases;                                            system (EMMS). The information for topological changes
+   3) based on findings from the Southwest outage, that there    from the external entities is submitted in lower fidelity bus-
+      were discrepancies between the planning models and         branch format, and then internally augmented with additional
+      the real-time models used in the EMS [10];                 support information for operations and market activities.
+   4) a need to move from bus-branch models to breaker-          However, based on the 8 September 2011 system disturbance
+      node models for operational and planning analysis.         in Arizona, which caused cascading outages impacting five
+   And that due to this, there was a need to:                    balancing authorities (including CAISO), CAISO intends to
+   1) create a library of standardized models and model com-     enhance its EMMS and fully expand its network model. Part
+      ponents;                                                   of the functional requirements is for the full model to include
+   2) develop validation procedures for power-flow cases;        the full Western Electricity Coordinating Council region, and
+   3) migrate from the bus-branch models to breaker-node         expand market model to a full loop model, consistent with
+      models;                                                    EMS model for use in its market application [12]. The reasons
+   4) establish a uniform structure for devices and parameters   cited include the following:
+      for the exchange of breaker-node data with their use in      1) to enhance visibility of the network in the market for
+      2020.                                                           reliability;
+   All of these issues were addressed by the initial NMMS          2) alignment of modeled and actual flows by accounting
+design with the exception of the CIM modeling extensions              for loop flows in the day-ahead timeframe and by more
+
+18                                                                                                                  VOLUME 1, 2014
+Moseley et al.: Lessons and Experiences
+
+
+
+      accurately modeling the flows resulting from intertie            information on future energization of equipment has
+      dispatches in the real-time market;                              allowed for greater coordination between the ISO and
+   3) alignment of the EMS, market, and CRR network mod-               the equipment owner before and during the equipment
+      els by maintaining a single network model for all appli-         energization process.
+      cations.                                                      5) Imposing data security and creating a sense of data
+The requirements for the upgrades include the ability to create        ownership with the equipment owners have proven
+and export CIM from their EMMS for use in their market                 useful. In the past, data submission was a less trans-
+applications. In addition, upgrades to the EMMS functional-            parent process. Since the equipment owners did not
+ity and submission process are planned in the near future [13].        have access to the data in the ERCOT production appli-
+                                                                       cations, it was virtually impossible for them to verify
+                                                                       data quality and accuracy. By providing a user interface
+V. OBSERVATIONS SINCE IMPLEMENTATION
+                                                                       and basic instructions [14], [15] that allows only the
+After the system was exposed to the user community, mul-               data owners to view, modify, and coordinate activities
+tiple issues have been identified and corrected. These run             around their equipment, owners are more easily able to
+the gamut of software/hardware/performance issues with the             identify and correct issues with the associated data.
+physical hardware hosting the NMMS, operator/user errors in
+utilizing the system, and true issues with the NMMS design        VI. CONCLUSION
+and implemented processes. These observations will be con-        Although the development of the centralized database con-
+fined to NMMS design and processes:                               cept was difficult in the implementation stages, the results
+   1) Integration with CIM turned out to be a much                have been good. Through the development of the NMMS,
+      larger project than was originally envisioned. ERCOT        ERCOT has created an architecture that is easy to modify
+      required multiple iterations of extending the CIM           at both the data and business process layers, resulting in
+      schema with ERCOT extensions to support the down-           easier-to-implement solutions and cost savings. The design
+      stream applications.                                        philosophies considered in the NMMS have gained wide
+   2) Rules associated with creating the topology processed       attention, and the design approach has received acceptance in
+      bus-branch model were more complex than initially           parts of the power industry. Since the implementation of the
+      thought. The users of the planning model wanted             nodal market, the NMMS has served as the source of record
+      multiple enhancements to allow the continuation of          for model data used by ERCOT to operate the applications
+      some legacy business processes. These included items        necessary to secure the electric grid, and has the capability to
+      such as planning versions of transformer tap changers,      do so for the foreseeable future.
+      differing modeling philosophies (some of the planning       ACKNOWLEDGMENT
+      groups wanted equipment located in the bus-branch           The authors would like to thank W. C. Crews and L. Caylor,
+      model differently located from the actual physical          without whose unfailing support for the original network
+      locations, or wanted equipment modeled based on             model management system this project would have not come
+      functionality with the receiving application, such as       to fruition.
+      modeling two parallel lines as a single line because
+      the application could run single-element contingencies      REFERENCES
+      automatically).                                              [1] Energy        Management         System       Application       Program
+                                                                       Interface (EMS-API)—Part 301: Common Information Model (CIM)
+   3) The centralized dataset and ability to extend the model          Base, IEC Standard 61970, 2009.
+      as necessary to support the model management has             [2] Application Integration at Electric Utilities—System Interfaces for Dis-
+      proven to be an asset in both supporting additional              tribution Management—Part 11: Common Information Model (CIM),
+                                                                       IEC Standard 61968, 2010.
+      applications and in discovering data-related issues.         [3] Communication Networks and Systems for Power Utility
+      Essentially, having all of the data to look at in one            Automation—Part 4:        System      and      Project     Management,
+      place sped up the processes for development and trou-            IEC Standard 61850, 2011.
+                                                                   [4] J. D. Moseley, W. M. Grady, and S. Santoso, ‘‘New approaches for smart
+      bleshooting, as well as saving on integration costs.
+                                                                       device integration and maintenance of power system models utilizing a
+   4) Temporal modeling, once established, allows for a                unified data schema,’’ in Proc. IEEE PES Innovative Smart Grid Tech-
+      number of grid operations and planning support tasks.            nol. (ISGT), Feb. 2013, pp. 1–6.
+      The ability to produce a model representative of             [5] J. D. Moseley and N. V. Mago, ‘‘Methods of converting CIM power system
+                                                                       models into bus-branch formats utilizing topology processing algorithms
+      45 days out and of 90 days out has helped the outage             and minimal schema modifications to IEC 61968/70,’’ in Proc. IEEE Power
+      scheduling department evaluate and approve requested             Energy Soc. General Meeting (PES), Jul. 2013, pp. 1–5.
+      transmission outages with much greater certainty than        [6] J. D. Moseley, N. V. Mago, and M. E. Legatt, ‘‘A method for automatic
+                                                                       creation of contingency definitions utilizing standard IEC 61968/70,’’
+      was previously available. Indeed, prior to temporal              in Proc. IEEE PES Transmiss. Distrib. Conf. Expo. (T&D), May 2012,
+      modeling, outage analysis was done using the same                pp. 1–8.
+      model as was running in real time on the EMS,                [7] European Network of Transmission System Operators for Electricity, Brus-
+                                                                       sels, Belgium. ENTSO-E Common Information Model (CIM). [Online].
+      which meant that outage evaluation for future equip-             Available:    http://www.entsoe.eu/major-projects/common-information-
+      ment was not possible. In addition, the availability of          model-cim/Pages/default.aspx, accessed Nov. 8, 2014.
+
+VOLUME 1, 2014                                                                                                                              19
+                                                                                                                           IEEE
+                                                                                     Power and Energy Technology Systems Journal
+
+ [8] European Network of Transmission System Operators for Electricity,                                  NITIKA V. MAGO received the B.E. degree from
+     Brussels, Belgium. ENTSO-E Common Information Model (CIM)                                           the Veermata Jijabai Technological Institute, Uni-
+     for Grid Models Exchange. [Online]. Available: http://www.entsoe.                                   versity of Mumbai, Mumbai, India, in 2005, and
+     eu/major-projects/common-information-model-cim/cim-for-grid-models-                                 the M.S.E.E. degree from the University of Texas
+     exchange/Pages/default.aspx, accessed Nov. 8, 2014.                                                 at Austin, Austin, TX, USA, in 2007.
+ [9] North American Electric Reliability Corp., Washington, DC, USA.                                        She is currently a Senior Network Model Engi-
+     Near- and Long-Term Planning Studies (Southwest Outage Recommen-                                    neer with the Electric Reliability Council of Texas,
+     dation 9). [Online]. Available: http://www.nerc.com/comm/PC/System%
+                                                                                                         Taylor, TX, USA.
+     20Analysis%20and%20Modeling%20Subcommittee%20SAMS%20201/
+                                                                                                            Ms. Mago is a Registered Professional Engineer
+     SW%20Outage%20Recommendations%209%20TPL%20Assessments.
+     pdf, accessed Nov. 8, 2014.                                                                         in Texas.
+[10] North American Electric Reliability Corp., Washington, DC,
+     USA. FERC/NERC Staff Report on the September 8, 2011
+     Blackout.     [Online].    Available:      http://www.nerc.com/pa/rrm/ea/
+     September%202011%20Southwest%20Blackout%20Event%20Document
+     %20L/AZOutage_Report_01MAY12.pdf, accessed Nov. 8, 2014.
+[11] PJM, Audubon, PA, USA. PJM Manual 3A: Energy Management Sys-
+     tem (EMS) Model Updates and Quality Assurance (QA). [Online].
+     Available: http://www.pjm.com/~/media/documents/manuals/m03a.ashx,
+     accessed Nov. 8, 2014.
+[12] California    ISO,     Folsom,     CA,      USA.     Business     Require-
+     ments      Specification     Full      Network       Model     Expansion
+     (FNM) Document Version: 1.5. [Online]. Available: http://www.                                        W. MACK GRADY (F’00) received the B.S.E.E.
+     caiso.com/Documents/BusinessRequirementsSpecification-FullNetwork                                    degree from the University of Texas at Arlington,
+     ModelExpansion.pdf, accessed Nov. 8, 2014.                                                           Arlington, TX, USA, and the M.S.E.E. and Ph.D.
+[13] California      ISO,     Folsom,        CA,        USA.      (Mar.     31,                           degrees from Purdue University, West Lafayette,
+     2014).      2010-2014       California       ISO      Active      Projects.                          IN, USA.
+     [Online].          Available:           http://www.caiso.com/Documents/
+                                                                                                             He is currently a Professor of Electrical and
+     ActiveCapitalProjects_March31_2014.pdf, accessed Nov. 8, 2014.
+[14] Electric Reliably Council of Texas, Taylor, TX, USA.
+                                                                                                          Computer Engineering with Baylor University,
+     ERCOT Modeling Guidelines Ver. 1.7. [Online]. Available:                                             Waco, TX, USA. His research areas are elec-
+     http://www.ercot.com/content/meetings/ndswg/keydocs/2009/0519/                                       tric power systems, power quality, and renewable
+     ModelingGuidelines-v06.pdf, accessed Nov. 8, 2014.                                                   energy.
+[15] Electric Reliably Council of Texas, Taylor, TX, USA. ERCOT                    Dr. Grady is a Registered Professional Engineer in Texas.
+     Nodal ICCP Communication Handbook Ver. 3.04. [Online].
+     Available: http://www.ercot.com/content/services/mdt/userguides/whol-
+     esale/ERCOT%20Nodal%20ICCP%20Communications%20Handbook%
+     20v3.05.TAC%20Approved%20.doc, accessed Nov. 8, 2014.
+
+
+
+
+                           JOHN D. MOSELEY received the B.S.N.E.                                         SURYA SANTOSO (M’96–SM’02) received the
+                           degree from Texas A&M University, College Sta-                                M.S.E. and Ph.D. degrees in electrical and com-
+                           tion, TX, USA, in 2000, and the M.S.E.E. degree                               puter engineering from the University of Texas
+                           from the University of Texas at Austin, Austin, TX,                           at Austin, Austin, TX, USA, in 1994 and 1996,
+                           USA, in 2002.                                                                 respectively.
+                              He is currently the Principal Engineer of Model                               He is currently an Associate Professor with the
+                           Architecture and Integration with the Electric Reli-                          Department of Electrical and Computer Engineer-
+                           ability Council of Texas, Taylor, TX, USA.                                    ing, University of Texas at Austin, Austin, TX,
+                              Mr. Moseley is a Registered Professional Engi-                             USA. His research interests include power quality,
+                           neer in Texas.                                                                power systems, and wind power.
+
+
+
+
+20                                                                                                                                            VOLUME 1, 2014
+

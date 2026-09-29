@@ -1,0 +1,30 @@
+Manual de Organización                                  ANDE Actualización: 00 
+  Página: 1 
+  Resolución P/Nº: 50060 
+  Fecha: 06.01.2025 
+ 
+SECCIÓN BASE DE DATOS DEL SCADA 
+ 
+Nivel Jerárquico: “F”             Sigla: GT/DAS1                         CUA: 2650 
+   
+1. SUBORDINACIÓN 
+ 
+La Sección Base de Datos del SCADA está subordinada al Departamento de 
+Administración del SCADA/EMS.  
+ 
+2. ATRIBUCIONES 
+ 
+2.1. Diseñar e implementar Base de Datos para almacenar y gestionar datos del SCADA. 
+ 
+2.2. Mantener y actualizar las Bases de Datos existentes para asegurar el correcto 
+funcionamiento y ajustes para nuevos requisitos del sistema. 
+ 
+2.3. Asegurar la Base de Datos en el cumplimiento de  los requisitos de seguridad y mejora 
+continua.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 

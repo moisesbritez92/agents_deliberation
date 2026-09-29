@@ -1,0 +1,298 @@
+{
+ "H1": {
+  "effect": [
+   0.12816666666666665,
+   0.10816666666666666,
+   0.14933333333333335
+  ],
+  "control_delta": [
+   0.002833333333333328,
+   -0.010833333333333348,
+   0.017666666666666664
+  ],
+  "n_pos_scen": 10,
+  "ok": true
+ },
+ "H2": {
+  "changes": 82,
+  "to_majority": 0.926829268292683,
+  "ok": true
+ },
+ "H3a": {
+  "base": 0.6,
+  "variant": 0.5906976744186047,
+  "diff": -0.009302325581395321,
+  "lo": -0.04112149532710274,
+  "hi": 0.021596244131455333,
+  "n": 1075,
+  "ok": true
+ },
+ "H3b": {
+  "das": {
+   "base": 0.3972093023255814,
+   "variant": 0.4967441860465116,
+   "diff": 0.09953488372093022,
+   "lo": 0.06574074074074077,
+   "hi": 0.13461538461538458,
+   "n": 1075
+  },
+  "mco": {
+   "base": 0.1888372093023256,
+   "variant": 0.26139534883720933,
+   "diff": 0.07255813953488374,
+   "lo": 0.04476190476190475,
+   "hi": 0.10277777777777777,
+   "n": 1075
+  },
+  "ok": true
+ },
+ "H4": {
+  "gemini": {
+   "ACT02": "Sensible al orden",
+   "ACT04": "Robusta",
+   "ACT06": "Sensible al orden",
+   "ACT09": "Depende de la denominación",
+   "ACT12": "Sensible al orden",
+   "ACT05": "Robusta",
+   "ACT11": "Robusta",
+   "ACT07": "Depende de la denominación",
+   "ACT13": "Sensible al orden",
+   "ACT17": "Depende de la denominación",
+   "ACT18": "Sensible al orden",
+   "ACT01": "Sensible al orden",
+   "ACT15": "Robusta",
+   "ACT03": "Sensible al orden",
+   "ACT10": "Robusta",
+   "ACT14": "Depende de la denominación",
+   "ACT19": "Sensible al orden",
+   "ACT08": "Depende de la denominación",
+   "ACT16": "Disputada DAS/MCO",
+   "ACT20": "Sensible al orden"
+  },
+  "luna": {
+   "ACT02": "Depende de la denominación",
+   "ACT04": "Robusta",
+   "ACT06": "Sensible al orden",
+   "ACT09": "Robusta",
+   "ACT12": "Sensible al orden",
+   "ACT05": "Robusta",
+   "ACT11": "Robusta",
+   "ACT07": "Robusta",
+   "ACT13": "Depende de la denominación",
+   "ACT17": "Depende de la denominación",
+   "ACT18": "Depende de la denominación",
+   "ACT01": "Sensible al orden",
+   "ACT15": "Robusta",
+   "ACT03": "Robusta",
+   "ACT10": "Robusta",
+   "ACT14": "Sensible al orden",
+   "ACT19": "Sensible al orden",
+   "ACT08": "Disputada DAS/MCO",
+   "ACT16": "Sensible al orden",
+   "ACT20": "Disputada DAS/MCO"
+  },
+  "h4a": [
+   "ACT04",
+   "ACT05",
+   "ACT10",
+   "ACT11",
+   "ACT15"
+  ],
+  "h4b": [
+   "ACT01",
+   "ACT02",
+   "ACT06",
+   "ACT12",
+   "ACT13",
+   "ACT18",
+   "ACT19",
+   "ACT20"
+  ],
+  "kappa": 0.295774647887324,
+  "same_modal": [
+   "ACT02",
+   "ACT04",
+   "ACT05",
+   "ACT06",
+   "ACT07",
+   "ACT08",
+   "ACT09",
+   "ACT10",
+   "ACT11",
+   "ACT13",
+   "ACT15",
+   "ACT16",
+   "ACT17",
+   "ACT18",
+   "ACT20"
+  ],
+  "modal_gemini": {
+   "ACT02": [
+    "DT",
+    0.5125
+   ],
+   "ACT04": [
+    "DAS",
+    1.0
+   ],
+   "ACT06": [
+    "DAS",
+    0.621875
+   ],
+   "ACT09": [
+    "ISC",
+    0.9708333333333333
+   ],
+   "ACT12": [
+    "ODC",
+    0.50625
+   ],
+   "ACT05": [
+    "DAS",
+    0.86875
+   ],
+   "ACT11": [
+    "DAS",
+    0.85
+   ],
+   "ACT07": [
+    "DAS",
+    1.0
+   ],
+   "ACT13": [
+    "ODC",
+    0.8625
+   ],
+   "ACT17": [
+    "DAS",
+    0.85
+   ],
+   "ACT18": [
+    "DAS",
+    0.59375
+   ],
+   "ACT01": [
+    "ODC",
+    0.99375
+   ],
+   "ACT15": [
+    "ODC",
+    1.0
+   ],
+   "ACT03": [
+    "DOS",
+    0.475
+   ],
+   "ACT10": [
+    "DAS",
+    1.0
+   ],
+   "ACT14": [
+    "OP",
+    0.5958333333333333
+   ],
+   "ACT19": [
+    "OP",
+    0.7125
+   ],
+   "ACT08": [
+    "DAS",
+    1.0
+   ],
+   "ACT16": [
+    "DAS",
+    0.8375
+   ],
+   "ACT20": [
+    "DAS",
+    0.50625
+   ]
+  },
+  "modal_luna": {
+   "ACT02": [
+    "DT",
+    1.0
+   ],
+   "ACT04": [
+    "DAS",
+    1.0
+   ],
+   "ACT06": [
+    "DAS",
+    0.675
+   ],
+   "ACT09": [
+    "ISC",
+    0.9166666666666666
+   ],
+   "ACT12": [
+    "MCO",
+    0.425
+   ],
+   "ACT05": [
+    "DAS",
+    1.0
+   ],
+   "ACT11": [
+    "DAS",
+    1.0
+   ],
+   "ACT07": [
+    "DAS",
+    0.75
+   ],
+   "ACT13": [
+    "ODC",
+    1.0
+   ],
+   "ACT17": [
+    "DAS",
+    0.95
+   ],
+   "ACT18": [
+    "DAS",
+    1.0
+   ],
+   "ACT01": [
+    "DAS",
+    0.65
+   ],
+   "ACT15": [
+    "ODC",
+    1.0
+   ],
+   "ACT03": [
+    "DAS",
+    1.0
+   ],
+   "ACT10": [
+    "DAS",
+    1.0
+   ],
+   "ACT14": [
+    "DAS",
+    0.75
+   ],
+   "ACT19": [
+    "NEW_AUTHORITY",
+    0.8
+   ],
+   "ACT08": [
+    "DAS",
+    1.0
+   ],
+   "ACT16": [
+    "DAS",
+    0.725
+   ],
+   "ACT20": [
+    "DAS",
+    1.0
+   ]
+  }
+ },
+ "H5": {
+  "quote_verified": 0.9958234273597636,
+  "ok": true
+ }
+}

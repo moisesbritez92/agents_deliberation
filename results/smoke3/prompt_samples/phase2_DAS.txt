@@ -1,0 +1,1854 @@
+=== SYSTEM ===
+# Instrucciones comunes
+
+Participas en un análisis de la asignación de responsabilidades para cambios en el sistema SCADA/EMS de la Administración Nacional de Electricidad (ANDE), empresa eléctrica verticalmente integrada de Paraguay. Recibirás un corpus institucional (fichas del Manual de Organización), un corpus externo (normas, guías, práctica de otros operadores y contexto técnico) y un escenario técnico. Debes proponer, para cada actividad del escenario, una asignación RACI sustentada en esa evidencia.
+
+## Principio de trabajo
+
+Si representas la perspectiva de una unidad, tu objetivo no es maximizar las responsabilidades de esa unidad.
+
+Tu objetivo es identificar la asignación de responsabilidades mejor sustentada por la evidencia.
+
+Tu especialidad únicamente determina qué riesgos técnicos debes observar con mayor atención.
+
+Puedes asignar responsabilidad o autoridad a otra unidad si la evidencia lo justifica.
+
+Debes distinguir entre:
+
+1. lo que los documentos obligan;
+2. lo que los documentos permiten;
+3. lo que una buena práctica recomienda;
+4. lo que constituye únicamente una propuesta.
+
+Nunca conviertas 3 o 4 en 1.
+
+Si dos o más asignaciones son igualmente compatibles con la evidencia, debes declarar AMBIGÜEDAD INSTITUCIONAL.
+
+## Jerarquía de evidencia
+
+1. Los documentos institucionales determinan atribuciones formales.
+2. La bibliografía externa puede justificar principios de diseño o buenas prácticas.
+3. La bibliografía externa no puede crear una competencia institucional inexistente.
+4. Una recomendación técnica no debe presentarse como una obligación institucional.
+5. Si varias soluciones son compatibles con la evidencia, debe declararse ambigüedad.
+6. Ausencia de evidencia no equivale a evidencia de ausencia.
+
+Respeta los límites CANNOT_SUPPORT de cada fuente externa.
+
+## Tipos de afirmación
+
+Cada evidencia citada debe clasificarse con uno de estos tipos:
+
+- DOCUMENTADO: el numeral institucional citado lo establece expresamente. Solo puede usarse con identificadores del corpus institucional.
+- INFERIDO: se deduce de uno o más numerales institucionales, pero no está escrito expresamente.
+- BUENA_PRACTICA: lo recomienda una fuente externa.
+- PROPUESTO: es una decisión de diseño organizativo que no surge directamente de la evidencia.
+
+Regla de clasificación: usa DOCUMENTADO solo si el texto del numeral nombra la misma actividad (o una equivalente sin interpretación) sobre el mismo objeto. Si el numeral describe una función más general, otro objeto u otra fase, y concluyes que de ella se deriva la actividad, la afirmación es INFERIDO. Si la unidad elegida no surge de ningún numeral, es PROPUESTO. En caso de duda entre DOCUMENTADO e INFERIDO, usa INFERIDO.
+
+Ejemplo con una unidad hipotética X cuyo numeral dice «Mantener los equipos de la red»:
+- «X mantiene los equipos de la red»: DOCUMENTADO.
+- «X ejecuta la carga de una nueva versión de software en esos equipos»: INFERIDO (la carga no está nombrada; se deduce del mantenimiento).
+- «X aprueba los cambios de configuración»: no se deriva del numeral; como mucho PROPUESTO.
+
+La clasificación no cambia qué unidad asignas; solo declara con honestidad cuánto respaldo literal tiene la asignación.
+
+## Convenciones RACI
+
+- R (responsible): ejecuta la actividad.
+- A (accountable): responde por el resultado de la actividad. Indica normalmente una sola unidad. Si la evidencia no permite elegir entre varias, marca institutional_ambiguity = true, indica en accountable la opción que consideres mejor sustentada (o déjalo vacío si ninguna lo está) y describe las demás en alternative_assignments.
+- C (consulted): aporta criterio antes de la decisión.
+- I (informed): recibe información del resultado.
+- Una misma unidad puede figurar como A y como R.
+- PROPOSED_NEW_AUTHORITY: úsalo solo de forma excepcional, cuando consideres que ninguna unidad existente posee documentalmente autoridad suficiente. Debes justificarlo expresamente en new_authority_justification.
+- UNIDAD_NO_INCLUIDA_EN_CORPUS: úsalo cuando la actividad corresponda a una unidad cuyas fichas no forman parte del corpus; explícalo en reasoning_summary.
+- Usa exclusivamente los códigos de unidad de la lista proporcionada. Puedes asignar a una sección (por ejemplo, una sección de un departamento) o al departamento.
+
+## Reglas de citación
+
+- Cita solo identificadores que existan literalmente en el corpus (por ejemplo, un numeral como XXX_2_1 o un SOURCE_ID externo). No inventes identificadores, numerales ni documentos.
+- Las evidencias institucionales van en "evidence"; los principios externos y el contexto técnico, en "external_principles".
+- Cada cita incluye en "quote" un fragmento copiado literalmente del texto de la fuente en el corpus (30 palabras como máximo; puedes omitir partes intermedias con «...»). No parafrasees: el fragmento se verifica automáticamente contra el corpus.
+- Para una afirmación DOCUMENTADO, el fragmento copiado debe nombrar la actividad o su equivalente directo. Si no puedes copiar un fragmento así, la afirmación es INFERIDO.
+- Cada asignación de A o R debe estar respaldada por al menos una evidencia institucional o un principio externo identificado; si no existe, clasifícala como PROPUESTO y dilo.
+
+## Estilo de respuesta
+
+- Responde únicamente con el JSON solicitado.
+- Sé breve: reasoning_summary de 80 palabras como máximo por actividad; "supports" de 25 palabras como máximo.
+- No menciones qué perspectiva o unidad representas; argumenta solo con la evidencia.
+
+
+# Perspectiva: administración técnica del SCADA/EMS
+
+Analizas el caso desde la perspectiva técnica de la administración del SCADA/EMS.
+
+Presta especial atención a los riesgos relacionados con:
+
+- el modelo eléctrico y su semántica;
+- los datos SCADA/EMS y su calidad;
+- las aplicaciones EMS y el procesamiento de topología;
+- los requisitos funcionales;
+- el versionado;
+- la aceptación funcional del resultado.
+
+Esta perspectiva no implica favorecer a GT/DAS ni a sus secciones. Asigna a cualquier unidad lo que la evidencia sustente mejor.
+
+
+=== USER ===
+# CORPUS INSTITUCIONAL
+
+Fichas del Manual de Organización de ANDE. Texto literal de cada numeral (transcripción de las fichas oficiales). El 'verbo rector' es el inicio literal del numeral y no constituye una interpretación. No se agregan ni se resumen atribuciones.
+
+## GT/OP: DIVISIÓN DE OPERACIÓN
+Resolución P/N.º 34954, fecha 15/07/14. Documento: atribuciones_gt/atribuciones_gt.md (sección GT-OP).
+
+- [OP_SUB] (subordinación, numeral 1) La División de Operación está subordinada a la Gerencia Técnica.
+- [OP_2_1] (atribución, numeral 2.1; verbo rector: Planificar y controlar) Planificar y controlar, a mediano plazo, la operación del Sistema de Generación, Transmisión y Transformación, así como las interconexiones internacionales y con las Entidades Binacionales.
+- [OP_2_2] (atribución, numeral 2.2; verbo rector: Analizar) Analizar el Sistema Eléctrico de alta tensión y elaborar Planes para mejor aprovechamiento de los recursos electro-energéticos y operacionales disponibles.
+- [OP_2_3] (atribución, numeral 2.3; verbo rector: Coordinar) Coordinar la operación Eléctrica y Energética del Sistema de Potencia, propiciando su mejor desempeño.
+- [OP_2_4] (atribución, numeral 2.4; verbo rector: Realizar) Realizar las previsiones de carga del Sistema Eléctrico, observando el suministro de Energía y la utilización económica de las fuentes generadoras.
+- [OP_2_5] (atribución, numeral 2.5; verbo rector: Administrar) Administrar los contratos de interconexiones.
+- [OP_2_6] (atribución, numeral 2.6; verbo rector: Coordinar) Coordinar la preparación de los presupuestos anuales de la División, de acuerdo a las Normas de elaboración vigentes.
+- [OP_ORG] (organización, numeral 3) 3.1. DEPARTAMENTO DE OPERACIÓN DEL SISTEMA 3.2. DEPARTAMENTO DE ESTUDIOS ELÉCTRICOS 3.3. DEPARTAMENTO DE ESTUDIOS ENERGÉTICOS 3.4. DEPARTAMENTO DE DESPACHO REGIONAL 3.5. OFICINA DE DESPACHO DE CARGA
+
+## GT/ODC: OFICINA DE DESPACHO DE CARGA
+Resolución P/N.º 34954, fecha 15/07/14. Documento: atribuciones_gt/atribuciones_gt.md (sección GT-ODC).
+
+- [ODC_SUB] (subordinación, numeral 1) La Oficina de Despacho de Carga está subordinada a la División de Operación.
+- [ODC_2_1] (atribución, numeral 2.1; verbo rector: Supervisar y controlar) Supervisar y controlar en tiempo real, la operación eléctrica y energética del sistema de potencia mediante el monitoreo de los parámetros eléctricos típicos, adoptando las medidas necesarias cuando los mismos se aparten de los valores aceptables o preestablecidos en las Instrucciones de Operación del Sistema (IOS) y en las Instrucciones de Operación de las Interconexiones (IOI). 2.1.1. Niveles de tensión en barras de todos los locales del SIN. 2.1.2. Niveles de cargas y corrientes en las líneas de transmisión, transformadores de potencia, compensadores estáticos, bancos de capacitores, reactores y generadores. 2.1.3. Frecuencia de la red a cargo de Itaipú y Yacyretá.
+- [ODC_2_2] (atribución, numeral 2.2; verbo rector: Coordinar y controlar) Coordinar y controlar, de acuerdo a criterios técnicos y económicos, la operación electro energética del sistema de potencia desde el punto de vista de la generación eléctrica, considerando los recursos propios (Central Acaray) y los contratos de intercambio con entidades externas (Itaipú y Yacyretá).
+- [ODC_2_3] (atribución, numeral 2.3; verbo rector: Controlar) Controlar en tiempo real las previsiones o programas de demanda de carga diaria/horaria del sistema enviadas a las Centrales de Itaipú y Yacyretá en la fase de pre despacho y readecuar en caso de ser necesario dichos programas de tal forma a minimizar las desviaciones entre los valores registrados y programados. (Reprogramar la generación e intercambios en tiempo real).
+- [ODC_2_4] (atribución, numeral 2.4; verbo rector: Aplicar y controlar) Aplicar y controlar, en coordinación con las empresas extranjeras interconectadas o nacionales electro intensivas, los contratos vigentes de compra, venta e intercambio de energía.
+- [ODC_2_5] (atribución, numeral 2.5; verbo rector: Supervisar) Supervisar, coordinar, ejecutar y autorizar maniobras de equipos en el sistema de potencia mediante el uso del SCADA o mediante orden de operación a los operadores de locales en los siguientes casos: 2.5.1. Trabajos programados por los sectores de mantenimiento y/o supervisión.   2.5.2. Situaciones de urgencia y/o emergencia en tiempo real. 2.5.3. Mantener los parámetros del sistema potencia dentro de valores adecuados.
+- [ODC_2_6] (atribución, numeral 2.6; verbo rector: Autorizar) Autorizar y/o suspender en tiempo real, la ejecución de los trabajos de mantenimiento programados en función a la constatación o no der restricciones operativas.
+- [ODC_2_7] (atribución, numeral 2.7; verbo rector: Recomponer) Recomponer el sistema eléctrico posterior a la ocurrencia de perturbaciones originadas en las centrales de generación o en líneas de interconexión con las mismas.
+- [ODC_2_8] (atribución, numeral 2.8; verbo rector: Supervisar) Supervisar, controlar y ordenar maniobras de abertura o cierre de compuertas de los embalses de Presa Yguazú y Presa Acaray para controlar los niveles de dichos embalses y de la regla de confluencia, de tal manera a optimizar y promover el uso racional de los recursos hídricos considerando además el impacto social y ambiental de las zonas ribereñas (inundaciones y/o sequias).
+- [ODC_2_9] (atribución, numeral 2.9; verbo rector: Realizar) Realizar la cobertura en tres turnos rotativos en la sala de operación del Despacho de Carga durante los 365 días del año, 24 horas /día.
+- [ODC_2_10] (atribución, numeral 2.10; verbo rector: Elaborar) Elaborar los Partes Diarios e Informes Diarios, de Operación. 2.10.1. Acompañar el comportamiento electro-energético del sistema, colectando datos de generación, transmisión, transformación, etc. 2.10.2. Registrar informaciones y datos de novedades y ocurrencias de la operación diaria.
+- [ODC_2_11] (atribución, numeral 2.11; verbo rector: Participar) Participar cuando sea requerido en grupos AD HOC relacionados con la operación del sistema.
+- [ODC_2_12] (atribución, numeral 2.12; verbo rector: Realizar) Realizar la cobertura de personal prevenido fuera de horario comercial, fines de semana y/o feriados.
+- [ODC_2_13] (atribución, numeral 2.13; verbo rector: Solicitar) Solicitar, proponer y/o recomendar la realización de estudios de operación para elaborar o actualizar los Reglamentos, Normas e Instrucciones de operación en función a constataciones o necesidades detectadas en la operación de tiempo real.
+- [ODC_2_14] (atribución, numeral 2.14; verbo rector: Solicitar) Solicitar, proponer y/o recomendar al Departamento de Operación del Sistema a través de la Sección Procesamiento de Datos de Operación el desarrollo de herramientas o aplicativos (programas o software) para la utilización eficiente y eficaz de los recursos tecnológicos e informáticos utilizados en la operación en tiempo real del SIN.
+- [ODC_2_15] (atribución, numeral 2.15; verbo rector: Representar) Representar a la ANDE ante la Comisión Mixta de Operación y Coordinación de los Sistemas Interconectados de la ANDE-ITAIPÚ-ELETROBRAS (CMO), a través de la participación en Grupos de Estudio de dicha Comisión, así como ante otros organismos.
+
+## GT/DOS: DEPARTAMENTO DE OPERACIÓN DEL SISTEMA
+Resolución P/N.º 34954, fecha 15/07/14. Documento: atribuciones_gt/atribuciones_gt.md (sección GT-DOS).
+
+- [DOS_SUB] (subordinación, numeral 1) El Departamento de Operación del Sistema está subordinado a la División de Operación.
+- [DOS_2_1] (atribución, numeral 2.1; verbo rector: Programar y Evaluar) Programar y Evaluar la operación eléctrica y energética de su área de responsabilidad del SIN, objetivando su mejor desempeño.
+- [DOS_2_2] (atribución, numeral 2.2; verbo rector: Definir) Definir los criterios operativos de utilización de líneas y equipos de la red eléctrica de potencia, de su área de responsabilidad del SIN.
+- [DOS_2_3] (atribución, numeral 2.3; verbo rector: Programar y evaluar) Programar y evaluar las maniobras, y la disponibilidad para el mantenimiento de generadores, líneas, equipos e instalaciones, de su área de responsabilidad del SIN.
+- [DOS_2_4] (atribución, numeral 2.4; verbo rector: Programar y evaluar) Programar y evaluar, en coordinación con las empresas interconectadas, los contratos vigentes de compra, venta e intercambio de energía del SI.
+- [DOS_2_5] (atribución, numeral 2.5; verbo rector: Analizar) Analizar las perturbaciones ocurridas en su área de responsabilidad del SIN, evaluando preliminarmente su desempeño.
+- [DOS_2_6] (atribución, numeral 2.6; verbo rector: Realizar y promover) Realizar y promover estudios de operación para elaborar o actualizar los Reglamentos, Normas e Instrucciones de operación, de su área de responsabilidad del SIN.
+- [DOS_2_7] (atribución, numeral 2.7; verbo rector: Proporcionar) Proporcionar el soporte técnico a la Oficina de Despacho de Carga, para la utilización eficiente y eficaz de los recursos tecnológicos e informáticos utilizados en la operación en tiempo real del SIN.
+- [DOS_2_8] (atribución, numeral 2.8; verbo rector: Proporcionar) Proporcionar informaciones y datos del Pre y Pos Despacho de Carga para uso en otras unidades.
+- [DOS_2_9] (atribución, numeral 2.9; verbo rector: Representar) Representar a la ANDE ante la Comisión Mixta de Operación y Coordinación de los Sistemas Interconectados de la ANDE-ITAIPÚ-ELETROBRAS (CMO), a través de la participación en Grupos de Estudio de dicha Comisión, así como ante otros organismos.
+- [DOS_2_10] (atribución, numeral 2.10; verbo rector: Apoyar) Apoyar técnicamente al personal de turno de la Oficina de Despacho de Carga, ya sea en horario comercial, como también fuera del Horario Comercial.
+- [DOS_ORG] (organización, numeral 3) 3.1. Sección Programación y Evaluación. 3.2. Sección Procesamiento de Datos de Operación
+
+## GT/DEN: DEPARTAMENTO DE ESTUDIOS ENERGÉTICOS
+Resolución P/N.º 34954, fecha 15/07/14. Documento: atribuciones_gt/atribuciones_gt.md (sección GT-DEN).
+
+- [DEN_SUB] (subordinación, numeral 1) El Departamento de Estudios Energéticos está subordinado a la División de Operación.
+- [DEN_2_1] (atribución, numeral 2.1; verbo rector: Elaborar) Elaborar Estudios de la operación energética integrada del Sistema Eléctrico, para la atención de las cargas a través del aprovechamiento optimizado de los recursos de generación propios y externos.
+- [DEN_2_2] (atribución, numeral 2.2; verbo rector: Administrar) Administrar los Contratos de compra, venta e intercambio de energía con las Empresas interconectadas.
+- [DEN_2_3] (atribución, numeral 2.3; verbo rector: Participar) Participar en grupos de estudios relacionados con la operación energética.
+- [DEN_2_4] (atribución, numeral 2.4; verbo rector: Elaborar) Elaborar estudios de factibilidad técnico-económica para el suministro de Energía Eléctrica a grandes usuarios y generación adicional.
+- [DEN_2_5] (atribución, numeral 2.5; verbo rector: Estudiar) Estudiar la operación energética del Sistema Eléctrico considerando los recursos propios y los contratos de intercambio.
+- [DEN_2_6] (atribución, numeral 2.6; verbo rector: Procesar) Procesar la facturación de la Energía Eléctrica exportada.
+- [DEN_ORG] (organización, numeral 3) 3.1. Sección Estudios de Operación Energética 3.2. Sección Movimiento de Energía 3.3. Sección Administración de Contratos
+
+## GT/DEL: DEPARTAMENTO DE ESTUDIOS ELÉCTRICOS
+Resolución P/N.º 34954, fecha 15/07/14. Documento: atribuciones_gt/atribuciones_gt.md (sección GT-DEL).
+
+- [DEL_SUB] (subordinación, numeral 1) El Departamento de Estudios Eléctricos está subordinado a la División de Operación.
+- [DEL_2_1] (atribución, numeral 2.1; verbo rector: Elaborar) Elaborar estudios sobre la operación eléctrica del Sistema de Generación, Transmisión y Transformación de Energía Eléctrica, para la atención de cargas y optimización de confiabilidad y desempeño económico, así como las interconexiones y suministros especiales.
+- [DEL_2_2] (atribución, numeral 2.2; verbo rector: Participar) Participar, conjuntamente con las Unidades Administrativas involucradas, en la programación de la expansión del Sistema de Generación, Transmisión y Transformación.
+- [DEL_2_3] (atribución, numeral 2.3; verbo rector: Analizar) Analizar las perturbaciones ocurridas en el Sistema Eléctrico, evaluando su desempeño y el de las protecciones, y recomendar o determinar las medidas correctivas necesarias.
+- [DEL_2_4] (atribución, numeral 2.4; verbo rector: Elaborar) Elaborar Estudios relacionados con las protecciones eléctricas del Sistema de Generación, Transmisión y transformación.
+- [DEL_2_5] (atribución, numeral 2.5; verbo rector: Definir) Definir los criterios operativos de utilización de líneas y equipos del Sistema de Generación, Transmisión y Transformación.
+- [DEL_ORG] (organización, numeral 3) 3.1. Sección Estudios de Operación Eléctrica 3.2. Sección Estudios de Protecciones
+
+## GT/DDR: DEPARTAMENTO DE DESPACHO REGIONAL
+Resolución P/N.º 34954, fecha 15/07/14. Documento: atribuciones_gt/atribuciones_gt.md (sección GT-DDR).
+
+- [DDR_SUB] (subordinación, numeral 1) El Departamento de Despacho Regional está subordinado a la División de Operación.
+- [DDR_2_1] (atribución, numeral 2.1; verbo rector: Ejecutar) Ejecutar la operación integrada de los Sistemas de Generación, Transmisión y Transformación de Energía Eléctrica, para la atención de las cargas y la optimización en confiabilidad y desempeño técnico-económico de las interconexiones y suministros especiales.
+- [DDR_2_2] (atribución, numeral 2.2; verbo rector: Controlar) Controlar los datos e informaciones recibidas de los Centros de Despacho Regional para su posterior procesamiento.
+- [DDR_2_3] (atribución, numeral 2.3; verbo rector: Realizar) Realizar la cobertura de los Centros de Despacho Regional en turnos continuos rotativos, las 24 horas.
+- [DDR_2_4] (atribución, numeral 2.4; verbo rector: Normalizar y actualizar) Normalizar y actualizar el Manual de Funcionamiento de los Centros de Despacho Regional y las Instrucciones de Operación de cada Centro de Despacho Regional.
+- [DDR_2_5] (atribución, numeral 2.5; verbo rector: Coordinar) Coordinar la gestión técnica y administrativa de los Centros de Despacho Regional.
+- [DDR_2_6] (atribución, numeral 2.6; verbo rector: Coordinar) Coordinar el monitoreo y controlar los equipos del Sistema Interconectado Nacional correspondientes a su área de responsabilidad, siguiendo las Normas de Operación y procedimientos vigentes.
+- [DDR_ORG] (organización, numeral 3) 3.1. Sección Centro de Despacho Regional Metropolitano 3.2. Sección Centro de Despacho Regional Centro 3.3. Sección Centro de Despacho Regional Este 3.4. Sección Centro de Despacho Regional Sur
+
+## GT/DAS: DEPARTAMENTO DE ADMINISTRACIÓN DEL SCADA/EMS
+Resolución P/N.º 50060, fecha 06.01.2025. Documento: atribuciones_gt/atribuciones_gt.md (sección GT-DAS).
+
+- [DAS_SUB] (subordinación, numeral 1) El Departamento de Administración del SCADA/EMS, está subordinado a la División de Operación.
+- [DAS_2_1] (atribución, numeral 2.1; verbo rector: Administrar y gestionar) Administrar y gestionar la Base de Datos del Sistema Interconectado Nacional (SIN) obtenidos mediante el Sistema SCADA.
+- [DAS_2_2] (atribución, numeral 2.2; verbo rector: Administrar y gestionar) Administrar y gestionar los módulos de los aplicativos informáticos del SCADA/EMS.
+- [DAS_2_3] (atribución, numeral 2.3; verbo rector: Proporcionar) Proporcionar soporte técnico para usuarios finales.
+- [DAS_2_4] (atribución, numeral 2.4; verbo rector: Gestionar) Gestionar los cambios para los nuevos requisitos del Sistema.
+- [DAS_ORG] (organización, numeral 3) 3.1. Sección Base de Datos del SCADA 3.2. Sección Aplicativos del SCADA/EMS
+
+## GT/DAS1: SECCIÓN BASE DE DATOS DEL SCADA
+Resolución P/N.º 50060, fecha 06.01.2025. Documento: atribuciones_gt/atribuciones_gt.md (sección GT-DAS1).
+
+- [DAS1_SUB] (subordinación, numeral 1) La Sección Base de Datos del SCADA está subordinada al Departamento de Administración del SCADA/EMS.
+- [DAS1_2_1] (atribución, numeral 2.1; verbo rector: Diseñar) Diseñar e implementar Base de Datos para almacenar y gestionar datos del SCADA.
+- [DAS1_2_2] (atribución, numeral 2.2; verbo rector: Mantener y actualizar) Mantener y actualizar las Bases de Datos existentes para asegurar el correcto funcionamiento y ajustes para nuevos requisitos del sistema.
+- [DAS1_2_3] (atribución, numeral 2.3; verbo rector: Asegurar) Asegurar la Base de Datos en el cumplimiento de los requisitos de seguridad y mejora continua.
+
+## GT/DAS2: SECCIÓN APLICATIVOS DEL SCADA/EMS
+Resolución P/N.º 50060, fecha 06.01.2025. Documento: atribuciones_gt/atribuciones_gt.md (sección GT-DAS2).
+
+- [DAS2_SUB] (subordinación, numeral 1) La Sección Aplicativos del SCADA/EMS está subordinada al Departamento de Administración del SCADA/EMS.
+- [DAS2_2_1] (atribución, numeral 2.1; verbo rector: Administrar y gestionar) Administrar y gestionar el uso de aplicativos disponibles del SCADA/EMS, previsión de carga de barras, procesamiento de topología de red, estimador de estado, análisis de contingencias, flujo de potencia óptimo, etc.
+- [DAS2_2_2] (atribución, numeral 2.2; verbo rector: Actualizar) Actualizar los aplicativos existentes del SCADA/EMS para asegurar el correcto funcionamiento ante nuevos requisitos del Sistema.
+
+## GT/DT: DIVISIÓN DE TRANSMISIÓN
+Resolución P/N.º 34954, fecha 15/07/14. Documento: atribuciones_gt/atribuciones_gt.md (sección GT-DT).
+
+- [DT_SUB] (subordinación, numeral 1) La División de Transmisión está subordinada a la Gerencia Técnica.
+- [DT_2_1] (atribución, numeral 2.1; verbo rector: Coordinar) Coordinar la Operación del Sistema, líneas de transmisión y subtransmisión del Sistema Eléctrico.
+- [DT_2_2] (atribución, numeral 2.2; verbo rector: Coordinar) Coordinar con otras Unidades los trabajos de mantenimiento preventivo y correctivo de menor envergadura de los equipos componentes de Estaciones y Subestaciones, líneas de transmisión y subtransmisión.
+- [DT_2_3] (atribución, numeral 2.3; verbo rector: Proponer) Proponer la elaboración de Instrucciones Técnicas para operación y ejecución de ensayos de equipos.
+- [DT_2_4] (atribución, numeral 2.4; verbo rector: Participar) Participar en los Programas y Pruebas de recepción y energización de nuevas instalaciones.
+- [DT_ORG] (organización, numeral 3) 3.1. DEPARTAMENTO DE TRANSMISIÓN METROPOLITANA Y BAJO CHACO 3.2. DEPARTAMENTO DE TRANSMISIÓN ESTE 3.3. DEPARTAMENTO DE TRANSMISIÓN SUR 3.4. DEPARTAMENTO DE TRANSMISIÓN CENTRO 3.5. DEPARTAMENTO DE TRANSMISIÓN NORTE Y ALTO CHACO 3.6. SECCIÓN APOYO TÉCNICO ADMINISTRATIVO
+
+## GT/TMB: DEPARTAMENTO DE TRANSMISIÓN METROPOLITANA Y BAJO CHACO
+Resolución P/N.º 34954, fecha 15/07/14. Documento: atribuciones_gt/atribuciones_gt.md (sección GT-TMB).
+
+- [TMB_SUB] (subordinación, numeral 1) El Departamento de Transmisión Metropolitana y Bajo Chaco está subordinado a la División de Transmisión.
+- [TMB_2_1] (atribución, numeral 2.1; verbo rector: Coordinar) Coordinar la operación, conjuntamente con el Departamento de Operación del Sistema, Departamento de Distribución Regional Capital y Departamentos de Distribución Regional, las Estaciones, Subestaciones y Líneas de Transmisión y Subtransmisión del Sistema Eléctrico ubicados geográficamente en los Departamentos de Central, Cordillera, Paraguarí y Presidente Hayes.
+- [TMB_2_2] (atribución, numeral 2.2; verbo rector: Programar) Programar la ejecución, en coordinación con otras Unidades, los trabajos de mantenimiento preventivo y correctivo de menor envergadura de los equipos componentes de las Estaciones y Subestaciones y Líneas de Transmisión y Subtransmisión a cargo del Departamento, así como apoyar los trabajos de mantenimiento de mayor envergadura ejecutadas por otras Unidades.
+- [TMB_2_3] (atribución, numeral 2.3; verbo rector: Coordinar) Coordinar, supervisar y autorizar trabajos que no afecten a la Operación del Sistema, para mantenimiento u obras, a cargo de otras Unidades en su ámbito de influencia.
+- [TMB_2_4] (atribución, numeral 2.4; verbo rector: Coordinar y controlar) Coordinar y controlar la elaboración de Proyectos de alteraciones provisorias o permanentes en las instalaciones en servicio, implementación de nuevos métodos de trabajo de operación y mantenimiento de equipos e instalaciones.
+- [TMB_2_5] (atribución, numeral 2.5; verbo rector: Coordinar y controlar) Coordinar y controlar la elaboración de Instrucciones Técnicas para operación y ejecución de ensayos de equipos.
+- [TMB_2_6] (atribución, numeral 2.6; verbo rector: Orientar y acompañar) Orientar y acompañar la construcción de nuevas instalaciones, participando en los Programas y pruebas en su ámbito de influencia.
+- [TMB_2_7] (atribución, numeral 2.7; verbo rector: Administrar) Administrar los repuestos de los equipos, máquinas e instalaciones a su cargo.
+- [TMB_ORG] (organización, numeral 3) 3.1. Sección Programación y Evaluación 3.2. Sección Estaciones Metropolitana y Bajo Chaco
+
+## GT/TES: DEPARTAMENTO DE TRANSMISIÓN ESTE
+Resolución P/N.º 34954, fecha 15/07/14. Documento: atribuciones_gt/atribuciones_gt.md (sección GT-TES).
+
+- [TES_SUB] (subordinación, numeral 1) El Departamento de Transmisión Este está subordinado a la División de Transmisión.
+- [TES_2_1] (atribución, numeral 2.1; verbo rector: Coordinar) Coordinar la operación, conjuntamente con el Departamento de Operación del Sistema, Departamento de Distribución Regional Capital y Departamentos de Distribución Regional, las Estaciones, Subestaciones y Líneas de Transmisión y Subtransmisión del Sistema Eléctrico ubicados geográficamente en los Departamentos de Alto Paraná y Canindeyú.
+- [TES_2_2] (atribución, numeral 2.2; verbo rector: Programar) Programar la ejecución, en coordinación con otras Unidades, los trabajos de mantenimiento preventivo y correctivo de menor envergadura de los equipos componentes de las Estaciones y Subestaciones y Líneas de Transmisión y Subtransmisión a cargo del Departamento, así como apoyar los trabajos de mantenimiento de mayor envergadura, ejecutadas por otras Unidades.
+- [TES_2_3] (atribución, numeral 2.3; verbo rector: Coordinar) Coordinar, supervisar y autorizar trabajos que no afecten a la Operación del Sistema, para mantenimiento u obras, a cargo de otras Unidades en su ámbito de influencia.
+- [TES_2_4] (atribución, numeral 2.4; verbo rector: Coordinar y controlar) Coordinar y controlar la elaboración de Proyectos de alteraciones provisorias o permanentes en las instalaciones en servicio, implementación de nuevos métodos de trabajo de operación y mantenimiento de equipos e instalaciones.
+- [TES_2_5] (atribución, numeral 2.5; verbo rector: Coordinar y controlar) Coordinar y controlar la elaboración de Instrucciones Técnicas para operación y ejecución de ensayos de equipos.
+- [TES_2_6] (atribución, numeral 2.6; verbo rector: Orientar y acompañar) Orientar y acompañar la construcción de nuevas instalaciones, participando en los Programas y pruebas en su ámbito de influencia.
+- [TES_2_7] (atribución, numeral 2.7; verbo rector: Administrar) Administrar los repuestos de los equipos, máquinas e instalaciones a su cargo.
+- [TES_ORG] (organización, numeral 3) 3.1. Sección Estaciones Este 3.2. Sección Mantenimiento Este 3.3. Sección Apoyo Técnico – Administrativo
+
+## GT/TSU: DEPARTAMENTO DE TRANSMISIÓN SUR
+Resolución P/N.º 34954, fecha 15/07/14. Documento: atribuciones_gt/atribuciones_gt.md (sección GT-TSU).
+
+- [TSU_SUB] (subordinación, numeral 1) El Departamento de Transmisión Sur está subordinado a la División de Transmisión.
+- [TSU_2_1] (atribución, numeral 2.1; verbo rector: Coordinar) Coordinar la operación, conjuntamente con el Departamento de Operación del Sistema, Departamento de Distribución Regional Capital y Departamentos de Distribución Regional, las Estaciones, Subestaciones y Líneas de Transmisión y Subtransmisión del Sistema Eléctrico ubicados geográficamente en los Departamentos de Misiones, Itapúa, Encarnación y Ñeembucú.
+- [TSU_2_2] (atribución, numeral 2.2; verbo rector: Programar) Programar la ejecución, en coordinación con otras Unidades, los trabajos de mantenimiento preventivo y correctivo de menor envergadura de los equipos componentes de las Estaciones y Subestaciones y Líneas de Transmisión y Subtransmisión a cargo del Departamento, así como apoyar los trabajos de mantenimiento de mayor envergadura ejecutadas por otras Unidades.
+- [TSU_2_3] (atribución, numeral 2.3; verbo rector: Coordinar) Coordinar, supervisar y autorizar trabajos que no afecten a la Operación del Sistema, para mantenimiento u obras, a cargo de otras Unidades en su ámbito de influencia.
+- [TSU_2_4] (atribución, numeral 2.4; verbo rector: Coordinar y controlar) Coordinar y controlar la elaboración de Proyectos de alteraciones provisorias o permanentes en las instalaciones en servicio, implementación de nuevos métodos de trabajo de operación y mantenimiento de equipos e instalaciones.
+- [TSU_2_5] (atribución, numeral 2.5; verbo rector: Coordinar y controlar) Coordinar y controlar la elaboración de Instrucciones Técnicas para operación y ejecución de ensayos de equipos.
+- [TSU_2_6] (atribución, numeral 2.6; verbo rector: Orientar y acompañar) Orientar y acompañar la construcción de nuevas instalaciones, participando en los Programas y pruebas en su ámbito de influencia.
+- [TSU_2_7] (atribución, numeral 2.7; verbo rector: Administrar) Administrar los repuestos de los equipos, máquinas e instalaciones a su cargo.
+- [TSU_ORG] (organización, numeral 3) 3.1. Sección Estaciones Sur 3.2. Sección Mantenimiento Sur
+
+## GT/TCE: DEPARTAMENTO DE TRANSMISIÓN CENTRO
+Resolución P/N.º 34954, fecha 15/07/14. Documento: atribuciones_gt/atribuciones_gt.md (sección GT-TCE).
+
+- [TCE_SUB] (subordinación, numeral 1) El Departamento de Transmisión Centro está subordinado a la División de Transmisión.
+- [TCE_2_1] (atribución, numeral 2.1; verbo rector: Coordinar) Coordinar la operación, conjuntamente con el Departamento de Operación del Sistema, Departamento de Distribución Regional Capital y Departamentos de Distribución Regional, las Estaciones, Subestaciones y Líneas de Transmisión y Subtransmisión del Sistema Eléctrico ubicados geográficamente en los Departamentos de Caaguazú, Caazapá, San Pedro y Guairá.
+- [TCE_2_2] (atribución, numeral 2.2; verbo rector: Programar) Programar la ejecución, en coordinación con otras Unidades, los trabajos de mantenimiento preventivo y correctivo de menor envergadura de los equipos componentes de las Estaciones y Subestaciones y Líneas de Transmisión y Subtransmisión a cargo del Departamento, así como apoyar los trabajos de mantenimiento de mayor envergadura ejecutadas por otras Unidades.
+- [TCE_2_3] (atribución, numeral 2.3; verbo rector: Coordinar) Coordinar, supervisar y autorizar trabajos que no afecten a la Operación del Sistema, para mantenimiento u obras, a cargo de otras Unidades en su ámbito de influencia.
+- [TCE_2_4] (atribución, numeral 2.4; verbo rector: Coordinar y controlar) Coordinar y controlar la elaboración de Proyectos de alteraciones provisorias o permanentes en las instalaciones en servicio, implementación de nuevos métodos de trabajo de operación y mantenimiento de equipos e instalaciones.
+- [TCE_2_5] (atribución, numeral 2.5; verbo rector: Coordinar y controlar) Coordinar y controlar la elaboración de Instrucciones Técnicas para operación y ejecución de ensayos de equipos.
+- [TCE_2_6] (atribución, numeral 2.6; verbo rector: Orientar y acompañar) Orientar y acompañar la construcción de nuevas instalaciones, participando en los Programas y pruebas en su ámbito de influencia.
+- [TCE_2_7] (atribución, numeral 2.7; verbo rector: Administrar) Administrar los repuestos de los equipos, máquinas e instalaciones a su cargo.
+- [TCE_ORG] (organización, numeral 3) 3.1. Sección Estaciones Centro 3.2. Sección Mantenimiento Centro
+
+## GT/NAC: DEPARTAMENTO DE TRANSMISIÓN NORTE Y ALTO CHACO
+Resolución P/N.º 34954, fecha 15/07/14. Documento: atribuciones_gt/atribuciones_gt.md (sección GT-NAC).
+
+- [NAC_SUB] (subordinación, numeral 1) El Departamento de Transmisión Norte y Alto Chaco está subordinado a la División de Transmisión.
+- [NAC_2_1] (atribución, numeral 2.1; verbo rector: Coordinar) Coordinar la operación, conjuntamente con el Departamento de Operación del Sistema, Departamento de Distribución Regional Capital y Departamentos de Distribución Regional, las Estaciones, Subestaciones y Líneas de Transmisión y Subtransmisión del Sistema Eléctrico ubicados geográficamente en los Departamentos de Concepción, Amambay y Boquerón.
+- [NAC_2_2] (atribución, numeral 2.2; verbo rector: Programar) Programar la ejecución, en coordinación con otras Unidades, los trabajos de mantenimiento preventivo y correctivo de menor envergadura de los equipos componentes de las Estaciones y Subestaciones y Líneas de Transmisión y Subtransmisión a cargo del Departamento, así como apoyar los trabajos de mantenimiento de mayor envergadura ejecutadas por otras Unidades.
+- [NAC_2_3] (atribución, numeral 2.3; verbo rector: Coordinar) Coordinar, supervisar y autorizar trabajos que no afecten a la Operación del Sistema, para mantenimiento u obras, a cargo de otras Unidades en su ámbito de influencia.
+- [NAC_2_4] (atribución, numeral 2.4; verbo rector: Coordinar y controlar) Coordinar y controlar la elaboración de Proyectos de alteraciones provisorias o permanentes en las instalaciones en servicio, implementación de nuevos métodos de trabajo de operación y mantenimiento de equipos e instalaciones.
+- [NAC_2_5] (atribución, numeral 2.5; verbo rector: Coordinar y controlar) Coordinar y controlar la elaboración de Instrucciones Técnicas para operación y ejecución de ensayos de equipos.
+- [NAC_2_6] (atribución, numeral 2.6; verbo rector: Orientar y acompañar) Orientar y acompañar la construcción de nuevas instalaciones, participando en los Programas y pruebas en su ámbito de influencia.
+- [NAC_2_7] (atribución, numeral 2.7; verbo rector: Administrar) Administrar los repuestos de los equipos, máquinas e instalaciones a su cargo.
+- [NAC_ORG] (organización, numeral 3) 3.1. Sección Estaciones Norte y Alto Chaco 3.2. Sección Mantenimiento Norte y Alto Chaco
+
+## DTE/ISC: DEPARTAMENTO DE INGENIERÍA DE SISTEMAS DE CONTROL
+Resolución P/N.º 48658, fecha 29.12.2023. Documento: atribuciones_dte/atribuciones_dte.md (sección DTE-ISC.pdf).
+
+- [ISC_SUB] (subordinación, numeral 1) El Departamento de Ingeniería de Sistemas de Control está subordinado a la División de Sistemas de Comunicación.
+- [ISC_2_1] (atribución, numeral 2.1; verbo rector: Elaborar) Elaborar planes de expansión y proyectos para la implementación de sistemas de supervisión, control y adquisición de datos (SCADA), de automatización de subestaciones (SAS) y de comunicación industrial y ciberseguridad correspondientes a las tecnologías de operación para la generación, transmisión y distribución del sistema eléctrico de la ANDE.
+- [ISC_2_2] (atribución, numeral 2.2; verbo rector: Elaborar) Elaborar proyectos de retrofit de sistemas de control de estaciones y subestaciones.
+- [ISC_2_3] (atribución, numeral 2.3; verbo rector: Promover) Promover la innovación y acompañar la evolución de las tecnologías de operación.
+- [ISC_2_4] (atribución, numeral 2.4; verbo rector: Analizar) Analizar, revisar y aprobar proyectos elaborados por terceros, relacionados con las tecnologías de operación.
+- [ISC_2_5] (atribución, numeral 2.5; verbo rector: Ejecutar y supervisar) Ejecutar y supervisar el montaje, instalación, ampliación y puesta en servicio de las tecnologías de operación
+- [ISC_2_6] (atribución, numeral 2.6; verbo rector: Elaborar) Elaborar, ejecutar y supervisar proyectos de relacionados a redes de comunicaciones (Red de Área Local -- LAN, Red de Área Amplia -- WAN, radio enlaces, etc.) utilizadas para las tecnologías de operación.
+- [ISC_2_7] (atribución, numeral 2.7; verbo rector: Elaborar) Elaborar, ejecutar y supervisar proyectos de relacionados a ciberseguridad utilizadas en las tecnologías de operación.
+- [ISC_2_8] (atribución, numeral 2.8; verbo rector: Administrar) Administrar los contratos de adquisición e implementación de sistemas, equipos, materiales, servicios e infraestructura asociada, de tecnologías de operación, como también los de consultorías externas inherentes a proyectos específicos.
+- [ISC_2_9] (atribución, numeral 2.9; verbo rector: Estudiar y desarrollar) Estudiar y desarrollar normas y especificaciones técnicas de todo lo relacionado con las tecnologías de operación.
+- [ISC_2_10] (atribución, numeral 2.10; verbo rector: Realizar) Realizar control, evaluación y seguimiento al mantenimiento de los diferentes sistemas componentes de las tecnologías de operación.
+- [ISC_2_11] (atribución, numeral 2.11; verbo rector: Elaborar) Elaborar políticas, manuales e instrucciones de mantenimiento de tecnologías de operación, de acuerdo a las recomendaciones del fabricante, experiencia de campo y otros factores de determinación.
+- [ISC_ORG] (organización, numeral 3) 3.1. Sección Ingeniería de Sistemas de Control 3.2. Sección Implementación de Sistemas de Control 3.3. Sección Ingeniería de Mantenimiento de Sistemas de Control
+
+## DTE/ISC1: SECCIÓN INGENIERÍA DE SISTEMAS DE CONTROL
+Resolución P/N.º 48658, fecha 29.12.2023. Documento: atribuciones_dte/atribuciones_dte.md (sección DTE-ISC1.pdf).
+
+- [ISC1_SUB] (subordinación, numeral 1) La Sección Ingeniería de Sistemas de Control está subordinada al Departamento de Ingeniería de Sistemas de Control.
+- [ISC1_2_1] (atribución, numeral 2.1; verbo rector: Realizar) Realizar estudios y proyectos técnico/económicos para la implementación de sistemas de supervisión, control y adquisición de datos (SCADA), de automatización de subestaciones (SAS) y de comunicación industrial y ciberseguridad correspondientes a las tecnologías de operación para la generación, transmisión y distribución del Sistema Eléctrico de la ANDE.
+- [ISC1_2_2] (atribución, numeral 2.2; verbo rector: Realizar) Realizar estudios y proyectos de retrofit de sistemas de control de estaciones y subestaciones.
+- [ISC1_2_3] (atribución, numeral 2.3; verbo rector: Analizar y revisar) Analizar y revisar proyectos elaborados por terceros, relacionados con tecnologías de operación.
+- [ISC1_2_4] (atribución, numeral 2.4; verbo rector: Administrar) Administrar los contratos de adquisición e implementación de sistemas, equipos, materiales, servicios e infraestructura asociada, de tecnologías de operación, como también los de consultorías externas inherentes a proyectos específicos.
+- [ISC1_2_5] (atribución, numeral 2.5; verbo rector: Investigar y desarrollar) Investigar y desarrollar soluciones para equipos y sistemas de tecnologías de operación.
+
+## DTE/ISC2: SECCIÓN IMPLEMENTACIÓN DE SISTEMAS DE CONTROL
+Resolución P/N.º 48658, fecha 29.12.2023. Documento: atribuciones_dte/atribuciones_dte.md (sección DTE-ISC2.pdf).
+
+- [ISC2_SUB] (subordinación, numeral 1) La Sección Implementación de Sistemas de Control está subordinada al Departamento de Ingeniería de Sistemas de Control.
+- [ISC2_2_1] (atribución, numeral 2.1; verbo rector: Realizar) Realizar o supervisar trabajos relacionados al montaje, instalación, ampliación y puesta en servicio de los equipos y sistemas de supervisión, control y adquisición de datos (SCADA), de automatización de subestaciones (SAS) y de comunicación industrial y ciberseguridad correspondientes a las tecnologías de operación.
+- [ISC2_2_2] (atribución, numeral 2.2; verbo rector: Realizar) Realizar o supervisar trabajos relacionados a redes de comunicaciones (Red de Área Local -- LAN, Red de Área Amplia -- WAN, radio enlaces, etc.) utilizadas para las tecnologías de operación.
+- [ISC2_2_3] (atribución, numeral 2.3; verbo rector: Efectuar) Efectuar, analizar y aprobar pruebas de aceptación de fábrica (FAT) y de aceptación del sitio (SAT) de los equipos y sistemas de tecnologías de operación adquiridos.
+- [ISC2_2_4] (atribución, numeral 2.4; verbo rector: Verificar) Verificar de acuerdo a estándares internacionales y normas de ANDE, la correcta implementación y puesta en servicio de los equipos y sistemas de tecnologías de operación.
+- [ISC2_2_5] (atribución, numeral 2.5; verbo rector: Elaborar) Elaborar o unificar Base de Datos y planos referentes a los equipos y sistemas de tecnologías de operación.
+- [ISC2_2_6] (atribución, numeral 2.6; verbo rector: Coordinar) Coordinar con las demás Unidades Administrativas involucradas, los trabajos de implementación y puesta en servicio de los equipos y sistemas de tecnologías de operación.
+
+## DTE/ISC3: SECCIÓN INGENIERÍA DE MANTENIMIENTO DE SISTEMAS DE CONTROL
+Resolución P/N.º 48658, fecha 29.12.2023. Documento: atribuciones_dte/atribuciones_dte.md (sección DTE-ISC3.pdf).
+
+- [ISC3_SUB] (subordinación, numeral 1) La Sección Ingeniería de Mantenimiento de Sistemas de Control está subordinada al Departamento de Ingeniería de Sistemas de Control.
+- [ISC3_2_1] (atribución, numeral 2.1; verbo rector: Planificar y supervisar) Planificar y supervisar el mantenimiento predictivo, preventivo y correctivo de los equipos y sistemas de supervisión, control y adquisición de datos (SCADA), de automatización de subestaciones (SAS) y de comunicación industrial y ciberseguridad correspondientes a las tecnologías de operación.
+- [ISC3_2_2] (atribución, numeral 2.2; verbo rector: Investigar) Investigar, analizar y elaborar normas técnicas y manuales para mantenimiento de los equipos y sistemas de tecnologías de operación, de acuerdo a las recomendaciones del fabricante, experiencia de campo y otros factores de determinación.
+- [ISC3_2_3] (atribución, numeral 2.3; verbo rector: Monitorear) Monitorear, analizar y evaluar el desempeño de los equipos y sistemas de tecnologías de operación.
+- [ISC3_2_4] (atribución, numeral 2.4; verbo rector: Definir) Definir indicadores clave de desempeño que ayuden a obtener datos e información útil con Índices de Disponibilidad, Indicadores de Gestión de Órdenes de Trabajo, Índices de coste, Índices de Gestión de Almacenes y Compras, Índices de Mantenimiento, entre otros.
+- [ISC3_2_5] (atribución, numeral 2.5; verbo rector: Mantener) Mantener actualizada la Base de Datos referente a planos, archivos de configuración, arquitectura, etc. de los equipos y sistemas de tecnologías de operación.
+
+## DTE/MCO: DEPARTAMENTO DE MANTENIMIENTO DE SISTEMAS DE CONTROL
+Resolución P/N.º 48658, fecha 29.12.2023. Documento: atribuciones_dte/atribuciones_dte.md (sección DTE-MCO.pdf).
+
+- [MCO_SUB] (subordinación, numeral 1) El Departamento de Mantenimiento de Sistemas de Control está subordinado a la División de Sistemas de Comunicación
+- [MCO_2_1] (atribución, numeral 2.1; verbo rector: Planificar) Planificar, ejecutar o coordinar el mantenimiento preventivo y correctivo de los equipos y sistemas de supervisión y control de generación, transmisión y distribución del sistema eléctrico de potencia y de las redes y dispositivos de las tecnologías de operación asociadas.
+- [MCO_2_2] (atribución, numeral 2.2; verbo rector: Monitorear) Monitorear, analizar y controlar el desempeño de los equipos y sistemas de control del sistema eléctrico.
+- [MCO_2_3] (atribución, numeral 2.3; verbo rector: Atender) Atender, derivar e informar sobre la situación de reclamos de los equipos y sistemas de supervisión y control, redes y sistemas asociados.
+- [MCO_2_4] (atribución, numeral 2.4; verbo rector: Supervisar) Supervisar el montaje y recepcionar los sistemas, equipos y servicios implementados en estaciones, con sistema supervisor, integradas al SCADA Nacional y gestionar su integración al Sistema de Operación.
+- [MCO_2_5] (atribución, numeral 2.5; verbo rector: Supervisar) Supervisar los trabajos de ampliación, actualización y adecuación de los sistemas, equipos y redes de supervisión y control de generación, transmisión y distribución, en estaciones que cuentan con el Sistema Supervisor integradas al SCADA Nacional.
+- [MCO_2_6] (atribución, numeral 2.6; verbo rector: Supervisar) Supervisar, gestionar y recepcionar la integración de los Centros de Control Regional o Nacional, de los sistemas y equipos de supervisión y control de generación, transmisión y distribución nuevos o actualizados al SCADA, EMS o DMS.
+- [MCO_2_7] (atribución, numeral 2.7; verbo rector: Supervisar) Supervisar, gestionar y recepcionar la integración y puesta en servicio de los sistemas de supervisión y control, redes y dispositivos de operación asociados en centrales, estaciones y subestaciones nuevas.
+- [MCO_2_8] (atribución, numeral 2.8; verbo rector: Administrar y mantener) Administrar y mantener equipos y redes de los sistemas SCADA, EMS, DMS y de automatización de transmisión y distribución, como como las redes y dispositivos de tecnologías de operación asociados en los distintos Centros de Control Regional y Central.
+- [MCO_2_9] (atribución, numeral 2.9; verbo rector: Administrar) Administrar la actualización de softwares específicos para consultas, reportes y monitoreo de equipos y servicios de sistemas de tecnologías de operación.
+- [MCO_2_10] (atribución, numeral 2.10; verbo rector: Supervisar) Supervisar la configuración de equipos y dispositivos de ciberseguridad instalados en las fronteras de los sistemas de supervisión y control y de redes de operación.
+- [MCO_2_11] (atribución, numeral 2.11; verbo rector: Supervisar y controlar) Supervisar y controlar el cumplimiento de las políticas de seguridad en los equipos y dispositivos de frontera de los sistemas de control en centrales, estaciones y subestaciones.
+- [MCO_2_12] (atribución, numeral 2.12; verbo rector: Proponer) Proponer políticas para el mantenimiento predictivo, preventivo y correctivo del servicio de equipos y sistemas de control.
+- [MCO_ORG] (organización, numeral 3) 3.1. Sección Mantenimiento de Equipos de Control 3.2. Sección Mantenimiento de Sistemas de Control 3.3. Sección Sistemas de Control Regional Este 3.4. Sección Sistemas de Control Regional Sur
+
+
+# CORPUS EXTERNO
+
+Evidencia externa y contexto técnico. Puede justificar principios de diseño o buenas prácticas; no puede crear competencias institucionales. Cada entrada indica qué puede sustentar (CAN_SUPPORT) y qué no (CANNOT_SUPPORT).
+
+SOURCE_ID: IEC61970_456_01
+SOURCE_TYPE: norma_internacional
+REFERENCE: IEC 61970-456:2018 ed. 2, sec. 5, pp. 8-13 (pasajes disponibles públicamente)
+PRINCIPLE: La norma distingue equipos y conectividad, condiciones de entrada (estados de maniobra, mediciones), topología procesada y variables de estado. Los terminales vinculan equipos conductores con nodos de conectividad. En una representación nodo-interruptor, el procesamiento de topología utiliza la conectividad y los estados de maniobra para formar los nodos topológicos de cálculo. Las variables de estado describen resultados de flujo de potencia o de estimación.
+CAN_SUPPORT:
+  - distinguir técnicamente la edición de la conectividad, la configuración del procesador de topología y la validación de sus resultados
+  - identificar dependencias entre modelo eléctrico, mediciones y aplicaciones EMS
+CANNOT_SUPPORT:
+  - asignar cualquiera de esas actividades a una unidad organizativa concreta
+  - demostrar que la herramienta instalada permite o impide la edición concurrente
+
+SOURCE_ID: IEC61970_456_02
+SOURCE_TYPE: norma_internacional
+REFERENCE: IEC 61970-456:2018 ed. 2, sec. 5, pp. 8-10
+PRINCIPLE: Los datos de red se organizan en perfiles de información y en particiones bajo una Model Authority, responsable de sus datos; esas particiones se denominan Model Authority Sets (MAS).
+CAN_SUPPORT:
+  - asociar responsabilidad sobre conjuntos de datos definidos del modelo
+  - delimitar objetos por partición y no por sistema completo
+CANNOT_SUPPORT:
+  - designar qué unidad de ANDE es Model Authority
+  - equiparar el MAS de IEC con un paquete propietario del fabricante denominado MAS
+
+SOURCE_ID: IEC61970_301_01
+SOURCE_TYPE: norma_internacional
+REFERENCE: IEC 61970-301:2020 ed. 7 (identificación bibliográfica) e IEC 61970-456:2018, p. 6
+PRINCIPLE: El Modelo de Información Común (CIM) es un modelo abstracto de los objetos necesarios para representar aspectos operativos de una empresa eléctrica. El nivel semántico no especifica por sí solo el esquema físico de una base de datos ni los permisos de una herramienta comercial.
+CAN_SUPPORT:
+  - usar una semántica común para identificar objetos del modelo
+CANNOT_SUPPORT:
+  - resolver el organigrama
+  - determinar permisos de acceso de la plataforma instalada
+
+SOURCE_ID: IEC61850_6_01
+SOURCE_TYPE: norma_internacional
+REFERENCE: IEC 61850-6 (alcance)
+PRINCIPLE: IEC 61850 normaliza modelos de datos y servicios de comunicación para la automatización de sistemas eléctricos. La Parte 6 define el lenguaje de descripción de configuración (SCL) para el intercambio entre herramientas de ingeniería de IED, lo que favorece la trazabilidad entre proceso, IED, estación y centro de control.
+CAN_SUPPORT:
+  - trazabilidad de la configuración de IED y de la señal desde el campo hasta el centro de control
+CANNOT_SUPPORT:
+  - concluir qué unidad debe mantener el modelo eléctrico del EMS
+  - asignar pruebas o configuración a una unidad concreta
+
+SOURCE_ID: IEC62443_01
+SOURCE_TYPE: norma_internacional
+REFERENCE: ISA, visión general de la serie ISA/IEC 62443
+PRINCIPLE: La serie ISA/IEC 62443 establece requisitos y procesos para proteger sistemas de automatización y control industrial. Su enfoque comprende al propietario del activo, integradores, proveedores de productos y prestadores de servicios, y se basa en la responsabilidad compartida entre ellos.
+CAN_SUPPORT:
+  - participación de varios roles en la seguridad del sistema de control
+  - responsabilidad compartida en seguridad OT
+CANNOT_SUPPORT:
+  - asignar a una unidad concreta el control de configuración
+  - equiparar un rol de la norma con un departamento
+
+SOURCE_ID: IEC62443_2_1_01
+SOURCE_TYPE: norma_internacional
+REFERENCE: IEC 62443-2-1:2024 ed. 2.0, alcance público
+PRINCIPLE: Especifica requisitos del programa de seguridad del propietario del activo para sistemas en operación; el rol de propietario del activo incluye al operador del sistema. Contempla medidas compensatorias ante limitaciones de sistemas heredados.
+CAN_SUPPORT:
+  - existencia de políticas y procedimientos de seguridad para sistemas en operación
+  - medidas compensatorias cuando el sistema heredado no permite ciertos controles
+CANNOT_SUPPORT:
+  - identificar qué unidad interna ejerce el rol de propietario del activo
+  - demostrar requisitos detallados de aprobación de cambios
+
+SOURCE_ID: IEC62443_3_2_01
+SOURCE_TYPE: norma_internacional
+REFERENCE: IEC 62443-3-2 (alcance)
+PRINCIPLE: Aborda la evaluación de riesgos de seguridad y el diseño del sistema de automatización y control industrial.
+CAN_SUPPORT:
+  - evaluar el riesgo de seguridad de un cambio según su criticidad
+CANNOT_SUPPORT:
+  - asignar responsabilidades organizativas específicas
+
+SOURCE_ID: ISA95_01
+SOURCE_TYPE: norma_internacional
+REFERENCE: IEC 62264 / ISA-95, visión general
+PRINCIPLE: Define modelos y terminología para integrar sistemas empresariales y sistemas de control de manufactura mediante niveles funcionales.
+CAN_SUPPORT:
+  - distinguir niveles funcionales de un sistema integrado
+CANNOT_SUPPORT:
+  - hacer corresponder un nivel funcional con una dependencia de una empresa eléctrica
+
+SOURCE_ID: NIST_OT_01
+SOURCE_TYPE: guia_tecnica
+REFERENCE: NIST SP 800-82 Rev. 3 (2023), doi 10.6028/NIST.SP.800-82r3, visión general
+PRINCIPLE: La protección de la tecnología operacional (OT) debe considerar sus requisitos particulares de disponibilidad, seguridad física, desempeño y confiabilidad.
+CAN_SUPPORT:
+  - priorizar la disponibilidad y la seguridad operacional al planificar intervenciones
+CANNOT_SUPPORT:
+  - asignar responsabilidades a unidades concretas
+
+SOURCE_ID: NIST_CM_01
+SOURCE_TYPE: guia_tecnica
+REFERENCE: NIST SP 800-82 Rev. 3, sec. 6.2.4.2
+PRINCIPLE: Documentar la configuración base aprobada; documentar, probar y aprobar los cambios antes de su despliegue; centralizar el seguimiento y la documentación de los cambios.
+CAN_SUPPORT:
+  - segregación entre modificación y aprobación
+  - trazabilidad
+  - gestión de configuración
+  - registro centralizado de cambios
+CANNOT_SUPPORT:
+  - asignar la aprobación a una unidad concreta
+  - deducir exclusividad departamental de edición a partir de la centralización del registro
+
+SOURCE_ID: NIST_CM_02
+SOURCE_TYPE: guia_tecnica
+REFERENCE: NIST SP 800-82 Rev. 3, sec. 6.2.4.3
+PRINCIPLE: Verificar los respaldos y probar la restauración, integrando la recuperación con la gestión de cambios.
+CAN_SUPPORT:
+  - exigir respaldo verificable y restauración probada antes y después de un cambio
+CANNOT_SUPPORT:
+  - asignar la ejecución del respaldo o de la restauración a una unidad concreta
+
+SOURCE_ID: NIST_AC_01
+SOURCE_TYPE: guia_tecnica
+REFERENCE: NIST SP 800-82 Rev. 3, sec. 6.2.1.1
+PRINCIPLE: El control de acceso basado en roles asigna a cada persona los privilegios necesarios, con niveles diferenciados para consultar, utilizar y alterar datos o funciones.
+CAN_SUPPORT:
+  - mínimo privilegio
+  - diferenciar permisos de lectura, uso y modificación
+CANNOT_SUPPORT:
+  - asignar roles a departamentos concretos
+
+SOURCE_ID: NIST_SOD_01
+SOURCE_TYPE: guia_tecnica
+REFERENCE: NIST SP 800-82 Rev. 3, apéndice F, AC-5 (separación de funciones)
+PRINCIPLE: En OT debe considerarse cuidadosamente la acumulación de roles críticos en una misma persona; se contemplan controles compensatorios de personal y de auditoría cuando la separación completa no es posible.
+CAN_SUPPORT:
+  - separación entre autoría y revisión a nivel de personas
+  - controles compensatorios
+CANNOT_SUPPORT:
+  - exigir que funciones separadas residan en departamentos distintos
+  - asignar funciones a unidades concretas
+
+SOURCE_ID: NIST_TEAM_01
+SOURCE_TYPE: guia_tecnica
+REFERENCE: NIST SP 800-82 Rev. 3, sec. 3.3.2
+PRINCIPLE: Recomienda un equipo multidisciplinario y coordinación entre seguridad OT, TI y gestión de riesgos.
+CAN_SUPPORT:
+  - participación interáreas en la seguridad OT
+CANNOT_SUPPORT:
+  - considerar ese equipo como un órgano que aprueba cada actualización del modelo
+  - asignar autoridad de aprobación a una unidad concreta
+
+SOURCE_ID: NERC_CIP010_01
+SOURCE_TYPE: norma_sectorial_extranjera
+REFERENCE: NERC CIP-010-4
+PRINCIPLE: Establece controles de gestión de cambios de configuración y evaluación de vulnerabilidades para los sistemas cibernéticos aplicables dentro de su ámbito regulatorio norteamericano.
+CAN_SUPPORT:
+  - referencia sectorial de gestión de cambios de configuración
+CANNOT_SUPPORT:
+  - obligar a ANDE, que no está en su ámbito regulatorio
+  - asignar responsabilidades a unidades concretas
+
+SOURCE_ID: ENISA_ROLES_01
+SOURCE_TYPE: guia_tecnica
+REFERENCE: ENISA, Technical implementation guidance, v1.0, junio 2025, apdos. 1.2.4-1.2.5
+PRINCIPLE: Distingue funciones incompatibles e independencia del auditor, y admite asignar responsabilidades adicionales a roles existentes según el tamaño y los recursos de la organización.
+CAN_SUPPORT:
+  - identificar funciones incompatibles
+  - acumular roles compatibles en organizaciones con recursos limitados
+  - independencia de la auditoría
+CANNOT_SUPPORT:
+  - obligar a ANDE (guía no vinculante para entidades digitales de la UE)
+  - asignar funciones a unidades concretas
+
+SOURCE_ID: ENISA_CHG_01
+SOURCE_TYPE: guia_tecnica
+REFERENCE: ENISA, Technical implementation guidance, v1.0, junio 2025, apdo. 6.4.1
+PRINCIPLE: Propone flujos de gestión de cambios diferenciados según criticidad y urgencia, y un comité de cambios cuando resulte apropiado ('where appropriate').
+CAN_SUPPORT:
+  - diferenciar cambios ordinarios, urgentes y de emergencia
+  - prever un órgano colegiado de cambios si la organización lo considera apropiado
+CANNOT_SUPPORT:
+  - exigir un comité para todo cambio
+  - designar a una unidad de ANDE como aprobadora
+  - obligar a ANDE
+
+SOURCE_ID: ENISA_CHG_02
+SOURCE_TYPE: guia_tecnica
+REFERENCE: ENISA, Technical implementation guidance, v1.0, junio 2025, apdos. 6.4.2-6.4.3
+PRINCIPLE: Contempla aprobación, reversión y registro de evidencia de los cambios, incluidos los cambios excepcionales o de emergencia, que se documentan y revisan con posterioridad.
+CAN_SUPPORT:
+  - prever reversión y su evidencia
+  - revisión posterior de cambios de emergencia
+CANNOT_SUPPORT:
+  - asignar la reversión o su autorización a una unidad concreta
+  - obligar a ANDE
+
+SOURCE_ID: ISACA_RACI_01
+SOURCE_TYPE: articulo_profesional
+REFERENCE: P. C. Tessin, 'RA(CI) Light', ISACA Now, 21/05/2020 (COBIT 2019)
+PRINCIPLE: Las matrices RACI de COBIT son una vista inicial y orientativa que cada organización debe adaptar a su contexto.
+CAN_SUPPORT:
+  - adaptar una matriz RACI a la organización
+CANNOT_SUPPORT:
+  - atribuir a una unidad concreta la aprobación de cambios
+  - constituir una norma organizativa
+
+SOURCE_ID: ERCOT_01
+SOURCE_TYPE: practica_de_operador
+REFERENCE: Moseley et al., ERCOT NMMS, 2014, p. 14
+PRINCIPLE: Antes de su sistema de gestión del modelo (NMMS), los propietarios enviaban documentos y correos a varios grupos internos de ERCOT, cada uno con fuentes de datos independientes; la carga manual impedía saber quién había modificado un dato, por qué y cuándo. ERCOT diseñó una solicitud de cambio del modelo (NOMCR) formada por un archivo CIM incremental y metadatos, con una aplicación de seguimiento que registra revisión, pruebas y carga.
+CAN_SUPPORT:
+  - trazabilidad de quién, qué, cuándo, dónde y por qué de cada cambio
+  - evitar fuentes de datos paralelas
+CANNOT_SUPPORT:
+  - asignar unidades de ANDE
+  - demostrar la práctica actual de ERCOT
+
+SOURCE_ID: ERCOT_02
+SOURCE_TYPE: practica_de_operador
+REFERENCE: Moseley et al., ERCOT NMMS, 2014, p. 15
+PRINCIPLE: Cada solicitud de cambio atraviesa cinco niveles de validación: rangos y datos asociados; coherencia manual entre metadatos, cambio y documentación; estudio de impacto sobre el flujo de potencia del caso base; prueba conjunta de los cambios de un intervalo de energización; carga del modelo completo en todas las aplicaciones. El modelo temporal permite construir versiones con cambios futuros según su fecha de vigencia.
+CAN_SUPPORT:
+  - validación escalonada antes de producción
+  - versiones con fecha de vigencia
+CANNOT_SUPPORT:
+  - asignar niveles de validación a unidades de ANDE
+
+SOURCE_ID: ERCOT_03
+SOURCE_TYPE: practica_de_operador
+REFERENCE: Moseley et al., ERCOT NMMS, 2014, p. 15
+PRINCIPLE: Cuando los mismos departamentos que mantienen una aplicación gestionan también sus datos, aparecen divergencias de datos entre aplicaciones y defectos de la lógica de la aplicación enmascarados por manipulación de los datos. ERCOT respondió con un conjunto de datos único para todas las aplicaciones.
+CAN_SUPPORT:
+  - separar quien modifica datos de quien valida la aplicación que los usa
+  - un conjunto de datos único para todas las aplicaciones
+CANNOT_SUPPORT:
+  - asignar esas funciones a unidades concretas de ANDE
+  - demostrar la práctica actual de ERCOT
+
+SOURCE_ID: ERCOT_04
+SOURCE_TYPE: practica_de_operador
+REFERENCE: Moseley et al., ERCOT NMMS, 2014, p. 19
+PRINCIPLE: Tras la implantación, dar a los propietarios de los equipos acceso a los datos de sus propios equipos facilitó que detectaran y corrigieran errores.
+CAN_SUPPORT:
+  - participación de quien conoce la instalación física en la verificación de su representación
+CANNOT_SUPPORT:
+  - asignar unidades de ANDE
+
+SOURCE_ID: ERCOT_05
+SOURCE_TYPE: practica_de_operador
+REFERENCE: Moseley et al., ERCOT NMMS, 2014, pp. 16-17
+PRINCIPLE: Los diagramas unifilares del EMS se actualizaban manualmente a partir de documentos; se omitían cambios y los errores solían ser descubiertos por los operadores durante una maniobra.
+CAN_SUPPORT:
+  - riesgo de la transcripción manual de documentos a mímicos y modelo
+  - necesidad de verificar la correspondencia con la instalación
+CANNOT_SUPPORT:
+  - asignar la verificación a una unidad concreta
+
+SOURCE_ID: ERCOT_06
+SOURCE_TYPE: practica_de_operador
+REFERENCE: Moseley et al., ERCOT NMMS, 2014, p. 12
+PRINCIPLE: ERCOT es un operador independiente que no posee los equipos que modela; la interfaz principal es entre el operador y propietarios que son empresas distintas.
+CAN_SUPPORT:
+  - advertir los límites de transferir su arreglo a una empresa verticalmente integrada
+CANNOT_SUPPORT:
+  - demostrar qué arreglo interno conviene a una empresa verticalmente integrada
+
+SOURCE_ID: PJM_01
+SOURCE_TYPE: practica_de_operador
+REFERENCE: PJM Manual 03A, rev. 27 (2026), sec. 3.1, p. 34
+PRINCIPLE: El representante de cada propietario de transmisión ante el subcomité de operación responde por la información del modelo de su sistema.
+CAN_SUPPORT:
+  - responsabilidad de quien origina el dato sobre su exactitud
+CANNOT_SUPPORT:
+  - asignar unidades de ANDE
+  - transferir automáticamente el arreglo de un operador independiente
+
+SOURCE_ID: PJM_02
+SOURCE_TYPE: practica_de_operador
+REFERENCE: PJM Manual 03A, rev. 27, sec. 3.1, p. 35
+PRINCIPLE: El personal de PJM interpreta y codifica los datos recibidos para preparar las actualizaciones del EMS, con cuatro actualizaciones programadas por año.
+CAN_SUPPORT:
+  - separación entre quien aporta el dato y quien lo codifica en el modelo
+  - calendario programado de versiones
+CANNOT_SUPPORT:
+  - asignar unidades de ANDE
+
+SOURCE_ID: PJM_03
+SOURCE_TYPE: practica_de_operador
+REFERENCE: PJM Manual 03A, rev. 27, sec. 3.2, p. 44; sec. 4.1, p. 52
+PRINCIPLE: Los propietarios revisan informes de diferencias preliminares y finales y validan que el modelo representa con exactitud sus sistemas.
+CAN_SUPPORT:
+  - revisión de diferencias respecto de la versión base
+  - validación de la representación por quien origina el dato
+CANNOT_SUPPORT:
+  - asignar unidades de ANDE
+
+SOURCE_ID: PJM_04
+SOURCE_TYPE: practica_de_operador
+REFERENCE: PJM Manual 03A, rev. 27, sec. 5.4, p. 65
+PRINCIPLE: Antes de pasar un modelo a producción se aplica una prueba de estabilización de hasta cuatro semanas con telemetría real; durante los dos días previos se aplican criterios del estimador de estado (convergencia, soluciones consecutivas no convergentes, iteraciones, datos erróneos). Ante condiciones no previstas se analiza la situación y se documenta la decisión de continuar.
+CAN_SUPPORT:
+  - criterios objetivos de pase a producción
+  - documentar la decisión de continuar ante desviaciones
+CANNOT_SUPPORT:
+  - copiar umbrales sin calibración local
+  - asignar unidades de ANDE
+
+SOURCE_ID: EPRI_NMM_01
+SOURCE_TYPE: informe_tecnico
+REFERENCE: EPRI 3002003053, Network Model Manager Technical Market Requirements, 2014
+PRINCIPLE: Especifica requisitos para una función de gestión de modelos con repositorio maestro, registro de objetos y espacios de trabajo.
+CAN_SUPPORT:
+  - repositorio maestro único
+  - espacios de trabajo separados para preparar cambios
+CANNOT_SUPPORT:
+  - demostrar capacidades del software instalado
+  - asignar unidades de ANDE
+
+SOURCE_ID: EPRI_NMM_02
+SOURCE_TYPE: informe_tecnico
+REFERENCE: EPRI 3002003053, caso A1, pp. 4-5 a 4-6
+PRINCIPLE: En el caso de uso A1, modeladores EMS mantienen conectividad y esquemas, con aportes y revisión de especialistas de planificación y protecciones. El informe aclara que el reparto puede variar entre empresas y que varios grupos requieren controles de acceso y coordinación.
+CAN_SUPPORT:
+  - separación entre aportantes especializados y modeladores
+  - controles de acceso y coordinación entre grupos
+CANNOT_SUPPORT:
+  - constituir un organigrama obligatorio
+  - identificar qué unidad de ANDE cumple el rol de modelador
+
+SOURCE_ID: EPRI_NMM_03
+SOURCE_TYPE: informe_tecnico
+REFERENCE: EPRI 3002003053, requisito R2, pp. 6-21 a 6-22
+PRINCIPLE: Contempla registros de correspondencia entre identificadores CIM (mRID) y estructuras de identificación locales; un mRID no es necesariamente idéntico a una clave propietaria.
+CAN_SUPPORT:
+  - documentar clase, identificador, origen y correspondencias de cada objeto
+CANNOT_SUPPORT:
+  - asignar unidades de ANDE
+
+SOURCE_ID: ENTSOE_CGMES_01
+SOURCE_TYPE: practica_de_operador
+REFERENCE: ENTSO-E, CGMES
+PRINCIPLE: ENTSO-E adoptó el estándar CGMES, basado en CIM, para el intercambio de modelos entre operadores.
+CAN_SUPPORT:
+  - intercambio estructurado de modelos basado en CIM
+CANNOT_SUPPORT:
+  - asignar unidades de ANDE
+
+SOURCE_ID: CTX_DOMINIOS
+SOURCE_TYPE: contexto_tecnico
+REFERENCE: Contexto técnico del dominio SCADA/EMS
+PRINCIPLE: Bajo la denominación general de 'base SCADA/EMS' coexisten seis dominios técnicos: (1) modelo eléctrico: topología, conectividad, parámetros de líneas y transformadores, equivalentes y estados operativos; (2) telemetría y telecontrol: puntos analógicos y digitales, calidad, escalas, comandos, alarmas, tiempos y correspondencia con equipos; (3) comunicaciones: RTU, IED, gateways, canales, direccionamiento, protocolos, ICCP/TASE.2 y sincronización; (4) aplicaciones EMS: estimador de estado, flujo de potencia, contingencias, control automático de generación y demás módulos; (5) plataforma técnica: servidores, almacenamiento, sistemas operativos, respaldo, virtualización, ambientes y herramientas del fabricante; (6) gobierno y seguridad: acceso, trazabilidad, configuración base, evidencias, aceptación, reversión y auditoría.
+CAN_SUPPORT:
+  - delimitar el objeto afectado por cada decisión
+  - identificar competencias técnicas requeridas por dominio
+CANNOT_SUPPORT:
+  - asignar dominios a unidades concretas
+
+SOURCE_ID: CTX_CICLO
+SOURCE_TYPE: contexto_tecnico
+REFERENCE: Contexto técnico del ciclo de cambio
+PRINCIPLE: El ciclo de un cambio de la base SCADA/EMS comprende las fases de planificación, requisito, construcción, integración, prueba, aceptación, liberación, despliegue, operación y registro. Los tipos de intervención posibles incluyen ejecutar, supervisar, revisar, aprobar, administrar, autorizar en tiempo real, coordinar, apoyar, solicitar y definir criterios.
+CAN_SUPPORT:
+  - ubicar cada decisión en una fase del ciclo
+  - distinguir tipos de intervención sobre una misma fase
+CANNOT_SUPPORT:
+  - asignar fases o tipos de intervención a unidades concretas
+
+SOURCE_ID: CTX_UNIFILAR
+SOURCE_TYPE: practica_local_descrita
+REFERENCE: Práctica descrita por personal de ANDE para este trabajo; no figura en ninguna ficha del Manual de Organización
+PRINCIPLE: Según la práctica descrita, los departamentos regionales de transmisión no editan el SCADA: publican el diagrama unifilar oficial de cada instalación como archivo PDF en la red corporativa de TI, y los mímicos y el modelo se construyen a partir de ese documento.
+CAN_SUPPORT:
+  - identificar el documento de origen de la configuración física
+  - reconocer el riesgo de transcripción manual
+CANNOT_SUPPORT:
+  - constituir una atribución formal de ninguna unidad
+
+SOURCE_ID: CTX_CORPUS
+SOURCE_TYPE: contexto_documental
+REFERENCE: Estado del corpus institucional
+PRINCIPLE: El corpus contiene fichas del Manual de Organización aprobadas por tres resoluciones distintas (P/N.º 34954 de 15/07/2014; P/N.º 48658 de 29/12/2023; P/N.º 50060 de 06/01/2025). No se dispone de las resoluciones completas ni de eventuales disposiciones modificatorias. Ninguna ficha del corpus contiene una disposición expresa que derogue o modifique atribuciones de otra ficha. Tampoco se dispone del inventario de objetos, de los permisos efectivos de la plataforma ni de la documentación del fabricante.
+CAN_SUPPORT:
+  - declarar límites de la evidencia disponible
+CANNOT_SUPPORT:
+  - presumir derogaciones o modificaciones no documentadas
+
+
+# CÓDIGOS DE UNIDAD ADMITIDOS
+
+- GT/OP: DIVISIÓN DE OPERACIÓN
+- GT/ODC: OFICINA DE DESPACHO DE CARGA
+- GT/DOS: DEPARTAMENTO DE OPERACIÓN DEL SISTEMA
+- GT/DEN: DEPARTAMENTO DE ESTUDIOS ENERGÉTICOS
+- GT/DEL: DEPARTAMENTO DE ESTUDIOS ELÉCTRICOS
+- GT/DDR: DEPARTAMENTO DE DESPACHO REGIONAL
+- GT/DAS: DEPARTAMENTO DE ADMINISTRACIÓN DEL SCADA/EMS
+- GT/DAS1: SECCIÓN BASE DE DATOS DEL SCADA
+- GT/DAS2: SECCIÓN APLICATIVOS DEL SCADA/EMS
+- GT/DT: DIVISIÓN DE TRANSMISIÓN
+- GT/TMB: DEPARTAMENTO DE TRANSMISIÓN METROPOLITANA Y BAJO CHACO
+- GT/TES: DEPARTAMENTO DE TRANSMISIÓN ESTE
+- GT/TSU: DEPARTAMENTO DE TRANSMISIÓN SUR
+- GT/TCE: DEPARTAMENTO DE TRANSMISIÓN CENTRO
+- GT/NAC: DEPARTAMENTO DE TRANSMISIÓN NORTE Y ALTO CHACO
+- DTE/ISC: DEPARTAMENTO DE INGENIERÍA DE SISTEMAS DE CONTROL
+- DTE/ISC1: SECCIÓN INGENIERÍA DE SISTEMAS DE CONTROL
+- DTE/ISC2: SECCIÓN IMPLEMENTACIÓN DE SISTEMAS DE CONTROL
+- DTE/ISC3: SECCIÓN INGENIERÍA DE MANTENIMIENTO DE SISTEMAS DE CONTROL
+- DTE/MCO: DEPARTAMENTO DE MANTENIMIENTO DE SISTEMAS DE CONTROL
+- GERENCIA_TECNICA
+- DIV_SISTEMAS_COMUNICACION
+- PROPOSED_NEW_AUTHORITY
+- UNIDAD_NO_INCLUIDA_EN_CORPUS
+
+
+# TAREA: reconsideración
+
+Antes resolviste este escenario de forma independiente. Ahora conoces las propuestas de otros participantes, identificadas de forma anónima. Reconsidera tu asignación para cada actividad.
+
+Para cada actividad indica en "position":
+
+- MAINTAIN: mantienes tu asignación de A;
+- MODIFY: cambias tu asignación;
+- AMBIGUOUS: concluyes que la evidencia admite legítimamente más de una asignación.
+
+Justifica la posición nuevamente mediante evidencia del corpus en "position_justification". Produce una asignación RACI completa y actualizada.
+
+No estás obligado a alcanzar consenso. El desacuerdo sustentado es un resultado válido. Cambia de posición solo si otra propuesta está mejor sustentada por la evidencia, no porque sea mayoritaria.
+
+## ESCENARIO
+
+{
+  "scenario_id": "S01",
+  "title": "Incorporación de una nueva subestación de 220 kV",
+  "technical_description": "Entra en servicio una subestación nueva de 220 kV con dos líneas de entrada, dos transformadores 220/23 kV y seis alimentadores. La subestación dispone de un sistema de automatización con IED y una RTU que se comunica con el centro de control mediante IEC 60870-5-104. Deben incorporarse al SCADA/EMS los equipos, su conectividad, sus parámetros eléctricos, unas 900 señales y los mímicos de la instalación, antes de la energización programada.",
+  "objects_affected": [
+    "modelo eléctrico",
+    "telemetría y telecontrol",
+    "comunicaciones",
+    "mímicos",
+    "aplicaciones EMS"
+  ],
+  "phase": "requisito a aceptación",
+  "risk": "Una representación errónea de la conectividad o de las señales puede producir un estado estimado incorrecto y maniobras basadas en información falsa desde la primera energización.",
+  "available_evidence": [
+    "diagrama unifilar oficial de la instalación en PDF",
+    "parámetros eléctricos de líneas y transformadores",
+    "lista de señales del proyecto",
+    "informes de pruebas FAT del sistema de automatización"
+  ]
+}
+
+## ACTIVIDADES A ASIGNAR
+
+- ACT02: Certificar los datos de la instalación (configuración física y parámetros) (fase: requisito)
+- ACT04: Construir o actualizar el modelo eléctrico (topología, conectividad, parámetros) (fase: construcción)
+- ACT06: Configurar la adquisición, la correspondencia señal-modelo y las comunicaciones (fase: construcción)
+- ACT09: Aprobar las pruebas FAT/SAT y de integración (fase: prueba)
+- ACT12: Verificar la correspondencia de mímicos y modelo con la instalación física (fase: aceptación)
+
+## TU DECISIÓN INICIAL
+
+{
+ "decisions": [
+  {
+   "activity_id": "ACT02",
+   "accountable": [
+    "GT/DT"
+   ],
+   "responsible": [
+    "GT/TMB"
+   ],
+   "consulted": [
+    "DTE/ISC"
+   ],
+   "informed": [
+    "GT/DAS"
+   ],
+   "institutional_ambiguity": false,
+   "alternative_assignments": [
+    {
+     "accountable": [
+      "GT/DEL"
+     ],
+     "rationale": "GT/DEL realiza estudios del Sistema, pero la responsabilidad sobre los datos técnicos de los equipos es de la División de Transmisión que posee las subestaciones."
+    }
+   ],
+   "evidence": [
+    {
+     "source_id": "TMB_2_4",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Coordinar y controlar la elaboración de Proyectos de alteraciones provisorias o permanentes en las instalaciones",
+     "supports": "La responsabilidad de los datos de las instalaciones radica en los departamentos regionales de transmisión."
+    }
+   ],
+   "external_principles": [
+    {
+     "source_id": "PJM_01",
+     "claim_type": "BUENA_PRACTICA",
+     "quote": "El representante de cada propietario de transmisión ante el subcomité de operación responde por la información del modelo de su sistema.",
+     "supports": "La exactitud de la información técnica debe provenir del dueño del activo (Transmisión)."
+    }
+   ],
+   "reasoning_summary": "La División de Transmisión (GT/DT) es la responsable final de la configuración técnica de sus activos. La Sección correspondiente (p. ej. TMB) prepara los datos oficiales (diagramas y parámetros). Se requiere consulta técnica de DTE/ISC sobre los estándares de control.",
+   "confidence": "high"
+  },
+  {
+   "activity_id": "ACT04",
+   "accountable": [
+    "GT/DAS"
+   ],
+   "responsible": [
+    "GT/DAS1"
+   ],
+   "consulted": [
+    "GT/DEL"
+   ],
+   "informed": [
+    "GT/ODC"
+   ],
+   "institutional_ambiguity": false,
+   "alternative_assignments": [],
+   "evidence": [
+    {
+     "source_id": "DAS1_2_2",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Mantener y actualizar las Bases de Datos existentes para asegurar el correcto funcionamiento y ajustes para nuevos requisitos del sistema.",
+     "supports": "La Sección Base de Datos del SCADA ejecuta la actualización del modelo."
+    }
+   ],
+   "external_principles": [
+    {
+     "source_id": "EPRI_NMM_02",
+     "claim_type": "BUENA_PRACTICA",
+     "quote": "En el caso de uso A1, modeladores EMS mantienen conectividad y esquemas, con aportes y revisión de especialistas de planificación y protecciones.",
+     "supports": "La división entre modeladores del EMS y especialistas de planificación (DEL) asegura calidad."
+    }
+   ],
+   "reasoning_summary": "GT/DAS es responsable de la administración de la Base de Datos del SIN. GT/DAS1 es la unidad operativa encargada de la construcción del modelo. GT/DEL consulta sobre los parámetros para asegurar la consistencia con los estudios eléctricos.",
+   "confidence": "high"
+  },
+  {
+   "activity_id": "ACT06",
+   "accountable": [
+    "DTE/ISC"
+   ],
+   "responsible": [
+    "DTE/ISC2",
+    "GT/DAS1"
+   ],
+   "consulted": [
+    "GT/DAS"
+   ],
+   "informed": [
+    "GT/ODC"
+   ],
+   "institutional_ambiguity": false,
+   "alternative_assignments": [],
+   "evidence": [
+    {
+     "source_id": "ISC2_2_1",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Realizar o supervisar trabajos relacionados al montaje, instalación, ampliación y puesta en servicio de los equipos y sistemas de supervisión, control y adquisición de datos",
+     "supports": "DTE/ISC2 configura la adquisición de campo y comunicaciones."
+    },
+    {
+     "source_id": "DAS_2_1",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Administrar y gestionar la Base de Datos del Sistema Interconectado Nacional (SIN) obtenidos mediante el Sistema SCADA.",
+     "supports": "GT/DAS gestiona la correspondencia de señales en el modelo centralizado."
+    }
+   ],
+   "external_principles": [],
+   "reasoning_summary": "La configuración de la adquisición (RTU, comunicaciones industriales) es competencia de DTE/ISC2. La correspondencia señal-modelo requiere la participación de GT/DAS1 para la integración en la base de datos centralizada del SCADA/EMS.",
+   "confidence": "high"
+  },
+  {
+   "activity_id": "ACT09",
+   "accountable": [
+    "DTE/ISC"
+   ],
+   "responsible": [
+    "DTE/ISC2"
+   ],
+   "consulted": [
+    "GT/ODC"
+   ],
+   "informed": [
+    "GT/DAS"
+   ],
+   "institutional_ambiguity": false,
+   "alternative_assignments": [],
+   "evidence": [
+    {
+     "source_id": "ISC2_2_3",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Efectuar, analizar y aprobar pruebas de aceptación de fábrica (FAT) y de aceptación del sitio (SAT) de los equipos y sistemas de tecnologías de operación adquiridos.",
+     "supports": "El Departamento de Ingeniería de Sistemas de Control aprueba las pruebas."
+    }
+   ],
+   "external_principles": [
+    {
+     "source_id": "NIST_CM_01",
+     "claim_type": "BUENA_PRACTICA",
+     "quote": "documentar, probar y aprobar los cambios antes de su despliegue",
+     "supports": "La aprobación de FAT/SAT es el hito de control previo a la integración."
+    }
+   ],
+   "reasoning_summary": "DTE/ISC posee la atribución expresa para aprobar pruebas FAT y SAT. Se consulta a la Oficina de Despacho de Carga (GT/ODC) ya que son los usuarios finales críticos que operarán con el sistema integrado.",
+   "confidence": "high"
+  },
+  {
+   "activity_id": "ACT12",
+   "accountable": [
+    "GT/ODC"
+   ],
+   "responsible": [
+    "GT/DAS2"
+   ],
+   "consulted": [
+    "GT/DT"
+   ],
+   "informed": [
+    "DTE/ISC"
+   ],
+   "institutional_ambiguity": false,
+   "alternative_assignments": [
+    {
+     "accountable": [
+      "GT/DAS"
+     ],
+     "rationale": "GT/DAS administra los aplicativos del SCADA, pero GT/ODC es quien opera y valida la veracidad de la representación en tiempo real."
+    }
+   ],
+   "evidence": [
+    {
+     "source_id": "ODC_2_1",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Supervisar y controlar en tiempo real, la operación eléctrica y energética del sistema de potencia mediante el monitoreo de los parámetros eléctricos",
+     "supports": "La operación en tiempo real depende de la exactitud de los mímicos y el modelo."
+    },
+    {
+     "source_id": "DAS2_2_1",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Administrar y gestionar el uso de aplicativos disponibles del SCADA/EMS",
+     "supports": "GT/DAS2 implementa los mímicos y visualizaciones en los aplicativos."
+    }
+   ],
+   "external_principles": [
+    {
+     "source_id": "ERCOT_05",
+     "claim_type": "BUENA_PRACTICA",
+     "quote": "el riesgo de la transcripción manual de documentos a mímicos y modelo",
+     "supports": "La verificación de los mímicos frente a la instalación física es una fase crítica de aceptación."
+    }
+   ],
+   "reasoning_summary": "La responsabilidad de la calidad del modelo y mímicos en operación recae en GT/ODC. GT/DAS2 ejecuta las adecuaciones técnicas necesarias. La División de Transmisión (GT/DT) es consultada para validar que lo representado coincide con la planta física.",
+   "confidence": "medium"
+  }
+ ]
+}
+
+## PROPUESTAS DE OTROS PARTICIPANTES
+
+### PROPUESTA A
+
+{
+ "decisions": [
+  {
+   "activity_id": "ACT02",
+   "accountable": [
+    "GT/DT"
+   ],
+   "responsible": [
+    "GT/TMB",
+    "GT/TES",
+    "GT/TSU",
+    "GT/TCE",
+    "GT/NAC"
+   ],
+   "consulted": [
+    "GT/DEL"
+   ],
+   "informed": [
+    "GT/OP"
+   ],
+   "institutional_ambiguity": false,
+   "alternative_assignments": [],
+   "evidence": [
+    {
+     "source_id": "DT_2_1",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Coordinar la Operación del Sistema, líneas de transmisión y subtransmisión del Sistema Eléctrico.",
+     "supports": "La División de Transmisión coordina la operación de la infraestructura de su ámbito."
+    }
+   ],
+   "external_principles": [
+    {
+     "source_id": "PJM_01",
+     "claim_type": "BUENA_PRACTICA",
+     "quote": "El representante de cada propietario de transmisión ante el subcomité de operación responde por la información del modelo de su sistema.",
+     "supports": "Responsabilidad técnica sobre la veracidad de los parámetros de la instalación."
+    }
+   ],
+   "reasoning_summary": "La División de Transmisión (GT/DT) es la responsable global, mientras que los Departamentos de Transmisión (TMB, TES, TSU, TCE, NAC) actúan sobre las instalaciones geográficas bajo su competencia. Se requiere que certifiquen los parámetros para alimentar el proceso de modelado.",
+   "confidence": "high"
+  },
+  {
+   "activity_id": "ACT04",
+   "accountable": [
+    "GT/DAS"
+   ],
+   "responsible": [
+    "GT/DAS1"
+   ],
+   "consulted": [
+    "GT/DEL"
+   ],
+   "informed": [
+    "GT/OP"
+   ],
+   "institutional_ambiguity": false,
+   "alternative_assignments": [],
+   "evidence": [
+    {
+     "source_id": "DAS_2_1",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Administrar y gestionar la Base de Datos del Sistema Interconectado Nacional (SIN) obtenidos mediante el Sistema SCADA.",
+     "supports": "Competencia directa en la gestión del modelo de datos."
+    },
+    {
+     "source_id": "DAS1_2_1",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Diseñar e implementar Base de Datos para almacenar y gestionar datos del SCADA.",
+     "supports": "Ejecución técnica del modelo."
+    }
+   ],
+   "external_principles": [
+    {
+     "source_id": "EPRI_NMM_02",
+     "claim_type": "BUENA_PRACTICA",
+     "quote": "En el caso de uso A1, modeladores EMS mantienen conectividad y esquemas, con aportes y revisión de especialistas de planificación y protecciones.",
+     "supports": "Necesidad de consulta técnica sobre el modelo."
+    }
+   ],
+   "reasoning_summary": "El Departamento de Administración del SCADA/EMS (GT/DAS) es el responsable de la integridad del modelo, con la Sección Base de Datos (GT/DAS1) ejecutando la construcción técnica. GT/DEL es consultado por ser el área de estudios eléctricos.",
+   "confidence": "high"
+  },
+  {
+   "activity_id": "ACT06",
+   "accountable": [
+    "GT/DAS"
+   ],
+   "responsible": [
+    "GT/DAS1"
+   ],
+   "consulted": [
+    "DTE/MCO",
+    "DIV_SISTEMAS_COMUNICACION"
+   ],
+   "informed": [
+    "GT/ODC"
+   ],
+   "institutional_ambiguity": false,
+   "alternative_assignments": [],
+   "evidence": [
+    {
+     "source_id": "DAS1_2_2",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Mantener y actualizar las Bases de Datos existentes para asegurar el correcto funcionamiento.",
+     "supports": "La sección es responsable de la configuración técnica de la BD."
+    },
+    {
+     "source_id": "MCO_2_8",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Administrar y mantener equipos y redes de los sistemas SCADA, EMS, DMS...",
+     "supports": "DTE/MCO provee soporte esencial en la capa de integración de sistemas de control."
+    }
+   ],
+   "external_principles": [
+    {
+     "source_id": "IEC61850_6_01",
+     "claim_type": "BUENA_PRACTICA",
+     "quote": "La Parte 6 define el lenguaje de descripción de configuración (SCL) para el intercambio entre herramientas de ingeniería de IED...",
+     "supports": "La trazabilidad de señales desde el campo requiere coordinación técnica."
+    }
+   ],
+   "reasoning_summary": "La configuración de señales en la BD es tarea de la Sección Base de Datos (GT/DAS1). Se requiere consulta técnica a DTE/MCO para la integración de la RTU/IED al SCADA y de la División de Sistemas de Comunicación para los enlaces.",
+   "confidence": "medium"
+  },
+  {
+   "activity_id": "ACT09",
+   "accountable": [
+    "DTE/ISC"
+   ],
+   "responsible": [
+    "DTE/ISC2"
+   ],
+   "consulted": [
+    "GT/ODC"
+   ],
+   "informed": [
+    "GT/DAS"
+   ],
+   "institutional_ambiguity": false,
+   "alternative_assignments": [],
+   "evidence": [
+    {
+     "source_id": "ISC2_2_3",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Efectuar, analizar y aprobar pruebas de aceptación de fábrica (FAT) y de aceptación del sitio (SAT)...",
+     "supports": "Responsabilidad explícita en la aprobación de pruebas."
+    },
+    {
+     "source_id": "MCO_2_6",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Supervisar, gestionar y recepcionar la integración de los Centros de Control...",
+     "supports": "Intervención necesaria en la recepción del sistema."
+    }
+   ],
+   "external_principles": [],
+   "reasoning_summary": "El Departamento de Ingeniería de Sistemas de Control (DTE/ISC) a través de su sección (ISC2) posee la atribución de aprobar las pruebas FAT/SAT. Se requiere consultar a la Oficina de Despacho de Carga (GT/ODC) como usuario crítico de los sistemas integrados.",
+   "confidence": "high"
+  },
+  {
+   "activity_id": "ACT12",
+   "accountable": [
+    "GT/ODC"
+   ],
+   "responsible": [
+    "GT/DAS"
+   ],
+   "consulted": [
+    "GT/TMB",
+    "GT/TES",
+    "GT/TSU",
+    "GT/TCE",
+    "GT/NAC"
+   ],
+   "informed": [
+    "GT/OP"
+   ],
+   "institutional_ambiguity": false,
+   "alternative_assignments": [
+    {
+     "accountable": [
+      "GT/OP"
+     ],
+     "rationale": "Como instancia superior a ODC, podría ejercer la rendición de cuentas final, aunque ODC ejecuta la supervisión directa."
+    }
+   ],
+   "evidence": [
+    {
+     "source_id": "ODC_2_1",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Supervisar y controlar en tiempo real, la operación eléctrica y energética...",
+     "supports": "ODC requiere la veracidad de mímicos y modelos para la operación."
+    },
+    {
+     "source_id": "DAS_2_3",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Proporcionar soporte técnico para usuarios finales.",
+     "supports": "La administración de la BD debe validar con el usuario final."
+    }
+   ],
+   "external_principles": [
+    {
+     "source_id": "ERCOT_04",
+     "claim_type": "BUENA_PRACTICA",
+     "quote": "Dar a los propietarios de los equipos acceso a los datos de sus propios equipos facilitó que detectaran y corrigieran errores.",
+     "supports": "Involucramiento de los departamentos de transmisión en la verificación física."
+    }
+   ],
+   "reasoning_summary": "La Oficina de Despacho de Carga (GT/ODC) es responsable de la integridad operativa. GT/DAS realiza la verificación y corrección técnica del modelo, mientras que los Departamentos de Transmisión proveen la validación física frente al terreno.",
+   "confidence": "medium"
+  }
+ ]
+}
+
+### PROPUESTA B
+
+{
+ "decisions": [
+  {
+   "activity_id": "ACT02",
+   "accountable": [
+    "GT/TMB"
+   ],
+   "responsible": [
+    "GT/TMB"
+   ],
+   "consulted": [
+    "DTE/ISC"
+   ],
+   "informed": [
+    "GT/ODC"
+   ],
+   "institutional_ambiguity": false,
+   "alternative_assignments": [],
+   "evidence": [
+    {
+     "source_id": "TMB_2_4",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Coordinar y controlar la elaboración de Proyectos de alteraciones provisorias o permanentes en las instalaciones en servicio",
+     "supports": "El departamento de transmisión es responsable de la configuración de sus instalaciones."
+    }
+   ],
+   "external_principles": [
+    {
+     "source_id": "PJM_01",
+     "claim_type": "BUENA_PRACTICA",
+     "quote": "El representante de cada propietario de transmisión ante el subcomité de operación responde por la información del modelo",
+     "supports": "Quien origina el dato (propiedad) es responsable de su exactitud."
+    }
+   ],
+   "reasoning_summary": "La unidad de transmisión es la responsable de la configuración de sus instalaciones físicas. Como responsable de la ingeniería básica, certifica que los parámetros eléctricos y la configuración son correctos antes de la construcción del modelo EMS.",
+   "confidence": "high"
+  },
+  {
+   "activity_id": "ACT04",
+   "accountable": [
+    "GT/DAS"
+   ],
+   "responsible": [
+    "GT/DAS1"
+   ],
+   "consulted": [
+    "GT/DEL"
+   ],
+   "informed": [
+    "GT/ODC"
+   ],
+   "institutional_ambiguity": false,
+   "alternative_assignments": [],
+   "evidence": [
+    {
+     "source_id": "DAS_2_1",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Administrar y gestionar la Base de Datos del Sistema Interconectado Nacional (SIN) obtenidos mediante el Sistema SCADA",
+     "supports": "Atribución formal de gestión de bases de datos SCADA."
+    },
+    {
+     "source_id": "DAS1_2_1",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Diseñar e implementar Base de Datos para almacenar y gestionar datos del SCADA",
+     "supports": "La sección es responsable de la construcción de la base de datos."
+    }
+   ],
+   "external_principles": [
+    {
+     "source_id": "IEC61970_456_02",
+     "claim_type": "BUENA_PRACTICA",
+     "quote": "organizan en perfiles de información y en particiones bajo una Model Authority",
+     "supports": "GT/DAS actúa como Model Authority para el SCADA/EMS."
+    }
+   ],
+   "reasoning_summary": "GT/DAS, a través de su sección especializada GT/DAS1, tiene la atribución formal para gestionar y diseñar la base de datos del SCADA. El modelado eléctrico depende de esta unidad según sus atribuciones institucionales.",
+   "confidence": "high"
+  },
+  {
+   "activity_id": "ACT06",
+   "accountable": [
+    "GT/DAS"
+   ],
+   "responsible": [
+    "GT/DAS2"
+   ],
+   "consulted": [
+    "DTE/ISC"
+   ],
+   "informed": [
+    "GT/ODC"
+   ],
+   "institutional_ambiguity": false,
+   "alternative_assignments": [],
+   "evidence": [
+    {
+     "source_id": "DAS_2_2",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Administrar y gestionar los módulos de los aplicativos informáticos del SCADA/EMS",
+     "supports": "Gestión de aplicativos y configuración de módulos."
+    },
+    {
+     "source_id": "DAS2_2_1",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Administrar y gestionar el uso de aplicativos disponibles del SCADA/EMS",
+     "supports": "Responsable de configurar la lógica y telemetría."
+    }
+   ],
+   "external_principles": [
+    {
+     "source_id": "IEC61850_6_01",
+     "claim_type": "BUENA_PRACTICA",
+     "quote": "SCL para el intercambio entre herramientas de ingeniería de IED",
+     "supports": "La trazabilidad de la configuración de IED requiere interacción con el área de comunicación."
+    }
+   ],
+   "reasoning_summary": "La configuración de telemetría y aplicativos corresponde a GT/DAS2. Se consulta a DTE/ISC pues ellos manejan la infraestructura de comunicación de los IED que alimentan el SCADA.",
+   "confidence": "high"
+  },
+  {
+   "activity_id": "ACT09",
+   "accountable": [
+    "DTE/MCO"
+   ],
+   "responsible": [
+    "DTE/MCO"
+   ],
+   "consulted": [
+    "GT/DAS"
+   ],
+   "informed": [
+    "GT/ODC"
+   ],
+   "institutional_ambiguity": false,
+   "alternative_assignments": [],
+   "evidence": [
+    {
+     "source_id": "MCO_2_6",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Supervisar, gestionar y recepcionar la integración de... sistemas y equipos de supervisión y control... al SCADA",
+     "supports": "DTE/MCO es responsable de la recepción e integración al SCADA."
+    }
+   ],
+   "external_principles": [
+    {
+     "source_id": "NIST_CM_01",
+     "claim_type": "BUENA_PRACTICA",
+     "quote": "documentar, probar y aprobar los cambios antes de su despliegue",
+     "supports": "La recepción formal es un hito de aprobación necesario."
+    }
+   ],
+   "reasoning_summary": "DTE/MCO posee la atribución formal de supervisar, gestionar y recepcionar la integración de los sistemas al SCADA, lo cual abarca la aprobación de pruebas de integración de los nuevos activos.",
+   "confidence": "high"
+  },
+  {
+   "activity_id": "ACT12",
+   "accountable": [
+    "GT/ODC"
+   ],
+   "responsible": [
+    "GT/ODC"
+   ],
+   "consulted": [
+    "GT/DAS",
+    "DTE/MCO"
+   ],
+   "informed": [
+    "GT/OP"
+   ],
+   "institutional_ambiguity": false,
+   "alternative_assignments": [],
+   "evidence": [
+    {
+     "source_id": "ODC_2_1",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Supervisar y controlar en tiempo real, la operación eléctrica y energética del sistema de potencia",
+     "supports": "La validación por parte del operador es esencial para la operación segura."
+    }
+   ],
+   "external_principles": [
+    {
+     "source_id": "ERCOT_05",
+     "claim_type": "BUENA_PRACTICA",
+     "quote": "errores solían ser descubiertos por los operadores durante una maniobra",
+     "supports": "La verificación operativa pre-producción es un control necesario."
+    }
+   ],
+   "reasoning_summary": "Como usuario final crítico en tiempo real, GT/ODC debe verificar que los mímicos y el modelo reflejen fielmente la instalación para evitar errores en maniobras. Se consulta a DAS y MCO como desarrolladores.",
+   "confidence": "high"
+  }
+ ]
+}
+
+### PROPUESTA C
+
+{
+ "decisions": [
+  {
+   "activity_id": "ACT02",
+   "accountable": [
+    "GT/DT"
+   ],
+   "responsible": [
+    "GT/TMB"
+   ],
+   "consulted": [
+    "GT/DEL"
+   ],
+   "informed": [
+    "GT/OP"
+   ],
+   "institutional_ambiguity": false,
+   "alternative_assignments": [],
+   "evidence": [
+    {
+     "source_id": "DT_2_2",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Coordinar con otras Unidades los trabajos de mantenimiento preventivo y correctivo de menor envergadura",
+     "supports": "La División de Transmisión coordina la información de sus activos."
+    },
+    {
+     "source_id": "TMB_2_4",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Coordinar y controlar la elaboración de Proyectos de alteraciones provisorias o permanentes en las instalaciones",
+     "supports": "El Departamento de Transmisión controla los proyectos de sus instalaciones."
+    }
+   ],
+   "external_principles": [
+    {
+     "source_id": "PJM_03",
+     "claim_type": "BUENA_PRACTICA",
+     "quote": "validación de la representación por quien origina el dato",
+     "supports": "La unidad responsable del activo certifica la exactitud de sus parámetros."
+    }
+   ],
+   "reasoning_summary": "La División de Transmisión (GT/DT) es la autoridad sobre los activos, y los departamentos (en este caso ejemplificado por TMB) son responsables de los datos técnicos de sus instalaciones.",
+   "confidence": "high"
+  },
+  {
+   "activity_id": "ACT04",
+   "accountable": [
+    "GT/DAS"
+   ],
+   "responsible": [
+    "GT/DAS1"
+   ],
+   "consulted": [
+    "GT/DEL",
+    "GT/DOS"
+   ],
+   "informed": [
+    "GT/ODC"
+   ],
+   "institutional_ambiguity": false,
+   "alternative_assignments": [],
+   "evidence": [
+    {
+     "source_id": "DAS_2_1",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Administrar y gestionar la Base de Datos del Sistema Interconectado Nacional (SIN) obtenidos mediante el Sistema SCADA.",
+     "supports": "GT/DAS tiene la responsabilidad del modelo eléctrico en el SCADA."
+    },
+    {
+     "source_id": "DAS1_2_1",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Diseñar e implementar Base de Datos para almacenar y gestionar datos del SCADA.",
+     "supports": "La Sección Base de Datos ejecuta la construcción del modelo."
+    }
+   ],
+   "external_principles": [
+    {
+     "source_id": "EPRI_NMM_02",
+     "claim_type": "BUENA_PRACTICA",
+     "quote": "modeladores EMS mantienen conectividad y esquemas, con aportes y revisión de especialistas de planificación y protecciones",
+     "supports": "GT/DEL y GT/DOS aportan criterios técnicos para la construcción."
+    }
+   ],
+   "reasoning_summary": "GT/DAS1 construye el modelo basado en la administración de GT/DAS, consultando a las áreas especializadas (estudios eléctricos y operativos) para asegurar la consistencia del modelo eléctrico.",
+   "confidence": "high"
+  },
+  {
+   "activity_id": "ACT06",
+   "accountable": [
+    "DTE/ISC"
+   ],
+   "responsible": [
+    "DTE/MCO"
+   ],
+   "consulted": [
+    "GT/DAS"
+   ],
+   "informed": [
+    "GT/ODC"
+   ],
+   "institutional_ambiguity": false,
+   "alternative_assignments": [],
+   "evidence": [
+    {
+     "source_id": "ISC_2_5",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Ejecutar y supervisar el montaje, instalación, ampliación y puesta en servicio de las tecnologías de operación",
+     "supports": "DTE/ISC tiene la responsabilidad técnica del proyecto de control."
+    },
+    {
+     "source_id": "MCO_2_8",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Administrar y mantener equipos y redes de los sistemas SCADA, EMS, DMS",
+     "supports": "DTE/MCO configura la adquisición y los dispositivos."
+    }
+   ],
+   "external_principles": [
+    {
+     "source_id": "IEC61850_6_01",
+     "claim_type": "BUENA_PRACTICA",
+     "quote": "trazabilidad de la configuración de IED y de la señal desde el campo hasta el centro de control",
+     "supports": "La configuración debe ser coherente entre el sistema de automatización y el centro de control."
+    }
+   ],
+   "reasoning_summary": "DTE/ISC diseña e implementa el proyecto, mientras que DTE/MCO ejecuta la configuración de los sistemas de adquisición y comunicaciones, integrando la telemetría en el SCADA.",
+   "confidence": "high"
+  },
+  {
+   "activity_id": "ACT09",
+   "accountable": [
+    "DTE/ISC"
+   ],
+   "responsible": [
+    "DTE/ISC2"
+   ],
+   "consulted": [
+    "GT/ODC",
+    "GT/DAS"
+   ],
+   "informed": [
+    "GT/OP"
+   ],
+   "institutional_ambiguity": false,
+   "alternative_assignments": [],
+   "evidence": [
+    {
+     "source_id": "ISC2_2_3",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Efectuar, analizar y aprobar pruebas de aceptación de fábrica (FAT) y de aceptación del sitio (SAT)",
+     "supports": "DTE/ISC2 es el responsable de ejecutar las pruebas de aceptación."
+    }
+   ],
+   "external_principles": [
+    {
+     "source_id": "NIST_CM_01",
+     "claim_type": "BUENA_PRACTICA",
+     "quote": "documentar, probar y aprobar los cambios antes de su despliegue",
+     "supports": "Separación de roles entre quien prueba (DTE/ISC) y quien opera."
+    }
+   ],
+   "reasoning_summary": "DTE/ISC2 es la sección técnica encargada de realizar las pruebas FAT/SAT. DTE/ISC es el área técnica superior responsable de la aprobación, con consulta a las áreas operativas.",
+   "confidence": "high"
+  },
+  {
+   "activity_id": "ACT12",
+   "accountable": [
+    "GT/OP"
+   ],
+   "responsible": [
+    "GT/DAS"
+   ],
+   "consulted": [
+    "GT/ODC",
+    "GT/DT"
+   ],
+   "informed": [],
+   "institutional_ambiguity": false,
+   "alternative_assignments": [],
+   "evidence": [
+    {
+     "source_id": "OP_2_1",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Planificar y controlar, a mediano plazo, la operación del Sistema",
+     "supports": "La División de Operación tiene la autoridad final para el control del sistema."
+    },
+    {
+     "source_id": "ODC_2_1",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Supervisar y controlar en tiempo real, la operación eléctrica y energética",
+     "supports": "ODC necesita verificar que el modelo en tiempo real es correcto."
+    }
+   ],
+   "external_principles": [
+    {
+     "source_id": "ERCOT_04",
+     "claim_type": "BUENA_PRACTICA",
+     "quote": "participación de quien conoce la instalación física en la verificación de su representación",
+     "supports": "GT/DT debe ser consultado en la verificación de la representación física."
+    }
+   ],
+   "reasoning_summary": "GT/OP (División de Operación) es la responsable final de la integridad operacional. GT/DAS realiza la verificación y puesta en producción del modelo, con la validación de ODC y los departamentos de Transmisión (DT).",
+   "confidence": "medium"
+  }
+ ]
+}
+
+### PROPUESTA D
+
+{
+ "decisions": [
+  {
+   "activity_id": "ACT02",
+   "accountable": [
+    "DTE/ISC"
+   ],
+   "responsible": [
+    "GT/TMB",
+    "GT/TES",
+    "GT/TSU",
+    "GT/TCE",
+    "GT/NAC"
+   ],
+   "consulted": [
+    "GT/DEL"
+   ],
+   "informed": [
+    "GT/ODC"
+   ],
+   "institutional_ambiguity": true,
+   "alternative_assignments": [
+    {
+     "accountable": [
+      "GT/DT"
+     ],
+     "rationale": "La División de Transmisión podría centralizar la certificación de los datos de todas sus subestaciones dependientes antes de ser entregados a las unidades de control."
+    }
+   ],
+   "evidence": [
+    {
+     "source_id": "ISC_2_9",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Estudiar y desarrollar normas y especificaciones técnicas de todo lo relacionado con las tecnologías de operación.",
+     "supports": "Establece la autoridad técnica del DTE/ISC sobre los parámetros necesarios para la operación."
+    },
+    {
+     "source_id": "TMB_2_5",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Coordinar y controlar la elaboración de Instrucciones Técnicas para operación y ejecución de ensayos de equipos.",
+     "supports": "La responsabilidad sobre los datos físicos y ensayos recae en la unidad de transmisión correspondiente."
+    }
+   ],
+   "external_principles": [
+    {
+     "source_id": "PJM_01",
+     "claim_type": "BUENA_PRACTICA",
+     "quote": "El representante de cada propietario de transmisión ante el subcomité de operación responde por la información del modelo de su sistema.",
+     "supports": "Principio de que quien conoce la instalación es responsable de la exactitud de sus datos."
+    }
+   ],
+   "reasoning_summary": "Existe ambigüedad institucional sobre qué unidad de transmisión (regional) certifica los datos finales, aunque la responsabilidad técnica recae en ellas. DTE/ISC, al ser responsable de las tecnologías de operación, debe certificar que los datos cumplen las especificaciones de entrada para el sistema.",
+   "confidence": "medium"
+  },
+  {
+   "activity_id": "ACT04",
+   "accountable": [
+    "GT/DAS"
+   ],
+   "responsible": [
+    "GT/DAS1"
+   ],
+   "consulted": [
+    "GT/DEL",
+    "DTE/ISC"
+   ],
+   "informed": [
+    "GT/ODC"
+   ],
+   "institutional_ambiguity": false,
+   "alternative_assignments": [],
+   "evidence": [
+    {
+     "source_id": "DAS1_2_1",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Diseñar e implementar Base de Datos para almacenar y gestionar datos del SCADA.",
+     "supports": "Responsabilidad directa en la construcción del modelo en la base de datos."
+    },
+    {
+     "source_id": "DAS_2_1",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Administrar y gestionar la Base de Datos del Sistema Interconectado Nacional (SIN) obtenidos mediante el Sistema SCADA.",
+     "supports": "Responsabilidad final del Departamento de Administración del SCADA/EMS sobre el modelo."
+    }
+   ],
+   "external_principles": [
+    {
+     "source_id": "EPRI_NMM_02",
+     "claim_type": "BUENA_PRACTICA",
+     "quote": "modeladores EMS mantienen conectividad y esquemas, con aportes y revisión de especialistas de planificación y protecciones.",
+     "supports": "Justifica el rol de los especialistas (DEL/ISC) en la consulta durante la construcción."
+    }
+   ],
+   "reasoning_summary": "La construcción del modelo eléctrico en la base de datos es una atribución documentada del GT/DAS y específicamente de su sección de BD (GT/DAS1). La participación de DEL e ISC en la consulta asegura la calidad técnica.",
+   "confidence": "high"
+  },
+  {
+   "activity_id": "ACT06",
+   "accountable": [
+    "DTE/ISC"
+   ],
+   "responsible": [
+    "DTE/ISC2"
+   ],
+   "consulted": [
+    "GT/DAS2",
+    "GT/DAS1"
+   ],
+   "informed": [
+    "GT/ODC"
+   ],
+   "institutional_ambiguity": false,
+   "alternative_assignments": [],
+   "evidence": [
+    {
+     "source_id": "ISC2_2_1",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Realizar o supervisar trabajos relacionados al montaje, instalación, ampliación y puesta en servicio de los equipos y sistemas de supervisión...",
+     "supports": "Atribución explícita sobre la puesta en servicio y configuración de sistemas de control."
+    },
+    {
+     "source_id": "MCO_2_8",
+     "claim_type": "INFERIDO",
+     "quote": "Administrar y mantener equipos y redes de los sistemas SCADA, EMS, DMS y de automatización...",
+     "supports": "Indica competencias en la integración de redes de operación."
+    }
+   ],
+   "external_principles": [
+    {
+     "source_id": "IEC61850_6_01",
+     "claim_type": "BUENA_PRACTICA",
+     "quote": "La Parte 6 define el lenguaje de descripción de configuración (SCL) para el intercambio entre herramientas de ingeniería...",
+     "supports": "Sustenta la necesidad de coordinación entre los sistemas de automatización (ISC2) y la base de datos SCADA."
+    }
+   ],
+   "reasoning_summary": "La configuración de la adquisición y comunicaciones es una tarea de campo e integración de sistemas. DTE/ISC2 tiene la atribución formal de realizar o supervisar estas tareas, coordinando con el equipo de base de datos (DAS) para el mapeo señal-modelo.",
+   "confidence": "high"
+  },
+  {
+   "activity_id": "ACT09",
+   "accountable": [
+    "DTE/ISC"
+   ],
+   "responsible": [
+    "DTE/ISC2"
+   ],
+   "consulted": [
+    "GT/DAS",
+    "GT/ODC"
+   ],
+   "informed": [
+    "GERENCIA_TECNICA"
+   ],
+   "institutional_ambiguity": false,
+   "alternative_assignments": [],
+   "evidence": [
+    {
+     "source_id": "ISC2_2_3",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Efectuar, analizar y aprobar pruebas de aceptación de fábrica (FAT) y de aceptación del sitio (SAT) de los equipos y sistemas de tecnologías de operación",
+     "supports": "Atribución directa para la aprobación de las pruebas."
+    }
+   ],
+   "external_principles": [
+    {
+     "source_id": "NIST_CM_01",
+     "claim_type": "BUENA_PRACTICA",
+     "quote": "documentar, probar y aprobar los cambios antes de su despliegue",
+     "supports": "Refuerza la necesidad de formalizar la aprobación de FAT/SAT."
+    }
+   ],
+   "reasoning_summary": "DTE/ISC2 tiene la competencia documentada para efectuar, analizar y aprobar las pruebas FAT y SAT, por lo que es responsable, bajo la rendición de cuentas (Accountable) de DTE/ISC.",
+   "confidence": "high"
+  },
+  {
+   "activity_id": "ACT12",
+   "accountable": [
+    "GT/ODC"
+   ],
+   "responsible": [
+    "DTE/ISC2"
+   ],
+   "consulted": [
+    "GT/DAS",
+    "GT/TMB",
+    "GT/TES",
+    "GT/TSU",
+    "GT/TCE",
+    "GT/NAC"
+   ],
+   "informed": [
+    "GT/OP"
+   ],
+   "institutional_ambiguity": false,
+   "alternative_assignments": [],
+   "evidence": [
+    {
+     "source_id": "ODC_2_1",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Supervisar y controlar en tiempo real, la operación eléctrica y energética del sistema de potencia mediante el monitoreo de los parámetros eléctricos",
+     "supports": "Responsabilidad final sobre la validez de la información recibida para la operación."
+    },
+    {
+     "source_id": "ISC2_2_4",
+     "claim_type": "DOCUMENTADO",
+     "quote": "Verificar de acuerdo a estándares internacionales y normas de ANDE, la correcta implementación y puesta en servicio de los equipos y sistemas de tecnologías de operación.",
+     "supports": "Responsabilidad en la ejecución de la verificación técnica."
+    }
+   ],
+   "external_principles": [
+    {
+     "source_id": "ERCOT_05",
+     "claim_type": "BUENA_PRACTICA",
+     "quote": "omisión de cambios y errores solían ser descubiertos por los operadores durante una maniobra.",
+     "supports": "Valida la importancia de la verificación final con la unidad de operación."
+    }
+   ],
+   "reasoning_summary": "DTE/ISC2 ejecuta la verificación técnica (puesta en servicio), mientras que GT/ODC (quien opera el sistema) es Accountable, ya que cualquier error de correspondencia afecta la seguridad operativa bajo su responsabilidad.",
+   "confidence": "high"
+  }
+ ]
+}

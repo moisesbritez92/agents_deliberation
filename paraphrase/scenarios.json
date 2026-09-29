@@ -1,0 +1,235 @@
+[
+  {
+    "scenario_id": "S01",
+    "title": "Incorporación de una nueva subestación de 220 kV",
+    "technical_description": "Entra en servicio una subestación nueva de 220 kV con dos líneas de entrada, dos transformadores 220/23 kV y seis alimentadores. La subestación dispone de un sistema de automatización con IED y una RTU que se comunica con el centro de control mediante IEC 60870-5-104. Deben incorporarse al SCADA/EMS los equipos, su conectividad, sus parámetros eléctricos, unas 900 señales y los mímicos de la instalación, antes de la energización programada. La energización está programada dentro de 15 días hábiles; la base debe estar actualizada y probada antes de esa fecha.",
+    "objects_affected": [
+      "modelo eléctrico",
+      "telemetría y telecontrol",
+      "comunicaciones",
+      "mímicos",
+      "aplicaciones EMS"
+    ],
+    "phase": "requisito a aceptación",
+    "risk": "Una representación errónea de la conectividad o de las señales puede producir un estado estimado incorrecto y maniobras basadas en información falsa desde la primera energización.",
+    "available_evidence": [
+      "diagrama unifilar oficial de la instalación en PDF",
+      "parámetros eléctricos de líneas y transformadores",
+      "lista de señales del proyecto",
+      "informes de pruebas FAT del sistema de automatización"
+    ],
+    "activities": [
+      "ACT02",
+      "ACT04",
+      "ACT06",
+      "ACT09",
+      "ACT12"
+    ]
+  },
+  {
+    "scenario_id": "S02",
+    "title": "Actualización de parámetros de una línea por recapacitación",
+    "technical_description": "Una línea de transmisión de 220 kV existente fue recapacitada con un conductor de mayor sección. Cambian su impedancia, sus límites térmicos de régimen normal y de emergencia y sus ajustes de protección. La topología no cambia. Los nuevos valores deben reflejarse en el modelo eléctrico usado por el estimador de estado, el flujo de potencia y el análisis de contingencias. Los nuevos valores constan en el informe técnico de la obra de recapacitación y en el estudio de límites operativos de la línea.",
+    "objects_affected": [
+      "modelo eléctrico (parámetros y límites)",
+      "aplicaciones EMS"
+    ],
+    "phase": "requisito a prueba",
+    "risk": "Límites o impedancias incorrectos producen violaciones no detectadas o alarmas falsas en el análisis de contingencias y degradan el estimador de estado.",
+    "available_evidence": [
+      "informe técnico de la recapacitación con los nuevos parámetros",
+      "estudio de límites operativos de la línea"
+    ],
+    "activities": [
+      "ACT02",
+      "ACT04",
+      "ACT05",
+      "ACT11"
+    ]
+  },
+  {
+    "scenario_id": "S03",
+    "title": "Incorporación de nuevas telemetrías en una subestación existente",
+    "technical_description": "En una subestación en servicio se instalan medidores e IED nuevos en tres bahías que antes no tenían medición de potencia reactiva ni de corriente. Se agregan unas 60 señales analógicas y 40 digitales, incluidas alarmas nuevas. No cambia la topología eléctrica.",
+    "objects_affected": [
+      "telemetría y telecontrol",
+      "comunicaciones",
+      "alarmas",
+      "mímicos"
+    ],
+    "phase": "construcción a aceptación",
+    "risk": "Señales asociadas a un equipo o a una bahía equivocados, o alarmas mal clasificadas, pueden inducir errores del operador y del estimador.",
+    "available_evidence": [
+      "lista de señales nuevas",
+      "configuración de los IED",
+      "protocolo de pruebas punto a punto"
+    ],
+    "activities": [
+      "ACT06",
+      "ACT07",
+      "ACT09",
+      "ACT13"
+    ]
+  },
+  {
+    "scenario_id": "S04",
+    "title": "Corrección de escalas y correspondencias señal-modelo erróneas",
+    "technical_description": "El estimador de estado presenta residuos persistentes en una zona. El análisis revela que dos mediciones de potencia activa tienen una escala incorrecta y que una medición de tensión está asociada a una barra distinta de la real. El error existe en producción desde una actualización anterior. Se requiere corregir las escalas y la asociación de la medición en la base de producción, registrar la causa del error y verificar el resultado.",
+    "objects_affected": [
+      "telemetría (escalas y correspondencia)",
+      "modelo eléctrico (asociación de mediciones)",
+      "aplicaciones EMS"
+    ],
+    "phase": "operación a registro",
+    "risk": "Estimaciones sesgadas en una zona afectan las decisiones de despacho; corregir sin registro deja sin explicar la divergencia entre versiones.",
+    "available_evidence": [
+      "registros del estimador de estado con residuos",
+      "lista de señales vigente",
+      "historial de la actualización anterior"
+    ],
+    "activities": [
+      "ACT06",
+      "ACT11",
+      "ACT17",
+      "ACT18"
+    ]
+  },
+  {
+    "scenario_id": "S05",
+    "title": "Actualización del enlace ICCP/TASE.2 con un centro de control externo",
+    "technical_description": "Un centro de control de una entidad binacional interconectada modifica el conjunto de datos que intercambia mediante ICCP/TASE.2: agrega mediciones de generación, retira puntos obsoletos y cambia la nomenclatura de algunos objetos. El cambio debe coordinarse en una fecha acordada con la contraparte.",
+    "objects_affected": [
+      "comunicaciones (ICCP/TASE.2)",
+      "telemetría externa",
+      "modelo eléctrico (equivalentes externos)"
+    ],
+    "phase": "requisito a despliegue",
+    "risk": "La pérdida temporal de datos de intercambio afecta la supervisión de las interconexiones y la coordinación de la generación.",
+    "available_evidence": [
+      "notificación técnica de la contraparte con la nueva lista de puntos",
+      "acuerdo bilateral de intercambio de datos"
+    ],
+    "activities": [
+      "ACT01",
+      "ACT06",
+      "ACT09",
+      "ACT15"
+    ]
+  },
+  {
+    "scenario_id": "S06",
+    "title": "Modificación topológica por seccionamiento de barra",
+    "technical_description": "En una subestación existente se agrega un interruptor de acoplamiento que secciona una barra simple en dos semibarras, y se reasignan bahías entre ellas. Cambian la conectividad, la nomenclatura de equipos y los mímicos de la instalación. El nuevo interruptor de acoplamiento dispone de señalización de estado (abierto/cerrado) y de mando remoto.",
+    "objects_affected": [
+      "modelo eléctrico (conectividad y nomenclatura)",
+      "procesamiento de topología",
+      "mímicos",
+      "telemetría y telecontrol"
+    ],
+    "phase": "requisito a aceptación",
+    "risk": "Un error de conectividad produce islas o nodos flotantes en la topología procesada y mímicos que no representan la instalación real.",
+    "available_evidence": [
+      "diagrama unifilar oficial revisado en PDF",
+      "lista de equipos y nomenclatura nueva"
+    ],
+    "activities": [
+      "ACT03",
+      "ACT04",
+      "ACT05",
+      "ACT12",
+      "ACT13"
+    ]
+  },
+  {
+    "scenario_id": "S07",
+    "title": "Actualización de una aplicación EMS por parche del fabricante",
+    "technical_description": "El fabricante entrega un parche del estimador de estado y del análisis de contingencias que corrige un defecto de convergencia y modifica parámetros de configuración por defecto. El parche requiere reiniciar servicios de aplicación en los servidores EMS.",
+    "objects_affected": [
+      "aplicaciones EMS",
+      "plataforma técnica"
+    ],
+    "phase": "construcción a liberación",
+    "risk": "Un cambio de comportamiento del estimador o de las contingencias puede pasar inadvertido y afectar la seguridad operativa; el reinicio implica indisponibilidad temporal de funciones.",
+    "available_evidence": [
+      "notas de versión del fabricante",
+      "resultados de pruebas en el ambiente de pruebas"
+    ],
+    "activities": [
+      "ACT10",
+      "ACT11",
+      "ACT14",
+      "ACT19"
+    ]
+  },
+  {
+    "scenario_id": "S08",
+    "title": "Despliegue productivo de una versión acumulada de la base",
+    "technical_description": "Se dispone de una versión de la base SCADA/EMS que acumula los cambios de varias semanas (instalaciones nuevas, parámetros y señales), ya construida y probada en el ambiente de pruebas. Debe generarse el paquete de implementación y cargarse en los servidores de producción del centro de control.",
+    "objects_affected": [
+      "base integrada",
+      "plataforma técnica",
+      "todas las funciones SCADA/EMS"
+    ],
+    "phase": "integración a despliegue",
+    "risk": "La carga implica conmutación de servidores y riesgo de pérdida de supervisión durante la intervención.",
+    "available_evidence": [
+      "registro de cambios incluidos en la versión",
+      "resultados de pruebas en el ambiente de pruebas",
+      "respaldo de la versión vigente"
+    ],
+    "activities": [
+      "ACT08",
+      "ACT14",
+      "ACT15",
+      "ACT16"
+    ]
+  },
+  {
+    "scenario_id": "S09",
+    "title": "Fallo posterior al despliegue",
+    "technical_description": "Dos horas después de cargar una nueva versión, el estimador de estado deja de converger de forma intermitente y una zona pierde visibilidad parcial en los mímicos. No hay contingencia eléctrica en curso. Existe el respaldo de la versión anterior. La zona afectada incluye transformadores cuya carga se supervisa mediante el análisis de contingencias, que depende de la solución del estimador de estado.",
+    "objects_affected": [
+      "base integrada",
+      "aplicaciones EMS",
+      "mímicos",
+      "plataforma técnica"
+    ],
+    "phase": "operación",
+    "risk": "Supervisión degradada del sistema interconectado mientras se decide entre corregir en caliente o volver a la versión anterior.",
+    "available_evidence": [
+      "registros del estimador",
+      "registro de la carga realizada",
+      "respaldo de la versión anterior"
+    ],
+    "activities": [
+      "ACT15",
+      "ACT18",
+      "ACT19",
+      "ACT20"
+    ]
+  },
+  {
+    "scenario_id": "S10",
+    "title": "Cambio urgente durante una contingencia",
+    "technical_description": "Tras la salida forzada de una línea, se instala un puente provisorio que conecta dos bahías de forma no prevista en el modelo. El sistema opera en estado de alerta y el modelo no representa la configuración real, por lo que el estimador y el análisis de contingencias dan resultados erróneos. Se requiere un cambio provisorio en horas, fuera del calendario habitual. Se dispone de un ambiente de simulación fuera de línea con una copia del modelo vigente.",
+    "objects_affected": [
+      "modelo eléctrico (conectividad provisoria)",
+      "mímicos",
+      "aplicaciones EMS",
+      "plataforma técnica"
+    ],
+    "phase": "requisito a operación, en emergencia",
+    "risk": "Operar con un modelo que no representa la red durante una contingencia; a la vez, un cambio apresurado sin pruebas puede agravar la situación.",
+    "available_evidence": [
+      "orden de maniobra de la configuración provisoria",
+      "croquis provisorio de la conexión"
+    ],
+    "activities": [
+      "ACT01",
+      "ACT14",
+      "ACT15",
+      "ACT16",
+      "ACT20"
+    ]
+  }
+]

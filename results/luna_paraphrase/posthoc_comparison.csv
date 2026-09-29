@@ -1,0 +1,21 @@
+activity_id,activity,REFERENCE_A,match_individual_especializados_f1,n_individual_especializados_f1,match_neutral_f1,n_neutral_f1,match_post_debate_f2,n_post_debate_f2,match_control_sin_debate_f2c,n_control_sin_debate_f2c,match_arbitro_f3,n_arbitro_f3
+ACT01,Definir el requisito y el alcance del cambio,DAS,0.625,24,0.6666666666666666,6,0.6666666666666666,24,0.625,24,0.8333333333333334,6
+ACT02,Certificar los datos de la instalación (configuración física y parámetros),ORIGIN,0.9583333333333334,24,1.0,6,0.9583333333333334,24,1.0,24,0.8333333333333334,6
+ACT03,"Especificar y aceptar la semántica del modelo (nomenclatura, identificadores, representación)",DAS,0.8333333333333334,12,1.0,3,1.0,12,0.8333333333333334,12,1.0,3
+ACT04,"Construir o actualizar el modelo eléctrico (topología, conectividad, parámetros)",DAS,1.0,36,1.0,9,1.0,36,1.0,36,1.0,9
+ACT05,Revisar la calidad topológica y de nomenclatura del modelo construido,ISC,0.0,24,0.0,6,0.0,24,0.0,24,0.0,6
+ACT06,"Configurar la adquisición, la correspondencia señal-modelo y las comunicaciones",ISC,0.08333333333333333,48,0.08333333333333333,12,0.125,48,0.10416666666666667,48,0.08333333333333333,12
+ACT07,Unificar modelo y adquisición en la base integrada,ISC,0.3333333333333333,12,0.0,3,0.6666666666666666,12,0.5,12,0.6666666666666666,3
+ACT08,Preparar el paquete de implementación,ISC,0.0,12,0.0,3,0.0,12,0.0,12,0.0,3
+ACT09,Aprobar las pruebas FAT/SAT y de integración,ISC,0.9444444444444444,36,1.0,9,0.9722222222222222,36,0.9166666666666666,36,1.0,9
+ACT10,Administrar y actualizar los aplicativos EMS,DAS,1.0,12,1.0,3,1.0,12,1.0,12,1.0,3
+ACT11,"Validar el estimador de estado, el flujo de potencia y demás aplicaciones",DAS,1.0,36,1.0,9,1.0,36,0.9722222222222222,36,1.0,9
+ACT12,Verificar la correspondencia de mímicos y modelo con la instalación física,ORIGIN,0.041666666666666664,24,0.16666666666666666,6,0.0,24,0.041666666666666664,24,0.0,6
+ACT13,"Aceptar mímicos, alarmas y el uso operativo",ODC,0.9583333333333334,24,0.6666666666666666,6,1.0,24,0.9583333333333334,24,1.0,6
+ACT14,Autorizar la liberación de la versión a producción,NEW_AUTHORITY,0.3055555555555556,36,0.5555555555555556,9,0.4444444444444444,36,0.2222222222222222,36,0.3333333333333333,9
+ACT15,Habilitar o suspender la ventana de intervención en tiempo real,ODC,1.0,48,1.0,12,1.0,48,1.0,48,1.0,12
+ACT16,Ejecutar el respaldo y la carga en producción,MCO,0.20833333333333334,24,0.0,6,0.20833333333333334,24,0.2916666666666667,24,0.3333333333333333,6
+ACT17,Mantener el registro técnico de configuración,ISC,0.3333333333333333,12,0.0,3,0.3333333333333333,12,0.3333333333333333,12,0.3333333333333333,3
+ACT18,Verificar el sistema después de la actualización y cerrar el cambio,DAS,0.875,24,1.0,6,1.0,24,0.9583333333333334,24,1.0,6
+ACT19,Aprobar los criterios de reversión y su delegación,NEW_AUTHORITY,0.625,24,0.8333333333333334,6,0.7916666666666666,24,0.4166666666666667,24,0.8333333333333334,6
+ACT20,Ejecutar la reversión,MCO,0.041666666666666664,24,0.0,6,0.0,24,0.08333333333333333,24,0.0,6

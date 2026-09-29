@@ -1,0 +1,1928 @@
+ 
+ GRID 
+Network Management Solutions 
+ 
+Network Optimization 
+Student Workbook 
+ 
+This document is the student workbook for the Network Optimization 
+course.  It is designed for customers who have e-terrahabitat 5.8 and 
+e-terraplatform 2.6. 
+ 
+Software Version: e-terrahabitat 5.8 
+ e-terra platform 2.6 
+Software Release Date: November 2010 
+Revision Date: July 2012 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Alstom Grid Inc. 
+Redmond, Washington USA 
+ 
+ 
+Copyright and Proprietary Information 
+ 
+Copyright © 2013 ALSTOM Grid Inc. or Affiliate. All Rights Reserved. 
+ 
+NOTE: CONTAINS PROPRIETARY INFORMATION OWNED BY ALSTOM GRID INC. AND/OR 
+ITS AFFILIATES. DO NOT COPY, STORE IN A RETRIEVAL SYSTEM, TRANSMIT OR 
+DISCLOSE TO ANY THIRD PARTY WITHOUT PRIOR WRITTEN PERMISSION FROM 
+ALSTOM GRID INC. 
+__________________________________________________________________ 
+ 
+Trademarks 
+ 
+“ESCA” and “HABITAT” are registered trademarks of ALSTOM Grid Inc. “eterra” is a registered 
+trademark and/or service mark of E-Terra, LLC, licensed for use by ALSTOM Grid Inc. in 
+connection with its e-terra family of products and services. 
+ 
+Other product and company names in these materials may be trademarks or registered 
+trademarks of other companies, and are the property of their respective owners. They are used 
+only for explanation and to the respective owners’ benefit, without intent to infringe. 
+ 
+ 
+ 
+ 
+ 
+Contents 
+ 
+ 
+ 
+Module 1: Security Enhancement
+Security Enhancement...................................................................................................... 1-1
+Security Enhancement overview....................................................................................... 1-2
+Terminology : Limits and constraints................................................................................ 1-3
+Linear Programming (LP) - Didactic example................................................................... 1-4
+Security Enhancement   Inputs  and  Outputs.................................................................. 1-5
+Initializing Security Enhancement   with data.................................................................... 1-6
+SENH (Security Enhancement) Control features.............................................................. 1-7
+SENH (Security Enhancement) Dedicated control group types........................................ 1-8
+SENH : Control groups types and control groups............................................................. 1-9
+Activating controls............................................................................................................. 1-10
+Control Group activation................................................................................................... 1-11
+Activating / enforcing constraints...................................................................................... 1-12
+Monitored Group Enforcement.......................................................................................... 1-13
+Individual Limits data definition......................................................................................... 1-14
+SENH : Summary of the optimization problem definition.................................................. 1-15
+Security Enhancement solution process........................................................................... 1-16
+Functions in the online network sequence........................................................................ 1-17
+Using Security Enhancement to perform Constrained Dispatch (base case) .................. 1-18
+Using Security Enhancement to perform Constrained Dispatch....................................... 1-19
+Using Security Enhancement to perform Constrained Dispatch ...................................... 1-20
+Viewing Security Enhancement results............................................................................. 1-21
+Security Enhancement...................................................................................................... 1-22
+Lab: Enhancing Network Security Using STSENH........................................................... 1-23
+Objectives................................................................................................................... 1-23
+Task 1: Initialize STSENH with Data.......................................................................... 1-23
+ 
+ 
+ 
+Contents 
+ 
+ 
+ 
+Task 2: Create a Room Convenient for STSENH Use............................................... 1-24
+Task 3: Perform Constrained Dispatch (Find Feasible Basecase Solution)............... 1-24
+Task 4: Disable Constraints from Enforcement.......................................................... 1-25
+Task 5: Disable a Group of Controls.......................................................................... 1-27
+Task 6: Restrict one Control Variable......................................................................... 1-28
+Task 7: Use Security Enhancement for Contingency Planning.................................. 1-28
+Summary.................................................................................................................... 1-29
+Module 2: Basic Features of OPF and VVD
+Basic Features of OPF and VVD...................................................................................... 2-1
+Terminology : Limits and constraints................................................................................ 2-2
+Definition of OPF............................................................................................................... 2-3
+Example of a cost curve.................................................................................................... 2-4
+Initializing OPF.................................................................................................................. 2-5
+Optimal Power Flow master display.................................................................................. 2-6
+Optimal Power Flow in STNET application....................................................................... 2-7
+Volatge-Var Dispatch master display................................................................................ 2-8
+Activating an Objective Function....................................................................................... 2-9
+Activating controls............................................................................................................. 2-10
+OPF : Changing control limits........................................................................................... 2-11
+OPF initial and final generations....................................................................................... 2-12
+OPF : Activating / Enforcing constraints........................................................................... 2-13
+OPF : Changing individual limits....................................................................................... 2-14
+OPF options: global enforcement flags............................................................................. 2-15
+OPF options: global regulation flags................................................................................. 2-16
+Optimization versus regulation in OPF  ........................................................................... 2-17
+Running  an Optimal Power Flow Solution....................................................................... 2-18
+ 
+ 
+ 
+Contents 
+ 
+ 
+ 
+Running an Optimal Power Flow Solution with STNET.................................................... 2-19
+OPF : Analyzing control recommendations....................................................................... 2-20
+Optimal Power Flow (OPF)............................................................................................... 2-21
+Lab 1: Initialize OPF.......................................................................................................... 2-22
+Task............................................................................................................................ 2-22
+Lab 2: Optimal Power Flow Background........................................................................... 2-23
+1.1 Optimization Problems......................................................................................... 2-23
+1.2 The Optimal Power Flow (OPF) Problem............................................................. 2-23
+1.2.1 OPF Objective Function.............................................................................. 2-23
+1.2.2 OPF Controls.............................................................................................. 2-24
+1.2.3 OPF Constraints......................................................................................... 2-24
+1.2.3.1 Equality Constraints and Regulations................................................ 2-24
+1.2.3.2 Inequality Constraints........................................................................ 2-25
+1.2.3.2.1 Monitored Constraints.............................................................. 2-25
+1.2.3.2.2 Enforced Constraints................................................................ 2-25
+1.2.4 Summary of OPF Controls and Constraints................................................ 2-26
+Lab 3: Using Optimal Power Flow..................................................................................... 2-27
+Task 1: Solve a Simple Powerflow Problem Using OPF............................................ 2-27
+Task 2: Solve a MW Loss Minimization Problem....................................................... 2-28
+Task 3: A Feasible Solution with Minimal Control Change......................................... 2-29
+Task 4: Reduce a Branch Flow.................................................................................. 2-29
+Summary.................................................................................................................... 2-30
+Lab 4: Using Voltage-Var Dispatch................................................................................... 2-31
+Module 3: OPF Advanced Features
+OPF Advanced Features.................................................................................................. 3-1
+OPF features..................................................................................................................... 3-2
+ 
+ 
+ 
+Contents 
+ 
+ 
+ 
+Defining Available Controls............................................................................................... 3-3
+Defining Control Groups in Control Group Types............................................................. 3-4
+Assigning a Control to a Control Group (1)....................................................................... 3-5
+Assigning a Control to a Control Group (2)....................................................................... 3-6
+Defining Control Cost Curves and Cost Curve Groups..................................................... 3-7
+Defining Control Cost Curves........................................................................................... 3-8
+Absolute and Relative Cost Curves.................................................................................. 3-9
+Assign a Cost Curve to a Control (1)................................................................................ 3-10
+Assign a Cost Curve to a Control (2)................................................................................ 3-11
+Defining an Objective Function Overview......................................................................... 3-12
+Objective Function Definition (1)....................................................................................... 3-13
+Objective Function Definition (2)....................................................................................... 3-14
+Optimal Power Flow (OPF)............................................................................................... 3-15
+Lab 1: OPF Problem Summary......................................................................................... 3-16
+Objective..................................................................................................................... 3-16
+Task: Retrieve the OPF savecase titled TRAIN_OPF_PROBLEM_DEFINITION...... 3-16
+1.1 OPF Problem Definition Logic.............................................................................. 3-16
+1.1.1 Controls....................................................................................................... 3-17
+1.1.1.1 Control Availability............................................................................. 3-17
+1.1.1.2 Control assignment to Control Group(s)............................................ 3-17
+1.1.2 Cost Curves................................................................................................ 3-17
+1.1.2.1 Defining Cost Curves in Cost Curve Groups..................................... 3-17
+1.1.2.2 Assigning Cost Curves to Controls.................................................... 3-18
+1.1.3 Objective Functions.................................................................................... 3-18
+1.2 Summary of the OPF Problem Definition Elements............................................. 3-19
+1.3 OPF: Mapping Problem Definition Elements........................................................ 3-19
+ 
+ 
+ 
+Contents 
+ 
+ 
+ 
+Lab 2: Modifying the Problem Definition........................................................................... 3-21
+Task 1: Define New Controls...................................................................................... 3-21
+Task 2: Define New Control Groups........................................................................... 3-22
+Task 3: Define New Cost Curves for the New Controls.............................................. 3-22
+Task 4: Define a New Objective Function.................................................................. 3-23
+Summary.................................................................................................................... 3-24
+Introduction to e-terrahabitat  
+Document Conventions 
+The following conventions are used throughout this document. 
+ 
+Pull-down menu A greater-than symbol ( > ) and italics are used to 
+indicate pull-down menu paths. 
+For example: 
+     Analyst Displays>Mode Modeling>Mode Directory 
+ 
+Soft keys or 
+buttons on a 
+display 
+Bold formatting is applied to indicate a selectable point. 
+For example: 
+     Apply 
+ 
+Physical key on 
+the keyboard 
+A box is placed around the text that appears on the 
+actual key on the keyboard. 
+For example: 
+     Enter 
+ 
+Text to be entered 
+verbatim by the 
+student, or 
+examples of code 
+The code example style is used, which applies the 
+monospaced font “Courier New.” 
+For example: 
+     Host: PC1392 
+     Account: Student1 
+     Password: escatrain 
+ 
+< > Text enclosed in angle brackets ( < > ) indicates 
+information you must supply. 
+ 
+[ ] Square brackets ( [ ] ) indicate optional qualifiers, 
+arguments, or data. 
+ 
+ 
+ Proprietary – See Copyright Page 
+ Student Workbook 
+Proprietary – See Copyright Page
+Security Enhancement
+1-1
+Network Optimization 
+Network Optimization | Security Enhancement | 1
+Security Enhancement
+Security Enhancement overview
+Security Enhancement input and output
+Security Enhancement solution process
+Using Security Enhancement to perform network 
+constrained dispatch
+Initialize Security Enhancement with data
+Running Security Enhancement study
+LAB : Running Security Enhancement study: 
+− For constrained dispatch
+− To plan for contingencies
+TopicsTopics
+Proprietary – See Copyright Page
+Security Enhancement
+1-2
+Network Optimization 
+Network Optimization | Security Enhancement | 2
+Security Enhancement overview
+Security  Enhancement  looks for control changes in order to improve the security 
+and the economics of  the power system:
+− For  the basecase  network state (current  or  postulated) 
+− For  contingent  network states.
+A  feasible state is a network solution in which all components  operate within their 
+limits
+An optimal state is a feasible state for which the operating cost  has been reduced to 
+a  minimum
+ Can networkCan network securitysecurity be improved?be improved?
+ Can operatingCan operating costscosts be  reduced?be  reduced?
+MW
+MVAr
+kV
+TAP
+MW
+MVAr
+MW
+MVAr
+MW
+MVAr
+G
+G
+Load
+Proprietary – See Copyright Page
+Security Enhancement
+1-3
+Network Optimization 
+Network Optimization | Security Enhancement | 3
+Terminology : Limits and constraints
+Minimize    J = J ( x, u )                        J  =  cost-objective  function
+− u  =  control  variable   ( decision  variable )
+− x  =   resulting  vector  of  state  variables
+Subject  to  the   following  constraints:
+− h ( x , u )  =  0 equality  constraints
+− y_min     <      y = y (x)      <     y_max inequality  constraints
+− Constraints  define  the  ‘‘ feasible  operating  subspace ‘‘
+− A  solution  which  violates  some  constraint(s)  is  ‘‘ not  feasible ‘‘
+( the  solution  shows  constraint  violations )
+− Binding  constraints :        y = y_min        or        y =  y_max
+Proprietary – See Copyright Page
+Security Enhancement
+1-4
+Network Optimization 
+Network Optimization | Security Enhancement | 4
+Linear Programming (LP) - Didactic example
+Max  J(x1, x2)  =   p1 x1 +     p2 x2
+Subject to  :
+a11 x1 +   a12 x2 <   d1
+a21 x1 +   a22 x2 <   d2
+0  <    x1 <   x1max
+0  <    x2 <   x2max
+a11 x1 +   a12 x2 =   d1
+x1max x11
+x22
+x2max
+J  =  p1 x1 +   p2 x2 =  0
+J  =  Jmax
+a21 x1 +   a22 x2 =   d2
+Feasible subspace
+Proprietary – See Copyright Page
+Security Enhancement
+1-5
+Network Optimization 
+Network Optimization | Security Enhancement | 5
+Security Enhancement 
+Inputs  and  Outputs
+Enforced Elements :  monitored  elements  whose  limits  must be  enforced
+Controls :  components  with  adjustable  settings  (control variables)
+Cost Curves :  relationship  between  a  control  position  and its  cost
+Input:Input:
+• NETMOM copy
+• CTGS copy
+• CTLMOM copy
+Output:Output:
+• Recommended 
+control actions
+• Rescheduled 
+basecase
+Basecase
+G
+G
+NETMOM
+STSENH
+G
+G
+NETMOM
+CTLMOM
+Control definitions
+CTGS
+Contingency definitions
+Harmful contingencies
+Proprietary – See Copyright Page
+Security Enhancement
+1-6
+Network Optimization 
+Network Optimization | Security Enhancement | 6
+Initializing Security Enhancement 
+with data
+
+Proprietary – See Copyright Page
+Security Enhancement
+1-7
+Network Optimization 
+Network Optimization | Security Enhancement | 7
+SENH (Security Enhancement)
+Control features
+Control variables:
+− Generator :
+• MW  output
+• MVAr output (or kV set-point if regulated)
+− Connection status of shunt reactive devices (capacitor or reactor)
+− Transformer and phase shifter tap position
+Special control variables:
+− HVDC
+− Area interchange
+− Load shedding at designated nodes
+Proprietary – See Copyright Page
+Security Enhancement
+1-8
+Network Optimization 
+Network Optimization | Security Enhancement | 8
+SENH (Security Enhancement)
+Dedicated control group types
+Specific control group types for basecase processing:
+− RPREVIOL : reactive controls to eliminate violations
+− WPREVIOL : real power controls to eliminate violations
+− WPRECOST : real power controls to reduce cost
+Specific control group types for contingency processing:
+− RPSTVIOL: reactive controls to eliminate contingency violations
+− WPSTVIOL: real power controls to eliminate contingency 
+violations
+These control group types contain control groups that you define as 
+appropriate for your system
+Proprietary – See Copyright Page
+Security Enhancement
+1-9
+Network Optimization 
+Network Optimization | Security Enhancement | 9
+SENH : Control groups types and control groups
+Specific control 
+groups for SENH
+Proprietary – See Copyright Page
+Security Enhancement
+1-10
+Network Optimization 
+Network Optimization | Security Enhancement | 10
+Activating controls
+A  control  is  “active” : 
+− if it is enabled
+− and if it is a member of an active control group
+To enable controls, use:    
+Proprietary – See Copyright Page
+Security Enhancement
+1-11
+Network Optimization 
+Network Optimization | Security Enhancement | 11
+Control Group activation
+Select to activate or deactivate a control  group
+Proprietary – See Copyright Page
+Security Enhancement
+1-12
+Network Optimization 
+Network Optimization | Security Enhancement | 12
+Activating / enforcing constraints
+A constraint is to be  enforced :
+− if it is individually designated 
+as “to-be-enforced”
+− and if it is a member of a 
+monitored group 
+activated for enforcement 
+for the considered constraint 
+type
+To enable individual constraints 
+for enforcement, use :  
+Proprietary – See Copyright Page
+Security Enhancement
+1-13
+Network Optimization 
+Network Optimization | Security Enhancement | 13
+Monitored Group Enforcement
+Enforce globally by group
+Enforce  by constraint type
+Specify enforcement priority for the group
+Proprietary – See Copyright Page
+Security Enhancement
+1-14
+Network Optimization 
+Network Optimization | Security Enhancement | 14
+Individual Limits data definition
+Enable for 
+enforcement
+Change limits
+PA980707-GCX002-1606-AW
+Proprietary – See Copyright Page
+Security Enhancement
+1-15
+Network Optimization 
+Network Optimization | Security Enhancement | 15
+SENH : Summary of the optimization
+problem definition
+
+Proprietary – See Copyright Page
+Security Enhancement
+1-16
+Network Optimization 
+Network Optimization | Security Enhancement | 16
+Security Enhancement 
+solution process
+Security Assessment
+Optimal Corrective Action
+Determine if  there are violations 
+of  any enforcement limit
+Reschedule controls to enforce any
+violated limits while reducing cost
+Contingency Planning
+Gather Unmanageable CTGs
+Optimal Preventive Actions
+Create a control rescheduling plan  
+for each contingency
+Reschedule basecase controls to
+make all contingencies manageable 
+while reducing cost
+Basecase
+Basecase & Contingencies
+Security
+Constrained
+Dispatch
+Contingency
+Planning
+Preventive
+Actions
+SCDSCD
+CPCP
+PAPA
+Proprietary – See Copyright Page
+Security Enhancement
+1-17
+Network Optimization 
+Network Optimization | Security Enhancement | 17
+Functions in the online network sequence
+Security  Enhancement
+( Contingency Planning )  
+Contingency  
+Analysis
+List of 
+contingencies
+List of harmful 
+contingencies
+yes
+Security  Enhancement
+( Preventive Action ) 
+Base-case 
+violations?
+Security  Enhancement
+( Security Constrained Dispatch )  
+no
+Network state
+( base case )
+Base-case reschedule
+Rescheduled 
+base-case
+List of 
+unmanageable 
+contingencies
+Base case 
+corrective 
+actions (MW) 
+RTGENRTGEN
+State
+Estimation
+Proprietary – See Copyright Page
+Security Enhancement
+1-18
+Network Optimization 
+Network Optimization | Security Enhancement | 18
+Using Security Enhancement to perform  Constrained 
+Dispatch (base case) 
+1) Initialize Security Enhancement  
+with data
+2) Adjust the security model to  
+redefine the optimization 
+problem:
+- Available controls
+- Constraints to be enforced
+3) Run the study
+4) Review the results
+and take action
+Security Enhancement 
+Base Case Actions
+"Security Enhancement 
+Study
+Control Group Assignments
+Monitored Groups 
+Enforcement Data
+Control Activation
+NETMOM CTLMOM CTGS
+Proprietary – See Copyright Page
+Security Enhancement
+1-19
+Network Optimization 
+Network Optimization | Security Enhancement | 19
+Using Security Enhancement to perform Constrained 
+Dispatch
+1) Start the process
+2) SELECTSELECT the “Input Setup” button 
+to call up the Input Setup popup 
+3)3) SELECTSELECT the “Security 
+Enhancement Summary” button 
+to define run control parameters:
+Proprietary – See Copyright Page
+Security Enhancement
+1-20
+Network Optimization 
+Network Optimization | Security Enhancement | 20
+Using Security Enhancement to perform Constrained 
+Dispatch 
+Click to run the study for 
+base case actions
+Details (next slide)
+Summary
+Basecase  actions
+Proprietary – See Copyright Page
+Security Enhancement
+1-21
+Network Optimization 
+Network Optimization | Security Enhancement | 21
+Viewing Security Enhancement results
+Constrained Dispatch (base case corrective actions)Constrained Dispatch (base case corrective actions)
+
+Proprietary – See Copyright Page
+Security Enhancement
+1-22
+Network Optimization 
+Network Optimization | Security Enhancement | 22
+Security Enhancement
+Summary
+A  f………………..  state is a network state in which all components   operate within their limits.
+An o……………... state is a feasible state in which cost has been reduced to a minimum.
+Security Enhancement recommends specific control adjustments to make the basecase 
+f…………… and o…………… .
+Security Enhancement recommends specific control adjustments to make the contingent 
+networks …………………able and o…………… . 
+Components with adjustable settings are …………………..s
+An enforced element is a m………….d e….……….t  whose limits must be  enforced.
+Network Optimization 
+Lab: Enhancing Network Security 
+Using STSENH 
+In this lab, you will use the STSENH application to evaluate/ improve  a 
+network state before contingencies (basecase) and after contingencies. 
+ 
+Objectives 
+Upon completion of this lab, you will be able to : 
+• Initialize STSENH with data 
+• Run a network security enhancement   study and  view the results 
+• Use  Security Enhancement  to determine control actions to relieve 
+violations in the basecase and in contingency cases 
+• Modify the SENH optimiz ation problem definition 
+• Create a savecase of the STSENH results. 
+Except when otherwise stated, all the displays used in this lab belong to 
+the STSENH application. 
+ 
+Task 1: Initialize STSENH with Data 
+You  have to retrieve savecases of the following databases : NETAPP, 
+SENHAPP, NETMOM, CTLMOM, CTGS, DPF. 
+• First, retrieve the NETAPP and SENHAPP savecases containing 
+default application characteristics. 
+• For this lab, an ENTIRE savecase has been prepared which 
+contains all the other databases.  
+• Retrieve the  ENTIRE  savecase  titled   TRAIN_NET_FEATURES.   
+Note: You can also navigate to the savecase list via the Menu Bar : 
+HABITAT Applications /  Savecase Manager / Savecase Manager master 
+and there, select the desired application. 
+ 
+ Proprietary – See Copyright Page 1-23 
+ Secu rity Enhancement 
+Network Optimization 
+Task 2: Create a Room Convenient for STSENH Use 
+Optionally, you can create  a room that will be convenient for STSENH 
+studies. Hints : create a room with 3 viewports containing the following 
+displays : 
+• Security Enhancement Study 
+• Security Enhancement Summary 
+• One of the views of the   Define Controls    display. 
+ 
+Task 3: Perform Constrained Dispatch (Find Feasible Basecase 
+Solution) 
+In this part of the lab, you will ask  STSENH   to move the controls 
+available in the base case so as to find a feasible solution (the base case 
+solution contains  some  violations).  A feasible solution is  a solution that 
+does not violate any of the  specified operating constraints.  
+You can control the set of operating constraints to be  enforced with the 2 
+views of the  Optimization Constraint Definition  display. You will practice 
+with constraint enforcement later in this lab. 
+You can also select  the set of controls that can be used to search for a 
+solution. You will practice with changing this set later in this lab.  
+For this first  lab you will use only the base case controls to enforce the 
+constraints as they are specified in the savecase. 
+1. Call up  the  Security Enhancement Study  display.    
+Select the  Start Process  button. 
+2. Select the    Input Setup    button. 
+3. On the pop-up, select the   Secu rity Enhancement Summary   button  
+to bring up the  Security Enhancement Summary  display. 
+4. Call up the  Security Enhancement Study  display again, and click on  
+the    Run Base Case Actions    button.   
+Notice the “Basecase done”  status for the last result and the 
+corresponding execution time. 
+Look at the results in the   Security Enhancement Summary  display, 
+and note the following : 
+Number of remaining violations: ................... 
+Number of controls moved: ................... 
+Original Cost: ............................ $/Hour  
+Final Optimal Cost: .................... $/Hour 
+Cost change: .............................. $/Hour     
+ Proprietary – See Copyright Page 1-24 
+ Secu rity Enhancement 
+Network Optimization 
+Original Prod Cost: ..................... $/Hour 
+Final Prod Cost: .......................... $/Hour  
+Prod Cost change : .................... $/Hour 
+ 
+To see the last 2 pieces of information,  select the button   More    
+          This will also show the recommended corrective actions. 
+ 
+Task 4: Disable Constraints from Enforcement 
+In this part of the lab, you will disable some of the operating  constraints.  
+You will first disable a specific voltage constraint, then a specific branch 
+constraint, and then an entire set of constraints. 
+This part of the lab only applies if there is a voltage violation. 
+1. Call up the  Network Basecase Violations  display. 
+2. Note if there is a voltage violation :   
+Station  ………..…………        KV level ……….      Bus  …….. 
+Violation type  :   LV  or   HV   by  …… % 
+3. Call up the  Optimization Constraint  Definition  display,  Equipment  
+view.  
+4. Deactivate from enforcement t he voltage constraints  at a node where 
+the voltage is in violation.  Hint : Voltage constraints apply by default to 
+all the nodes at the  same voltage level in a CO/DV. Deactivate only 
+the proper voltage level. 
+5. Note the voltage limit set   to which that constraint is assigned : 
+……………… 
+6. Note the monitored / enforcement group  to which that constraint is 
+assigned : ……………… 
+7. Run STSENH (base case).   
+Look at the results in the  Security Enhancement Summary   display.  
+8. Select the  More   button to see the recommended corrective actions.   
+9. Notice that the voltage  viol ation is not reported anymore.   
+Refresh the display  if necessary. 
+10. Notice however that the violation is reported in the  Basecase 
+Violations   display since the constraint is still monitored even if it is not 
+enforced. 
+11. Restore the initial condition (re-enable the constraint and run STSENH 
+base case). 
+ Proprietary – See Copyright Page 1-25 
+ Secu rity Enhancement 
+Network Optimization 
+This part of the lab only applies if there is a branch (line or 
+transformer) violation 
+1. Call up the  Basecase Violations  display. 
+2. Note if there is a branc h  violation  ( BR ) :  
+Line  ………..………… 
+3. Call up the  Optimization Constraint  Definition  display,  Equipment  
+view. 
+4. Deactivate  from enforcement the  branch  constraint for a branch in 
+violation. Note that a branch can have 2 sets of constraints ; deactivate 
+both if applicable. 
+5. Note the monitored / enforcement group  to which that constraint is 
+assigned :  
+……………… 
+6. Run STSENH (base case).   
+Look at the results in the Security Enhancement Summary  display.  
+Select the   More   button to see the recommended corrective actions.  
+Notice that the branch  violation is not reported anymore.  
+7. Restore the initial condition (re-enable the constraint for enforcement 
+and run STSENH base case). 
+In this part of the lab you will deactivate globally all constraints in a 
+constraint enforcement group  (does not apply if there is no 
+violation) 
+1. Choose   one of the violated constr aint types, for instance the voltage  
+violation  ( 22 kV in EAST ) 
+2. Identify the  enforcem ent group containing that violated constraint : 
+……………. 
+3. Call up the  Optimization Constraint Definition  display,  Group  view.  
+4. In the proper enforce ment group, deactivate from enforcement the type 
+of constraint that you selected ; this will disable all constraints of this 
+type in the corresponding monitored group  (Note that you should not  
+deactivate the entire group, because this would  also deactivate from 
+enforcement the other constraint types). 
+5. Run STSENH (base case).   
+Look at the results in the  Security Enhancement Summary   display.   
+6. Select the    More   button to  see the recommended corrective actions.  
+Notice that any violations that may have existed of the selected type in 
+the monitored group  are not reported anymore. 
+7. Retrieve the TRAIN_NET_FEATURES savecase to restore the initial 
+condition. 
+ Proprietary – See Copyright Page 1-26 
+ Secu rity Enhancement 
+Network Optimization 
+Task 5: Disable a Group of Controls 
+In this part of the lab, you will disable globally all controls belonging to the 
+same group.  You will first disable the reactive controls, and then the real-
+power controls. 
+1. Disable reactive controls 
+a. Call up the  Define Controls  display,  Define Groups  view. 
+b. Deactivate the 3  control groups RxxPREV  (of type RPREVIOL) ; 
+this will disable the reactive controls from being used as corrective 
+actions for the base case solution search.   
+c. Run STSENH (base case).   
+Look at the results in the  Security Enhancement Summary  
+display.  
+d. Select the  More   button to see the recommended corrective 
+actions.  Notice that the reactive controls are no longer used 
+because they have been disabled.  
+Notice that the voltage violations have not been eliminated. 
+e. Call up the  Define Groups  view of  the   Define Controls  display.  
+f. Reactivate the reactive control groups. 
+g. Run STSENH  base case actions 
+2. Disable real power controls 
+a. Deactivate the  control group WUNPREV (of type WPREVIOL) ; 
+this will disable the real power controls from being used as 
+corrective actions for the base case solution search.  
+b. Run STSENH  (base case). 
+Look at the results in the  Security Enhancement Summary  
+display.  
+c. Select the  More  button to see the recommended corrective 
+actions. Notice that the real-power controls are no longer used. 
+Notice that the branch violations have not been eliminated 
+d. Re-enable t he control group. 
+e. Run STSENH (base case) ; notice that you returned to a former  
+solution without violations for the base case.  
+ 
+ Proprietary – See Copyright Page 1-27 
+ Secu rity Enhancement 
+Network Optimization 
+Task 6: Restrict one Control Variable 
+In this part of the lab, you will reduce the move magnitude available to one 
+of the control variables. The result should be a more  expensive solution. 
+1. Find a generator that was significantly moved by the cost minimization 
+run, for instance the generator at WVILLE. 
+Note the initial generation: …….….……….. MW  
+and the generation recommendation: ………………… MW 
+2. Call up the  View Controls  tab  of the   Define Controls  display.  
+3. You will reduce the magnitude of t he allowable move in the direction 
+the MW generation was initially moved (make the limit  enterable and 
+modify the adequate  limit, so as to prevent the unit to move  as far as 
+it moved in the previous run).  
+For instance, change  the max generation at WVILLE from 1000 to 400 MW. 
+(Do not change a limit to a value that would make the current 
+generation unfeasible. In this case, SENH would not attempt to move 
+that control anymore). 
+4. Run STSENH (base case). 
+5. Notice that the unit was moved just to the new limit. 
+6. Note the cost  C3  of this new  solution  ............... $/h. 
+Notice that normally  C3 > C2  because the problem’s degree of 
+freedom has also been  reduced (one variable can not be  moved as 
+much  to improve the  solution).  
+7. Restore the full range of MW generation for the  selected  unit. It is 
+enough to reset the limits to not enterable : SENH will restore the initial 
+limit at the next execution. 
+8. Run STSENH  (base case) to restore the full range solution.  
+9. Check that the cost is back to C2. 
+ 
+Task 7: Use Security Enhancement for Contingency Planning 
+Contingency planning (CP) consists of identifying sets of remedial actions 
+for each of the harmful contingencies.  Should  one of these contingencies 
+occur, the corresponding remedial actions set would have  to be 
+implemented. 
+Specific controls groups are meant to deal with contingency cases. You 
+will need to activate these groups first. 
+1. Call up the Define Controls  display (Define Groups  view) and  
+activate the 4 control groups of the  WPSTVIOL and  RPSTVIOL types 
+which are specifically designed to deal with contingency cases. 
+ Proprietary – See Copyright Page 1-28 
+ Secu rity Enhancement 
+Network Optimization 
+2. Call up the  Security Enhancement Study  display again, and click on  
+the     Run Basecase & Contingency Actions    button.   
+3. Look at the contingency planning resu lts in the  Security Enhancement 
+Summary  display  (box on the right hand  side, upper part : 
+CONTINGENCY PLAN). 
+4. Select the  More  button  and cli ck on the   directory symbol to see the 
+list of contingencies which were examined for contingency planning 
+(CP).    
+5. Note if some contingencies are declared UNMANAGEABLE : 
+Contingency : …………………………………….…… 
+Contingency : …………………………………….……  
+Contingency : …………………………………….……  
+6. Select the button of a particula r manageable contingency to see the 
+corresponding  recommended post-contingency remedial actions. 
+You can also page down or up  to see the same results for other 
+contingencies. 
+ 
+Summary 
+In this lab, you used  Security Enhancement  to relieve violations caused 
+by line overload and high voltage in the basecase.  
+You also used  Security Enhancement  to prepare for possible 
+contingencies. 
+ Proprietary – See Copyright Page 1-29 
+ Secu rity Enhancement 
+Network Optimization 
+ Proprietary – See Copyright Page 1-30 
+ Secu rity Enhancement 
+ 
+Proprietary – See Copyright Page
+Basic Features of OPF and VVD
+2-1
+Network Optimization 
+Network Optimization | Basic Features of OPF and VVD | 1
+Basic Features of OPF and VVD
+VVD is real-time version of study OPF
+Definition of OPF
+Initializing OPF with data
+Basic OPF inputs:
+− Activating an Objective
+− Activating Controls
+− Activating Constraints
+− OPF Options
+Running OPF   
+OPF basic output: control recommendations
+TopicsTopics
+Proprietary – See Copyright Page
+Basic Features of OPF and VVD
+2-2
+Network Optimization 
+Network Optimization | Basic Features of OPF and VVD | 2
+Terminology : Limits and constraints
+Minimize    J = J ( x, u )                    J  =  cost-objective function
+− u  =  control variable ( decision variable )
+− x  =  resulting vector of state variables
+Subject to the following constraints:
+− h ( x , u )  =  0 equality constraints
+− y_min     <      y = y (x)      <     y_max inequality constraints
+− Constraints define the ‘‘feasible operating subspace”
+− A solution which violates some constraint(s) is ‘‘ not feasible‘‘
+( the solution shows constraint violations )
+− Binding constraints :     y = y_min      or       y =  y_max
+Proprietary – See Copyright Page
+Basic Features of OPF and VVD
+2-3
+Network Optimization 
+Network Optimization | Basic Features of OPF and VVD | 3
+Definition of OPF
+OPF scope: any problem that involves the determination of the 
+optimal steady-state operation of an Electric Power Generation-
+Transmission system
+Optimal Power Flow (OPF)  =  Power Flow
++ Objective
++ Controls 
++ Constraints
+Objective : value to be minimized, such as fuel cost or MW losses
+Controls : unit MW, unit MVAR, capacitors and reactors, LTC and 
+phase shifter taps, and area interchanges
+Constraints : high and low voltage limits, branch flows, interface 
+flow limits, and node pair limits
+Network Optimization 
+Proprietary – See Copyright Page
+Basic Features of OPF and VVD
+2-4
+Network Optimization | Basic Features of OPF and VVD | 4
+Example of a cost curve
+
+Proprietary – See Copyright Page
+Basic Features of OPF and VVD
+2-5
+Network Optimization 
+Network Optimization | Basic Features of OPF and VVD | 5
+Initializing OPF
+In an OPF or VVD clone, 4 databases require initialization :
+− NETMOM
+contains network model
+− CTLMOM
+contains definition of OPF controls and objective 
+function
+− OPFMOM
+contains OPF options
+− NETAPP
+contains definition of application characteristics
+Proprietary – See Copyright Page
+Basic Features of OPF and VVD
+2-6
+Network Optimization 
+Network Optimization | Basic Features of OPF and VVD | 6
+Optimal Power Flow master display
+
+Proprietary – See Copyright Page
+Basic Features of OPF and VVD
+2-7
+Network Optimization 
+Network Optimization | Basic Features of OPF and VVD | 7
+Optimal Power Flow in STNET application
+
+Proprietary – See Copyright Page
+Basic Features of OPF and VVD
+2-8
+Network Optimization 
+Network Optimization | Basic Features of OPF and VVD | 8
+Volatge-Var Dispatch master display
+
+Proprietary – See Copyright Page
+Basic Features of OPF and VVD
+2-9
+Network Optimization 
+Network Optimization | Basic Features of OPF and VVD | 9
+Activating an Objective Function
+Select to activate one 
+of the defined objective functions
+Proprietary – See Copyright Page
+Basic Features of OPF and VVD
+2-10
+Network Optimization 
+Network Optimization | Basic Features of OPF and VVD | 10
+Activating controls
+A control is “active” in OPF:
+− if it is enabled
+− and if it is a member of an active control 
+group
+To activate control groups, use:
+
+Proprietary – See Copyright Page
+Basic Features of OPF and VVD
+2-11
+Network Optimization 
+Network Optimization | Basic Features of OPF and VVD | 11
+OPF : Changing control limits
+Change control  limits
+Select to make 
+limits enterable
+Network Optimization 
+Proprietary – See Copyright Page
+Basic Features of OPF and VVD
+2-12
+Network Optimization | Basic Features of OPF and VVD | 12
+OPF initial and final generations
+NETMOM
+BASE_UN = 200
+W_UN = 220
+270
+CTLMOM
+BASE_CTL = 310
+220
+PRESENT_CTL = 270
+Power flow solution optimizationReset Control Base
+Proprietary – See Copyright Page
+Basic Features of OPF and VVD
+2-13
+Network Optimization 
+Network Optimization | Basic Features of OPF and VVD | 13
+OPF : Activating / Enforcing constraints
+A constraint is to be  enforced in OPF:
+− if it is individually designated as “to-be-
+enforced”, and,
+− if it is a member of a monitored group 
+activated for enforcement 
+for the considered constraint type
+Proprietary – See Copyright Page
+Basic Features of OPF and VVD
+2-14
+Network Optimization 
+Network Optimization | Basic Features of OPF and VVD | 14
+OPF : Changing individual limits
+Change constraint  limits
+Select to make 
+limit enterable
+Proprietary – See Copyright Page
+Basic Features of OPF and VVD
+2-15
+Network Optimization 
+Network Optimization | Basic Features of OPF and VVD | 15
+OPF options: global enforcement flags
+OPF also has general control 
+parameters to specify types of 
+constraint to be enforced
+Note: In VVD, some of these options are 
+not enterable.
+Proprietary – See Copyright Page
+Basic Features of OPF and VVD
+2-16
+Network Optimization 
+Network Optimization | Basic Features of OPF and VVD | 16
+OPF options: global regulation flags
+OPF also has general control
+parameters to allow / prohibit 
+Regulation by device type (XF, CP)
+Network Optimization 
+Proprietary – See Copyright Page
+Basic Features of OPF and VVD
+2-17
+Network Optimization | Basic Features of OPF and VVD | 17
+Optimization versus regulation in OPF  
+• LTC taps of a transformer will be moved by OPF to 
+optimize the objective if the device is selected as a 
+control variable.
+• Otherwise, LTC taps of a transformer will be moved by 
+OPF to locally regulate a bus voltage, if the device is 
+specified as on AVR, and XF tap regulation is globally 
+enabled.
+Proprietary – See Copyright Page
+Basic Features of OPF and VVD
+2-18
+Network Optimization 
+Network Optimization | Basic Features of OPF and VVD | 18
+Running  an Optimal Power Flow Solution
+For running study OPF in an OPF clone:
+Proprietary – See Copyright Page
+Basic Features of OPF and VVD
+2-19
+Network Optimization 
+Network Optimization | Basic Features of OPF and VVD | 19
+Running an Optimal Power Flow Solution with 
+STNET
+1
+23
+4
+See next slide
+For running study OPF in an STNET 
+clone:
+Proprietary – See Copyright Page
+Basic Features of OPF and VVD
+2-20
+Network Optimization 
+Network Optimization | Basic Features of OPF and VVD | 20
+OPF : Analyzing control recommendations
+OPF Control Summary display
+VVD also uses this display, but has 
+additional columns dealing with the 
+issuing of controls to SCADA.
+Proprietary – See Copyright Page
+Basic Features of OPF and VVD
+2-21
+Network Optimization 
+Network Optimization | Basic Features of OPF and VVD | 21
+Optimal Power Flow (OPF)
+You define your OPF problem by specifying: 
+− …………………... 
+− …………………... 
+− …………………... 
+Basic OPF controls include : M.. & M...  generations, t………..…. & 
+p…….. S……. taps ,  c …….…….. & r………….. switchings
+OPF recommends control movement by considering the security 
+constraints and the operating ………..
+OPF supports two common objective functions:
+− minimize  ……….……… L…………. ,  and
+− minimize  ……………… C…………..
+SummarySummary
+Network Optimization 
+Lab 1: Initialize OPF 
+ 
+Task 
+1. From the Menu bar, call up the Op timal Power Flow Study display. 
+2. Select the    Data Retrieval     button. 
+3. On the pop-up window,  go to the  savecase directory. Retrieve the 
+OPF savecase type  titled  TRAIN_NET_FEATURES  (OPF type of 
+savecase includes savecases of the following databases  : NETAPP, 
+NETMOM, CTLMOM, OPFMOM, MPNETGEN). 
+Note: If there were no such global OPF savecase, you would first have 
+to retrieve the NETAPP  savecase titled ESCA_EMP_STUDY,  and  
+the OPFMOM savecase titled ESCA_EMP_DEFAULT (this is only 
+required when the OPF clone has been newly installed). Then, you 
+would return to the  Data Retrieval  popup and use the Network Copy 
+facility to  bring adequate copies of the NETMOM and CTLMOM 
+databases into your clone.  Should you need data from the generation 
+database --- cost curves for instance --- you would retrieve the 
+MPNETGEN savecase from the STGEN application. 
+4. Go back to the OPF master  display  
+5. Select the   START OPF   button to  start the OPF process.  When it is 
+ready,  the OPF Status  field will show   “SLEEP”. 
+Optionally, you can create a room that you deem convenient to use the 
+OPF. 
+ Proprietary – See Copyright Page 2-22 
+ Basic Features of OPF and VVD 
+Network Optimization 
+Lab 2: Optimal Power Flow Background 
+This section contains a short text that summarizes the basic concepts 
+involved in optimization problems, and how these concepts apply to the 
+optimal power flow problem.  This text will also drive you to some of the 
+OPF displays to show where  the concepts apply.  
+Students who are not familiar with optimization problems will benefit from 
+reading this text before proceeding to the subsequent lab.   
+Students who are already familiar with these concepts can jump directly to 
+the next lab (using OPF). 
+1.1 Optimization Problems 
+Any optimization problem is defined in terms of : 
+• An objective function to optimize (usually a cost to minimize). 
+• Control variables that are allowed to be moved by OPF to correct 
+constraint violations and/or improve the objective function. 
+• Constraints that put high and low limits on the feasible range for 
+state variables and control variables - these are known as 
+inequality constraints. OPF also enforces equality constraints, 
+which impose relationships (such as Kirchoff’s laws) between the 
+variables.  
+The Engineer/Analyst sets up these various elements of the problem in 
+the OPF databases.  The procedure to setup these problem elements will 
+be the object of a subsequent module.  In the present module the user 
+only activates or deactivates these elements to modify the problem 
+definition. 
+1.2 The Optimal Power Flow (OPF) Problem 
+1.2.1 OPF Objective Function 
+OPF allows you to select an objective function from a defined set, using 
+the Objective view of the Define Controls  display . 
+Your task:  Have  a look at this view of this display. Do not modify any 
+data. Typically there would be an objective function defined with unit 
+incremental cost curves (ICCs). 
+ Proprietary – See Copyright Page 2-23 
+ Basic Features of OPF and VVD 
+Network Optimization 
+1.2.2 OPF Controls 
+OPF allows you to activate / deactivate control variables by group or 
+individually using 2 views of the Define Controls  display : 
+•  “View Controls“   allows you to  enable / disable individual controls 
+and modify their limits 
+• “Define Groups”  allows you to acti vate / deactivate control groups 
+Your task: Have  a look at these 2 views. Do not modify any data.  
+1. Notice in the “Define Groups” vi ew the names of the control group 
+types,  and their association with either OPF or the various control 
+groups dedicated to SENH (xPREVIOL, WPRECOST, xPSTVIOL) 
+- x = W for real power 
+- x = R  for reactive power 
+2. Notice also that the corresponding control groups further identify 
+the control type : UN, XF, CP.  
+3. Page down in the “View Cont rols“ tab and observe that most 
+controls are enabled. 
+1.2.3 OPF Constraints 
+1.2.3.1 Equality Constraints and Regulations 
+In the OPF problem, the equality constraints are the power flow equations, 
+including area MW interchange constraints (if applicable).  
+The powerflow equations can also include more complex relations to 
+represent regulations that can exist in the power system. For instance, 
+voltage regulation can exist at various places by various network 
+components (generating units, transformers, shunt reactances). These 
+constraints model the physical or operational characteristics of the power 
+system behavior. 
+For controls that are activated to participate in optimization, the local 
+regulation is disabled, because the goal is to determine the optimal target 
+for regulation. Thus, their existing regulation target is ignored by OPF in 
+order to determine the optimal regulation target. 
+For controls not activated to participate in optimization, local regulation (if 
+defined) will be maintained during the optimization. This applies to devices 
+that are physically located in the external model, or that are not needed or 
+not available for optimization.   
+OPF will impose the local regulation target if: 
+• the regulating device is not  activated as a control  
+ Proprietary – See Copyright Page 2-24 
+ Basic Features of OPF and VVD 
+Network Optimization 
+• and the regulating variable  is sp ecified as ON-regulation (ON-AVR 
+or ON-AWR) in the corresponding network component summary 
+display,  
+• and if the global regulation flag is enabled 
+Your task : See these global regulation mode flags on the OPF Options  
+display. Do not modify any data.  
+1.2.3.2 Inequality Constraints 
+Inequality constraints represent high and low operating limits on the power 
+system elements. 
+1.2.3.2.1 Monitored Constraints 
+EMP network applications can monitor  the following inequality 
+constraints: 
+• Voltage :  Upper and lower limits on the voltage magnitude 
+• Branch : Upper limits on the flow across lines and transformers 
+• Interface : Upper and lower limits on the total net MW and/or MVAr 
+flow across specified  sets of branches 
+• Node pair : Upper limits on the difference in the voltage angle 
+between the 2 specified nodes 
+• Reserve Group : Min MW reserve  
+In OPF, you activate/deactivate the monitoring of constraints individually, 
+or by group, or by constraint type. 
+1.2.3.2.2 Enforced Constraints 
+When solving with OPF, you may wish that OPF enforces only a subset of 
+the monitored constraints. 
+Two views of the Optimization Constraint Definition  display --- similar to 
+those used to specify the monitored elements --- allow you to specify the 
+constraints to be enforced by OPF.  
+Your task : Find these 2 views (Equipment and Group). Do not modify 
+any data.  
+The enforcement definition is the same as the logic used to control the 
+monitored elements. Thus, in the Group view of the display,  you can 
+enforce constraints by enforcement group, and in each enforcement group 
+by constraint type, but you can also disable individual constraint from 
+being enforced  ( Equipment   view ).  
+In addition to this facility, the OPF options also allow  you to globally 
+activate or deactivate the constraint enforcement by type. 
+ Proprietary – See Copyright Page 2-25 
+ Basic Features of OPF and VVD 
+Network Optimization 
+Your task : See these global enforcement  flags on the OPF Options 
+display. Do not modify any data.  
+1.2.4 Summary of OPF Controls and Constraints 
+A specific display is provided to see the list of active  control groups and 
+constraints to be enforced. 
+Your task : 
+1. From the OPF related Displays  dropdown menu, select the  Problem 
+Definition Summary   
+2. Check that the control summary  (Active Control Groups) corresponds 
+to what is specified in the Control Definition display. 
+3. Check that the constraint su mmary (Active Enforcement Groups) 
+corresponds to what is specified in the Optimization Constraint 
+Definition display. 
+4. Disable enforcement of the volt age constraints in the area WEST 
+5. Check the result in the  Problem Definition Summary 
+6. Restore the voltage constraint  for enforcement; check again. 
+ 
+ Proprietary – See Copyright Page 2-26 
+ Basic Features of OPF and VVD 
+Network Optimization 
+Lab 3: Using Optimal Power Flow 
+In this lab, you will gain experience with OPF by solving a few common 
+problems. 
+Upon completion of this lab, you will be able to: 
+• Run a simple power flow using OPF 
+• Solve a MW loss minimization problem 
+• Solve an economic dispatch problem 
+ 
+Task 1: Solve a Simple Powerflow Problem Using OPF 
+1. Call up the Define Controls display, Define Groups view. 
+2. Deactivate all OPF controls by making sure that all Active  buttons are 
+off.   
+Without controls, OPF defaults to a standard powerflow solution.  
+Since no controls are active, the objective function setup is ignored by 
+OPF; without controls, there cannot be any optimization.  
+3. From the Optimal Power Flow Study display, call up the Options 
+display and check the options. Review the option settings, to see if 
+they make sense for a simple powerflow solution. You can turn options 
+on/off by clicking on the appropriate buttons.   
+• Select the Flat Start option to pr ovide reasonable starting values for 
+all variables to be solved. 
+• When no controls are availabl e, OPF is unable to enforce 
+constraints,  so do not expect OPF to eliminate violations in this 
+case.  There is no need to turn off enforcement of constraints, 
+because in this mode OPF will ignore them. 
+4. Select OK when done (or use the Previous Display arrow). 
+5. Select the  Run Optimal Power Flow  button. 
+6. Check the Last Result to see if  a valid (= converged) solution was 
+obtained 
+7. If OPF did not converge, see t he convergence trace on the analyst 
+displays : Optimal Power Flow Performance  display   :  
+• Bus Mismatch   view,  for the largest bus mismatches present on 
+each iteration of the solution process.    
+ Proprietary – See Copyright Page 2-27 
+ Basic Features of OPF and VVD 
+Network Optimization 
+• Statistics   view for the evolution of the objective function. In this 
+case, no objective function was specified, and by default the 
+objective function shows  the network MW  loss. 
+8. If OPF converged, you can see its state solution on the various 
+displays of the Network Components group of displays.   
+9. Note if there are any violations  listed on the Basecase Violations 
+display. If there are, it can cause “Converged with Unenforced 
+Violations” to be reported.  
+10. Note the base case violations. (If there are many, just note the worst 
+ones): 
+……………………………………………………………………… 
+……………………………………………………………………… 
+……………………………………………………………………… 
+11. Also check the Island Summary  display ;  
+Note the MW loss value  :  ………   MW. 
+ 
+Task 2: Solve a MW Loss Minimization Problem 
+1. Call up the Objective view of  the Define Controls display. 
+2. Observe that there is an objec tive function, called LOSS_MIN.  
+Observe that no cost curves are linked to this objective function.  The 
+absence of any cost curve in the objective function causes OPF to 
+default to its loss minimization objective.   Activate the loss 
+minimization objective function on the display by clicking over the 
+Active   button next to LOSS_MIN. 
+3. Check the OPF options on the Options popup display. Enforce only 
+voltage constraints. (Loss minimization tends to push voltages up, so 
+voltage upper limits are needed to provide a “ceiling”.  Otherwise, OPF 
+may not be able to converge.) 
+4. Voltage regulation by capacitors and transformers should be disabled. 
+(This will only impact devices that are not active controls.) 
+5. Run  OPF 
+6. Check convergence on the OPF Performance display.     
+7. If OPF converged, check the loss va lues in the Study Result  popup : 
+Real power  losses  =  …………….    MW 
+8. See the recommended control movements in the Optimal Power Flow 
+Control Summary display.  
+You can also see the network state solution on the various Network 
+Components  displays. 
+ 
+ Proprietary – See Copyright Page 2-28 
+ Basic Features of OPF and VVD 
+Network Optimization 
+Task 3: A Feasible Solution with Minimal Control Change 
+1. As in the previous section, activate the loss minimization objective.  
+2. Go to the OPF options display,  and set the option to “Enable Control 
+Selection Logic”.  This enables OPF’s logic to select only controls with 
+the greatest sensitivity to the problem being solved, and internally 
+disable other controls.  
+3. For this lab, enforce only branch flow constraints.  
+4. Also on the options display, under Optimization Options, disable 
+voltage regulation by transformers and capacitors/reactors. 
+5. Call up the Define Groups view of  the Define Controls display.  
+Activate the real power controls --- those in the  WUNOPF  group ---   
+and the transformer tap controls  --- those in the XFOPF group --- by 
+clicking on the  Active  button next to these 2  groups. 
+6. Call up the Network Basecase Violations display.   
+Select the  Run  button, and observe the violation list. 
+7. If OPF converged, check the loss values in the Island Summary  
+display : Real power  losses  =  …………….    MW 
+The Optimal Power Flow Control Summary display shows recommended 
+changes to active controls. 
+You can also see the network state solution by component type on the 
+various Network Components displays. 
+ 
+Task 4: Reduce a Branch Flow 
+1. The setup for this section is the solution to the previous section.  
+2. Look for line T538 in the Network Line / Transformer summary   
+display. 
+3. Note the flow value   : ………… A 
+4. Look for line T538 in  the  Network Limits  display 
+5. Note the normal flow limit:  …………   A. 
+6. Reduce the limit to about 80 % of the solved flow . 
+7. Make sure that the flow lim it is enforced for this line : 
+The line  limits are monitored  :  
+⎭   eligible  :  YES  /  NO 
+⎭   assigned to a monitored group active for branch monitoring :  Y / N 
+ Proprietary – See Copyright Page 2-29 
+ Basic Features of OPF and VVD 
+Network Optimization 
+The line limits are to be enforced by OPF : 
+⎭   individually flagged as to be enforced Y / N 
+⎭   assigned to an enforcement group active for branch enforcement : 
+Y / N 
+⎭   OPF flag is true for line limits enforcement  : YES  /  NO 
+8. Run OPF ; check that y ou obtain a valid solution 
+9. Note the control changes that were recommended to reduce the flow 
+on line T538. 
+ 
+Summary 
+In this lab, after installing your OPF clone and initializing it with data, you 
+ran OPF to solve a simple powerflow problem, then a minimum MW loss 
+problem, and  finally a minimum cost problem. 
+ Proprietary – See Copyright Page 2-30 
+ Basic Features of OPF and VVD 
+Network Optimization 
+Lab 4: Using Voltage-Var Dispatch 
+Note: Objective Function Verification VVD's software design is such that it 
+is a shell around OPF software.  VVD relies on OPF software to calculate 
+a solution that optimizes the active objective function, while meeting 
+constraints.  Strict verification of VVD's supported objective functions is 
+considered beyond the scope of this lab.  
+Setup:   The proper data initialization (NETAPP case, OPFMOM case, 
+and CTLMOM case) of VVD clone should be done. VVD should be 
+running properly as part of online network sequence. 
+Procedure: Student will perform the following steps in sequence:  
+1. On the Network Online Sequence (Real-Time Network Analysis) 
+display, bring up the triggers popup, and DISABLE all triggers except 
+MANUAL triggers. 
+2. Voltage violations in the SE solu tion will be required. If no appropriate 
+violations are already present, change voltage limits in RTNET to get 
+voltage violations.  If possible, locate the violation(s) where VVD's 
+controls can have an impact.  In other words, pick voltage violations 
+that VVD should be able to correct given its active controls.  All voltage 
+violations that you cause should be confined to one operating area. 
+3. Manually trigger the network sequence.  
+4. Check the Network Basecase Viol ations under application VVD to see 
+if VVD was able to correct the violation.  Check the Optimal Power 
+Flow Control Summary display to see what controls VVD recommends 
+moving. 
+Results:  
+• VVD should have recommended cont rol movements to correct or 
+improve the voltage violation(s).  VVD should have corrected the 
+violation if possible. 
+• VVD should have recommended control movements only in the 
+operating area where the voltage violation(s) occurred. 
+5. Change voltage limits if necessary  in RTNET to avoid any voltage 
+violations in the state estimator.  
+6. Manually trigger the network sequence.   
+7. Check the Network Basecase Vi olations under application VVD to 
+make sure that VVD did not create any new violations.   
+ Proprietary – See Copyright Page 2-31 
+ Basic Features of OPF and VVD 
+Network Optimization 
+8. Check the Optimal Power Flow C ontrol Summary display to see what 
+controls VVD recommends moving.  Check the losses in the RTNET 
+solution on the Network Area and Company Summary display in 
+RTNET.  Compare with the losses in the VVD solution on the Network 
+Area and Company Summary display in VVD. 
+Results: If VVD had sufficient controls to reduce losses, then total 
+system losses should be reduced in the VVD solution as compared 
+with the RTNET solution.  Normally, loss reduction occurs primarily in 
+the operating areas where the active controls are located. 
+ 
+ Proprietary – See Copyright Page 2-32 
+ Basic Features of OPF and VVD 
+Proprietary – See Copyright Page
+OPF Advanced Features
+3-1
+Network Optimization 
+Network Optimization | OPF Advanced Features | 1
+OPF Advanced Features
+Defining optimization problem elements:
+− Defining Controls, Control Groups, and Control Group Types
+− Assigning Controls to Control Groups
+− Defining Control Cost Curves and Curve groups  
+− Linking Controls to Cost Curves
+− Defining Objective Functions
+− Linking Objective Functions with Cost Curve Groups
+TopicsTopics
+Proprietary – See Copyright Page
+OPF Advanced Features
+3-2
+Network Optimization 
+Network Optimization | OPF Advanced Features | 2
+OPF features
+Control
+group 
+type
+Control
+group 
+Control Cost
+curve
+Cost
+curve
+group
+Objective
+function
+MappingOwnership MappingMapping Ownership
+Proprietary – See Copyright Page
+OPF Advanced Features
+3-3
+Network Optimization 
+Network Optimization | OPF Advanced Features | 3
+Defining Available Controls
+Use the Insert Controls “analyst” display (Station Components view)  
+to select controls from a list prepared automatically by software
+
+Proprietary – See Copyright Page
+OPF Advanced Features
+3-4
+Network Optimization 
+Network Optimization | OPF Advanced Features | 4
+Defining Control Groups 
+in Control Group Types
+Use the Define Groups view of the Define Controls display to :
+− Define Control Group Types by inserting them with the [+/-] button
+− Define Control Groups by inserting them with the [+/-]  button under the 
+appropriate Control Group Type
+
+Proprietary – See Copyright Page
+OPF Advanced Features
+3-5
+Network Optimization 
+Network Optimization | OPF Advanced Features | 5
+Assigning a Control to a Control Group (1)
+Use the Define Controls display, Assign Groups view to  specify the Group 
+by clicking on the proper
+Map Controls to GP button 
+
+Proprietary – See Copyright Page
+OPF Advanced Features
+3-6
+Network Optimization 
+Network Optimization | OPF Advanced Features | 6
+Assigning a Control to a Control Group (2)
+In the Assign Controls view of the Define Controls display,  designate the 
+Control that you wish to link with  the selected Control Group 
+
+Proprietary – See Copyright Page
+OPF Advanced Features
+3-7
+Network Optimization 
+Network Optimization | OPF Advanced Features | 7
+Defining Control Cost Curves and 
+Cost Curve Groups
+X Control Cost Curves and Cost Curves are defined in the Cost  
+view of the Define Controls display   
+X Both are inserted hierarchically
+Insert Cost Curve Group
+Insert Cost Curve 
+Insert Cost Curve points 
+Proprietary – See Copyright Page
+OPF Advanced Features
+3-8
+Network Optimization 
+Network Optimization | OPF Advanced Features | 8
+Defining Control Cost Curves
+Y Base=300
+X Base=10 
+9
+7
+6
+MW
+$ / MWh
+9
+7
+6
+54 65
+X value Slope
+0 6
+44 7
+55 9
+X Base= 10
+Y Base = 300
+Incremental  cost
+Scale = 1
+440 55 X
+X Base=10 
+MW
+$ / h
+54 65
+Hourly  cost
+Proprietary – See Copyright Page
+OPF Advanced Features
+3-9
+Network Optimization 
+Network Optimization | OPF Advanced Features | 9
+Absolute and Relative Cost Curves
+2 types of cost curve: Absolute and Relative
+Proprietary – See Copyright Page
+OPF Advanced Features
+3-10
+Network Optimization 
+Network Optimization | OPF Advanced Features | 10
+Assign a Cost Curve to a Control (1)
+Select the Cost Curve that you want to assign to a Control
+Select Cost Curve 
+Proprietary – See Copyright Page
+OPF Advanced Features
+3-11
+Network Optimization 
+Network Optimization | OPF Advanced Features | 11
+Assign a Cost Curve to a Control (2)
+Use the Define Controls display (View Controls view) to specify 
+which control(s) should use the selected cost curve
+Select control 
+Proprietary – See Copyright Page
+OPF Advanced Features
+3-12
+Network Optimization 
+Network Optimization | OPF Advanced Features | 12
+Defining an Objective Function  
+Overview
+Insert Objective Functions on Objective view of the Define Controls display
+Link Objective Function  with  Cost Curve Groups (next slide)
+
+Proprietary – See Copyright Page
+OPF Advanced Features
+3-13
+Network Optimization 
+Network Optimization | OPF Advanced Features | 13
+Objective Function Definition (1)
+Select to initiate  mapping this Curve Group 
+to an objective function
+Proprietary – See Copyright Page
+OPF Advanced Features
+3-14
+Network Optimization 
+Network Optimization | OPF Advanced Features | 14
+Objective Function Definition (2)
+Select to include the selected curve group 
+into this objective function
+Proprietary – See Copyright Page
+OPF Advanced Features
+3-15
+Network Optimization 
+Network Optimization | OPF Advanced Features | 15
+Optimal Power Flow (OPF)
+OPF objective function is a linear combination of 
+all ………….. curves included in a curve ……………...
+There are two types of cost curves in OPF: 
+− A………………….. , and 
+− R…………………..
+Cost curves are attached to ………………...
+SummarySummary
+Network Optimization 
+ 
+Lab 1: OPF Problem Summary 
+ 
+Objective 
+Upon completion of these labs, you will be able to define and activate: 
+• Controls 
+• Control Groups 
+This  lab contains a short summary on how to define the elements of the 
+OPF problem. It introduces the multi-purpose mapping facility which is 
+used in the problem definition. It also drives you to the main displays used 
+to define the OPF problem elements. 
+This lab is followed by a second lab to familiarize the student with how to 
+create or modify the OPF problem definition. 
+For these labs, you will use a specific savecase of the OPF application 
+titled TRAIN_OPF_PROBLEM_DEFINITION. 
+ 
+Task: Retrieve the OPF savecase titled 
+TRAIN_OPF_PROBLEM_DEFINITION 
+1.1 OPF Problem Definition Logic 
+Defining the OPF problem means defining: 
+• an objective function 
+• controls that can be adjusted to reach the objective 
+• constraints to be observed by the solution 
+OPF provides a lot of flexibility in defining these elements of the OPF 
+problem.  Flexibility involves some complexity. The following is  a 
+summary of the logic and  displays provided in EMP’s OPF to define these 
+3 elements and their links. Two main displays are used :  
+• Optimization Constraint Definition   
+• Define Controls  
+These two displays each have several views which allow you to perform 
+specific tasks related to the optimization problem definition. 
+ Proprietary – See Copyright Page 3-16 
+ OPF Advanced Features 
+ 
+Network Optimization 
+ 
+1.1.1 Controls 
+1.1.1.1 Control Availability 
+You define available controls by selecting them from the Insert Controls    
+analyst display (available from the Analyst menu). This display shows, by 
+station, a list of all devices in the network model (NETMOM database) that 
+are potential OPF controls. You make a control available to OPF by 
+clicking on the [+/-]  button on the left of each control, which causes a 
+control record to be inserted into the OPF control database (CTLMOM) for 
+that device. (If you select the same device multiple times, the logic is 
+smart enough to avoid duplicate controls.) 
+You see the result of that selection in three views of the Define Controls 
+display (which show data in the CTLMOM database): 
+• Controls are listed by station in the View Controls tab   
+• Controls are also listed by stati on in the Assign Controls tab, but 
+with their group and cost curve assignments 
+• Controls assigned to one or more  control groups are listed under 
+their assigned group(s) on the Assign Groups tab 
+1.1.1.2 Control assignment to Control Group(s) 
+Controls can be assigned to Control Groups.  Control Groups belong 
+hierarchically to Control Group Types. See the summary figure in section 
+1.2. 
+You define Control Group Types and Control Groups by inserting them 
+[+/-] in the Define Groups view of the Define Controls display. 
+You assign controls to control groups using the multi-purpose mapping 
+facility  (introduced later). 
+Note: Any control can be assigned to multiple control groups. 
+1.1.2 Cost Curves 
+1.1.2.1 Defining Cost Curves in Cost Curve Groups 
+Cost curves are defined independently so as to allow several controls to 
+use the  same  cost curve, if needed. However, only control variables can 
+be assigned to have a cost curve, not the state variables. 
+Cost curves belong hierarchically to cost curve groups.  See again the 
+summary  figure in section 1.2. 
+You create cost curve groups by inserting them [+/-] in the Cost view of 
+the  Define Controls display. 
+ Proprietary – See Copyright Page 3-17 
+ OPF Advanced Features 
+ 
+Network Optimization 
+ 
+You create cost curves by inserting them [+/-] under the desired cost 
+curve group. 
+You create incremental cost curve points (x, slope(x)) by inserting them 
+[+/-] under the  desired cost curve in the same Cost view of the of the 
+Define Controls  display. 
+It should be mentioned that the use of cost curves is being de-emphasized 
+in the latest version of OPF. The selection of minimum control changes to 
+correct violations, previously handled using cost curves, is now done using 
+the latest Control Selection logic. If is very easy to use cost curves to 
+define problems that are difficult or impossible to solve, so cost curves 
+should be used only when necessary to accurately model the problem 
+definition.  
+1.1.2.2 Assigning Cost Curves to Controls 
+You associate cost curves and controls by using the multi-purpose 
+mapping facility. 
+Note 1 : Several cost curves  can be assigned to a control. 
+Note 2 : A multiplier (SCALE) can be specified for each curve when 
+assigning it to a control 
+Note 3 : If a control has more than one cost curve assigned to it, the cost 
+of moving that control will be defined by the composite sum of all assigned 
+cost curves.  
+1.1.3 Objective Functions 
+You create objective functions by inserting them [+/-] in the Objective  
+view of the  Define Controls  display.   
+You define a particular objective function by assigning to it a curve group 
+using the multi-purpose mapping facility. 
+Note 1: Several cost curve groups can be assigned to an objective 
+function. 
+Note 2: The  resulting objective function will be the sum of all the costs 
+derived from all the cost curves contained in the curve group(s). 
+ Proprietary – See Copyright Page 3-18 
+ OPF Advanced Features 
+ 
+Network Optimization 
+ 
+1.2 Summary of the OPF Problem Definition 
+Elements 
+The figure below summarizes how the various elements of the OPF 
+problem definition are related: 
+ 
+ 
+ 
+1.3 OPF: Mapping Problem Definition Elements 
+Mapping associates one of the elements of the problem definition (control, 
+cost curve, objective) to one of the others. 
+There are 3 possible bi-directional associations between mapping 
+partners: 
+• Objective Function   Å Æ  Cost Curve Group 
+• Control   Å Æ  Control  Group 
+• Control   Å Æ   Cost Curve 
+In the displays that show these mappable entities, a specific mapping 
+button is provided. Clicking on that button initiates a mapping operation 
+and shows  --- in the mapping line on top of the display ---  the possible 
+partner(s) of that mapping operation. Direct navigation to the display(s) 
+ Proprietary – See Copyright Page 3-19 
+ OPF Advanced Features 
+ 
+Network Optimization 
+ 
+listing the possible partners is provided. After finding the desired partner, 
+the user can click on the partner’s mapping button to create the 
+association. 
+Note 1 : When referring to a control,  the control parent (station) is shown 
+as a reminder and for unique identification (controls in different stations 
+can have the  same name). The control type is also shown for 
+convenience. 
+Note 2 : When referring to a curve,  the owning curve group is also shown 
+as a reminder and for unique identification.  
+ 
+ 
+ Proprietary – See Copyright Page 3-20 
+ OPF Advanced Features 
+ 
+Network Optimization 
+ 
+Lab 2: Modifying the Problem Definition 
+This module  reviews  how the Engineer/Analyst can modify  or extend the 
+OPF optimization problem definition. 
+Students will learn how to add controls, cost curves, objective functions 
+and how to link these elements in the problem definition. 
+Look at the Assign Groups view of the Define Controls display. 
+Notice that the WUNOPF control group includes (among others) the MW 
+generation controls at LAKEVIEW and HEARN, but not at the third plant 
+(DOUGLAS) in the area EAST.   
+Notice that the control group is inactive. 
+Notice that the generator at LAKEVIEW  is not enabled as a control. 
+Use the View Controls view of the Define Controls display to 
+enable it. 
+In this lab, you will create a new control group (in a new control group 
+type) to store the  generation controls at  DOUGLAS. You will also define 
+new cost curves for these controls and a new objective function. 
+ 
+Task 1: Define New Controls 
+Reminder : Controls are  made available to OPF by selection from a 
+NETMOM-based list of possible controls by station. 
+1. Use the View Controls tab of the Define Controls display; go to the 
+DOUGLAS station. 
+2. Verify that the generating units G1 and G2 have not been made 
+available to OPF yet. 
+3. Call up the Insert Controls analyst display. 
+4. Locate the DOUGLAS station, an d select the Real and Reactive  
+controls  for unit G1 at DOUGLAS.  This is done by clicking the [+/-]  
+button, causing control records for those devices to be inserted in the 
+View Controls  tab of the Define Controls  display   
+5. Repeat for unit G2. 
+6. In the  View Controls  and then in the Assign Controls view of the 
+Define Controls display, make sure the 4 controls are there. 
+7. Notice that no assignment has been done yet for these 4 controls. 
+ Proprietary – See Copyright Page 3-21 
+ 
+ OPF Advanced Features 
+ 
+Network Optimization 
+ 
+Task 2: Define New Control Groups 
+Reminder : Control groups belong to a  control group type. 
+1. Call up the Define Groups view of the Define Controls display 
+2. Select one of the leftmost  [+/-]  button and select Insert Group Type to 
+insert a new group type.  Refresh if necessary. Give it the name 
+PG_DOUG. 
+3. Select the [+/-] button of the new group type and select Insert Group to 
+insert a new control group.  Give it the name DOUG_MW. 
+4. Toggle the group to ACTIVE.   
+5. Enter a priority of 1. 
+Now, you will assign the two MW controls at DOUGLAS to this new control 
+group.   Reminder : Controls are mapped to control groups.  
+1. Call up the Assign Groups view of the Define Controls display. 
+2. Locate the control group name (DOU G_MW) you want the controls to 
+be mapped to.    
+Select the corresponding    Map Controls to GP   button.   The desired 
+control group name should appear in the mapping window, and a blue 
+navigation text to the Controls. Click on Controls to go to the list of 
+controls. 
+3. On the  Assign Controls  view , locate the DOUGLAS station, and 
+select the   Map CTL   button for each of the  two  MW controls in turn.  
+A  [+/-] button with the assigned control group will be inserted under 
+each control in the Control Assignment Definition view. 
+4. Also, the 2 controls should app ear under the control group on the 
+Assign Groups  view of the Define Controls display. 
+5. If not done by default, enable the two controls. 
+6. Validate your  definitions. 
+Similarly, define a new control group type QG_DOUGLAS, and a new 
+control group DOUG_MR;  then, map the 2 MVAr controls at DOUGLAS to 
+this new control group. Validate again. 
+ 
+Task 3: Define New Cost Curves for the New Controls 
+Reminder : Cost curves belong to cost curve groups.  
+1. Call up the  Costs   view of the   Define Controls   display. 
+2. INSERT a curve group by selecting a [+/-] button and choosing the  
+Insert Curve Group  option.  The new curve group you just inserted is 
+ Proprietary – See Copyright Page 3-22 
+ OPF Advanced Features 
+ 
+Network Optimization 
+ 
+presented for entry of its parameters. Give it the name DOUG_PG.  
+Toggle the curve group type to “Absolute”. 
+3. At the curve group, select the [+/-] button to insert a curve record.  
+Give the curve the name DOUGLAS_MW_GENERATION. 
+4. At the curve, select the [+/-] button to insert three curve points. Use the 
+TAB to access quickly each entry field successively, and enter X 
+values of 0, 200, and 600  MW, with slope values of 8, 12, and 16 
+respectively.  
+5. Click on  the    Map Curve   button corresponding to the curve you just 
+entered in order to initiate its mapping to the 2 MW controls at 
+DOUGLAS.  
+6. Use the automatic navigation to Contro ls, and select the       Map CTL   
+button for each of the 2 MW controls.  This tells OPF that each of these 
+controls will use the cost curve you inserted.   Notice the insertions 
+caused by your actions.  
+7. Validate your  definitions. 
+8. Call up the Costs view. 
+9. Check the display.  All the contro ls you linked to the curve should be 
+listed under it. Ignore the Reference value  which is only used for 
+relative cost curves. 
+The slopes that you have just defined  are incremental costs ( = 
+derivatives of the hourly cost curve). They will be interpolated linearly 
+between the specified values.  Thus, the cost curve obtained by 
+integrating these slopes starting from Y_Base as y-intercept (no-load 
+cost)---  will be a piecewise quadratic cost function. 
+ 
+Task 4: Define a New Objective Function 
+Reminder : Objective functions are made up of control cost curve groups.  
+1. Call up the Objective view of the De fine Controls display, and select a  
+[+/-]  button.  On the pop-up, select to Insert OBJF to insert a new 
+objective function. Give it the name DOUGCOST. 
+2. Click on the   Map Function   button next to the new objective function.  
+This will prepare navigation to the curve groups in the COSTS view of 
+the Define Controls display.  
+3. Locate your cost curve group (DOUG_PG), 
+click on the   Map Object Function   button next to the curve group so 
+as to establish the link with the new objective function. 
+4. Verify in the Objective view that the selected curve group is now 
+associated with the new objective function. 
+ Proprietary – See Copyright Page 3-23 
+ OPF Advanced Features 
+ 
+Network Optimization 
+ 
+ Proprietary – See Copyright Page 3-24 
+ OPF Advanced Features 
+ 
+5. If applicable, repeat this m apping operation with the reactive 
+generation cost curve group 
+6. Notice the 2 curve groups associ ated with the new objective function. 
+7. Click on  the Active button to ac tivate the new objective function. 
+8. Go back to the appropriate views of  the Define Controls  display, to 
+ensure that the MW and MVAr generation controls at DOUGLAS will 
+be active. 
+9. Validate your pr oblem definition. 
+10. Run OPF 
+11. If OPF converged, check the cost values in the  Result  popup 
+Initial cost : ……………………… 
+Final cost: ……………………… 
+Cost  change : ……………………… 
+Also note the losses :  ……………………..  MW 
+Look at the OPF Control Summary display to see the recommended 
+controls. 
+Notice also that the solution may not be feasible because it is not possible 
+to eliminate the violations with just the allowed controls. 
+Stop the OPF process 
+ 
+Summary 
+In this lab, you learned how to define and activate OPF Controls, Cost 
+Curves, and Objective Functions. 
+ 

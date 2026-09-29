@@ -1,0 +1,701 @@
+group,scenario_id,activity_id,column,modal_role,share,n,stable,distribution,reference_role
+especializados_f1,ALL,ACT01,DAS,A/R,0.625,24,True,A/R:15; R:7; C:2,A/R
+especializados_f1,ALL,ACT01,GT_SUPPORT,C,0.833,24,True,C:20; R:4,C
+especializados_f1,ALL,ACT01,ISC,-,0.583,24,False,-:14; C:8; R:1; I:1,C
+especializados_f1,ALL,ACT01,MCO,C,0.5,24,False,C:12; -:7; I:5,C
+especializados_f1,ALL,ACT01,NEW_AUTHORITY,-,1.0,24,True,-:24,I
+especializados_f1,ALL,ACT01,ODC,R,0.333,24,False,R:8; A/R:7; C:7; A:2,C
+especializados_f1,ALL,ACT01,ORIGIN,-,0.667,24,True,-:16; C:8,C
+especializados_f1,ALL,ACT02,DAS,I,0.833,24,True,I:20; -:2; C:2,C
+especializados_f1,ALL,ACT02,GT_SUPPORT,C,0.667,24,True,C:16; -:6; I:2,C
+especializados_f1,ALL,ACT02,ISC,-,0.542,24,False,-:13; C:10; I:1,C
+especializados_f1,ALL,ACT02,MCO,-,0.875,24,True,-:21; C:2; I:1,I
+especializados_f1,ALL,ACT02,NEW_AUTHORITY,-,1.0,24,True,-:24,I
+especializados_f1,ALL,ACT02,ODC,I,0.708,24,True,I:17; -:6; C:1,C
+especializados_f1,ALL,ACT02,ORIGIN,A/R,0.958,24,True,A/R:23; C:1,A/R
+especializados_f1,ALL,ACT03,DAS,A/R,0.833,12,True,A/R:10; R:1; C:1,A/R
+especializados_f1,ALL,ACT03,GT_SUPPORT,C,0.917,12,True,C:11; A:1,C
+especializados_f1,ALL,ACT03,ISC,C,0.5,12,False,C:6; -:3; R:2; A/R:1,C
+especializados_f1,ALL,ACT03,MCO,I,0.583,12,False,I:7; -:4; C:1,C
+especializados_f1,ALL,ACT03,NEW_AUTHORITY,-,1.0,12,True,-:12,I
+especializados_f1,ALL,ACT03,ODC,C,0.583,12,False,C:7; I:5,C
+especializados_f1,ALL,ACT03,ORIGIN,C,0.583,12,False,C:7; I:3; -:2,C
+especializados_f1,ALL,ACT04,DAS,A/R,1.0,36,True,A/R:36,A/R
+especializados_f1,ALL,ACT04,GT_SUPPORT,C,1.0,36,True,C:36,C
+especializados_f1,ALL,ACT04,ISC,-,0.556,36,False,-:20; C:13; I:3,C
+especializados_f1,ALL,ACT04,MCO,-,0.5,36,False,-:18; I:10; C:8,C
+especializados_f1,ALL,ACT04,NEW_AUTHORITY,-,1.0,36,True,-:36,I
+especializados_f1,ALL,ACT04,ODC,I,0.694,36,True,I:25; C:11,C
+especializados_f1,ALL,ACT04,ORIGIN,C,0.833,36,True,C:30; -:4; I:2,C
+especializados_f1,ALL,ACT05,DAS,A/R,0.875,24,True,A/R:21; R:2; A:1,C
+especializados_f1,ALL,ACT05,GT_SUPPORT,C,0.708,24,True,C:17; R:5; A:1; A/R:1,I
+especializados_f1,ALL,ACT05,ISC,-,0.792,24,True,-:19; C:4; I:1,A/R
+especializados_f1,ALL,ACT05,MCO,-,0.792,24,True,-:19; I:3; C:2,I
+especializados_f1,ALL,ACT05,NEW_AUTHORITY,-,1.0,24,True,-:24,I
+especializados_f1,ALL,ACT05,ODC,C,0.5,24,False,C:12; I:12,I
+especializados_f1,ALL,ACT05,ORIGIN,C,0.75,24,True,C:18; -:3; I:3,I
+especializados_f1,ALL,ACT06,DAS,A/R,0.604,48,True,A/R:29; R:16; C:3,C
+especializados_f1,ALL,ACT06,GT_SUPPORT,C,0.521,48,False,C:25; -:13; I:10,I
+especializados_f1,ALL,ACT06,ISC,R,0.5,48,False,R:24; C:9; -:9; A/R:4; I:2,A/R
+especializados_f1,ALL,ACT06,MCO,R,0.438,48,False,R:21; C:10; A/R:9; A:5; -:3,R
+especializados_f1,ALL,ACT06,NEW_AUTHORITY,-,1.0,48,True,-:48,I
+especializados_f1,ALL,ACT06,ODC,C,0.979,48,True,C:47; I:1,I
+especializados_f1,ALL,ACT06,ORIGIN,-,0.583,48,False,-:28; C:13; I:6; A:1,C
+especializados_f1,ALL,ACT07,DAS,A/R,0.667,12,True,A/R:8; R:4,R
+especializados_f1,ALL,ACT07,GT_SUPPORT,-,0.917,12,True,-:11; I:1,C
+especializados_f1,ALL,ACT07,ISC,R,0.583,12,False,R:7; A/R:4; -:1,A/R
+especializados_f1,ALL,ACT07,MCO,C,0.5,12,False,C:6; R:3; I:2; -:1,R
+especializados_f1,ALL,ACT07,NEW_AUTHORITY,-,1.0,12,True,-:12,I
+especializados_f1,ALL,ACT07,ODC,C,1.0,12,True,C:12,C
+especializados_f1,ALL,ACT07,ORIGIN,-,0.583,12,False,-:7; C:3; I:2,I
+especializados_f1,ALL,ACT08,DAS,A/R,1.0,12,True,A/R:12,R
+especializados_f1,ALL,ACT08,GT_SUPPORT,-,0.5,12,False,-:6; I:5; C:1,I
+especializados_f1,ALL,ACT08,ISC,C,0.667,12,True,C:8; -:3; R:1,A/R
+especializados_f1,ALL,ACT08,MCO,C,0.833,12,True,C:10; I:1; -:1,R
+especializados_f1,ALL,ACT08,NEW_AUTHORITY,-,1.0,12,True,-:12,I
+especializados_f1,ALL,ACT08,ODC,C,0.667,12,True,C:8; I:4,I
+especializados_f1,ALL,ACT08,ORIGIN,-,1.0,12,True,-:12,I
+especializados_f1,ALL,ACT09,DAS,C,0.778,36,True,C:28; R:6; I:1; A/R:1,C
+especializados_f1,ALL,ACT09,GT_SUPPORT,C,0.5,36,False,C:18; -:12; I:6,C
+especializados_f1,ALL,ACT09,ISC,A/R,0.944,36,True,A/R:34; C:1; R:1,A/R
+especializados_f1,ALL,ACT09,MCO,R,0.667,36,True,R:24; C:11; A/R:1,C
+especializados_f1,ALL,ACT09,NEW_AUTHORITY,-,1.0,36,True,-:36,I
+especializados_f1,ALL,ACT09,ODC,C,1.0,36,True,C:36,C
+especializados_f1,ALL,ACT09,ORIGIN,-,0.472,36,False,-:17; C:14; I:5,C
+especializados_f1,ALL,ACT10,DAS,A/R,1.0,12,True,A/R:12,A/R
+especializados_f1,ALL,ACT10,GT_SUPPORT,C,0.667,12,True,C:8; I:2; -:2,C
+especializados_f1,ALL,ACT10,ISC,-,1.0,12,True,-:12,C
+especializados_f1,ALL,ACT10,MCO,C,0.917,12,True,C:11; R:1,R
+especializados_f1,ALL,ACT10,NEW_AUTHORITY,-,1.0,12,True,-:12,I
+especializados_f1,ALL,ACT10,ODC,C,0.75,12,True,C:9; I:3,C
+especializados_f1,ALL,ACT10,ORIGIN,-,1.0,12,True,-:12,I
+especializados_f1,ALL,ACT11,DAS,A/R,1.0,36,True,A/R:36,A/R
+especializados_f1,ALL,ACT11,GT_SUPPORT,C,0.972,36,True,C:35; R:1,C
+especializados_f1,ALL,ACT11,ISC,-,0.833,36,True,-:30; C:6,C
+especializados_f1,ALL,ACT11,MCO,-,0.778,36,True,-:28; C:8,C
+especializados_f1,ALL,ACT11,NEW_AUTHORITY,-,1.0,36,True,-:36,I
+especializados_f1,ALL,ACT11,ODC,C,1.0,36,True,C:36,C
+especializados_f1,ALL,ACT11,ORIGIN,-,0.75,36,True,-:27; I:8; C:1,I
+especializados_f1,ALL,ACT12,DAS,R,0.375,24,False,R:9; C:9; A/R:6,R
+especializados_f1,ALL,ACT12,GT_SUPPORT,C,0.625,24,True,C:15; I:5; -:4,I
+especializados_f1,ALL,ACT12,ISC,R,0.583,24,False,R:14; C:5; A/R:3; I:2,C
+especializados_f1,ALL,ACT12,MCO,A/R,0.375,24,False,A/R:9; C:6; A:5; R:3; -:1,I
+especializados_f1,ALL,ACT12,NEW_AUTHORITY,-,1.0,24,True,-:24,I
+especializados_f1,ALL,ACT12,ODC,C,0.833,24,True,C:20; I:4,C
+especializados_f1,ALL,ACT12,ORIGIN,C,0.917,24,True,C:22; R:1; A:1,A/R
+especializados_f1,ALL,ACT13,DAS,R,0.792,24,True,R:19; C:5,C
+especializados_f1,ALL,ACT13,GT_SUPPORT,C,0.542,24,False,C:13; -:7; I:4,C
+especializados_f1,ALL,ACT13,ISC,C,0.583,24,False,C:14; -:8; I:2,C
+especializados_f1,ALL,ACT13,MCO,R,0.875,24,True,R:21; C:2; A/R:1,C
+especializados_f1,ALL,ACT13,NEW_AUTHORITY,-,1.0,24,True,-:24,I
+especializados_f1,ALL,ACT13,ODC,A/R,0.833,24,True,A/R:20; A:3; R:1,A/R
+especializados_f1,ALL,ACT13,ORIGIN,C,0.667,24,True,C:16; -:5; I:3,C
+especializados_f1,ALL,ACT14,DAS,A/R,0.667,36,True,A/R:24; R:8; C:3; A:1,R
+especializados_f1,ALL,ACT14,GT_SUPPORT,C,0.583,36,False,C:21; I:8; -:7,C
+especializados_f1,ALL,ACT14,ISC,-,0.528,36,False,-:19; C:16; R:1,C
+especializados_f1,ALL,ACT14,MCO,C,0.806,36,True,C:29; -:3; I:2; R:2,C
+especializados_f1,ALL,ACT14,NEW_AUTHORITY,-,0.694,36,True,-:25; A:8; A/R:3,A
+especializados_f1,ALL,ACT14,ODC,C,1.0,36,True,C:36,C
+especializados_f1,ALL,ACT14,ORIGIN,-,0.944,36,True,-:34; C:1; I:1,I
+especializados_f1,ALL,ACT15,DAS,C,0.979,48,True,C:47; I:1,C
+especializados_f1,ALL,ACT15,GT_SUPPORT,C,0.854,48,True,C:41; I:5; -:2,C
+especializados_f1,ALL,ACT15,ISC,-,0.729,48,True,-:35; C:9; I:4,I
+especializados_f1,ALL,ACT15,MCO,C,0.75,48,True,C:36; -:10; R:1; I:1,R
+especializados_f1,ALL,ACT15,NEW_AUTHORITY,-,1.0,48,True,-:48,I
+especializados_f1,ALL,ACT15,ODC,A/R,1.0,48,True,A/R:48,A
+especializados_f1,ALL,ACT15,ORIGIN,-,0.875,48,True,-:42; C:3; I:3,I
+especializados_f1,ALL,ACT16,DAS,A/R,0.792,24,True,A/R:19; R:5,C
+especializados_f1,ALL,ACT16,GT_SUPPORT,C,0.667,24,True,C:16; -:5; I:3,I
+especializados_f1,ALL,ACT16,ISC,C,0.5,24,False,C:12; -:10; R:2,C
+especializados_f1,ALL,ACT16,MCO,R,0.542,24,False,R:13; C:6; A/R:5,A/R
+especializados_f1,ALL,ACT16,NEW_AUTHORITY,-,1.0,24,True,-:24,I
+especializados_f1,ALL,ACT16,ODC,C,1.0,24,True,C:24,C
+especializados_f1,ALL,ACT16,ORIGIN,-,0.917,24,True,-:22; I:2,I
+especializados_f1,ALL,ACT17,DAS,A/R,0.667,12,True,A/R:8; C:4,C
+especializados_f1,ALL,ACT17,GT_SUPPORT,-,0.5,12,False,-:6; I:4; C:2,I
+especializados_f1,ALL,ACT17,ISC,A/R,0.333,12,False,A/R:4; -:3; C:3; R:2,A/R
+especializados_f1,ALL,ACT17,MCO,-,0.5,12,False,-:6; C:5; I:1,R
+especializados_f1,ALL,ACT17,NEW_AUTHORITY,-,1.0,12,True,-:12,I
+especializados_f1,ALL,ACT17,ODC,-,0.417,12,False,-:5; C:4; I:3,I
+especializados_f1,ALL,ACT17,ORIGIN,-,1.0,12,True,-:12,I
+especializados_f1,ALL,ACT18,DAS,A/R,0.792,24,True,A/R:19; R:3; A:2,A/R
+especializados_f1,ALL,ACT18,GT_SUPPORT,C,0.792,24,True,C:19; -:4; I:1,C
+especializados_f1,ALL,ACT18,ISC,-,0.458,24,False,-:11; C:7; R:6,R
+especializados_f1,ALL,ACT18,MCO,C,0.5,24,False,C:12; R:5; -:5; A/R:2,R
+especializados_f1,ALL,ACT18,NEW_AUTHORITY,-,1.0,24,True,-:24,I
+especializados_f1,ALL,ACT18,ODC,R,0.583,24,False,R:14; C:9; A/R:1,C
+especializados_f1,ALL,ACT18,ORIGIN,-,1.0,24,True,-:24,I
+especializados_f1,ALL,ACT19,DAS,R,0.625,24,True,R:15; A/R:9,R
+especializados_f1,ALL,ACT19,GT_SUPPORT,C,0.667,24,True,C:16; -:6; I:2,C
+especializados_f1,ALL,ACT19,ISC,-,0.542,24,False,-:13; C:8; R:3,C
+especializados_f1,ALL,ACT19,MCO,C,0.792,24,True,C:19; R:4; -:1,R
+especializados_f1,ALL,ACT19,NEW_AUTHORITY,A,0.583,24,False,A:14; -:9; A/R:1,A
+especializados_f1,ALL,ACT19,ODC,C,0.833,24,True,C:20; R:4,C
+especializados_f1,ALL,ACT19,ORIGIN,-,1.0,24,True,-:24,I
+especializados_f1,ALL,ACT20,DAS,A/R,0.958,24,True,A/R:23; R:1,C
+especializados_f1,ALL,ACT20,GT_SUPPORT,C,0.792,24,True,C:19; I:3; -:2,I
+especializados_f1,ALL,ACT20,ISC,C,0.5,24,False,C:12; -:11; R:1,C
+especializados_f1,ALL,ACT20,MCO,R,0.542,24,False,R:13; C:8; -:1; I:1; A/R:1,A/R
+especializados_f1,ALL,ACT20,NEW_AUTHORITY,-,1.0,24,True,-:24,I
+especializados_f1,ALL,ACT20,ODC,C,1.0,24,True,C:24,C
+especializados_f1,ALL,ACT20,ORIGIN,-,0.917,24,True,-:22; I:2,I
+neutral_f1,ALL,ACT01,DAS,A/R,0.667,6,True,A/R:4; R:2,A/R
+neutral_f1,ALL,ACT01,GT_SUPPORT,C,1.0,6,True,C:6,C
+neutral_f1,ALL,ACT01,ISC,C,0.5,6,False,-:3; C:3,C
+neutral_f1,ALL,ACT01,MCO,I,0.5,6,False,I:3; -:2; C:1,C
+neutral_f1,ALL,ACT01,NEW_AUTHORITY,-,1.0,6,True,-:6,I
+neutral_f1,ALL,ACT01,ODC,C,0.5,6,False,C:3; A/R:2; R:1,C
+neutral_f1,ALL,ACT01,ORIGIN,C,0.5,6,False,C:3; -:3,C
+neutral_f1,ALL,ACT02,DAS,I,0.667,6,True,I:4; C:2,C
+neutral_f1,ALL,ACT02,GT_SUPPORT,C,0.833,6,True,C:5; -:1,C
+neutral_f1,ALL,ACT02,ISC,-,0.833,6,True,-:5; C:1,C
+neutral_f1,ALL,ACT02,MCO,-,0.833,6,True,-:5; C:1,I
+neutral_f1,ALL,ACT02,NEW_AUTHORITY,-,1.0,6,True,-:6,I
+neutral_f1,ALL,ACT02,ODC,I,0.667,6,True,I:4; -:2,C
+neutral_f1,ALL,ACT02,ORIGIN,A/R,1.0,6,True,A/R:6,A/R
+neutral_f1,ALL,ACT03,DAS,A/R,1.0,3,True,A/R:3,A/R
+neutral_f1,ALL,ACT03,GT_SUPPORT,C,0.667,3,True,C:2; I:1,C
+neutral_f1,ALL,ACT03,ISC,R,0.667,3,True,R:2; C:1,C
+neutral_f1,ALL,ACT03,MCO,I,0.667,3,True,I:2; C:1,C
+neutral_f1,ALL,ACT03,NEW_AUTHORITY,-,1.0,3,True,-:3,I
+neutral_f1,ALL,ACT03,ODC,C,0.667,3,True,C:2; I:1,C
+neutral_f1,ALL,ACT03,ORIGIN,C,1.0,3,True,C:3,C
+neutral_f1,ALL,ACT04,DAS,A/R,1.0,9,True,A/R:9,A/R
+neutral_f1,ALL,ACT04,GT_SUPPORT,C,0.889,9,True,C:8; -:1,C
+neutral_f1,ALL,ACT04,ISC,-,0.778,9,True,-:7; I:1; C:1,C
+neutral_f1,ALL,ACT04,MCO,-,0.556,9,False,-:5; C:3; I:1,C
+neutral_f1,ALL,ACT04,NEW_AUTHORITY,-,1.0,9,True,-:9,I
+neutral_f1,ALL,ACT04,ODC,I,0.778,9,True,I:7; C:2,C
+neutral_f1,ALL,ACT04,ORIGIN,C,0.778,9,True,C:7; -:2,C
+neutral_f1,ALL,ACT05,DAS,A/R,0.833,6,True,A/R:5; C:1,C
+neutral_f1,ALL,ACT05,GT_SUPPORT,C,0.833,6,True,C:5; A/R:1,I
+neutral_f1,ALL,ACT05,ISC,-,0.833,6,True,-:5; C:1,A/R
+neutral_f1,ALL,ACT05,MCO,-,0.667,6,True,-:4; I:2,I
+neutral_f1,ALL,ACT05,NEW_AUTHORITY,-,1.0,6,True,-:6,I
+neutral_f1,ALL,ACT05,ODC,C,0.5,6,False,I:3; C:3,I
+neutral_f1,ALL,ACT05,ORIGIN,C,0.833,6,True,C:5; -:1,I
+neutral_f1,ALL,ACT06,DAS,A/R,0.667,12,True,A/R:8; C:2; R:2,C
+neutral_f1,ALL,ACT06,GT_SUPPORT,C,0.667,12,True,C:8; I:3; -:1,I
+neutral_f1,ALL,ACT06,ISC,R,0.667,12,True,R:8; -:1; A/R:1; I:1; C:1,A/R
+neutral_f1,ALL,ACT06,MCO,R,0.417,12,False,R:5; C:4; A/R:3,R
+neutral_f1,ALL,ACT06,NEW_AUTHORITY,-,1.0,12,True,-:12,I
+neutral_f1,ALL,ACT06,ODC,C,0.917,12,True,C:11; I:1,I
+neutral_f1,ALL,ACT06,ORIGIN,-,0.75,12,True,-:9; C:2; I:1,C
+neutral_f1,ALL,ACT07,DAS,A/R,1.0,3,True,A/R:3,R
+neutral_f1,ALL,ACT07,GT_SUPPORT,C,0.667,3,True,C:2; -:1,C
+neutral_f1,ALL,ACT07,ISC,R,1.0,3,True,R:3,A/R
+neutral_f1,ALL,ACT07,MCO,C,1.0,3,True,C:3,R
+neutral_f1,ALL,ACT07,NEW_AUTHORITY,-,1.0,3,True,-:3,I
+neutral_f1,ALL,ACT07,ODC,C,1.0,3,True,C:3,C
+neutral_f1,ALL,ACT07,ORIGIN,-,0.667,3,True,-:2; I:1,I
+neutral_f1,ALL,ACT08,DAS,A/R,1.0,3,True,A/R:3,R
+neutral_f1,ALL,ACT08,GT_SUPPORT,-,1.0,3,True,-:3,I
+neutral_f1,ALL,ACT08,ISC,C,0.667,3,True,C:2; -:1,A/R
+neutral_f1,ALL,ACT08,MCO,C,1.0,3,True,C:3,R
+neutral_f1,ALL,ACT08,NEW_AUTHORITY,-,1.0,3,True,-:3,I
+neutral_f1,ALL,ACT08,ODC,C,0.667,3,True,C:2; I:1,I
+neutral_f1,ALL,ACT08,ORIGIN,-,1.0,3,True,-:3,I
+neutral_f1,ALL,ACT09,DAS,C,0.889,9,True,C:8; R:1,C
+neutral_f1,ALL,ACT09,GT_SUPPORT,C,0.556,9,False,C:5; I:3; -:1,C
+neutral_f1,ALL,ACT09,ISC,A/R,1.0,9,True,A/R:9,A/R
+neutral_f1,ALL,ACT09,MCO,R,0.778,9,True,R:7; C:2,C
+neutral_f1,ALL,ACT09,NEW_AUTHORITY,-,1.0,9,True,-:9,I
+neutral_f1,ALL,ACT09,ODC,C,1.0,9,True,C:9,C
+neutral_f1,ALL,ACT09,ORIGIN,-,0.556,9,False,-:5; C:2; I:2,C
+neutral_f1,ALL,ACT10,DAS,A/R,1.0,3,True,A/R:3,A/R
+neutral_f1,ALL,ACT10,GT_SUPPORT,C,0.333,3,False,I:1; -:1; C:1,C
+neutral_f1,ALL,ACT10,ISC,-,1.0,3,True,-:3,C
+neutral_f1,ALL,ACT10,MCO,C,0.667,3,True,C:2; -:1,R
+neutral_f1,ALL,ACT10,NEW_AUTHORITY,-,1.0,3,True,-:3,I
+neutral_f1,ALL,ACT10,ODC,C,1.0,3,True,C:3,C
+neutral_f1,ALL,ACT10,ORIGIN,-,1.0,3,True,-:3,I
+neutral_f1,ALL,ACT11,DAS,A/R,1.0,9,True,A/R:9,A/R
+neutral_f1,ALL,ACT11,GT_SUPPORT,C,0.889,9,True,C:8; R:1,C
+neutral_f1,ALL,ACT11,ISC,-,1.0,9,True,-:9,C
+neutral_f1,ALL,ACT11,MCO,-,0.667,9,True,-:6; C:3,C
+neutral_f1,ALL,ACT11,NEW_AUTHORITY,-,1.0,9,True,-:9,I
+neutral_f1,ALL,ACT11,ODC,C,0.889,9,True,C:8; R:1,C
+neutral_f1,ALL,ACT11,ORIGIN,-,0.889,9,True,-:8; I:1,I
+neutral_f1,ALL,ACT12,DAS,C,0.5,6,False,C:3; A/R:2; R:1,R
+neutral_f1,ALL,ACT12,GT_SUPPORT,I,0.5,6,False,I:3; C:2; -:1,I
+neutral_f1,ALL,ACT12,ISC,R,0.333,6,False,R:2; -:2; C:2,C
+neutral_f1,ALL,ACT12,MCO,A/R,0.5,6,False,A/R:3; R:2; -:1,I
+neutral_f1,ALL,ACT12,NEW_AUTHORITY,-,1.0,6,True,-:6,I
+neutral_f1,ALL,ACT12,ODC,C,1.0,6,True,C:6,C
+neutral_f1,ALL,ACT12,ORIGIN,C,0.667,6,True,C:4; A/R:1; R:1,A/R
+neutral_f1,ALL,ACT13,DAS,R,0.833,6,True,R:5; C:1,C
+neutral_f1,ALL,ACT13,GT_SUPPORT,C,0.667,6,True,C:4; -:2,C
+neutral_f1,ALL,ACT13,ISC,C,0.667,6,True,C:4; I:1; -:1,C
+neutral_f1,ALL,ACT13,MCO,R,0.5,6,False,R:3; A/R:2; C:1,C
+neutral_f1,ALL,ACT13,NEW_AUTHORITY,-,1.0,6,True,-:6,I
+neutral_f1,ALL,ACT13,ODC,A/R,0.5,6,False,A/R:3; C:1; R:1; A:1,A/R
+neutral_f1,ALL,ACT13,ORIGIN,C,0.833,6,True,C:5; -:1,C
+neutral_f1,ALL,ACT14,DAS,A/R,0.444,9,False,A/R:4; R:4; C:1,R
+neutral_f1,ALL,ACT14,GT_SUPPORT,C,0.556,9,False,C:5; I:2; -:2,C
+neutral_f1,ALL,ACT14,ISC,C,0.556,9,False,C:5; -:4,C
+neutral_f1,ALL,ACT14,MCO,C,1.0,9,True,C:9,C
+neutral_f1,ALL,ACT14,NEW_AUTHORITY,A,0.444,9,False,-:4; A:4; A/R:1,A
+neutral_f1,ALL,ACT14,ODC,C,1.0,9,True,C:9,C
+neutral_f1,ALL,ACT14,ORIGIN,-,1.0,9,True,-:9,I
+neutral_f1,ALL,ACT15,DAS,C,0.917,12,True,C:11; I:1,C
+neutral_f1,ALL,ACT15,GT_SUPPORT,C,0.5,12,False,C:6; -:4; I:2,C
+neutral_f1,ALL,ACT15,ISC,-,0.583,12,False,-:7; I:3; C:2,I
+neutral_f1,ALL,ACT15,MCO,C,1.0,12,True,C:12,R
+neutral_f1,ALL,ACT15,NEW_AUTHORITY,-,1.0,12,True,-:12,I
+neutral_f1,ALL,ACT15,ODC,A/R,1.0,12,True,A/R:12,A
+neutral_f1,ALL,ACT15,ORIGIN,-,0.917,12,True,-:11; C:1,I
+neutral_f1,ALL,ACT16,DAS,A/R,1.0,6,True,A/R:6,C
+neutral_f1,ALL,ACT16,GT_SUPPORT,C,0.333,6,False,C:2; -:2; I:2,I
+neutral_f1,ALL,ACT16,ISC,C,0.667,6,True,C:4; R:1; -:1,C
+neutral_f1,ALL,ACT16,MCO,R,0.833,6,True,R:5; C:1,A/R
+neutral_f1,ALL,ACT16,NEW_AUTHORITY,-,1.0,6,True,-:6,I
+neutral_f1,ALL,ACT16,ODC,C,1.0,6,True,C:6,C
+neutral_f1,ALL,ACT16,ORIGIN,-,1.0,6,True,-:6,I
+neutral_f1,ALL,ACT17,DAS,A/R,1.0,3,True,A/R:3,C
+neutral_f1,ALL,ACT17,GT_SUPPORT,-,0.667,3,True,-:2; C:1,I
+neutral_f1,ALL,ACT17,ISC,R,0.667,3,True,R:2; C:1,A/R
+neutral_f1,ALL,ACT17,MCO,C,0.667,3,True,C:2; -:1,R
+neutral_f1,ALL,ACT17,NEW_AUTHORITY,-,1.0,3,True,-:3,I
+neutral_f1,ALL,ACT17,ODC,I,0.667,3,True,I:2; -:1,I
+neutral_f1,ALL,ACT17,ORIGIN,-,1.0,3,True,-:3,I
+neutral_f1,ALL,ACT18,DAS,A/R,1.0,6,True,A/R:6,A/R
+neutral_f1,ALL,ACT18,GT_SUPPORT,C,0.5,6,False,C:3; -:2; I:1,C
+neutral_f1,ALL,ACT18,ISC,-,0.5,6,False,-:3; C:2; R:1,R
+neutral_f1,ALL,ACT18,MCO,R,0.5,6,False,R:3; C:2; -:1,R
+neutral_f1,ALL,ACT18,NEW_AUTHORITY,-,1.0,6,True,-:6,I
+neutral_f1,ALL,ACT18,ODC,R,0.5,6,False,C:3; R:3,C
+neutral_f1,ALL,ACT18,ORIGIN,-,1.0,6,True,-:6,I
+neutral_f1,ALL,ACT19,DAS,R,0.833,6,True,R:5; A/R:1,R
+neutral_f1,ALL,ACT19,GT_SUPPORT,I,0.5,6,False,I:3; C:2; -:1,C
+neutral_f1,ALL,ACT19,ISC,-,0.5,6,False,-:3; C:2; R:1,C
+neutral_f1,ALL,ACT19,MCO,C,1.0,6,True,C:6,R
+neutral_f1,ALL,ACT19,NEW_AUTHORITY,A,0.833,6,True,A:5; -:1,A
+neutral_f1,ALL,ACT19,ODC,C,0.833,6,True,C:5; R:1,C
+neutral_f1,ALL,ACT19,ORIGIN,-,1.0,6,True,-:6,I
+neutral_f1,ALL,ACT20,DAS,A/R,1.0,6,True,A/R:6,C
+neutral_f1,ALL,ACT20,GT_SUPPORT,C,0.5,6,False,C:3; -:2; I:1,I
+neutral_f1,ALL,ACT20,ISC,C,0.667,6,True,C:4; -:1; I:1,C
+neutral_f1,ALL,ACT20,MCO,R,0.833,6,True,R:5; C:1,A/R
+neutral_f1,ALL,ACT20,NEW_AUTHORITY,-,1.0,6,True,-:6,I
+neutral_f1,ALL,ACT20,ODC,C,1.0,6,True,C:6,C
+neutral_f1,ALL,ACT20,ORIGIN,-,1.0,6,True,-:6,I
+deliberacion_f2,ALL,ACT01,DAS,A/R,0.667,24,True,A/R:16; R:7; C:1,A/R
+deliberacion_f2,ALL,ACT01,GT_SUPPORT,C,0.958,24,True,C:23; R:1,C
+deliberacion_f2,ALL,ACT01,ISC,-,0.625,24,True,-:15; C:8; I:1,C
+deliberacion_f2,ALL,ACT01,MCO,C,0.75,24,True,C:18; -:3; I:3,C
+deliberacion_f2,ALL,ACT01,NEW_AUTHORITY,-,1.0,24,True,-:24,I
+deliberacion_f2,ALL,ACT01,ODC,R,0.583,24,False,R:14; A/R:8; C:2,C
+deliberacion_f2,ALL,ACT01,ORIGIN,-,0.625,24,True,-:15; C:9,C
+deliberacion_f2,ALL,ACT02,DAS,I,1.0,24,True,I:24,C
+deliberacion_f2,ALL,ACT02,GT_SUPPORT,C,0.75,24,True,C:18; -:5; I:1,C
+deliberacion_f2,ALL,ACT02,ISC,-,0.542,24,False,-:13; C:10; I:1,C
+deliberacion_f2,ALL,ACT02,MCO,-,0.958,24,True,-:23; I:1,I
+deliberacion_f2,ALL,ACT02,NEW_AUTHORITY,-,1.0,24,True,-:24,I
+deliberacion_f2,ALL,ACT02,ODC,I,0.917,24,True,I:22; C:1; -:1,C
+deliberacion_f2,ALL,ACT02,ORIGIN,A/R,0.958,24,True,A/R:23; R:1,A/R
+deliberacion_f2,ALL,ACT03,DAS,A/R,1.0,12,True,A/R:12,A/R
+deliberacion_f2,ALL,ACT03,GT_SUPPORT,C,1.0,12,True,C:12,C
+deliberacion_f2,ALL,ACT03,ISC,C,0.75,12,True,C:9; R:3,C
+deliberacion_f2,ALL,ACT03,MCO,I,0.75,12,True,I:9; -:2; C:1,C
+deliberacion_f2,ALL,ACT03,NEW_AUTHORITY,-,1.0,12,True,-:12,I
+deliberacion_f2,ALL,ACT03,ODC,C,0.75,12,True,C:9; I:3,C
+deliberacion_f2,ALL,ACT03,ORIGIN,C,0.667,12,True,C:8; I:3; -:1,C
+deliberacion_f2,ALL,ACT04,DAS,A/R,1.0,36,True,A/R:36,A/R
+deliberacion_f2,ALL,ACT04,GT_SUPPORT,C,1.0,36,True,C:36,C
+deliberacion_f2,ALL,ACT04,ISC,C,0.528,36,False,C:19; -:15; I:2,C
+deliberacion_f2,ALL,ACT04,MCO,-,0.389,36,False,-:14; C:12; I:10,C
+deliberacion_f2,ALL,ACT04,NEW_AUTHORITY,-,1.0,36,True,-:36,I
+deliberacion_f2,ALL,ACT04,ODC,I,0.583,36,False,I:21; C:15,C
+deliberacion_f2,ALL,ACT04,ORIGIN,C,0.972,36,True,C:35; I:1,C
+deliberacion_f2,ALL,ACT05,DAS,A/R,0.958,24,True,A/R:23; R:1,C
+deliberacion_f2,ALL,ACT05,GT_SUPPORT,C,0.875,24,True,C:21; R:2; A/R:1,I
+deliberacion_f2,ALL,ACT05,ISC,-,0.833,24,True,-:20; C:4,A/R
+deliberacion_f2,ALL,ACT05,MCO,-,0.583,24,False,-:14; I:6; C:4,I
+deliberacion_f2,ALL,ACT05,NEW_AUTHORITY,-,1.0,24,True,-:24,I
+deliberacion_f2,ALL,ACT05,ODC,C,0.542,24,False,C:13; I:11,I
+deliberacion_f2,ALL,ACT05,ORIGIN,C,1.0,24,True,C:24,I
+deliberacion_f2,ALL,ACT06,DAS,A/R,0.521,48,False,A/R:25; R:23,C
+deliberacion_f2,ALL,ACT06,GT_SUPPORT,C,0.667,48,True,C:32; -:11; I:5,I
+deliberacion_f2,ALL,ACT06,ISC,R,0.604,48,True,R:29; -:12; A/R:6; C:1,A/R
+deliberacion_f2,ALL,ACT06,MCO,R,0.396,48,False,R:19; A/R:16; C:8; -:4; A:1,R
+deliberacion_f2,ALL,ACT06,NEW_AUTHORITY,-,1.0,48,True,-:48,I
+deliberacion_f2,ALL,ACT06,ODC,C,1.0,48,True,C:48,I
+deliberacion_f2,ALL,ACT06,ORIGIN,-,0.583,48,False,-:28; C:16; I:4,C
+deliberacion_f2,ALL,ACT07,DAS,R,0.667,12,True,R:8; A/R:4,R
+deliberacion_f2,ALL,ACT07,GT_SUPPORT,-,0.833,12,True,-:10; I:1; C:1,C
+deliberacion_f2,ALL,ACT07,ISC,A/R,0.667,12,True,A/R:8; R:4,A/R
+deliberacion_f2,ALL,ACT07,MCO,C,0.833,12,True,C:10; R:2,R
+deliberacion_f2,ALL,ACT07,NEW_AUTHORITY,-,1.0,12,True,-:12,I
+deliberacion_f2,ALL,ACT07,ODC,C,1.0,12,True,C:12,C
+deliberacion_f2,ALL,ACT07,ORIGIN,-,0.833,12,True,-:10; I:2,I
+deliberacion_f2,ALL,ACT08,DAS,A/R,1.0,12,True,A/R:12,R
+deliberacion_f2,ALL,ACT08,GT_SUPPORT,I,0.667,12,True,I:8; -:4,I
+deliberacion_f2,ALL,ACT08,ISC,C,0.917,12,True,C:11; R:1,A/R
+deliberacion_f2,ALL,ACT08,MCO,C,1.0,12,True,C:12,R
+deliberacion_f2,ALL,ACT08,NEW_AUTHORITY,-,1.0,12,True,-:12,I
+deliberacion_f2,ALL,ACT08,ODC,C,0.917,12,True,C:11; I:1,I
+deliberacion_f2,ALL,ACT08,ORIGIN,-,1.0,12,True,-:12,I
+deliberacion_f2,ALL,ACT09,DAS,R,0.583,36,False,R:21; C:15,C
+deliberacion_f2,ALL,ACT09,GT_SUPPORT,C,0.639,36,True,C:23; -:11; I:2,C
+deliberacion_f2,ALL,ACT09,ISC,A/R,0.972,36,True,A/R:35; R:1,A/R
+deliberacion_f2,ALL,ACT09,MCO,R,0.917,36,True,R:33; C:2; A/R:1,C
+deliberacion_f2,ALL,ACT09,NEW_AUTHORITY,-,1.0,36,True,-:36,I
+deliberacion_f2,ALL,ACT09,ODC,C,1.0,36,True,C:36,C
+deliberacion_f2,ALL,ACT09,ORIGIN,-,0.5,36,False,-:18; C:17; I:1,C
+deliberacion_f2,ALL,ACT10,DAS,A/R,1.0,12,True,A/R:12,A/R
+deliberacion_f2,ALL,ACT10,GT_SUPPORT,C,0.917,12,True,C:11; I:1,C
+deliberacion_f2,ALL,ACT10,ISC,-,1.0,12,True,-:12,C
+deliberacion_f2,ALL,ACT10,MCO,C,1.0,12,True,C:12,R
+deliberacion_f2,ALL,ACT10,NEW_AUTHORITY,-,1.0,12,True,-:12,I
+deliberacion_f2,ALL,ACT10,ODC,C,1.0,12,True,C:12,C
+deliberacion_f2,ALL,ACT10,ORIGIN,-,1.0,12,True,-:12,I
+deliberacion_f2,ALL,ACT11,DAS,A/R,1.0,36,True,A/R:36,A/R
+deliberacion_f2,ALL,ACT11,GT_SUPPORT,C,1.0,36,True,C:36,C
+deliberacion_f2,ALL,ACT11,ISC,-,0.889,36,True,-:32; C:4,C
+deliberacion_f2,ALL,ACT11,MCO,-,0.75,36,True,-:27; C:9,C
+deliberacion_f2,ALL,ACT11,NEW_AUTHORITY,-,1.0,36,True,-:36,I
+deliberacion_f2,ALL,ACT11,ODC,C,1.0,36,True,C:36,C
+deliberacion_f2,ALL,ACT11,ORIGIN,-,0.694,36,True,-:25; I:11,I
+deliberacion_f2,ALL,ACT12,DAS,R,0.417,24,False,C:10; R:10; A/R:4,R
+deliberacion_f2,ALL,ACT12,GT_SUPPORT,C,0.625,24,True,C:15; I:6; -:3,I
+deliberacion_f2,ALL,ACT12,ISC,R,0.667,24,True,R:16; C:4; A/R:4,C
+deliberacion_f2,ALL,ACT12,MCO,A/R,0.625,24,True,A/R:15; R:5; C:3; A:1,I
+deliberacion_f2,ALL,ACT12,NEW_AUTHORITY,-,1.0,24,True,-:24,I
+deliberacion_f2,ALL,ACT12,ODC,C,1.0,24,True,C:24,C
+deliberacion_f2,ALL,ACT12,ORIGIN,C,0.917,24,True,C:22; R:2,A/R
+deliberacion_f2,ALL,ACT13,DAS,R,0.958,24,True,R:23; C:1,C
+deliberacion_f2,ALL,ACT13,GT_SUPPORT,C,0.583,24,False,C:14; I:5; -:5,C
+deliberacion_f2,ALL,ACT13,ISC,C,1.0,24,True,C:24,C
+deliberacion_f2,ALL,ACT13,MCO,R,1.0,24,True,R:24,C
+deliberacion_f2,ALL,ACT13,NEW_AUTHORITY,-,1.0,24,True,-:24,I
+deliberacion_f2,ALL,ACT13,ODC,A/R,1.0,24,True,A/R:24,A/R
+deliberacion_f2,ALL,ACT13,ORIGIN,C,1.0,24,True,C:24,C
+deliberacion_f2,ALL,ACT14,DAS,A/R,0.556,36,False,A/R:20; R:12; C:4,R
+deliberacion_f2,ALL,ACT14,GT_SUPPORT,C,0.694,36,True,C:25; -:7; I:4,C
+deliberacion_f2,ALL,ACT14,ISC,C,0.667,36,True,C:24; -:11; R:1,C
+deliberacion_f2,ALL,ACT14,MCO,C,0.861,36,True,C:31; R:4; -:1,C
+deliberacion_f2,ALL,ACT14,NEW_AUTHORITY,-,0.556,36,False,-:20; A:12; A/R:4,A
+deliberacion_f2,ALL,ACT14,ODC,C,1.0,36,True,C:36,C
+deliberacion_f2,ALL,ACT14,ORIGIN,-,0.944,36,True,-:34; C:1; I:1,I
+deliberacion_f2,ALL,ACT15,DAS,C,1.0,48,True,C:48,C
+deliberacion_f2,ALL,ACT15,GT_SUPPORT,C,0.979,48,True,C:47; -:1,C
+deliberacion_f2,ALL,ACT15,ISC,-,0.646,48,True,-:31; C:13; I:4,I
+deliberacion_f2,ALL,ACT15,MCO,C,1.0,48,True,C:48,R
+deliberacion_f2,ALL,ACT15,NEW_AUTHORITY,-,1.0,48,True,-:48,I
+deliberacion_f2,ALL,ACT15,ODC,A/R,1.0,48,True,A/R:48,A
+deliberacion_f2,ALL,ACT15,ORIGIN,-,0.875,48,True,-:42; I:4; C:2,I
+deliberacion_f2,ALL,ACT16,DAS,A/R,0.792,24,True,A/R:19; R:5,C
+deliberacion_f2,ALL,ACT16,GT_SUPPORT,C,0.917,24,True,C:22; -:1; I:1,I
+deliberacion_f2,ALL,ACT16,ISC,C,1.0,24,True,C:24,C
+deliberacion_f2,ALL,ACT16,MCO,R,0.792,24,True,R:19; A/R:5,A/R
+deliberacion_f2,ALL,ACT16,NEW_AUTHORITY,-,1.0,24,True,-:24,I
+deliberacion_f2,ALL,ACT16,ODC,C,1.0,24,True,C:24,C
+deliberacion_f2,ALL,ACT16,ORIGIN,-,0.917,24,True,-:22; I:2,I
+deliberacion_f2,ALL,ACT17,DAS,A/R,0.667,12,True,A/R:8; R:2; C:2,C
+deliberacion_f2,ALL,ACT17,GT_SUPPORT,I,0.417,12,False,I:5; -:4; C:3,I
+deliberacion_f2,ALL,ACT17,ISC,A/R,0.333,12,False,C:4; R:4; A/R:4,A/R
+deliberacion_f2,ALL,ACT17,MCO,-,0.583,12,False,-:7; C:5,R
+deliberacion_f2,ALL,ACT17,NEW_AUTHORITY,-,1.0,12,True,-:12,I
+deliberacion_f2,ALL,ACT17,ODC,I,0.5,12,False,I:6; C:5; -:1,I
+deliberacion_f2,ALL,ACT17,ORIGIN,-,1.0,12,True,-:12,I
+deliberacion_f2,ALL,ACT18,DAS,A/R,1.0,24,True,A/R:24,A/R
+deliberacion_f2,ALL,ACT18,GT_SUPPORT,C,0.958,24,True,C:23; -:1,C
+deliberacion_f2,ALL,ACT18,ISC,C,0.667,24,True,C:16; -:5; R:3,R
+deliberacion_f2,ALL,ACT18,MCO,R,0.542,24,False,R:13; C:7; -:4,R
+deliberacion_f2,ALL,ACT18,NEW_AUTHORITY,-,1.0,24,True,-:24,I
+deliberacion_f2,ALL,ACT18,ODC,R,1.0,24,True,R:24,C
+deliberacion_f2,ALL,ACT18,ORIGIN,-,1.0,24,True,-:24,I
+deliberacion_f2,ALL,ACT19,DAS,R,0.792,24,True,R:19; A/R:5,R
+deliberacion_f2,ALL,ACT19,GT_SUPPORT,C,0.958,24,True,C:23; -:1,C
+deliberacion_f2,ALL,ACT19,ISC,-,0.458,24,False,-:11; C:10; R:3,C
+deliberacion_f2,ALL,ACT19,MCO,C,0.792,24,True,C:19; R:5,R
+deliberacion_f2,ALL,ACT19,NEW_AUTHORITY,A,0.792,24,True,A:19; -:5,A
+deliberacion_f2,ALL,ACT19,ODC,C,0.833,24,True,C:20; R:4,C
+deliberacion_f2,ALL,ACT19,ORIGIN,-,1.0,24,True,-:24,I
+deliberacion_f2,ALL,ACT20,DAS,A/R,1.0,24,True,A/R:24,C
+deliberacion_f2,ALL,ACT20,GT_SUPPORT,C,1.0,24,True,C:24,I
+deliberacion_f2,ALL,ACT20,ISC,C,0.833,24,True,C:20; -:3; I:1,C
+deliberacion_f2,ALL,ACT20,MCO,R,0.917,24,True,R:22; C:2,A/R
+deliberacion_f2,ALL,ACT20,NEW_AUTHORITY,-,1.0,24,True,-:24,I
+deliberacion_f2,ALL,ACT20,ODC,C,1.0,24,True,C:24,C
+deliberacion_f2,ALL,ACT20,ORIGIN,-,0.958,24,True,-:23; I:1,I
+control_f2c,ALL,ACT01,DAS,A/R,0.625,24,True,A/R:15; R:7; C:2,A/R
+control_f2c,ALL,ACT01,GT_SUPPORT,C,0.833,24,True,C:20; R:4,C
+control_f2c,ALL,ACT01,ISC,-,0.5,24,False,-:12; C:10; R:1; I:1,C
+control_f2c,ALL,ACT01,MCO,C,0.583,24,False,C:14; -:7; I:3,C
+control_f2c,ALL,ACT01,NEW_AUTHORITY,-,1.0,24,True,-:24,I
+control_f2c,ALL,ACT01,ODC,R,0.417,24,False,R:10; A/R:7; C:5; A:2,C
+control_f2c,ALL,ACT01,ORIGIN,-,0.542,24,False,-:13; C:11,C
+control_f2c,ALL,ACT02,DAS,I,0.833,24,True,I:20; -:2; C:2,C
+control_f2c,ALL,ACT02,GT_SUPPORT,C,0.667,24,True,C:16; -:6; I:2,C
+control_f2c,ALL,ACT02,ISC,-,0.583,24,False,-:14; C:9; I:1,C
+control_f2c,ALL,ACT02,MCO,-,0.875,24,True,-:21; C:2; I:1,I
+control_f2c,ALL,ACT02,NEW_AUTHORITY,-,1.0,24,True,-:24,I
+control_f2c,ALL,ACT02,ODC,I,0.708,24,True,I:17; -:6; C:1,C
+control_f2c,ALL,ACT02,ORIGIN,A/R,1.0,24,True,A/R:24,A/R
+control_f2c,ALL,ACT03,DAS,A/R,0.833,12,True,A/R:10; R:1; C:1,A/R
+control_f2c,ALL,ACT03,GT_SUPPORT,C,0.917,12,True,C:11; A:1,C
+control_f2c,ALL,ACT03,ISC,C,0.667,12,True,C:8; -:2; R:1; A/R:1,C
+control_f2c,ALL,ACT03,MCO,I,0.583,12,False,I:7; -:4; C:1,C
+control_f2c,ALL,ACT03,NEW_AUTHORITY,-,1.0,12,True,-:12,I
+control_f2c,ALL,ACT03,ODC,C,0.583,12,False,C:7; I:5,C
+control_f2c,ALL,ACT03,ORIGIN,C,0.667,12,True,C:8; I:3; -:1,C
+control_f2c,ALL,ACT04,DAS,A/R,1.0,36,True,A/R:36,A/R
+control_f2c,ALL,ACT04,GT_SUPPORT,C,1.0,36,True,C:36,C
+control_f2c,ALL,ACT04,ISC,-,0.528,36,False,-:19; C:15; I:2,C
+control_f2c,ALL,ACT04,MCO,-,0.5,36,False,-:18; C:9; I:9,C
+control_f2c,ALL,ACT04,NEW_AUTHORITY,-,1.0,36,True,-:36,I
+control_f2c,ALL,ACT04,ODC,I,0.694,36,True,I:25; C:11,C
+control_f2c,ALL,ACT04,ORIGIN,C,0.889,36,True,C:32; I:2; -:2,C
+control_f2c,ALL,ACT05,DAS,A/R,0.917,24,True,A/R:22; R:2,C
+control_f2c,ALL,ACT05,GT_SUPPORT,C,0.708,24,True,C:17; R:5; A:1; A/R:1,I
+control_f2c,ALL,ACT05,ISC,-,0.708,24,True,-:17; C:6; I:1,A/R
+control_f2c,ALL,ACT05,MCO,-,0.792,24,True,-:19; I:3; C:2,I
+control_f2c,ALL,ACT05,NEW_AUTHORITY,-,1.0,24,True,-:24,I
+control_f2c,ALL,ACT05,ODC,C,0.542,24,False,C:13; I:11,I
+control_f2c,ALL,ACT05,ORIGIN,C,0.792,24,True,C:19; I:3; -:2,I
+control_f2c,ALL,ACT06,DAS,A/R,0.604,48,True,A/R:29; R:17; C:2,C
+control_f2c,ALL,ACT06,GT_SUPPORT,C,0.583,48,False,C:28; -:13; I:7,I
+control_f2c,ALL,ACT06,ISC,R,0.562,48,False,R:27; -:10; C:6; A/R:5,A/R
+control_f2c,ALL,ACT06,MCO,R,0.5,48,False,R:24; A/R:11; C:7; A:3; -:3,R
+control_f2c,ALL,ACT06,NEW_AUTHORITY,-,1.0,48,True,-:48,I
+control_f2c,ALL,ACT06,ODC,C,1.0,48,True,C:48,I
+control_f2c,ALL,ACT06,ORIGIN,-,0.562,48,False,-:27; C:20; I:1,C
+control_f2c,ALL,ACT07,DAS,A/R,0.5,12,False,R:6; A/R:6,R
+control_f2c,ALL,ACT07,GT_SUPPORT,-,0.917,12,True,-:11; I:1,C
+control_f2c,ALL,ACT07,ISC,A/R,0.5,12,False,A/R:6; R:5; -:1,A/R
+control_f2c,ALL,ACT07,MCO,C,0.417,12,False,C:5; R:4; I:3,R
+control_f2c,ALL,ACT07,NEW_AUTHORITY,-,1.0,12,True,-:12,I
+control_f2c,ALL,ACT07,ODC,C,1.0,12,True,C:12,C
+control_f2c,ALL,ACT07,ORIGIN,C,0.417,12,False,-:5; C:5; I:2,I
+control_f2c,ALL,ACT08,DAS,A/R,1.0,12,True,A/R:12,R
+control_f2c,ALL,ACT08,GT_SUPPORT,-,0.5,12,False,-:6; I:5; C:1,I
+control_f2c,ALL,ACT08,ISC,C,0.667,12,True,C:8; -:3; R:1,A/R
+control_f2c,ALL,ACT08,MCO,C,0.833,12,True,C:10; I:1; -:1,R
+control_f2c,ALL,ACT08,NEW_AUTHORITY,-,1.0,12,True,-:12,I
+control_f2c,ALL,ACT08,ODC,C,0.667,12,True,C:8; I:4,I
+control_f2c,ALL,ACT08,ORIGIN,-,1.0,12,True,-:12,I
+control_f2c,ALL,ACT09,DAS,C,0.75,36,True,C:27; R:7; I:1; A/R:1,C
+control_f2c,ALL,ACT09,GT_SUPPORT,C,0.472,36,False,C:17; -:13; I:6,C
+control_f2c,ALL,ACT09,ISC,A/R,0.917,36,True,A/R:33; R:3,A/R
+control_f2c,ALL,ACT09,MCO,R,0.722,36,True,R:26; C:8; A/R:2,C
+control_f2c,ALL,ACT09,NEW_AUTHORITY,-,1.0,36,True,-:36,I
+control_f2c,ALL,ACT09,ODC,C,0.972,36,True,C:35; R:1,C
+control_f2c,ALL,ACT09,ORIGIN,C,0.444,36,False,-:16; C:16; I:4,C
+control_f2c,ALL,ACT10,DAS,A/R,1.0,12,True,A/R:12,A/R
+control_f2c,ALL,ACT10,GT_SUPPORT,C,0.667,12,True,C:8; I:2; -:2,C
+control_f2c,ALL,ACT10,ISC,-,1.0,12,True,-:12,C
+control_f2c,ALL,ACT10,MCO,C,0.917,12,True,C:11; R:1,R
+control_f2c,ALL,ACT10,NEW_AUTHORITY,-,1.0,12,True,-:12,I
+control_f2c,ALL,ACT10,ODC,C,0.75,12,True,C:9; I:3,C
+control_f2c,ALL,ACT10,ORIGIN,-,1.0,12,True,-:12,I
+control_f2c,ALL,ACT11,DAS,A/R,0.972,36,True,A/R:35; R:1,A/R
+control_f2c,ALL,ACT11,GT_SUPPORT,C,0.917,36,True,C:33; R:2; A:1,C
+control_f2c,ALL,ACT11,ISC,-,0.806,36,True,-:29; C:7,C
+control_f2c,ALL,ACT11,MCO,-,0.75,36,True,-:27; C:8; I:1,C
+control_f2c,ALL,ACT11,NEW_AUTHORITY,-,1.0,36,True,-:36,I
+control_f2c,ALL,ACT11,ODC,C,0.972,36,True,C:35; R:1,C
+control_f2c,ALL,ACT11,ORIGIN,-,0.75,36,True,-:27; I:8; C:1,I
+control_f2c,ALL,ACT12,DAS,R,0.458,24,False,R:11; C:9; A/R:3; I:1,R
+control_f2c,ALL,ACT12,GT_SUPPORT,C,0.667,24,True,C:16; -:4; I:4,I
+control_f2c,ALL,ACT12,ISC,R,0.583,24,False,R:14; A/R:7; C:2; I:1,C
+control_f2c,ALL,ACT12,MCO,A/R,0.417,24,False,A/R:10; C:7; A:3; R:3; -:1,I
+control_f2c,ALL,ACT12,NEW_AUTHORITY,-,1.0,24,True,-:24,I
+control_f2c,ALL,ACT12,ODC,C,0.875,24,True,C:21; I:3,C
+control_f2c,ALL,ACT12,ORIGIN,C,0.75,24,True,C:18; R:5; A:1,A/R
+control_f2c,ALL,ACT13,DAS,R,0.792,24,True,R:19; C:5,C
+control_f2c,ALL,ACT13,GT_SUPPORT,C,0.583,24,False,C:14; -:7; I:3,C
+control_f2c,ALL,ACT13,ISC,C,0.625,24,True,C:15; -:7; I:1; R:1,C
+control_f2c,ALL,ACT13,MCO,R,0.917,24,True,R:22; A/R:1; C:1,C
+control_f2c,ALL,ACT13,NEW_AUTHORITY,-,1.0,24,True,-:24,I
+control_f2c,ALL,ACT13,ODC,A/R,0.958,24,True,A/R:23; R:1,A/R
+control_f2c,ALL,ACT13,ORIGIN,C,0.833,24,True,C:20; -:3; I:1,C
+control_f2c,ALL,ACT14,DAS,A/R,0.75,36,True,A/R:27; R:5; C:3; A:1,R
+control_f2c,ALL,ACT14,GT_SUPPORT,C,0.583,36,False,C:21; I:8; -:7,C
+control_f2c,ALL,ACT14,ISC,-,0.528,36,False,-:19; C:15; R:2,C
+control_f2c,ALL,ACT14,MCO,C,0.917,36,True,C:33; -:1; R:1; I:1,C
+control_f2c,ALL,ACT14,NEW_AUTHORITY,-,0.778,36,True,-:28; A:5; A/R:3,A
+control_f2c,ALL,ACT14,ODC,C,1.0,36,True,C:36,C
+control_f2c,ALL,ACT14,ORIGIN,-,0.889,36,True,-:32; C:2; I:2,I
+control_f2c,ALL,ACT15,DAS,C,0.979,48,True,C:47; I:1,C
+control_f2c,ALL,ACT15,GT_SUPPORT,C,0.854,48,True,C:41; I:5; -:2,C
+control_f2c,ALL,ACT15,ISC,-,0.729,48,True,-:35; C:10; I:3,I
+control_f2c,ALL,ACT15,MCO,C,0.792,48,True,C:38; -:8; R:1; I:1,R
+control_f2c,ALL,ACT15,NEW_AUTHORITY,-,1.0,48,True,-:48,I
+control_f2c,ALL,ACT15,ODC,A/R,1.0,48,True,A/R:48,A
+control_f2c,ALL,ACT15,ORIGIN,-,0.854,48,True,-:41; C:5; I:2,I
+control_f2c,ALL,ACT16,DAS,A/R,0.708,24,True,A/R:17; R:7,C
+control_f2c,ALL,ACT16,GT_SUPPORT,C,0.667,24,True,C:16; -:5; I:3,I
+control_f2c,ALL,ACT16,ISC,C,0.5,24,False,C:12; -:10; R:2,C
+control_f2c,ALL,ACT16,MCO,R,0.625,24,True,R:15; A/R:7; C:2,A/R
+control_f2c,ALL,ACT16,NEW_AUTHORITY,-,1.0,24,True,-:24,I
+control_f2c,ALL,ACT16,ODC,C,1.0,24,True,C:24,C
+control_f2c,ALL,ACT16,ORIGIN,-,0.792,24,True,-:19; C:5,I
+control_f2c,ALL,ACT17,DAS,A/R,0.667,12,True,A/R:8; C:2; R:2,C
+control_f2c,ALL,ACT17,GT_SUPPORT,-,0.417,12,False,-:5; I:4; C:3,I
+control_f2c,ALL,ACT17,ISC,C,0.417,12,False,C:5; A/R:4; R:2; -:1,A/R
+control_f2c,ALL,ACT17,MCO,-,0.5,12,False,-:6; C:5; I:1,R
+control_f2c,ALL,ACT17,NEW_AUTHORITY,-,1.0,12,True,-:12,I
+control_f2c,ALL,ACT17,ODC,C,0.417,12,False,-:5; C:5; I:2,I
+control_f2c,ALL,ACT17,ORIGIN,-,1.0,12,True,-:12,I
+control_f2c,ALL,ACT18,DAS,A/R,0.958,24,True,A/R:23; R:1,A/R
+control_f2c,ALL,ACT18,GT_SUPPORT,C,0.833,24,True,C:20; -:4,C
+control_f2c,ALL,ACT18,ISC,-,0.417,24,False,-:10; C:7; R:7,R
+control_f2c,ALL,ACT18,MCO,C,0.5,24,False,C:12; R:7; -:4; A/R:1,R
+control_f2c,ALL,ACT18,NEW_AUTHORITY,-,1.0,24,True,-:24,I
+control_f2c,ALL,ACT18,ODC,R,0.708,24,True,R:17; C:7,C
+control_f2c,ALL,ACT18,ORIGIN,-,1.0,24,True,-:24,I
+control_f2c,ALL,ACT19,DAS,A/R,0.583,24,False,A/R:14; R:10,R
+control_f2c,ALL,ACT19,GT_SUPPORT,C,0.75,24,True,C:18; -:4; I:2,C
+control_f2c,ALL,ACT19,ISC,-,0.458,24,False,-:11; C:9; R:4,C
+control_f2c,ALL,ACT19,MCO,C,0.875,24,True,C:21; R:2; -:1,R
+control_f2c,ALL,ACT19,NEW_AUTHORITY,-,0.583,24,False,-:14; A:10,A
+control_f2c,ALL,ACT19,ODC,C,0.917,24,True,C:22; R:2,C
+control_f2c,ALL,ACT19,ORIGIN,-,1.0,24,True,-:24,I
+control_f2c,ALL,ACT20,DAS,A/R,0.917,24,True,A/R:22; R:2,C
+control_f2c,ALL,ACT20,GT_SUPPORT,C,0.792,24,True,C:19; I:3; -:2,I
+control_f2c,ALL,ACT20,ISC,C,0.542,24,False,C:13; -:10; I:1,C
+control_f2c,ALL,ACT20,MCO,R,0.75,24,True,R:18; C:3; A/R:2; -:1,A/R
+control_f2c,ALL,ACT20,NEW_AUTHORITY,-,1.0,24,True,-:24,I
+control_f2c,ALL,ACT20,ODC,C,1.0,24,True,C:24,C
+control_f2c,ALL,ACT20,ORIGIN,-,0.875,24,True,-:21; C:3,I
+arbitro_f3,ALL,ACT01,DAS,A/R,0.833,6,True,A/R:5; R:1,A/R
+arbitro_f3,ALL,ACT01,GT_SUPPORT,C,1.0,6,True,C:6,C
+arbitro_f3,ALL,ACT01,ISC,-,0.5,6,False,-:3; C:2; I:1,C
+arbitro_f3,ALL,ACT01,MCO,C,0.667,6,True,C:4; -:2,C
+arbitro_f3,ALL,ACT01,NEW_AUTHORITY,-,1.0,6,True,-:6,I
+arbitro_f3,ALL,ACT01,ODC,R,0.833,6,True,R:5; A/R:1,C
+arbitro_f3,ALL,ACT01,ORIGIN,-,0.667,6,True,-:4; C:2,C
+arbitro_f3,ALL,ACT02,DAS,I,1.0,6,True,I:6,C
+arbitro_f3,ALL,ACT02,GT_SUPPORT,C,0.667,6,True,C:4; -:2,C
+arbitro_f3,ALL,ACT02,ISC,-,0.833,6,True,-:5; C:1,C
+arbitro_f3,ALL,ACT02,MCO,-,1.0,6,True,-:6,I
+arbitro_f3,ALL,ACT02,NEW_AUTHORITY,-,1.0,6,True,-:6,I
+arbitro_f3,ALL,ACT02,ODC,I,1.0,6,True,I:6,C
+arbitro_f3,ALL,ACT02,ORIGIN,A/R,0.833,6,True,A/R:5; C:1,A/R
+arbitro_f3,ALL,ACT03,DAS,A/R,1.0,3,True,A/R:3,A/R
+arbitro_f3,ALL,ACT03,GT_SUPPORT,C,1.0,3,True,C:3,C
+arbitro_f3,ALL,ACT03,ISC,C,1.0,3,True,C:3,C
+arbitro_f3,ALL,ACT03,MCO,I,0.667,3,True,I:2; -:1,C
+arbitro_f3,ALL,ACT03,NEW_AUTHORITY,-,1.0,3,True,-:3,I
+arbitro_f3,ALL,ACT03,ODC,C,1.0,3,True,C:3,C
+arbitro_f3,ALL,ACT03,ORIGIN,C,0.667,3,True,C:2; I:1,C
+arbitro_f3,ALL,ACT04,DAS,A/R,1.0,9,True,A/R:9,A/R
+arbitro_f3,ALL,ACT04,GT_SUPPORT,C,1.0,9,True,C:9,C
+arbitro_f3,ALL,ACT04,ISC,C,0.667,9,True,C:6; -:3,C
+arbitro_f3,ALL,ACT04,MCO,C,0.333,9,False,C:3; -:3; I:3,C
+arbitro_f3,ALL,ACT04,NEW_AUTHORITY,-,1.0,9,True,-:9,I
+arbitro_f3,ALL,ACT04,ODC,I,0.556,9,False,I:5; C:4,C
+arbitro_f3,ALL,ACT04,ORIGIN,C,0.889,9,True,C:8; -:1,C
+arbitro_f3,ALL,ACT05,DAS,A/R,1.0,6,True,A/R:6,C
+arbitro_f3,ALL,ACT05,GT_SUPPORT,C,1.0,6,True,C:6,I
+arbitro_f3,ALL,ACT05,ISC,-,0.833,6,True,-:5; C:1,A/R
+arbitro_f3,ALL,ACT05,MCO,-,0.5,6,False,-:3; I:2; C:1,I
+arbitro_f3,ALL,ACT05,NEW_AUTHORITY,-,1.0,6,True,-:6,I
+arbitro_f3,ALL,ACT05,ODC,C,0.667,6,True,C:4; I:2,I
+arbitro_f3,ALL,ACT05,ORIGIN,C,1.0,6,True,C:6,I
+arbitro_f3,ALL,ACT06,DAS,A/R,0.5,12,False,R:6; A/R:6,C
+arbitro_f3,ALL,ACT06,GT_SUPPORT,C,0.667,12,True,C:8; -:2; I:2,I
+arbitro_f3,ALL,ACT06,ISC,R,0.667,12,True,R:8; -:3; A/R:1,A/R
+arbitro_f3,ALL,ACT06,MCO,A/R,0.417,12,False,A/R:5; R:3; C:3; -:1,R
+arbitro_f3,ALL,ACT06,NEW_AUTHORITY,-,1.0,12,True,-:12,I
+arbitro_f3,ALL,ACT06,ODC,C,1.0,12,True,C:12,I
+arbitro_f3,ALL,ACT06,ORIGIN,-,0.667,12,True,-:8; C:4,C
+arbitro_f3,ALL,ACT07,DAS,R,0.667,3,True,R:2; A/R:1,R
+arbitro_f3,ALL,ACT07,GT_SUPPORT,-,1.0,3,True,-:3,C
+arbitro_f3,ALL,ACT07,ISC,A/R,0.667,3,True,A/R:2; R:1,A/R
+arbitro_f3,ALL,ACT07,MCO,C,1.0,3,True,C:3,R
+arbitro_f3,ALL,ACT07,NEW_AUTHORITY,-,1.0,3,True,-:3,I
+arbitro_f3,ALL,ACT07,ODC,C,1.0,3,True,C:3,C
+arbitro_f3,ALL,ACT07,ORIGIN,-,1.0,3,True,-:3,I
+arbitro_f3,ALL,ACT08,DAS,A/R,1.0,3,True,A/R:3,R
+arbitro_f3,ALL,ACT08,GT_SUPPORT,I,0.667,3,True,I:2; -:1,I
+arbitro_f3,ALL,ACT08,ISC,C,1.0,3,True,C:3,A/R
+arbitro_f3,ALL,ACT08,MCO,C,1.0,3,True,C:3,R
+arbitro_f3,ALL,ACT08,NEW_AUTHORITY,-,1.0,3,True,-:3,I
+arbitro_f3,ALL,ACT08,ODC,C,1.0,3,True,C:3,I
+arbitro_f3,ALL,ACT08,ORIGIN,-,1.0,3,True,-:3,I
+arbitro_f3,ALL,ACT09,DAS,R,0.556,9,False,R:5; C:4,C
+arbitro_f3,ALL,ACT09,GT_SUPPORT,C,0.667,9,True,C:6; -:2; I:1,C
+arbitro_f3,ALL,ACT09,ISC,A/R,1.0,9,True,A/R:9,A/R
+arbitro_f3,ALL,ACT09,MCO,R,0.889,9,True,R:8; C:1,C
+arbitro_f3,ALL,ACT09,NEW_AUTHORITY,-,1.0,9,True,-:9,I
+arbitro_f3,ALL,ACT09,ODC,C,1.0,9,True,C:9,C
+arbitro_f3,ALL,ACT09,ORIGIN,-,0.556,9,False,-:5; C:4,C
+arbitro_f3,ALL,ACT10,DAS,A/R,1.0,3,True,A/R:3,A/R
+arbitro_f3,ALL,ACT10,GT_SUPPORT,C,1.0,3,True,C:3,C
+arbitro_f3,ALL,ACT10,ISC,-,1.0,3,True,-:3,C
+arbitro_f3,ALL,ACT10,MCO,C,1.0,3,True,C:3,R
+arbitro_f3,ALL,ACT10,NEW_AUTHORITY,-,1.0,3,True,-:3,I
+arbitro_f3,ALL,ACT10,ODC,C,1.0,3,True,C:3,C
+arbitro_f3,ALL,ACT10,ORIGIN,-,1.0,3,True,-:3,I
+arbitro_f3,ALL,ACT11,DAS,A/R,1.0,9,True,A/R:9,A/R
+arbitro_f3,ALL,ACT11,GT_SUPPORT,C,1.0,9,True,C:9,C
+arbitro_f3,ALL,ACT11,ISC,-,1.0,9,True,-:9,C
+arbitro_f3,ALL,ACT11,MCO,-,0.667,9,True,-:6; C:3,C
+arbitro_f3,ALL,ACT11,NEW_AUTHORITY,-,1.0,9,True,-:9,I
+arbitro_f3,ALL,ACT11,ODC,C,1.0,9,True,C:9,C
+arbitro_f3,ALL,ACT11,ORIGIN,-,0.667,9,True,-:6; I:3,I
+arbitro_f3,ALL,ACT12,DAS,C,0.5,6,False,C:3; R:2; A/R:1,R
+arbitro_f3,ALL,ACT12,GT_SUPPORT,C,0.667,6,True,C:4; -:2,I
+arbitro_f3,ALL,ACT12,ISC,R,0.667,6,True,R:4; C:1; A/R:1,C
+arbitro_f3,ALL,ACT12,MCO,A/R,0.667,6,True,A/R:4; C:1; R:1,I
+arbitro_f3,ALL,ACT12,NEW_AUTHORITY,-,1.0,6,True,-:6,I
+arbitro_f3,ALL,ACT12,ODC,C,1.0,6,True,C:6,C
+arbitro_f3,ALL,ACT12,ORIGIN,C,0.833,6,True,C:5; R:1,A/R
+arbitro_f3,ALL,ACT13,DAS,R,1.0,6,True,R:6,C
+arbitro_f3,ALL,ACT13,GT_SUPPORT,C,0.667,6,True,C:4; I:1; -:1,C
+arbitro_f3,ALL,ACT13,ISC,C,1.0,6,True,C:6,C
+arbitro_f3,ALL,ACT13,MCO,R,1.0,6,True,R:6,C
+arbitro_f3,ALL,ACT13,NEW_AUTHORITY,-,1.0,6,True,-:6,I
+arbitro_f3,ALL,ACT13,ODC,A/R,1.0,6,True,A/R:6,A/R
+arbitro_f3,ALL,ACT13,ORIGIN,C,0.833,6,True,C:5; -:1,C
+arbitro_f3,ALL,ACT14,DAS,A/R,0.556,9,False,A/R:5; R:3; C:1,R
+arbitro_f3,ALL,ACT14,GT_SUPPORT,C,0.667,9,True,C:6; -:2; I:1,C
+arbitro_f3,ALL,ACT14,ISC,C,0.667,9,True,C:6; -:3,C
+arbitro_f3,ALL,ACT14,MCO,C,0.889,9,True,C:8; R:1,C
+arbitro_f3,ALL,ACT14,NEW_AUTHORITY,-,0.667,9,True,-:6; A:3,A
+arbitro_f3,ALL,ACT14,ODC,C,1.0,9,True,C:9,C
+arbitro_f3,ALL,ACT14,ORIGIN,-,1.0,9,True,-:9,I
+arbitro_f3,ALL,ACT15,DAS,C,1.0,12,True,C:12,C
+arbitro_f3,ALL,ACT15,GT_SUPPORT,C,1.0,12,True,C:12,C
+arbitro_f3,ALL,ACT15,ISC,-,0.75,12,True,-:9; C:3,I
+arbitro_f3,ALL,ACT15,MCO,C,1.0,12,True,C:12,R
+arbitro_f3,ALL,ACT15,NEW_AUTHORITY,-,1.0,12,True,-:12,I
+arbitro_f3,ALL,ACT15,ODC,A/R,1.0,12,True,A/R:12,A
+arbitro_f3,ALL,ACT15,ORIGIN,-,0.917,12,True,-:11; C:1,I
+arbitro_f3,ALL,ACT16,DAS,A/R,0.667,6,True,A/R:4; R:2,C
+arbitro_f3,ALL,ACT16,GT_SUPPORT,C,1.0,6,True,C:6,I
+arbitro_f3,ALL,ACT16,ISC,C,1.0,6,True,C:6,C
+arbitro_f3,ALL,ACT16,MCO,R,0.667,6,True,R:4; A/R:2,A/R
+arbitro_f3,ALL,ACT16,NEW_AUTHORITY,-,1.0,6,True,-:6,I
+arbitro_f3,ALL,ACT16,ODC,C,1.0,6,True,C:6,C
+arbitro_f3,ALL,ACT16,ORIGIN,-,1.0,6,True,-:6,I
+arbitro_f3,ALL,ACT17,DAS,A/R,0.667,3,True,A/R:2; R:1,C
+arbitro_f3,ALL,ACT17,GT_SUPPORT,C,0.333,3,False,I:1; C:1; -:1,I
+arbitro_f3,ALL,ACT17,ISC,A/R,0.333,3,False,C:1; R:1; A/R:1,A/R
+arbitro_f3,ALL,ACT17,MCO,-,0.667,3,True,-:2; C:1,R
+arbitro_f3,ALL,ACT17,NEW_AUTHORITY,-,1.0,3,True,-:3,I
+arbitro_f3,ALL,ACT17,ODC,C,0.667,3,True,C:2; I:1,I
+arbitro_f3,ALL,ACT17,ORIGIN,-,1.0,3,True,-:3,I
+arbitro_f3,ALL,ACT18,DAS,A/R,1.0,6,True,A/R:6,A/R
+arbitro_f3,ALL,ACT18,GT_SUPPORT,C,1.0,6,True,C:6,C
+arbitro_f3,ALL,ACT18,ISC,C,0.667,6,True,C:4; R:1; -:1,R
+arbitro_f3,ALL,ACT18,MCO,R,0.5,6,False,R:3; C:2; -:1,R
+arbitro_f3,ALL,ACT18,NEW_AUTHORITY,-,1.0,6,True,-:6,I
+arbitro_f3,ALL,ACT18,ODC,R,1.0,6,True,R:6,C
+arbitro_f3,ALL,ACT18,ORIGIN,-,1.0,6,True,-:6,I
+arbitro_f3,ALL,ACT19,DAS,R,0.833,6,True,R:5; A/R:1,R
+arbitro_f3,ALL,ACT19,GT_SUPPORT,C,1.0,6,True,C:6,C
+arbitro_f3,ALL,ACT19,ISC,-,0.5,6,False,-:3; C:2; R:1,C
+arbitro_f3,ALL,ACT19,MCO,C,0.667,6,True,C:4; R:2,R
+arbitro_f3,ALL,ACT19,NEW_AUTHORITY,A,0.833,6,True,A:5; -:1,A
+arbitro_f3,ALL,ACT19,ODC,C,0.833,6,True,C:5; R:1,C
+arbitro_f3,ALL,ACT19,ORIGIN,-,1.0,6,True,-:6,I
+arbitro_f3,ALL,ACT20,DAS,A/R,1.0,6,True,A/R:6,C
+arbitro_f3,ALL,ACT20,GT_SUPPORT,C,1.0,6,True,C:6,I
+arbitro_f3,ALL,ACT20,ISC,C,0.833,6,True,C:5; -:1,C
+arbitro_f3,ALL,ACT20,MCO,R,1.0,6,True,R:6,A/R
+arbitro_f3,ALL,ACT20,NEW_AUTHORITY,-,1.0,6,True,-:6,I
+arbitro_f3,ALL,ACT20,ODC,C,1.0,6,True,C:6,C
+arbitro_f3,ALL,ACT20,ORIGIN,-,1.0,6,True,-:6,I

@@ -1,0 +1,22 @@
+InicioInicio
+Gestión de insumos y solicitud de ingeniería
+GT/DAS consolida y solicita
+Ingeniería integral y pruebas de campo
+DTE/ISC y DTE/MCO
+Control de calidad y validación analítica
+DTE/MCO y GT/DAS
+¿Aprobado?
+Sí
+No: vuelve a 9.3
+Validación operativa y carga en producción
+Conjunta, DTE/MCO (jueves)
+Monitoreo y cierre
+DTE/ISC y GT/ODC, 24 h
+¿Estable?
+No
+Sí
+Procedimiento de reversión (rollback)
+DTE/MCO ejecuta el rollback
+FinFin
+18/9/26, 8:37 Flujo del procedimiento de actualización de la base de datos SCADA/EMS
+file:///C:/Users/ANDE01/Desktop/flujo_actualizacion_bd_scada_ems.svg 1/1

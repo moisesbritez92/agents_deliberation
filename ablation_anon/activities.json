@@ -1,0 +1,22 @@
+[
+  {"activity_id": "ACT01", "name": "Definir el requisito y el alcance del cambio", "phase": "requisito"},
+  {"activity_id": "ACT02", "name": "Certificar los datos de la instalación (configuración física y parámetros)", "phase": "requisito"},
+  {"activity_id": "ACT03", "name": "Especificar y aceptar la semántica del modelo (nomenclatura, identificadores, representación)", "phase": "requisito"},
+  {"activity_id": "ACT04", "name": "Construir o actualizar el modelo eléctrico (topología, conectividad, parámetros)", "phase": "construcción"},
+  {"activity_id": "ACT05", "name": "Revisar la calidad topológica y de nomenclatura del modelo construido", "phase": "prueba"},
+  {"activity_id": "ACT06", "name": "Configurar la adquisición, la correspondencia señal-modelo y las comunicaciones", "phase": "construcción"},
+  {"activity_id": "ACT07", "name": "Unificar modelo y adquisición en la base integrada", "phase": "integración"},
+  {"activity_id": "ACT08", "name": "Preparar el paquete de implementación", "phase": "integración"},
+  {"activity_id": "ACT09", "name": "Aprobar las pruebas FAT/SAT y de integración", "phase": "prueba"},
+  {"activity_id": "ACT10", "name": "Administrar y actualizar los aplicativos EMS", "phase": "construcción"},
+  {"activity_id": "ACT11", "name": "Validar el estimador de estado, el flujo de potencia y demás aplicaciones", "phase": "prueba"},
+  {"activity_id": "ACT12", "name": "Verificar la correspondencia de mímicos y modelo con la instalación física", "phase": "aceptación"},
+  {"activity_id": "ACT13", "name": "Aceptar mímicos, alarmas y el uso operativo", "phase": "aceptación"},
+  {"activity_id": "ACT14", "name": "Autorizar la liberación de la versión a producción", "phase": "liberación"},
+  {"activity_id": "ACT15", "name": "Habilitar o suspender la ventana de intervención en tiempo real", "phase": "despliegue"},
+  {"activity_id": "ACT16", "name": "Ejecutar el respaldo y la carga en producción", "phase": "despliegue"},
+  {"activity_id": "ACT17", "name": "Mantener el registro técnico de configuración", "phase": "registro"},
+  {"activity_id": "ACT18", "name": "Verificar el sistema después de la actualización y cerrar el cambio", "phase": "operación"},
+  {"activity_id": "ACT19", "name": "Aprobar los criterios de reversión y su delegación", "phase": "liberación"},
+  {"activity_id": "ACT20", "name": "Ejecutar la reversión", "phase": "operación"}
+]

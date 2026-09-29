@@ -1,0 +1,256 @@
+# Contexto de trabajo: atribuciones SCADA/EMS
+
+## Objetivo del usuario
+
+Analizar con el mayor rigor posible las atribuciones de GT/DAS y las unidades DTE de ANDE ante la implementación del Departamento de Administración del SCADA/EMS. Redactar una propuesta en forma de artículo técnico en LaTeX, con referencias internacionales y normas, sin defender a priori a una dependencia. El usuario pidió revisar especialmente la introducción y determinar si las atribuciones se superponen.
+
+Directorio de trabajo: `C:\Users\moise\Documents\0001_GT-DAS\atribucciones`.
+
+## Documentación local
+
+1. `GT-DAS.pdf`: ficha del Manual de Organización, Resolución P/N.º 50060, 06.01.2025, actualización 00, una página.
+   - Subordinación expresa: División de Operación.
+   - 2.1: administrar y gestionar la base de datos del SIN obtenidos mediante SCADA.
+   - 2.2: administrar y gestionar módulos de aplicativos SCADA/EMS.
+   - 2.3: soporte técnico a usuarios finales.
+   - 2.4: gestionar cambios para nuevos requisitos.
+   - Secciones: Base de Datos del SCADA; Aplicativos del SCADA/EMS.
+2. `Propuesta_Procedimiento_Actualizacion_Base_SCADA_EMS_Version00 (003).docx`: propuesta atribuida por el usuario a Telecomunicaciones. Concentra modelado, pareamiento, ICCP, pruebas, MAS, DBSEQ y rollback en DTE/ISC y DTE/MCO. GT/DAS consolida insumos y realiza validación analítica/funcional. **Sí reconoce un visto bueno de GT/DAS**; no afirmar ausencia total de autoridad.
+3. `flujo_actualizacion_bd_scada_ems.pdf`: flujo resumido de la propuesta; fecha visible de impresión 18/09/2026. No confundir fecha de impresión con aprobación.
+4. `atribuciones_dte/atribuciones_dte.md`: transcripción suministrada por el usuario de cinco fichas PDF, todas con Resolución P/N.º 48658, 29.12.2023.
+5. Originales: `atribuciones_dte/DTE-ISC.pdf`, `DTE-ISC1.pdf`, `DTE-ISC2.pdf`, `DTE-ISC3.pdf`, `DTE-MCO.pdf`.
+
+Se leyó íntegramente el Markdown. Se cotejaron mediante `pdftotext` los pasajes decisivos de ISC2, ISC3 y MCO con sus PDF.
+
+## Estructura institucional y aclaración del usuario
+
+El usuario indicó: «gt das pertenece a la division de operacion / Despacho de carga».
+
+Las fichas disponibles acreditan dependencia de la **División de Operación**. El artículo reconoce relación funcional con Despacho de Carga, pero no inventa subordinación directa a GT/ODC. El 22/09/2026 se leyó íntegramente `atribuciones_gt/atribuciones_gt.md`, que aporta las fichas de GT/OP, GT/ODC, GT/DOS, GT/DEN, GT/DEL, GT/DDR (Resolución P/N.º 34954, 15/07/2014) y GT/DAS (Resolución P/N.º 50060, 06/01/2025). Según estas fichas, GT/OP depende de Gerencia Técnica; GT/ODC y GT/DAS dependen ambos de GT/OP. La organización de GT/OP transcrita es de 2014 y no incluye GT/DAS, creado posteriormente; no tomar esa lista histórica como organigrama actualizado. Esta sesión leyó la transcripción, sin cotejar todavía los originales de las fichas nuevas.
+
+Hallazgos nuevos para incorporar en la próxima revisión del artículo:
+
+- GT/ODC 2.1: supervisión y control en tiempo real; 2.5: maniobras mediante SCADA u órdenes; 2.6: autorización/suspensión de mantenimiento según restricciones operativas. Sustentan su participación operativa, pero no atribuyen expresamente aprobación de versiones de la base SCADA/EMS.
+- GT/ODC 2.14: solicita o recomienda herramientas al Departamento de Operación del Sistema a través de la Sección Procesamiento de Datos de Operación.
+- GT/DOS 2.7 y 2.10: soporte tecnológico y apoyo técnico al Despacho. Debe examinarse también la concurrencia interna GT/DOS–GT/DAS, además de la interfaz GT–DTE. No inferir derogación automática por la ficha de 2025.
+- GT/DEL 2.5 y GT/DOS 2.2: definición de criterios operativos, con alcance de área explícito en DOS. Son relevantes como aportantes de criterios del modelo, sin deducir administración exclusiva de la base.
+
+DTE/ISC y DTE/MCO dependen de la **División de Sistemas de Comunicación**. No reducirlos a proveedores de enlaces: tienen competencias de ingeniería, implementación, integración, mantenimiento y administración de sistemas de control.
+
+## Hallazgos que modificaron la primera interpretación
+
+La primera versión fue demasiado categórica al describir una transferencia o invasión de competencias de GT/DAS. La revisión con las fichas DTE cambió la conclusión:
+
+**Existen competencias concurrentes y fronteras imprecisas; no se demuestra una contradicción insalvable ni exclusividad departamental.**
+
+- **DTE/ISC:** 2.1 proyectos de expansión SCADA/SAS/OT; 2.4 aprobación de proyectos de terceros; 2.5 implementación/puesta en servicio; 2.6 redes; 2.7 ciberseguridad; 2.8 contratos; 2.9 especificaciones; 2.10–2.11 seguimiento y políticas de mantenimiento.
+- **ISC1:** estudios, proyectos, revisión de terceros, contratos y desarrollo de soluciones (2.1–2.5).
+- **ISC2 2.3:** efectuar, analizar y aprobar FAT/SAT.
+- **ISC2 2.5:** «Elaborar o unificar Base de Datos y planos referentes a los equipos y sistemas de tecnologías de operación». Es el cruce más directo con GT/DAS 2.1.
+- **ISC2 2.6:** coordinación de implementación y puesta en servicio con otras unidades.
+- **ISC3 2.5:** mantener actualizada la base referente a planos, archivos de configuración y arquitectura. No equivale automáticamente al modelo eléctrico maestro.
+- **MCO 2.3:** atención/derivación de reclamos técnicos; interfaz con soporte de GT/DAS 2.3.
+- **MCO 2.6:** supervisar, gestionar y recepcionar integración al SCADA, EMS o DMS.
+- **MCO 2.8:** administrar y mantener equipos y redes SCADA/EMS/DMS. Predomina complementariedad con administración de aplicativos de GT/DAS.
+- **MCO 2.9:** actualización de software para consultas, reportes y monitoreo de equipos/servicios OT; posible concurrencia con GT/DAS 2.2 según la aplicación concreta.
+
+Método de interpretación: separar **objeto, actividad, fase del ciclo de vida y autoridad**. No inferir derogación de atribuciones DTE de 2023 por la fecha posterior de GT/DAS de 2025. Las resoluciones completas no están disponibles.
+
+## Proyecto LaTeX
+
+Carpeta: `articulo_atribuciones_scada_ems/`.
+
+- `main.tex`: artículo IEEEtran conference, español, dos columnas, resumen y abstract inglés.
+- `referencias.bib`: bibliografía IEEE; actualmente 31 entradas citadas (27 anteriores más DAS1, DAS2, IEC 61970-456 y EPRI).
+- `main.pdf`: última compilación de **10 páginas**.
+- `compilar.ps1`: pdflatex, bibtex, pdflatex dos veces.
+- `README.md`: cambios y pendientes de evidencia.
+
+Título: «Gobierno y segregación de responsabilidades en la administración de sistemas SCADA/EMS de transmisión eléctrica».
+
+Últimos cambios:
+
+1. Introducción parte de operación del SIN y concurrencia de mandatos.
+2. Resumen/abstract actualizados con alcance y limitaciones.
+3. Método distingue complementariedad, concurrencia potencial y contradicción demostrada.
+4. Nueva tabla de concurrencias con numerales de GT/DAS, ISC2, ISC3 y MCO.
+5. Reconocimiento expreso del visto bueno de GT/DAS en el procedimiento.
+6. RACI incluye columna AC (Autoridad de Cambio), una A por fila; A significa responsable del resultado, no automáticamente autorizador de producción.
+7. ISC2 construye/unifica la base de implementación; ISC3 conserva registros técnicos; MCO ejecuta despliegue/recuperación; DAS define y acepta semántica funcional.
+8. MAS/DBSEQ y propiedad funcional se presentan como **asignaciones propuestas**, no como mandatos literales del manual.
+9. Conclusiones ya no afirman invasión automática por DTE.
+
+La propuesta de GT/DAS como responsable funcional del modelo y aplicaciones sigue siendo una interpretación organizativa que debe formalizarse. No implica edición exclusiva ni propiedad patrimonial. La aceptación de GT/ODC y la Autoridad de Cambio son propuestas pendientes de validación institucional.
+
+## Normas y evidencia internacional: cautelas
+
+- IEC 62443: alcances públicos y página ISA consultados; responsabilidad compartida y seguridad IACS. No atribuir a IEC una asignación nominal a DTE/GT/DAS.
+- IEC 61850: interoperabilidad/modelos/configuración. No usarla para deducir que la unidad que prueba señales debe ser propietaria del modelo EMS.
+- IEC 62264/ISA-95: integración empresa-control de manufactura. No equiparar automáticamente nivel 3 con DTE y nivel 4 con GT/DAS.
+- IEC 61970/CIM: contexto del modelo eléctrico; no resuelve organigrama.
+- NIST SP 800-82 Rev. 3: página oficial consultada; publicación septiembre 2023, DOI `10.6028/NIST.SP.800-82r3`. Rev. 4 aparecía como borrador, no sustituir sin verificar.
+- **No se revisaron exhaustivamente los textos completos IEC ni sus cláusulas.** El manuscrito ahora lo declara. Quedan por verificar metadatos/ediciones de referencias; en particular no se confirmó el año 2023 asignado originalmente a CIP-010-4.
+- ERCOT y ENTSO-E se mencionaron inicialmente con verificación insuficiente. La revisión exige corroboración primaria adicional antes de ampliar conclusiones; no afirmar que se auditó su organigrama.
+- PJM Manual 3A, rev. 23, 25/10/2023, es el caso mejor documentado, pero es una versión histórica y no demuestra por sí misma qué departamento debe administrar el modelo en ANDE.
+
+PJM, localizadores recuperados en trabajo anterior:
+
+- §§1.2–1.3, pp. 10–11: GO/TO proporcionan información; representante SOS-T del TO responde por información del modelo de sus instalaciones.
+- §3.2, pp. 42–43: personal PJM prepara paquetes de actualización.
+- §4.1, pp. 48–49: revisión de diferencias y validación por TO.
+- §5.4, p. 62: sistema de pruebas, soak hasta cuatro semanas y criterios de estimador; no copiar umbrales sin calibración.
+- El manual no identificó procedimiento explícito de rollback de una versión completa ni un comité nominal universal de aprobación.
+
+URL PJM: https://www.pjm.com/-/media/DotCom/documents/manuals/archive/m03a/m03av23-energy-management-system-model-updates-and-quality-assurance-10-25-2023.pdf
+
+## Cuaderno NotebookLM
+
+Usuario proporcionó: https://notebook.google.com/notebook/40c46bd3-a6e5-4d76-b089-70b28d6d1535
+
+ID: `40c46bd3-a6e5-4d76-b089-70b28d6d1535`.
+
+Intentos anteriores:
+
+- `gemini-notebook-mcp_notebook_get`: tiempo de espera agotado.
+- `gemini-notebook-mcp_notebook_query_start`: conexión cerrada.
+- Posterior listado de recursos MCP solo expuso biblioteca Perplexity.
+
+**Acceso restablecido el 22/09/2026.** `gemini-notebook-mcp_notebook_list` y `gemini-notebook-mcp_notebook_get` respondieron correctamente. El cuaderno se titula `atribuciones_grande` y contiene 73 fuentes. Se recuperó el inventario de títulos e identificadores; todavía no se recuperaron textos completos ni respuestas a consultas en esta sesión. Distinguir acceso e inventario de verificación del contenido.
+
+Fuentes del inventario potencialmente útiles para la siguiente revisión:
+
+- `20e1fc54-95b8-44e1-a8ca-b67e7c9052e9`: Aspectos Técnicos de la Segunda Actualización Integral del SCADA/EMS del CENACE.
+- `c61042cd-5327-4efd-a1ae-4daaf10a297b`: Business Practice Manual for Direct Telemetry.
+- `f2092fcc-bbc2-4ee3-be67-113ee91ebcf7`: System Change Requests (SCRs) - ERCOT.
+- `35957127-5824-40fa-9154-2ccdfdc56df6`: 2026 Data Preparation Manual for Interconnection-wide Cases - WECC.
+- `b900aa65-9645-4472-bb16-15ec7045ca11`: IEC 62264-1 - INTERNATIONAL STANDARD NORME INTERNATIONALE.
+- `ac9e3c2d-c55b-40a2-8fb0-b2234e3a0fb3` y `6f691180-2f6f-4f18-ad70-a826b4b9570e`: documentos de síntesis sobre gobernanza y procedimientos SCADA/EMS; verificar procedencia y fuentes primarias antes de usarlos como evidencia.
+
+También se revisó el cuaderno `Architecture of Accountability: Governance and Responsibility in Enterprise Security`, ID `e35b28c7-69f4-4aa0-b6d8-e6f6d9bda0b0`, con 38 fuentes, por solicitud explícita del usuario. Se recuperaron fuentes seleccionadas y se completó la consulta asíncrona `67eb50d9a0b5` (conversación `af98f795-629d-465a-87e2-9f1bda347c96`). Se leyó evidencia indexada de NIST y ENISA, la ficha de IEC 62443-2-1, un extracto ISA, ISACA y una síntesis de gobierno. Se corroboraron páginas editoriales NIST/ENISA y el artículo original ISACA. No se agotaron las 38 fuentes.
+
+La trazabilidad completa está en `articulo_atribuciones_scada_ems/evidencia_gobernanza.md`. La consulta asistida tuvo localizadores incorrectos (comité ENISA); se corrigieron contra el texto: **6.4.1**, no 5.1.4/6.1.4. No citar respuestas generadas como normas. La síntesis «Architecture of Accountability…» cita RFC 2119 pero enlaza RFC 6365: esa cadena no se usó.
+
+## Compilación y verificación
+
+MiKTeX y `pdflatex`/`bibtex` funcionan. `latexmk` falla porque falta Perl; usar script existente o comandos directos.
+
+Última compilación: sin citas indefinidas ni overfull boxes. Persisten avisos menores underfull y advertencia de microtype sobre parche footnote. BibTeX advierte año ausente en CIP-010-4: se retiró el 2023 no confirmado y se explicitó el pendiente. Revisión visual de tablas y páginas afectadas realizada con pdftoppm.
+
+Imágenes temporales de última revisión: `C:\Users\moise\AppData\Local\Temp\opencode\scada-revision-3.png` a `-5.png`. La matriz puede desplazarse de página con nuevas ediciones; regenerar imágenes al revisar.
+
+## Próximos pasos de mayor valor
+
+1. Con el acceso al cuaderno restablecido, recuperar contenido de las fuentes con título, versión, página y URL; verificar originales antes de incorporar conclusiones.
+2. Fichas GT ya incorporadas y cotejadas con los seis PDF de 2014 en esta revisión. Revisar resoluciones completas y disposiciones modificatorias cuando se aporten.
+3. Inventariar bases/aplicaciones y separar datos de proceso, modelo eléctrico, configuración de adquisición y documentación técnica.
+4. Verificar con fabricante las dependencias SUBTOP/RTUTOP, claves, MAS y DBSEQ. Son afirmaciones del borrador interno, no hechos técnicos comprobados.
+5. Depurar bibliografía externa y sustituir afirmaciones normativas categóricas por requisitos con cláusula y aplicabilidad comprobadas.
+6. Refinar RACI y atribuciones según capacidades reales, derechos de acceso y los objetos inventariados.
+
+## Preferencias de trabajo
+
+Español académico sobrio, citas IEEE, sin guiones largos en prosa. Priorizar rigor y equilibrio sobre conclusiones favorables a un departamento. La skill `redactor-tesis` se cargó en esta conversación. No delegar a subagentes sin autorización aplicable. No modificar los documentos originales; continuar sobre el proyecto LaTeX. Expresar por separado evidencia literal, interpretación y propuesta.
+
+## Revisión con el cuaderno de gobierno, 22/09/2026
+
+Esta actualización sucede a los «Últimos cambios» listados anteriormente:
+
+1. Artículo ampliado a doce fichas organizativas; GT/DOS, DEL, DEN y DDR participan según el objeto afectado. Cruce DOS–DAS y ODC 2.14 incorporado.
+2. RACI de 16 actividades y siete roles/columnas: DAS, ISC, MCO, ODC, GT*, Origen y AC. GT* agrupa consulta selectiva a DOS/DEL/DEN/DDR; no es autoridad colectiva.
+3. Se separa **liberación de versión por AC** de **habilitación/suspensión de ventana en tiempo real por ODC**. Esta aplicación a SCADA/EMS se presenta como propuesta apoyada en ODC 2.5–2.6, no como atribución literal de aprobar software.
+4. AC requiere delegación de autoridad competente sobre ambas ramas, decisor identificable y suplencias. Presidir o coordinar desde OP no implica subordinación de DTE. Emergencias y reversión con condiciones preautorizadas y autoridad de guardia.
+5. Segregación implica personas, roles, permisos e independencia efectiva. No equivale automáticamente a departamentos separados. La misma unidad puede ser A/R, sin autorrevisión personal.
+6. NIST SP 800-82 Rev. 3: §§3.3.2, 6.2.1.1, 6.2.4.2–6.2.4.3 y apéndice F, AC-5. Se verificó que Rev. 4 seguía como borrador inicial en la página oficial.
+7. ISACA, Tessin, «RA(CI) Light», 21/05/2020: RACI adaptable, no norma organizativa. ENISA v1.0 junio 2025: §§1.2.4–1.2.5 y 6.4.1–6.4.3; guía no vinculante de ámbito digital europeo, no obligación de ANDE.
+8. Distinción expresa entre responsabilidad funcional propuesta para DAS, custodia técnica y rol de propietario del activo IEC. No se presume que sean equivalentes.
+9. Actualizados resumen, abstract, introducción, método, tabla de concurrencias, normas, RACI, proceso, discusión, conclusiones, bibliografía y README. Evidencia y exclusiones conservadas en archivo separado.
+
+## Revisión más reciente: DAS1/DAS2, CIM y estilo publicable
+
+Esta revisión modifica el reparto anterior: **no mantener como propuesta vigente que DAS solo define/acepta mientras ISC2 construye toda la base**.
+
+- Se releyó el compilado GT actualizado y se leyeron los originales `GT-DAS1.pdf` y `GT-DAS2.pdf`, Resolución 50060 de 06/01/2025.
+- DAS1 2.1 diseña e implementa bases SCADA; 2.2 mantiene y actualiza; 2.3 asegura requisitos de seguridad y mejora continua. La concurrencia con ISC2 2.5 alcanza ejecución, no solo administración.
+- DAS2 2.1 administra aplicativos expresamente enumerados, incluido procesamiento de topología, y 2.2 los actualiza. Administrar el procesador no equivale automáticamente a editar en exclusiva toda la conectividad.
+- Artículo: 14 fichas, 31 referencias, 18 actividades RACI y 10 páginas. DAS1 construye/mantiene los objetos asignados del modelo eléctrico; DAS2 administra/actualiza aplicativos; ISC2 integra adquisición y unifica el conjunto; MCO despliega. Los límites por objeto siguen siendo propuesta institucional, no mandato literal de la norma CIM.
+- La integración a cargo de ISC2 no implica autoría exclusiva ni elimina el mandato ejecutor de DAS1. Si la herramienta no admite permisos granulares o concurrencia, se propone edición secuencial supervisada con autoría y revisión identificadas.
+- La revisión independiente del flujo se ubicó después de la construcción y antes de las pruebas.
+
+Nuevo repositorio consultado: `3ab9395d-799d-44dc-bc4c-5cdb89b18e4a`, 27 fuentes. Detalles y fuentes en `articulo_atribuciones_scada_ems/evidencia_gobernanza.md`.
+
+- IEC 61970-301:2020 ed. 7: vista previa solo de portada/índice. No afirmar lectura de cláusulas de esa parte.
+- IEC 61970-456:2018 ed. 2: introducción y §§1, 4 y 5 disponibles, especialmente pp. 6–13. Se utilizaron conectividad, topología procesada, entradas/resultados y Model Authority/Model Authority Sets.
+- No equiparar MAS de IEC con paquete MAS propietario sin documentación. Tampoco equiparar mRID y claves internas; EPRI propone correspondencias entre identidades.
+- EPRI 3002003053, agosto 2014: *Network Model Manager Technical Market Requirements: The Transmission Perspective*. Casos A1/A2 y requisitos R2/R3; escenarios y requisitos, no demostración del software instalado.
+- Tutorial ERCOT 2006 recuperado pero no incorporado como práctica actual demostrada.
+- Consulta `3053f4efca93`: identificador expirado; respuesta recuperada por `chat_get`, conversación `61ebd409-bbf0-4fc3-bf70-6bf71b78d4b8`. Se contrastaron pasajes; no confiar en generalizaciones de su síntesis.
+
+**Instrucciones editoriales del usuario:** no mencionar cuadernos ni NotebookLM en el cuerpo científico. Describir revisión bibliográfica dirigida a localizar evidencia. Solo mencionar NotebookLM en declaración de uso de IA al final. Ya aplicado después de las referencias; también se declara apoyo de IA en organización/redacción. Los registros de trabajo pueden conservar la trazabilidad técnica.
+
+**Contexto de correos:** se leyeron los dos Markdown de `resumen_correos`. Son únicamente contexto de posturas. No citarlos, no mencionarlos en el artículo ni tratar sus afirmaciones como hechos probados. No derivar de ellos capacidades multiusuario, incidentes, prácticas de Itaipú, restricciones de personal ni acuerdos institucionales.
+
+Verificación estructural: 31 referencias con correspondencia completa entre citas y entradas; 18 filas RACI con una A y al menos una R; compilación sin referencias indefinidas ni overfull. Persisten underfull/microtype y el año desconocido de CIP-010-4. Imágenes temporales de esta revisión: `scada-cim-04.png` a `-07.png` y `-10.png` en el directorio temporal aprobado.
+
+## Revisión del 23/09/2026: respuesta al revisor (Major Revision, 75/100)
+
+Insumos: `evaluaciones_articulo.md` (informe del revisor), `agente_junior/` (resumen ERCOT y guía RACI didáctica, no citados en el artículo), `casos/06963585.pdf` = Moseley et al. 2014, ERCOT NMMS (el MD de `casos` con título «Gobierno_y_segregación…» contiene ese artículo, no el nuestro). Skill `redactor-tesis` cargada.
+
+Cambios en `main.tex` (respaldo previo: `main_v10pag.tex.bak`, `referencias_v10pag.bib.bak`):
+
+1. Contribución reformulada como método objeto–fase–tipo de autoridad; tres preguntas de investigación y cuatro contribuciones en la introducción. Brecha: la literatura revisada trata la interfaz ISO–propietario externo; ANDE es verticalmente integrada y la concurrencia es interna.
+2. Método con libro de códigos, regla de comparación y Fig. 1 (TikZ) de la cadena corpus → codificación → cruces → reglas → RACI → validación.
+3. Resultados de la codificación: 96 numerales, 29 directos; seis con objeto ambiguo. **Ninguna ficha (ni DAS ni ISC2) nombra expresamente el modelo eléctrico**: la asignación exige regla de diseño, no lectura literal.
+4. Tabla de concurrencias con identificadores C1–C8.
+5. Práctica internacional reescrita con ERCOT (fuente primaria) y PJM rev. 27; tabla comparativa ERCOT/PJM/EPRI/ANDE. ENTSO-E y CAISO solo como contexto.
+6. Nueva sección «Reglas de diseño derivadas»: R1–R10 con evidencia y filas RACI; cinco alternativas descartadas; justificación de R1 (DAS única con gestión de cambios del sistema). Columna «Regla» en la RACI.
+7. Nueva sección «Protocolo de validación» (retrospectiva 10–20 cambios, eventos codificados, intervalos de Wilson, segundo codificador con kappa, panel, piloto 3–5 cambios). **No ejecutado; no inventar resultados.**
+8. Discusión: transferibilidad y lectura de ERCOT p. 15 para la separación DAS1/DAS2 entre personas.
+9. Bibliografía: PJM rev. 27 (2026), CIP-010-4 fechado (2020/2021), `moseley_ercot_2014`; retirada `ercot_model_schedule`. 31 referencias, BibTeX sin advertencias.
+10. Compilación: 13 páginas, sin referencias indefinidas ni overfull.
+
+Pendiente que requiere al usuario o a ANDE: ejecutar el protocolo (expedientes de cambios históricos), segundo codificador, panel; decidir título y bloque de autor («Documento técnico de trabajo» se mantuvo); literatura CAISO/NSTAR/AEP 2024 con texto completo.
+
+## 23/09/2026 (tarde): incorporación de GT/DT y departamentos regionales de transmisión
+
+- Solicitud del usuario: agregar GT/TMB y sus pares; según el usuario, «realizan los cambios oficiales en mímicos» y son fuente de verdad para el EMS.
+- Las herramientas de cuadernos Gemini **no estaban disponibles** en esta sesión. Fuente usada: MECIP de ANDE, capítulo 5 Gerencia Técnica. PDF oficiales descargados a `atribuciones_gt/` (GT-DT, GT-TMB, GT-TES, GT-TSU, GT-TCE, GT-NAC; Resolución 34954, 15/07/2014) y transcritos al final de `atribuciones_gt/atribuciones_gt.md`. El portal no publica fichas de TMB1/TMB2.
+- **Evidencia literal:** GT/DT depende de Gerencia Técnica (no de GT/OP). Los cinco departamentos tienen numerales 2.1–2.7 idénticos salvo el ámbito geográfico; 2.4 coordina y controla proyectos de alteraciones de instalaciones en servicio; 2.6 acompaña construcción y pruebas de instalaciones nuevas; DT 2.4 participa en pruebas de recepción y energización. **Ninguna ficha menciona mímicos, SCADA ni EMS.** La afirmación del usuario sobre mímicos se trata como práctica a documentar, no como atribución literal.
+- Artículo: 20 fichas, 135 numerales (40 D, 56 I, 39 N), cruce C9, R6 ampliada, nueva fila RACI «Verificar correspondencia de mímicos y modelo con la instalación» (Origen A/R, DAS R), Origen pasa a C en aceptación de mímicos; 19 filas RACI; 37 referencias; 13 páginas. Analogía con el representante SOS-T de PJM en la discusión. Respaldo previo: `main_pre_gtdt.tex.bak`.
+- Pendiente del usuario: aclarar si Transmisión edita directamente los mímicos en el SCADA o emite el documento oficial que otro edita; si edita, la fila debe invertirse (Transmisión R, DAS revisión independiente) y la construcción de mímicos debe dividirse.
+
+## 23/09/2026: Autoridad de Cambio desarrollada
+
+Nueva subsección «Autoridad de Cambio: composición, funciones y constitución» (con Tabla VIII) y subsección «Conformidades y límites de la matriz». Puntos fijados: la AC no surge de ninguna ficha (instancia nueva por acto expreso); decisor titular único designado por la instancia común a GT/OP y División de Sistemas de Comunicación, suplente/guardia ajeno a la autoría; miembros permanentes DAS, ISC2, MCO, ODC, seguridad OT sin voto; convocados DOS, DEL, DEN, DDR y departamento regional de Transmisión; registro en DAS (2.4). Seis funciones y lo que no hace; objeción técnica se eleva a la instancia delegante, no es veto; estándar preautorizado, normal por expediente, emergencia por guardia. 14 páginas.
+
+## 23/09/2026: aclaración del usuario sobre Transmisión y mímicos
+
+El usuario aclaró que los departamentos regionales de Transmisión **no editan el SCADA**: publican el unifilar oficial como PDF en la red TI. Se confirmó la fila RACI de correspondencia (Origen A/R, DAS R) y se eliminó la hipótesis condicional. Añadido en el artículo, como «práctica descrita para este trabajo» (no atribución literal): transcripción manual PDF → mímicos/modelo (riesgo documentado por ERCOT pp. 16–17), obligación de registrar identificador, revisión y vigencia del PDF en el expediente, traslado TI → OT por canal controlado de seguridad OT, y en la discusión la posibilidad a medio plazo de un formato estructurado (ERCOT pp. 14 y 17), sin exigirlo.
+
+## 24/09/2026: flujo inicial frente al flujo de DTE
+
+- Archivos: `flujo_propuesto_inicial.pdf` (versión 00, desde Excel; flujo previo) y `flujo_actualizacion_bd_scada_ems_propuesto_DTE.pdf` (antes `flujo_actualizacion_bd_scada_ems.pdf`, bib `ande_flujo_2026`). El usuario indicó que el paso del inicial al de DTE es el origen del análisis.
+- Flujo inicial: proveedores (GT/MT, GT/GT con DSE y DLT, GT/DP, GT/DT, GT/GE) → GT/OP recibe mímicos y parámetros aprobados → **GT/DAS modelado topológico** → DTE/ISC señalización (cero genéricas), punto a punto, genera y carga DBSEQ → GT/DAS verificación posactualización y cierre. Requisitos DTE/ISC: rechazo si >13 warnings o 24 errores, o si no se identifican cambios. Cajas sueltas sin asignar: QC/QA, aprobación de cambios, «preparación en base de…», revisión técnica. Nota «Carpeta de mímico (GT/TMB)». Menciona «GT/DEE», sigla no verificada.
+- Diagnóstico: el núcleo de la RACI ya coincidía con el inicial (DAS modela, ISC señaliza y prueba, DAS cierra), por reglas R2/R4 y no por adoptar el flujo. Desajustes corregidos: el artículo no mencionaba el flujo inicial (añadido en introducción, método, Fig. 1 y nueva Tabla IV comparativa); faltaba la fila QC/QA (ISC A/R, R5 generalizada); cierre renombrado «Verificar posactualización y cerrar el cambio»; Origen ampliado a las unidades proveedoras del inicial; umbrales 13/24 comentados (errores topológicos sin tolerancia).
+- Abierto: la carga DBSEQ es ISC en el inicial y MCO en el de DTE; la RACI mantiene MCO (MCO 2.8) como asignación interna de DTE. Pendiente de decisión del usuario. Artículo: 15 páginas, 38 referencias, 20 filas RACI.
+
+## 24/09/2026: experimento multiagente de asignación RACI (carpeta `experimento/`)
+
+- Objetivo: medir convergencia de asignaciones RACI entre perspectivas DAS/ISC/MCO/ODC + NEUTRAL (control), mismo modelo Gemini (`gemini-3.1-flash-lite`, thinking medium), fases: independiente → una reconsideración anónima (PROPUESTA A-D) → árbitro. Scripts: `build_corpus.py`, `experiment.py`, `analysis.py`, `config.py`. Detalle en `experimento/README.md`.
+- Corpus institucional parseado automáticamente de `atribuciones_gt.md` y `atribuciones_dte.md`: 20 fichas, 135 numerales (coincide con el artículo), IDs tipo `DAS1_2_1`, `ISC2_2_5`, `ODC_2_6`, `DAS_SUB`, `DAS_ORG`.
+- Corpus externo curado a mano en `experimento/sources/external_sources.json` (37 entradas, CAN/CANNOT_SUPPORT). Sin R1-R10, sin RACI, sin Autoridad de Cambio. Excluidos del contexto: procedimiento DTE, ambos flujos, correos, agente_junior, evaluaciones, memory.md.
+- `posthoc/reference_raci.json` se extrae de la Tabla tab:raci de `main.tex` (20 filas ↔ ACT01–ACT20 de `activities.json`); solo para comparación post hoc.
+- 10 escenarios (S01–S10) con 4-5 actividades cada uno; cubren las 20 actividades.
+- Clave en `experimento/.env` (cargada por experiment.py; en .gitignore; no imprimir su valor).
+- Smoke test real OK (S01, 1 rep): 10/10 JSON válidos, 100 % citas existentes, árbitro AMBIGUOUS en ACT02 y ACT12. Informe: `experimento/results/smoke/smoke_test_report.md`. Primer intento con 503 conservado en `results/smoke_intento1_503/`; se añadieron reintentos de API (8) y corridas todo o nada.
+- Proyección del piloto: unos USD 20 con precios provisionales. **No lanzar el piloto de 20 repeticiones sin pedido expreso del usuario.** Vigilar el posible sesgo de ISC hacia su propia unidad (0,6 con n = 5).
+
+- Auditoría de pertinencia de citas: `experimento/citation_audit.py` (extract/sample/judge/report). Juez `gemini-3.1-pro-preview` (JUDGE_MODEL), ciego y sobre una muestra estratificada; validación con 2 codificadores humanos y kappa. En el smoke: 17 % DOES_NOT_SUPPORT, concentrado en ACT02/ACT12 (sin numeral expreso); agentes etiquetan INFERIDO como DOCUMENTADO. judge.md excluido del hash de prompts del experimento.
+- 24/09/2026: common.md ajustado (regla DOCUMENTADO vs INFERIDO con ejemplo de unidad hipotética X). Smoke repetido como `results/smoke2`: tipo correcto 72 % → 78 % (IC solapados); los agentes siguen marcando DOCUMENTADO el 99 % de las citas institucionales. Pendiente de decisión: exigir cita textual verificable para DOCUMENTADO y un brazo control de reconsideración sin información ajena.
+- 24/09/2026 (v2): implementados brazo control fase 2c (reconsideración sin propuestas ajenas; DELIBERATION_EFFECT) y cita textual verificable (`quote` + `verify_quote`). Smoke v2 en `results/smoke3` (14 llamadas/corrida, USD 0,13). La etiqueta DOCUMENTADO del agente ya no se usa como medida. **Historial completo y decisiones en `experimento/BITACORA.md`: registrar ahí siempre cada cambio, ejecución y hallazgo.**
+
+## Exportación RACI a Fluyo, 24/09/2026
+
+- `agente_junior/matriz_raci_scada_ems_fluyo.json` se rehízo en formato real `.fluyo.json` (version 3, app "fluyo"; especificación en https://fluyo.space/docs/ y repo itsnect/fluyo). El archivo anterior del agente junior usaba un esquema inventado ("fluyo-block-diagram") que Fluyo no abre.
+- Se genera con `agente_junior/generar_fluyo.py`, que lee la Tabla RACI (`tab:raci`) y las reglas (`tab:reglas`) de `main.tex`: si cambia la matriz del artículo, regenerar con el script en vez de editar el JSON a mano.
+- Fuente vigente: la tabla del artículo (20 actividades, incluye QC/QA y ODC = C en correspondencia). `agente_junior/matriz_raci_scada_ems.md` está desactualizado (19 filas).
+- Dos páginas: «Flujo RACI» (9 fases, 20 actividades, borde coloreado según quién tiene la A, reversión como ruta discontinua) y «Matriz» (tabla + reglas R1–R10). Las aristas y la asignación a fases son una interpretación del ciclo de cambio, no un contenido literal del artículo.

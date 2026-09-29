@@ -1,0 +1,282 @@
+
+---
+
+# DTE-ISC.pdf
+
+Manual de Organización ANDE Actualización: Página: 1 Resolución P/Nº:
+48658 Fecha: 29.12.2023
+
+DEPARTAMENTO DE INGENIERÍA DE SISTEMAS DE CONTROL
+
+Nivel Jerárquico: "E" Sigla: DTE/ISC CUA: 2114
+
+1.  SUBORDINACIÓN
+
+    El Departamento de Ingeniería de Sistemas de Control está
+    subordinado a la División de Sistemas de Comunicación.
+
+2.  ATRIBUCIONES
+
+    2.1. Elaborar planes de expansión y proyectos para la implementación
+    de sistemas de supervisión, control y adquisición de datos (SCADA),
+    de automatización de subestaciones (SAS) y de comunicación
+    industrial y ciberseguridad correspondientes a las tecnologías de
+    operación para la generación, transmisión y distribución del sistema
+    eléctrico de la ANDE.
+
+    2.2. Elaborar proyectos de retrofit de sistemas de control de
+    estaciones y subestaciones.
+
+    2.3. Promover la innovación y acompañar la evolución de las
+    tecnologías de operación.
+
+    2.4. Analizar, revisar y aprobar proyectos elaborados por terceros,
+    relacionados con las tecnologías de operación.
+
+    2.5. Ejecutar y supervisar el montaje, instalación, ampliación y
+    puesta en servicio de las tecnologías de operación
+
+    2.6. Elaborar, ejecutar y supervisar proyectos de relacionados a
+    redes de comunicaciones (Red de Área Local -- LAN, Red de Área
+    Amplia -- WAN, radio enlaces, etc.) utilizadas para las tecnologías
+    de operación.
+
+    2.7. Elaborar, ejecutar y supervisar proyectos de relacionados a
+    ciberseguridad utilizadas en las tecnologías de operación.
+
+    2.8. Administrar los contratos de adquisición e implementación de
+    sistemas, equipos, materiales, servicios e infraestructura asociada,
+    de tecnologías de operación, como también los de consultorías
+    externas inherentes a proyectos específicos.
+
+    2.9. Estudiar y desarrollar normas y especificaciones técnicas de
+    todo lo relacionado con las tecnologías de operación.
+
+    2.10. Realizar control, evaluación y seguimiento al mantenimiento de
+    los diferentes sistemas componentes de las tecnologías de operación.
+
+    2.11. Elaborar políticas, manuales e instrucciones de mantenimiento
+    de tecnologías de operación, de acuerdo a las recomendaciones del
+    fabricante, experiencia de campo y otros factores de determinación.
+    Manual de Organización ANDE Actualización: Página: 2 Resolución
+    P/Nº: 48658 Fecha: 29.12.2023
+
+3.  ORGANIZACIÓN
+
+    3.1. Sección Ingeniería de Sistemas de Control 3.2. Sección
+    Implementación de Sistemas de Control 3.3. Sección Ingeniería de
+    Mantenimiento de Sistemas de Control 
+
+
+
+---
+
+# DTE-ISC1.pdf
+
+Manual de Organización ANDE Actualización: Página: 1 Resolución P/Nº:
+48658 Fecha: 29.12.2023
+
+SECCIÓN INGENIERÍA DE SISTEMAS DE CONTROL
+
+Nivel Jerárquico: "F" Sigla: DTE/ISC1 CUA: 2115
+
+1.  SUBORDINACIÓN
+
+    La Sección Ingeniería de Sistemas de Control está subordinada al
+    Departamento de Ingeniería de Sistemas de Control.
+
+2.  ATRIBUCIONES
+
+    2.1. Realizar estudios y proyectos técnico/económicos para la
+    implementación de sistemas de supervisión, control y adquisición de
+    datos (SCADA), de automatización de subestaciones (SAS) y de
+    comunicación industrial y ciberseguridad correspondientes a las
+    tecnologías de operación para la generación, transmisión y
+    distribución del Sistema Eléctrico de la ANDE.
+
+    2.2. Realizar estudios y proyectos de retrofit de sistemas de
+    control de estaciones y subestaciones.
+
+    2.3. Analizar y revisar proyectos elaborados por terceros,
+    relacionados con tecnologías de operación.
+
+    2.4. Administrar los contratos de adquisición e implementación de
+    sistemas, equipos, materiales, servicios e infraestructura asociada,
+    de tecnologías de operación, como también los de consultorías
+    externas inherentes a proyectos específicos.
+
+    2.5. Investigar y desarrollar soluciones para equipos y sistemas de
+    tecnologías de operación. 
+
+
+
+---
+
+# DTE-ISC2.pdf
+
+Manual de Organización ANDE Actualización: Página: 1 Resolución P/Nº:
+48658 Fecha: 29.12.2023
+
+SECCIÓN IMPLEMENTACIÓN DE SISTEMAS DE CONTROL
+
+Nivel Jerárquico: "F" Sigla: DTE/ISC2 CUA: 2116
+
+1.  SUBORDINACIÓN
+
+    La Sección Implementación de Sistemas de Control está subordinada al
+    Departamento de Ingeniería de Sistemas de Control.
+
+2.  ATRIBUCIONES
+
+    2.1. Realizar o supervisar trabajos relacionados al montaje,
+    instalación, ampliación y puesta en servicio de los equipos y
+    sistemas de supervisión, control y adquisición de datos (SCADA), de
+    automatización de subestaciones (SAS) y de comunicación industrial y
+    ciberseguridad correspondientes a las tecnologías de operación.
+
+    2.2. Realizar o supervisar trabajos relacionados a redes de
+    comunicaciones (Red de Área Local -- LAN, Red de Área Amplia -- WAN,
+    radio enlaces, etc.) utilizadas para las tecnologías de operación.
+
+    2.3. Efectuar, analizar y aprobar pruebas de aceptación de fábrica
+    (FAT) y de aceptación del sitio (SAT) de los equipos y sistemas de
+    tecnologías de operación adquiridos.
+
+    2.4. Verificar de acuerdo a estándares internacionales y normas de
+    ANDE, la correcta implementación y puesta en servicio de los equipos
+    y sistemas de tecnologías de operación.
+
+    2.5. Elaborar o unificar Base de Datos y planos referentes a los
+    equipos y sistemas de tecnologías de operación.
+
+    2.6. Coordinar con las demás Unidades Administrativas involucradas,
+    los trabajos de implementación y puesta en servicio de los equipos y
+    sistemas de tecnologías de operación. 
+
+
+
+---
+
+# DTE-ISC3.pdf
+
+Manual de Organización ANDE Actualización: Página: 1 Resolución P/Nº:
+48658 Fecha: 29.12.2023
+
+SECCIÓN INGENIERÍA DE MANTENIMIENTO DE SISTEMAS DE CONTROL
+
+Nivel Jerárquico: "F" Sigla: DTE/ISC3 CUA: 2117
+
+1.  SUBORDINACIÓN
+
+    La Sección Ingeniería de Mantenimiento de Sistemas de Control está
+    subordinada al Departamento de Ingeniería de Sistemas de Control.
+
+2.  ATRIBUCIONES
+
+    2.1. Planificar y supervisar el mantenimiento predictivo, preventivo
+    y correctivo de los equipos y sistemas de supervisión, control y
+    adquisición de datos (SCADA), de automatización de subestaciones
+    (SAS) y de comunicación industrial y ciberseguridad correspondientes
+    a las tecnologías de operación.
+
+    2.2. Investigar, analizar y elaborar normas técnicas y manuales para
+    mantenimiento de los equipos y sistemas de tecnologías de operación,
+    de acuerdo a las recomendaciones del fabricante, experiencia de
+    campo y otros factores de determinación.
+
+    2.3. Monitorear, analizar y evaluar el desempeño de los equipos y
+    sistemas de tecnologías de operación.
+
+    2.4. Definir indicadores clave de desempeño que ayuden a obtener
+    datos e información útil con Índices de Disponibilidad, Indicadores
+    de Gestión de Órdenes de Trabajo, Índices de coste, Índices de
+    Gestión de Almacenes y Compras, Índices de Mantenimiento, entre
+    otros.
+
+    2.5. Mantener actualizada la Base de Datos referente a planos,
+    archivos de configuración, arquitectura, etc. de los equipos y
+    sistemas de tecnologías de operación. 
+
+
+
+---
+
+# DTE-MCO.pdf
+
+Manual de Organización ANDE Actualización: Página: 1 Resolución P/Nº:
+48658 Fecha: 29.12.2023
+
+DEPARTAMENTO DE MANTENIMIENTO DE SISTEMAS DE CONTROL
+
+Nivel Jerárquico: "E" Sigla: DTE/MCO CUA: 2118
+
+1.  SUBORDINACIÓN
+
+    El Departamento de Mantenimiento de Sistemas de Control está
+    subordinado a la División de Sistemas de Comunicación
+
+2.  ATRIBUCIONES
+
+    2.1. Planificar, ejecutar o coordinar el mantenimiento preventivo y
+    correctivo de los equipos y sistemas de supervisión y control de
+    generación, transmisión y distribución del sistema eléctrico de
+    potencia y de las redes y dispositivos de las tecnologías de
+    operación asociadas.
+
+    2.2. Monitorear, analizar y controlar el desempeño de los equipos y
+    sistemas de control del sistema eléctrico.
+
+    2.3. Atender, derivar e informar sobre la situación de reclamos de
+    los equipos y sistemas de supervisión y control, redes y sistemas
+    asociados.
+
+    2.4. Supervisar el montaje y recepcionar los sistemas, equipos y
+    servicios implementados en estaciones, con sistema supervisor,
+    integradas al SCADA Nacional y gestionar su integración al Sistema
+    de Operación.
+
+    2.5. Supervisar los trabajos de ampliación, actualización y
+    adecuación de los sistemas, equipos y redes de supervisión y control
+    de generación, transmisión y distribución, en estaciones que cuentan
+    con el Sistema Supervisor integradas al SCADA Nacional.
+
+    2.6. Supervisar, gestionar y recepcionar la integración de los
+    Centros de Control Regional o Nacional, de los sistemas y equipos de
+    supervisión y control de generación, transmisión y distribución
+    nuevos o actualizados al SCADA, EMS o DMS.
+
+    2.7. Supervisar, gestionar y recepcionar la integración y puesta en
+    servicio de los sistemas de supervisión y control, redes y
+    dispositivos de operación asociados en centrales, estaciones y
+    subestaciones nuevas.
+
+    2.8. Administrar y mantener equipos y redes de los sistemas SCADA,
+    EMS, DMS y de automatización de transmisión y distribución, como
+    como las redes y dispositivos de tecnologías de operación asociados
+    en los distintos Centros de Control Regional y Central.
+
+    2.9. Administrar la actualización de softwares específicos para
+    consultas, reportes y monitoreo de equipos y servicios de sistemas
+    de tecnologías de operación. Manual de Organización ANDE
+    Actualización: Página: 2 Resolución P/Nº: 48658 Fecha: 29.12.2023
+
+    2.10. Supervisar la configuración de equipos y dispositivos de
+    ciberseguridad instalados en las fronteras de los sistemas de
+    supervisión y control y de redes de operación.
+
+    2.11. Supervisar y controlar el cumplimiento de las políticas de
+    seguridad en los equipos y dispositivos de frontera de los sistemas
+    de control en centrales, estaciones y subestaciones.
+
+    2.12. Proponer políticas para el mantenimiento predictivo,
+    preventivo y correctivo del servicio de equipos y sistemas de
+    control.
+
+3.  ORGANIZACIÓN
+
+    3.1. Sección Mantenimiento de Equipos de Control 3.2. Sección
+    Mantenimiento de Sistemas de Control 3.3. Sección Sistemas de
+    Control Regional Este 3.4. Sección Sistemas de Control Regional Sur 
+
+
+

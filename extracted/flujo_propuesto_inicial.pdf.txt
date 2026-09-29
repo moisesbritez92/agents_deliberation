@@ -1,0 +1,75 @@
+ 
+Requisitos
+1- El proyecto cuente con menor o igual a 13 warning y 24 errores(
+Errores topologicos y de nomenclatura: : tipifacación / denominacion de equipos, nodo flotante, error de bahía  
+Rechazar si no cumple
+2_ Realizar control exhaustivo del proyecto, que se va a actualizar /modificar/expandir en el SCADA
+Rechazar si no se identifica los cambios
+GT/DEE
+Carpeta de mimico (GT/TMB)
+DIVISIÓN DE TRANSMISIÓN
+modelado topológico: se toma como insumo el mimico de la EE/EESS  (proyecto nuevo / actualización / mantimiento) 
+Protocolo ICCP
+Prueba de punto a punto (dte)
+TAG / Etiqueta
+Señales Génericas: disociada al EMS
+Señales
+Carga en ambiente productivo del SCADA/ EMS: (DBSEQ) es un proceso interno relizado por la DTE, con una frecuencia semanal (jueves)
+Proyecto a nivel SCADA: expansión del scada (network)
+Errores topologicos y de nomenclatura: : tipifacación / denominacion de equipos, nodo flotante, error de bahía  
+Evidencia de mímico
+División  de MANTENIMIENTO / SUPERVISIÓN / TRANSMISIÓN
+Actualización de la Base de Datos del SCADA/EMS
+ División de Operación (GT/OP)  División de Sistemas de Comunicación (DTE/SC)
+ Departamento de Administración del SCADA/EMS (GT/DAS)
+UNIDADES PROVEDORAS DE INFORMACIÓN
+Departamento de Ingeniería de Sistemas de Control (DTE/ISC)
+INICIO
+FIN
+Remite Informe de 
+Mantenimiento
+(Unidades de Mto de la GT)
+Cierre del proceso
+Recepción de mimicos y 
+parámetros eléctricos 
+aprobados (Aprobados)
+GT/OP
+Revisión técnica y validación
+Pruebas de punto a punto
+DTE /ISC
+Preparación en base de Aprobación de cambios
+Genera el archivo de 
+secuencia DBSEQ, 
+ejecutando la carga en el 
+ambiente productivo.
+Verificación post-actualización, 
+despliegues SCADA
+Revisión técnica y validación / en 
+coordinación con la DTE/SC     
+Modelado QC/QA
+Modelado topológico en Base de 
+datos SCADA/EMS.
+GT/DAS
+Señalizaciones del modelado 
+topológico
+DTE /ISC
+(cero señales genéricas)Supervisión de Generación y 
+Transmisión
+Unidades de Obras Nuevas
+(Plan de Energización)
+GT/GT
+Remite insumos topológicos para la 
+Actualización de Base de datos con 
+datos de parámetros eléctricos
+División de Mantenimeinto y 
+Transmisión
+(Plan de Energización)
+GT/MT
+Remite Informe de Obras 
+Nuevas 
+(GT/DSE) (GT/DLT)
+División de Transmisión
+GT/DT
+Division de Proyectos
+GT/DP Division de Generación
+GT/GE 

@@ -1,0 +1,40 @@
+Manual de Organización ANDE Actualización:  
+Página: 1 
+Resolución P/Nº: 48658 
+Fecha: 29.12.2023 
+ 
+SECCIÓN INGENIERÍA DE MANTENIMIENTO DE SISTEMAS DE CONTROL 
+ 
+Nivel Jerárquico: “F” Sigla: DTE/ISC3 CUA: 2117 
+ 
+1. SUBORDINACIÓN 
+ 
+La Sección Ingeniería de Mantenimiento de Sistemas de Control está subordinada al Departamento 
+de Ingeniería de Sistemas de Control.  
+ 
+2. ATRIBUCIONES 
+ 
+2.1. Planificar y supervisar el mantenimiento predictivo, preventivo y correctivo de los equipos y 
+sistemas de supervisión, control y adquisición de datos (SCADA), de automatización de 
+subestaciones (SAS) y de comunicación industrial y ciberseguridad correspondientes a las 
+tecnologías de operación. 
+ 
+2.2. Investigar, analizar y elaborar normas técnicas y manuales para ma ntenimiento de los 
+equipos y sistemas de tecnologías de operación , de acuerdo a las  recomendaciones del 
+fabricante, experiencia de campo y otros factores de determinación. 
+ 
+2.3. Monitorear, analizar y evaluar el desempeño de los equipos y sistema s de tecnologías de 
+operación. 
+ 
+2.4. Definir indicadores clave de desempeño que ayuden a obtener datos e información útil con 
+Índices de Disponibilidad, Indicadores de Gestión de Órdenes de Trabajo, Índices de coste, 
+Índices de Gestión de Almacenes y Compras, Índices de Mantenimiento, entre otros. 
+ 
+2.5. Mantener actualizada la Base de Datos referente a planos, archivos de configuración, 
+arquitectura, etc. de los equipos y sistemas de tecnologías de operación. 
+ 
+ 
+ 
+ 
+ 
+ 

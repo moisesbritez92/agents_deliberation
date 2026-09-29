@@ -1,0 +1,39 @@
+{
+  "_warning": "Mapeo de un experto del entorno EMS (no ajeno al conflicto). Obtenido al responder la plantilla de neutralidad v1, cuya pregunta era ambigua: el revisor asignó unidades en lugar de revisar la redacción. Solo para comparación post hoc con procedencia declarada; no es verdad conocida ni material de los agentes.",
+  "expert_id": "E1_entorno_EMS",
+  "source_file": "validacion_humana/sebastian_formulario.xlsx",
+  "date_received": "2026-09-25",
+  "scenario_unit_q1_text_cue": {
+    "S01": "ISC",
+    "S02": "DAS1",
+    "S03": "ISC",
+    "S04": "DAS2",
+    "S05": "ISC",
+    "S06": "ODC",
+    "S07": "MCO",
+    "S08": "MCO",
+    "S09": "DAS2",
+    "S10": "DEL"
+  },
+  "scenario_unit_q2_risk": {
+    "S01": "ISC",
+    "S02": "DAS2",
+    "S03": "DAS2",
+    "S04": "ODC",
+    "S05": "ODC",
+    "S06": "DAS1",
+    "S07": "MCO",
+    "S08": "MCO",
+    "S09": "MCO",
+    "S10": "DAS1"
+  },
+  "activity_unit_q4": {
+    "ACT02": "DEL",
+    "ACT15": "MCO",
+    "ACT16": "MCO",
+    "ACT18": "DAS2",
+    "ACT19": "MCO",
+    "ACT20": "MCO"
+  },
+  "interpretation_note": "Las columnas no preguntaban por la unidad responsable ni por el rol RACI; se interpretan solo como la unidad que el experto asocia al escenario o actividad."
+}

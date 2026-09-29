@@ -1,0 +1,312 @@
+{
+  "label": "luna_order_reversed",
+  "dry_run": false,
+  "material": "order_reversed",
+  "phases_run": "1",
+  "budget_usd": 1.0,
+  "created_utc": "2026-09-28T11:35:41.705539+00:00",
+  "model": "gpt-6-luna",
+  "provider": "openai",
+  "thinking_level": "medium",
+  "generation_parameters": {
+    "temperature": "default del modelo (no enviado)",
+    "max_output_tokens": 16384,
+    "response_mime_type": "application/json",
+    "response_json_schema": "json_schema strict (strict_schema: opcionales anulables, null retirados)",
+    "seed": "no enviada (la API Responses no la admite); SEED_BASE + run_id = 1000 + run_id solo baraja el orden",
+    "top_p": "default del modelo (no enviado)",
+    "store": false,
+    "service_tier": "flex",
+    "max_attempts_invalid_json": 3,
+    "max_attempts_api_error": 8,
+    "run_policy": "todo o nada: sin los 5 agentes de fase 1, los 4 de fase 2 y los 4 de fase 2c no se llama al árbitro"
+  },
+  "phases": {
+    "phase1": "decisión independiente (5 agentes)",
+    "phase2": "reconsideración con propuestas anónimas A-D (4 especializados)",
+    "phase2c": "brazo control: reconsideración sin propuestas ajenas (4 especializados)",
+    "phase3": "árbitro sobre las propuestas de phase2"
+  },
+  "quote_verification": "cada cita incluye un fragmento literal; se verifica por coincidencia normalizada con el texto de la fuente",
+  "n_scenarios": 10,
+  "scenarios": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S06",
+    "S07",
+    "S08",
+    "S09",
+    "S10"
+  ],
+  "n_repetitions": 5,
+  "agents": [
+    "DAS",
+    "ISC",
+    "MCO",
+    "ODC",
+    "NEUTRAL",
+    "ARBITER"
+  ],
+  "execution_order": "repetición externa; escenarios en orden barajado con semilla por repetición; orden de agentes barajado por corrida",
+  "prices_usd_per_million": {
+    "input": 0.1,
+    "output": 0.5,
+    "cached_input": 0.01,
+    "cache_write": 0.125
+  },
+  "hashes_sha256": {
+    "prompts/arbiter.md": "bf4213bf90e35124b1a3d9ae0deee7074aafdf440f3ab22ec2a4d95afd23ccc2",
+    "prompts/common.md": "7a5af01749c3dc8a8873594f197825b696ec4e6a76c68a991885a85f9fb6dea0",
+    "prompts/das.md": "b88f375b466045572b1f6c0acbd6ee111fc583b71dae61f3f7dd6d5360cc4269",
+    "prompts/isc.md": "2591484d02737264495eff94e0a43afa6863a14cd0e357583bfcf0bb6ca9bdb9",
+    "prompts/mco.md": "0ef42a4fd4947bfb10ab5c12349a058e3b9ac6cc9ccb614907311618fd28a384",
+    "prompts/neutral.md": "2a059051b65bba9e5e86c8082bfb5e86e6813d0658860ee8e62671f00aa70961",
+    "prompts/odc.md": "4661707c1078036c05eb50a37f77da6333f69d6be5b41f79fed2ab5f8534713f",
+    "prompts/task_arbiter.md": "5d4845e596fa5e48dd74bbaaf5e1d42ce806ef98e2532bb89ae2624590457df7",
+    "prompts/task_phase1.md": "aa931081baa2fcee82d52912a5b728a5a0ad7681d1728c81b5098edd938530b6",
+    "prompts/task_phase2.md": "88aaceb1b7634cb52b38b9f63b48634b46180157b1db84d6fd7f49bb742aaddd",
+    "prompts/task_phase2_control.md": "9676418b41267ba6307102183e01a4cb412188cb8ecc7e0dbe266b085f1b0742",
+    "corpus_institutional.md": "a098dbb94a05ce5a694c2d8256553c3e48afba504dd1ff44bd3c92b734f7ab83",
+    "corpus_external.md": "94c05ae61fd325c70e258005320e8b7e33c858d6c8eed26bc46574c392b91a4a",
+    "scenarios.json": "c9853f0cd492006ed08cd6134afe6e7c84159c7ecc7723a5192c8f20e1b7e49d",
+    "activities.json": "013ea39a48747d91ea6ee8a07c9dc787af0f5a1deca2b31358226d5b7a7f4ed1"
+  },
+  "documents": [
+    {
+      "path": "agente_junior/matriz_raci_scada_ems.md",
+      "sha256": "39fa92d792c3899198db8b5c8a05df157b3177d6dee6309bb669fb72a87f23ba",
+      "role": "EXCLUIDO: incluye una matriz RACI didáctica",
+      "chars_extracted": 42701
+    },
+    {
+      "path": "agente_junior/resumen_resultados_ercot_nmms.md",
+      "sha256": "9ff420a359c410d2ae480a423783cf4c90c76df065f9caf71f2ae27f01f64ffa",
+      "role": "EXCLUIDO: incluye una matriz RACI didáctica",
+      "chars_extracted": 14083
+    },
+    {
+      "path": "articulo_atribuciones_scada_ems/evidencia_gobernanza.md",
+      "sha256": "95cc3500e4e11a85313f260e467a385936ac6b090efa79c9b0028f950c208e33",
+      "role": "trazabilidad de evidencia externa (consulta del curador, no se envía a agentes)",
+      "chars_extracted": 15474
+    },
+    {
+      "path": "articulo_atribuciones_scada_ems/main.pdf",
+      "sha256": "b482193ebe3c78e09ac1b139afa213a2e27ecfa992d20227ad9976c272c14898",
+      "role": "artículo compilado (no usado; se usa main.tex)",
+      "chars_extracted": 83884
+    },
+    {
+      "path": "articulo_atribuciones_scada_ems/main.tex",
+      "sha256": "3fa67d37c264b865344d6364b2f637c60eee90cfc4be1d20de34ada9806cffed",
+      "role": "artículo: contexto técnico curado en sources/external_sources.json; RACI extraída a posthoc/",
+      "chars_extracted": 81815
+    },
+    {
+      "path": "atribuciones_dte/atribuciones_dte.md",
+      "sha256": "3a04c1a7addd4dfab13dd75ef7c1a6f032f05cfb1877ea34e0fab23353a06d88",
+      "role": "institucional (fichas DTE; se usa la transcripción .md)",
+      "chars_extracted": 10370
+    },
+    {
+      "path": "atribuciones_dte/DTE-ISC.pdf",
+      "sha256": "448e34ea396e5b077e7c2643f14196cb9ff1e9eb9038473f4cc723808610fbfe",
+      "role": "institucional (fichas DTE; se usa la transcripción .md)",
+      "chars_extracted": 2514
+    },
+    {
+      "path": "atribuciones_dte/DTE-ISC1.pdf",
+      "sha256": "9934af7e1bd3341e610f509b331ba94bf436d63c27a0164d2e8a8f995728eb0b",
+      "role": "institucional (fichas DTE; se usa la transcripción .md)",
+      "chars_extracted": 1290
+    },
+    {
+      "path": "atribuciones_dte/DTE-ISC2.pdf",
+      "sha256": "b140dab948d8efc88bbfa7f7f990a30958d076ec72da205d7e209430041d4467",
+      "role": "institucional (fichas DTE; se usa la transcripción .md)",
+      "chars_extracted": 1560
+    },
+    {
+      "path": "atribuciones_dte/DTE-ISC3.pdf",
+      "sha256": "62f2c2ccbdc21adab7af5e61b5454a9853e03d3bab5ef4cb48a016aaaa07b561",
+      "role": "institucional (fichas DTE; se usa la transcripción .md)",
+      "chars_extracted": 1506
+    },
+    {
+      "path": "atribuciones_dte/DTE-MCO.pdf",
+      "sha256": "7962b7a6bf34a8835673a186490a7b71640c2abd859da5452e7d44535d868cef",
+      "role": "institucional (fichas DTE; se usa la transcripción .md)",
+      "chars_extracted": 3112
+    },
+    {
+      "path": "atribuciones_gt/atribuciones_gt.md",
+      "sha256": "0f54f5c141cbf45b2e8f00fe53b4a755c3382a21608de227fad6aca5cceaf66d",
+      "role": "institucional (fichas GT; se usa la transcripción .md)",
+      "chars_extracted": 34293
+    },
+    {
+      "path": "atribuciones_gt/GT-DAS.pdf",
+      "sha256": "6a158eaf96d500451b43c91f924585bdaa28bf206874059271396da5089d41c8",
+      "role": "institucional (fichas GT; se usa la transcripción .md)",
+      "chars_extracted": 877
+    },
+    {
+      "path": "atribuciones_gt/GT-DAS1.pdf",
+      "sha256": "76cca029f2e9efd091e10b4fce1f87b622c3f00598b189591a37ae607697971b",
+      "role": "institucional (fichas GT; se usa la transcripción .md)",
+      "chars_extracted": 763
+    },
+    {
+      "path": "atribuciones_gt/GT-DAS2.pdf",
+      "sha256": "bdbb9ec890e434e09f3d5accfa17781879077d6759717ec4a60a7864a3d348fb",
+      "role": "institucional (fichas GT; se usa la transcripción .md)",
+      "chars_extracted": 793
+    },
+    {
+      "path": "atribuciones_gt/GT-DDR.pdf",
+      "sha256": "e8e8e76bf65c6bb1545d27071adbec97b8e99f7cd007b6787bfd9e63a75b1f21",
+      "role": "institucional (fichas GT; se usa la transcripción .md)",
+      "chars_extracted": 1575
+    },
+    {
+      "path": "atribuciones_gt/GT-DEL.pdf",
+      "sha256": "bf5fce916507031da2ce18216f403dd1b2776a80c7c71c3ffd1c230c3c3d0dfa",
+      "role": "institucional (fichas GT; se usa la transcripción .md)",
+      "chars_extracted": 1378
+    },
+    {
+      "path": "atribuciones_gt/GT-DEN.pdf",
+      "sha256": "687c2d5b3d632bf24948512acb92e0dcfcfa632b46bc5a0c5fa2cdce7662c3e0",
+      "role": "institucional (fichas GT; se usa la transcripción .md)",
+      "chars_extracted": 1277
+    },
+    {
+      "path": "atribuciones_gt/GT-DOS.pdf",
+      "sha256": "e6a3d81a7f180c04cb385e683f0a642ae21074c7f389693a81c0d9df3c482550",
+      "role": "institucional (fichas GT; se usa la transcripción .md)",
+      "chars_extracted": 2499
+    },
+    {
+      "path": "atribuciones_gt/GT-DT.pdf",
+      "sha256": "088169702defb1706042a48c4ce02ba94166db0e66be3f3b6f0fe57feb74b9ab",
+      "role": "institucional (fichas GT; se usa la transcripción .md)",
+      "chars_extracted": 1166
+    },
+    {
+      "path": "atribuciones_gt/GT-NAC.pdf",
+      "sha256": "8eaf0581de448dcc3dc28534428b41ec02d4444bcf4147c1298a811acb12f83b",
+      "role": "institucional (fichas GT; se usa la transcripción .md)",
+      "chars_extracted": 2186
+    },
+    {
+      "path": "atribuciones_gt/GT-ODC.pdf",
+      "sha256": "db49515ea2dd53eb85a88d35c011c76e0a11660194af6e284120e880df87f432",
+      "role": "institucional (fichas GT; se usa la transcripción .md)",
+      "chars_extracted": 5201
+    },
+    {
+      "path": "atribuciones_gt/GT-OP.pdf",
+      "sha256": "1e73adead792d6968da936d6cdbdb5bd9aec56b46fdbe798fa6f7130186cb037",
+      "role": "institucional (fichas GT; se usa la transcripción .md)",
+      "chars_extracted": 1389
+    },
+    {
+      "path": "atribuciones_gt/GT-TCE.pdf",
+      "sha256": "16b6005c616a390509be04273f0c8144be54e377eded4b8e617cb00d045c992c",
+      "role": "institucional (fichas GT; se usa la transcripción .md)",
+      "chars_extracted": 1983
+    },
+    {
+      "path": "atribuciones_gt/GT-TES.pdf",
+      "sha256": "8d8eab67328c2d064d15f328e88df112a96d68dcf30e31edc4aa9c54e8071e64",
+      "role": "institucional (fichas GT; se usa la transcripción .md)",
+      "chars_extracted": 2161
+    },
+    {
+      "path": "atribuciones_gt/GT-TMB.pdf",
+      "sha256": "6a630954add89ef8c7b65dc42603d54b28dc838d73ca0ed07baa8af23c21b106",
+      "role": "institucional (fichas GT; se usa la transcripción .md)",
+      "chars_extracted": 2215
+    },
+    {
+      "path": "atribuciones_gt/GT-TSU.pdf",
+      "sha256": "8a8fa9243d3a194fd37202b37274a9a2f03cdedcdecaa0fef0af7e13f000bb6c",
+      "role": "institucional (fichas GT; se usa la transcripción .md)",
+      "chars_extracted": 1980
+    },
+    {
+      "path": "casos/06963585.pdf",
+      "sha256": "b84aeeca10b8803489a01fc8aa23d6754dfe689add34a44409ef34c6a164b6f2",
+      "role": "bibliografía de casos (contenido resumido en corpus_external)",
+      "chars_extracted": 48511
+    },
+    {
+      "path": "casos/Lessons_and_Experiences_in_the_Implementation_of_a_Consolidated_Transmission_Modeling_Data_System_at_ERCOT.md",
+      "sha256": "d5a6d5dd474653760b4ac686e1f1cd7bc49e37ce72a8383997df098e1c64bab1",
+      "role": "bibliografía de casos (contenido resumido en corpus_external)",
+      "chars_extracted": 61814
+    },
+    {
+      "path": "casos/OntologyMatching_CIM-IEC61850_IEEE-SGridComm10.pdf",
+      "sha256": "aab10796afd1308aec0893855aea0823319baaee5a060a14d3fd4a08d9f8d139",
+      "role": "bibliografía de casos (contenido resumido en corpus_external)",
+      "chars_extracted": 33951
+    },
+    {
+      "path": "casos/pjm_m03a_rev27_2026-03-04.pdf",
+      "sha256": "8841df16466ea12e883cecbafcfdd9a1f08439af4d6f516e425591134ca86ec0",
+      "role": "bibliografía de casos (contenido resumido en corpus_external)",
+      "chars_extracted": 229154
+    },
+    {
+      "path": "evaluaciones_articulo.md",
+      "sha256": "4256c513034a54c6613a2343a4d7862e72941930668f7fe0939cab2f788078ad",
+      "role": "EXCLUIDO: revisión del artículo",
+      "chars_extracted": 21311
+    },
+    {
+      "path": "flujo_actualizacion_bd_scada_ems_propuesto_DTE.pdf",
+      "sha256": "bd8e56112c2f5eb5a10be7572ba7b3d12a035ec27e25a809541c40e004b6b2ee",
+      "role": "EXCLUIDO: flujo organizativo propuesto",
+      "chars_extracted": 591
+    },
+    {
+      "path": "flujo_propuesto_inicial.pdf",
+      "sha256": "1d210552248e70675e3e9ad789422399179eae6369764985e89a842c4e5bbb93",
+      "role": "EXCLUIDO: flujo organizativo propuesto",
+      "chars_extracted": 2314
+    },
+    {
+      "path": "memory.md",
+      "sha256": "d6b12fd6084207c91500e55e7827cb2c9ff793ffe4998a063785b868fc12fb29",
+      "role": "EXCLUIDO: notas de trabajo con conclusiones del artículo",
+      "chars_extracted": 31227
+    },
+    {
+      "path": "Propuesta_Procedimiento_Actualizacion_Base_SCADA_EMS_Version00 (003).docx",
+      "sha256": "256437fb0c5351e5fa7ba9f2113dc09b1d2d379dee2c55d15b23d150ac5cc1f2",
+      "role": "EXCLUIDO: propuesta organizativa de una de las partes",
+      "chars_extracted": 13224
+    },
+    {
+      "path": "resumen_correos/01_Resumen_hilo_DTE_procedimiento_SCADA_EMS.md",
+      "sha256": "9e6596cf7497f11e0b76b7d36d3695be2289b43cac2a55b7878234494bfb9bae",
+      "role": "EXCLUIDO: posturas de las partes, no evidencia",
+      "chars_extracted": 7930
+    },
+    {
+      "path": "resumen_correos/02_Postura_GT_DAS_modelado_topologico.md",
+      "sha256": "b8bccb066925002d1db6cbabd2d2faa6465e0be76a5afa0e3aaa34ee220141d8",
+      "role": "EXCLUIDO: posturas de las partes, no evidencia",
+      "chars_extracted": 11438
+    }
+  ],
+  "sdk": {
+    "openai": "3.19.2",
+    "python": "3.13.13"
+  },
+  "reference_raci_used_by_agents": false
+}

@@ -1,0 +1,75 @@
+Manual de Organización ANDE Actualización:  
+Página: 1 
+Resolución P/Nº: 48658 
+Fecha: 29.12.2023 
+ 
+DEPARTAMENTO DE MANTENIMIENTO DE SISTEMAS DE CONTROL 
+ 
+Nivel Jerárquico: “E”  Sigla: DTE/MCO CUA: 2118 
+ 
+1. SUBORDINACIÓN 
+ 
+El Departamento de Mantenimiento de Sistemas de Co ntrol está subordinado a la División  de 
+Sistemas de Comunicación 
+ 
+2. ATRIBUCIONES  
+ 
+2.1. Planificar, ejecutar o coordinar el mantenimiento preventivo y correctivo de los equipos  y 
+sistemas de supervisión y control de generación, transmisión y distribución del sistema 
+eléctrico de potencia y de las redes y dispositivos de las tecnologías de operación asociadas. 
+ 
+2.2. Monitorear, analizar y controlar el desempeño de los equipos y sistemas de control del 
+sistema eléctrico. 
+ 
+2.3. Atender, derivar e informar sobre la situación de reclamos de los equipos y sistemas de 
+supervisión y control, redes y sistemas asociados. 
+ 
+2.4. Supervisar el montaje y recepcionar los sistemas, equipos y servic ios implementados en 
+estaciones, con sistema supervisor, integradas al SCADA Nacional y gestionar su integración 
+al Sistema de Operación. 
+ 
+2.5. Supervisar los trabajos de ampliación, actualización y adecuación de los sistemas, equipos y 
+redes de supervisión y control de generación, transmisión y distribución , en estaciones que 
+cuentan con el Sistema Supervisor integradas al SCADA Nacional. 
+ 
+2.6. Supervisar, gestionar  y recepcionar la integración de los Centros de Control Regional o 
+Nacional, de los sistemas y equipos de supervisión y control de generación, transmisi ón y 
+distribución nuevos o actualizados al SCADA, EMS o DMS. 
+ 
+2.7. Supervisar, gestionar y recepcionar la integración y puesta en servicio de los sistemas de 
+supervisión y control, redes y dispositivos de operación asociados en centrales, estaciones y 
+subestaciones nuevas. 
+ 
+2.8. Administrar y mantener equipos y redes de los sistemas SCADA, EMS, DMS y de 
+automatización de transmisión y distribución, como como las redes y dispositivos de 
+tecnologías de operación asociados en los distintos Centros de Control Regional y Central. 
+ 
+2.9. Administrar la actualización de softwares específicos para consultas, reportes y monitoreo de 
+equipos y servicios de sistemas de tecnologías de operación. 
+ 
+Manual de Organización ANDE Actualización:  
+Página: 2 
+Resolución P/Nº: 48658 
+Fecha: 29.12.2023 
+ 
+2.10. Supervisar la configuración de equipos y dispositivos de ciberseguridad  instalados en las 
+fronteras de los sistemas de supervisión y control y de redes de operación. 
+ 
+2.11. Supervisar y controlar el cumplimiento de las políticas de seguridad en  los equipos y 
+dispositivos de frontera de los sistemas de control en centrales, estaciones y subestaciones. 
+ 
+2.12. Proponer políticas para el mantenimiento predictivo, preventivo y correctivo del servicio de 
+equipos y sistemas de control. 
+ 
+3. ORGANIZACIÓN 
+ 
+3.1. Sección Mantenimiento de Equipos de Control   
+3.2. Sección Mantenimiento de Sistemas de Control  
+3.3. Sección Sistemas de Control Regional Este 
+3.4. Sección Sistemas de Control Regional Sur 
+ 
+ 
+ 
+ 
+ 
+ 

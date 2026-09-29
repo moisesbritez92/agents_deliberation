@@ -1,0 +1,320 @@
+[
+  {
+    "path": "agente_junior/matriz_raci_scada_ems.md",
+    "sha256": "39fa92d792c3899198db8b5c8a05df157b3177d6dee6309bb669fb72a87f23ba",
+    "role": "EXCLUIDO: incluye una matriz RACI didáctica",
+    "chars_extracted": 42701
+  },
+  {
+    "path": "agente_junior/resumen_resultados_ercot_nmms.md",
+    "sha256": "9ff420a359c410d2ae480a423783cf4c90c76df065f9caf71f2ae27f01f64ffa",
+    "role": "EXCLUIDO: incluye una matriz RACI didáctica",
+    "chars_extracted": 14083
+  },
+  {
+    "path": "articulo_atribuciones_scada_ems/evidencia_gobernanza.md",
+    "sha256": "95cc3500e4e11a85313f260e467a385936ac6b090efa79c9b0028f950c208e33",
+    "role": "trazabilidad de evidencia externa (consulta del curador, no se envía a agentes)",
+    "chars_extracted": 15474
+  },
+  {
+    "path": "articulo_atribuciones_scada_ems/main.pdf",
+    "sha256": "b482193ebe3c78e09ac1b139afa213a2e27ecfa992d20227ad9976c272c14898",
+    "role": "artículo compilado (no usado; se usa main.tex)",
+    "chars_extracted": 83884
+  },
+  {
+    "path": "articulo_atribuciones_scada_ems/main.tex",
+    "sha256": "3fa67d37c264b865344d6364b2f637c60eee90cfc4be1d20de34ada9806cffed",
+    "role": "artículo: contexto técnico curado en sources/external_sources.json; RACI extraída a posthoc/",
+    "chars_extracted": 81815
+  },
+  {
+    "path": "articulo_atribuciones_scada_ems/README.md",
+    "sha256": "4bfa41e5a0c0645693bef26969f2763e6de182fdc337f68579417cb4b0656028",
+    "role": "no_usado",
+    "chars_extracted": 5392
+  },
+  {
+    "path": "articulo_atribuciones_scada_ems/suplemento/S1_matriz_extraccion.md",
+    "sha256": "29eb9fe146699327d01e4b811540f6ef066dc340aaf24f09dacd63833623ecd4",
+    "role": "no_usado",
+    "chars_extracted": 23837
+  },
+  {
+    "path": "atribuciones_dte/atribuciones_dte.md",
+    "sha256": "3a04c1a7addd4dfab13dd75ef7c1a6f032f05cfb1877ea34e0fab23353a06d88",
+    "role": "institucional (fichas DTE; se usa la transcripción .md)",
+    "chars_extracted": 10370
+  },
+  {
+    "path": "atribuciones_dte/DTE-ISC.pdf",
+    "sha256": "448e34ea396e5b077e7c2643f14196cb9ff1e9eb9038473f4cc723808610fbfe",
+    "role": "institucional (fichas DTE; se usa la transcripción .md)",
+    "chars_extracted": 2514
+  },
+  {
+    "path": "atribuciones_dte/DTE-ISC1.pdf",
+    "sha256": "9934af7e1bd3341e610f509b331ba94bf436d63c27a0164d2e8a8f995728eb0b",
+    "role": "institucional (fichas DTE; se usa la transcripción .md)",
+    "chars_extracted": 1290
+  },
+  {
+    "path": "atribuciones_dte/DTE-ISC2.pdf",
+    "sha256": "b140dab948d8efc88bbfa7f7f990a30958d076ec72da205d7e209430041d4467",
+    "role": "institucional (fichas DTE; se usa la transcripción .md)",
+    "chars_extracted": 1560
+  },
+  {
+    "path": "atribuciones_dte/DTE-ISC3.pdf",
+    "sha256": "62f2c2ccbdc21adab7af5e61b5454a9853e03d3bab5ef4cb48a016aaaa07b561",
+    "role": "institucional (fichas DTE; se usa la transcripción .md)",
+    "chars_extracted": 1506
+  },
+  {
+    "path": "atribuciones_dte/DTE-MCO.pdf",
+    "sha256": "7962b7a6bf34a8835673a186490a7b71640c2abd859da5452e7d44535d868cef",
+    "role": "institucional (fichas DTE; se usa la transcripción .md)",
+    "chars_extracted": 3112
+  },
+  {
+    "path": "atribuciones_gt/atribuciones_gt.md",
+    "sha256": "0f54f5c141cbf45b2e8f00fe53b4a755c3382a21608de227fad6aca5cceaf66d",
+    "role": "institucional (fichas GT; se usa la transcripción .md)",
+    "chars_extracted": 34293
+  },
+  {
+    "path": "atribuciones_gt/GT-DAS.pdf",
+    "sha256": "6a158eaf96d500451b43c91f924585bdaa28bf206874059271396da5089d41c8",
+    "role": "institucional (fichas GT; se usa la transcripción .md)",
+    "chars_extracted": 877
+  },
+  {
+    "path": "atribuciones_gt/GT-DAS1.pdf",
+    "sha256": "76cca029f2e9efd091e10b4fce1f87b622c3f00598b189591a37ae607697971b",
+    "role": "institucional (fichas GT; se usa la transcripción .md)",
+    "chars_extracted": 763
+  },
+  {
+    "path": "atribuciones_gt/GT-DAS2.pdf",
+    "sha256": "bdbb9ec890e434e09f3d5accfa17781879077d6759717ec4a60a7864a3d348fb",
+    "role": "institucional (fichas GT; se usa la transcripción .md)",
+    "chars_extracted": 793
+  },
+  {
+    "path": "atribuciones_gt/GT-DDR.pdf",
+    "sha256": "e8e8e76bf65c6bb1545d27071adbec97b8e99f7cd007b6787bfd9e63a75b1f21",
+    "role": "institucional (fichas GT; se usa la transcripción .md)",
+    "chars_extracted": 1575
+  },
+  {
+    "path": "atribuciones_gt/GT-DEL.pdf",
+    "sha256": "bf5fce916507031da2ce18216f403dd1b2776a80c7c71c3ffd1c230c3c3d0dfa",
+    "role": "institucional (fichas GT; se usa la transcripción .md)",
+    "chars_extracted": 1378
+  },
+  {
+    "path": "atribuciones_gt/GT-DEN.pdf",
+    "sha256": "687c2d5b3d632bf24948512acb92e0dcfcfa632b46bc5a0c5fa2cdce7662c3e0",
+    "role": "institucional (fichas GT; se usa la transcripción .md)",
+    "chars_extracted": 1277
+  },
+  {
+    "path": "atribuciones_gt/GT-DOS.pdf",
+    "sha256": "e6a3d81a7f180c04cb385e683f0a642ae21074c7f389693a81c0d9df3c482550",
+    "role": "institucional (fichas GT; se usa la transcripción .md)",
+    "chars_extracted": 2499
+  },
+  {
+    "path": "atribuciones_gt/GT-DT.pdf",
+    "sha256": "088169702defb1706042a48c4ce02ba94166db0e66be3f3b6f0fe57feb74b9ab",
+    "role": "institucional (fichas GT; se usa la transcripción .md)",
+    "chars_extracted": 1166
+  },
+  {
+    "path": "atribuciones_gt/GT-NAC.pdf",
+    "sha256": "8eaf0581de448dcc3dc28534428b41ec02d4444bcf4147c1298a811acb12f83b",
+    "role": "institucional (fichas GT; se usa la transcripción .md)",
+    "chars_extracted": 2186
+  },
+  {
+    "path": "atribuciones_gt/GT-ODC.pdf",
+    "sha256": "db49515ea2dd53eb85a88d35c011c76e0a11660194af6e284120e880df87f432",
+    "role": "institucional (fichas GT; se usa la transcripción .md)",
+    "chars_extracted": 5201
+  },
+  {
+    "path": "atribuciones_gt/GT-OP.pdf",
+    "sha256": "1e73adead792d6968da936d6cdbdb5bd9aec56b46fdbe798fa6f7130186cb037",
+    "role": "institucional (fichas GT; se usa la transcripción .md)",
+    "chars_extracted": 1389
+  },
+  {
+    "path": "atribuciones_gt/GT-TCE.pdf",
+    "sha256": "16b6005c616a390509be04273f0c8144be54e377eded4b8e617cb00d045c992c",
+    "role": "institucional (fichas GT; se usa la transcripción .md)",
+    "chars_extracted": 1983
+  },
+  {
+    "path": "atribuciones_gt/GT-TES.pdf",
+    "sha256": "8d8eab67328c2d064d15f328e88df112a96d68dcf30e31edc4aa9c54e8071e64",
+    "role": "institucional (fichas GT; se usa la transcripción .md)",
+    "chars_extracted": 2161
+  },
+  {
+    "path": "atribuciones_gt/GT-TMB.pdf",
+    "sha256": "6a630954add89ef8c7b65dc42603d54b28dc838d73ca0ed07baa8af23c21b106",
+    "role": "institucional (fichas GT; se usa la transcripción .md)",
+    "chars_extracted": 2215
+  },
+  {
+    "path": "atribuciones_gt/GT-TSU.pdf",
+    "sha256": "8a8fa9243d3a194fd37202b37274a9a2f03cdedcdecaa0fef0af7e13f000bb6c",
+    "role": "institucional (fichas GT; se usa la transcripción .md)",
+    "chars_extracted": 1980
+  },
+  {
+    "path": "casos/06963585.pdf",
+    "sha256": "b84aeeca10b8803489a01fc8aa23d6754dfe689add34a44409ef34c6a164b6f2",
+    "role": "bibliografía de casos (contenido resumido en corpus_external)",
+    "chars_extracted": 48511
+  },
+  {
+    "path": "casos/Lessons_and_Experiences_in_the_Implementation_of_a_Consolidated_Transmission_Modeling_Data_System_at_ERCOT.md",
+    "sha256": "d5a6d5dd474653760b4ac686e1f1cd7bc49e37ce72a8383997df098e1c64bab1",
+    "role": "bibliografía de casos (contenido resumido en corpus_external)",
+    "chars_extracted": 61814
+  },
+  {
+    "path": "casos/OntologyMatching_CIM-IEC61850_IEEE-SGridComm10.pdf",
+    "sha256": "aab10796afd1308aec0893855aea0823319baaee5a060a14d3fd4a08d9f8d139",
+    "role": "bibliografía de casos (contenido resumido en corpus_external)",
+    "chars_extracted": 33951
+  },
+  {
+    "path": "casos/pjm_m03a_rev27_2026-03-04.pdf",
+    "sha256": "8841df16466ea12e883cecbafcfdd9a1f08439af4d6f516e425591134ca86ec0",
+    "role": "bibliografía de casos (contenido resumido en corpus_external)",
+    "chars_extracted": 229154
+  },
+  {
+    "path": "EMS-eTERRA-SCADA/corpus_pdfs.md",
+    "sha256": "a4f2129899a8d318ad71073db708ff8f081500fcd6c7f6216b16f2b425bbb822",
+    "role": "no_usado",
+    "chars_extracted": 2846217
+  },
+  {
+    "path": "EMS-eTERRA-SCADA/EMS001_01_e-terraplatform_e-terrahabitat_Info_Systems_Overview.pdf",
+    "sha256": "4730a0ad5c4ac64119dd31e98e759f159cf236cf867d16af979c9fe2315d0ed3",
+    "role": "no_usado",
+    "chars_extracted": 1279
+  },
+  {
+    "path": "EMS-eTERRA-SCADA/EMS001_02_e-terraplatform_e-terrahabitat_e-terraplatform_Architecture.pdf",
+    "sha256": "cc15d73aec34d35557a36ad2e07fed1bba562e2b50f053c60876c5b120691c1e",
+    "role": "no_usado",
+    "chars_extracted": 1364
+  },
+  {
+    "path": "EMS-eTERRA-SCADA/EMS001_03_e-terraplatform_e-terrahabitat__e-terrahabitat_Software_Overview.pdf",
+    "sha256": "2fc47f25089db12866f4ffbb254bbab8ef8a3a2753bbca61b1338f4c5366735c",
+    "role": "no_usado",
+    "chars_extracted": 2205
+  },
+  {
+    "path": "EMS-eTERRA-SCADA/EMS001_04_e-terraplatform_e-terrahabitat_e-terraplatform_Software_Overview.pdf",
+    "sha256": "92fb3b4fce1a9a4a00709a91425c4055a2ad6bf06c8cc1c1557a0cca8ba7fb69",
+    "role": "no_usado",
+    "chars_extracted": 3381
+  },
+  {
+    "path": "EMS-eTERRA-SCADA/EMS012_e-terrasource_Building_a_SCADA_Model_3.1_Student_Workbook_GE.pdf",
+    "sha256": "4d4eddb4afd5578f362368c9fe4ee5d91176fffe148c5a4730ee3f7e583adca2",
+    "role": "no_usado",
+    "chars_extracted": 246969
+  },
+  {
+    "path": "EMS-eTERRA-SCADA/EMS014_Building_a_Network_Model_with_e-terrasource_2016-01-18.pdf",
+    "sha256": "000408e711fc8282b4b9cbb1d348ad65a6ac4f802804969e5831822b4a05d21c",
+    "role": "no_usado",
+    "chars_extracted": 114909
+  },
+  {
+    "path": "EMS-eTERRA-SCADA/EMS019_Network_Analysis_2.6_Student_Book.pdf",
+    "sha256": "05b60fc183a5f87fac90f423be6a89e88eeeefd620e553cfe7bc92d55928d1e9",
+    "role": "no_usado",
+    "chars_extracted": 285658
+  },
+  {
+    "path": "EMS-eTERRA-SCADA/EMS020_Network_Optimization_2.6_Student_Book.pdf",
+    "sha256": "6589ed0cf5ca1e6e410f638a5e11074eeae66bae212ee10908ed527f62252ac7",
+    "role": "no_usado",
+    "chars_extracted": 81043
+  },
+  {
+    "path": "EMS-eTERRA-SCADA/EMSModelingGuide_3.1.3.pdf",
+    "sha256": "3c413a60024a5119cbaa011bab7133daeb9e6cb190e722e0b3dc56e8f8a0f3ea",
+    "role": "no_usado",
+    "chars_extracted": 459710
+  },
+  {
+    "path": "EMS-eTERRA-SCADA/Modelado de Carga - e-terrasource.docx",
+    "sha256": "d58cfd0fffadfd66f5ea603bafc6f37e4a55bc0fa9d4b93173f7c73ed334d6b9",
+    "role": "no_usado",
+    "chars_extracted": 18056
+  },
+  {
+    "path": "EMS-eTERRA-SCADA/source_31_ems_modeling_guide-SP.docx",
+    "sha256": "f31f649a14ba3620f54f2a2b30049484dc0ed8b5bc7270bd0f43dc25c4441f92",
+    "role": "no_usado",
+    "chars_extracted": 1158698
+  },
+  {
+    "path": "EMS-eTERRA-SCADA/source_31_ems_modeling_guide.pdf",
+    "sha256": "2188cdecafd98dd8dc7479c34e9fff452814b4b9b59b3f483f9627898bc2485a",
+    "role": "no_usado",
+    "chars_extracted": 1028630
+  },
+  {
+    "path": "evaluaciones_articulo.md",
+    "sha256": "4256c513034a54c6613a2343a4d7862e72941930668f7fe0939cab2f788078ad",
+    "role": "EXCLUIDO: revisión del artículo",
+    "chars_extracted": 21311
+  },
+  {
+    "path": "flujo_actualizacion_bd_scada_ems_propuesto_DTE.pdf",
+    "sha256": "bd8e56112c2f5eb5a10be7572ba7b3d12a035ec27e25a809541c40e004b6b2ee",
+    "role": "EXCLUIDO: flujo organizativo propuesto",
+    "chars_extracted": 591
+  },
+  {
+    "path": "flujo_propuesto_inicial.pdf",
+    "sha256": "1d210552248e70675e3e9ad789422399179eae6369764985e89a842c4e5bbb93",
+    "role": "EXCLUIDO: flujo organizativo propuesto",
+    "chars_extracted": 2314
+  },
+  {
+    "path": "memory.md",
+    "sha256": "d6b12fd6084207c91500e55e7827cb2c9ff793ffe4998a063785b868fc12fb29",
+    "role": "EXCLUIDO: notas de trabajo con conclusiones del artículo",
+    "chars_extracted": 31227
+  },
+  {
+    "path": "Propuesta_Procedimiento_Actualizacion_Base_SCADA_EMS_Version00 (003).docx",
+    "sha256": "256437fb0c5351e5fa7ba9f2113dc09b1d2d379dee2c55d15b23d150ac5cc1f2",
+    "role": "EXCLUIDO: propuesta organizativa de una de las partes",
+    "chars_extracted": 13224
+  },
+  {
+    "path": "resumen_correos/01_Resumen_hilo_DTE_procedimiento_SCADA_EMS.md",
+    "sha256": "9e6596cf7497f11e0b76b7d36d3695be2289b43cac2a55b7878234494bfb9bae",
+    "role": "EXCLUIDO: posturas de las partes, no evidencia",
+    "chars_extracted": 7930
+  },
+  {
+    "path": "resumen_correos/02_Postura_GT_DAS_modelado_topologico.md",
+    "sha256": "b8bccb066925002d1db6cbabd2d2faa6465e0be76a5afa0e3aaa34ee220141d8",
+    "role": "EXCLUIDO: posturas de las partes, no evidencia",
+    "chars_extracted": 11438
+  }
+]

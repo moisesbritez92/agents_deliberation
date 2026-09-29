@@ -1,0 +1,37 @@
+Manual de Organización ANDE Actualización:  
+Página: 1 
+Resolución P/Nº: 48658 
+Fecha: 29.12.2023 
+ 
+SECCIÓN INGENIERÍA DE SISTEMAS DE CONTROL 
+ 
+Nivel Jerárquico: “F” Sigla: DTE/ISC1 CUA: 2115 
+ 
+1. SUBORDINACIÓN 
+ 
+La Sección Ingeniería de Sistemas de Control está subordinada al Departamento de Ingeniería de 
+Sistemas de Control.  
+ 
+2. ATRIBUCIONES 
+ 
+2.1. Realizar estudios y proyectos técnico/económicos para la implementación de sistemas de 
+supervisión, control y adquisición de datos (SCADA), de automatización de subestaciones 
+(SAS) y de com unicación industrial y ciberseguridad correspondientes a las tecnologías de 
+operación para la generación, transmisión y distribución del Sistema Eléctrico de la ANDE. 
+ 
+2.2. Realizar estudios y proyectos de retrofit de sistemas de control de estaciones y subestaciones. 
+ 
+2.3. Analizar y revisar proyectos elaborados por terceros, relacionados con tecnologías de 
+operación.  
+ 
+2.4. Administrar los contratos de adquisición e implementación de sistemas, equipos, materiales, 
+servicios e infraestructura asociada, de tecnologías de operación , como también los de 
+consultorías externas inherentes a proyectos específicos. 
+ 
+2.5. Investigar y desarrollar soluciones para equipos y sistemas de tecnologías de operación. 
+ 
+ 
+ 
+ 
+ 
+ 

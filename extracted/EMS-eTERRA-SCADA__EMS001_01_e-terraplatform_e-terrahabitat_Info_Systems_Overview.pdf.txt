@@ -1,0 +1,82 @@
+01 
+-
+Information System Overview
+1
+
+01 
+-
+Information System Overview
+2
+2
+
+01 
+-
+Information System Overview
+3
+3
+A lot of preparation has to be done in order to keep control of the process 
+in real
+-
+time. And sometimes, unpredicted events happen…..
+Dispatching operators work on 24h/24h, 7d/7d.
+01 
+-
+Information System Overview
+4
+4
+
+5
+01 
+-
+Information System Overview
+6
+01 
+-
+Information System Overview
+7
+A complete set of IT products and solutions for the Energy market
+01 
+-
+Information System Overview
+8
+01 
+-
+Information System Overview
+01 
+-
+Information System Overview
+9
+
+01 
+-
+Information System Overview
+10
+
+01 
+-
+Information System Overview
+11
+11
+A control system can be very complex. It may contains hundreds of hosts, 
+devices and applications, inter
+-
+connected with various networks via Ethernet, 
+modern, wireless and etcetera., allows various users from different corporate 
+groups to access different components and functionalities of the system.
+This slide shows a simplified Energy Management System and Market 
+Management System integrated in an enterprise network for demonstrating how 
+you can secure a control system from a holistic view. 
+01 
+-
+Information System Overview
+12
+
+01 
+-
+Information System Overview
+13
+
+01 
+-
+Information System Overview
+14

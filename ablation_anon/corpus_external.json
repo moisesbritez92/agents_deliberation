@@ -1,0 +1,504 @@
+[
+  {
+    "source_id": "IEC61970_456_01",
+    "source_type": "norma_internacional",
+    "reference": "IEC 61970-456:2018 ed. 2, sec. 5, pp. 8-13 (pasajes disponibles públicamente)",
+    "principle": "La norma distingue equipos y conectividad, condiciones de entrada (estados de maniobra, mediciones), topología procesada y variables de estado. Los terminales vinculan equipos conductores con nodos de conectividad. En una representación nodo-interruptor, el procesamiento de topología utiliza la conectividad y los estados de maniobra para formar los nodos topológicos de cálculo. Las variables de estado describen resultados de flujo de potencia o de estimación.",
+    "can_support": [
+      "distinguir técnicamente la edición de la conectividad, la configuración del procesador de topología y la validación de sus resultados",
+      "identificar dependencias entre modelo eléctrico, mediciones y aplicaciones EMS"
+    ],
+    "cannot_support": [
+      "asignar cualquiera de esas actividades a una unidad organizativa concreta",
+      "demostrar que la herramienta instalada permite o impide la edición concurrente"
+    ]
+  },
+  {
+    "source_id": "IEC61970_456_02",
+    "source_type": "norma_internacional",
+    "reference": "IEC 61970-456:2018 ed. 2, sec. 5, pp. 8-10",
+    "principle": "Los datos de red se organizan en perfiles de información y en particiones bajo una Model Authority, responsable de sus datos; esas particiones se denominan Model Authority Sets (MAS).",
+    "can_support": [
+      "asociar responsabilidad sobre conjuntos de datos definidos del modelo",
+      "delimitar objetos por partición y no por sistema completo"
+    ],
+    "cannot_support": [
+      "designar qué unidad de ANDE es Model Authority",
+      "equiparar el MAS de IEC con un paquete propietario del fabricante denominado MAS"
+    ]
+  },
+  {
+    "source_id": "IEC61970_301_01",
+    "source_type": "norma_internacional",
+    "reference": "IEC 61970-301:2020 ed. 7 (identificación bibliográfica) e IEC 61970-456:2018, p. 6",
+    "principle": "El Modelo de Información Común (CIM) es un modelo abstracto de los objetos necesarios para representar aspectos operativos de una empresa eléctrica. El nivel semántico no especifica por sí solo el esquema físico de una base de datos ni los permisos de una herramienta comercial.",
+    "can_support": [
+      "usar una semántica común para identificar objetos del modelo"
+    ],
+    "cannot_support": [
+      "resolver el organigrama",
+      "determinar permisos de acceso de la plataforma instalada"
+    ]
+  },
+  {
+    "source_id": "IEC61850_6_01",
+    "source_type": "norma_internacional",
+    "reference": "IEC 61850-6 (alcance)",
+    "principle": "IEC 61850 normaliza modelos de datos y servicios de comunicación para la automatización de sistemas eléctricos. La Parte 6 define el lenguaje de descripción de configuración (SCL) para el intercambio entre herramientas de ingeniería de IED, lo que favorece la trazabilidad entre proceso, IED, estación y centro de control.",
+    "can_support": [
+      "trazabilidad de la configuración de IED y de la señal desde el campo hasta el centro de control"
+    ],
+    "cannot_support": [
+      "concluir qué unidad debe mantener el modelo eléctrico del EMS",
+      "asignar pruebas o configuración a una unidad concreta"
+    ]
+  },
+  {
+    "source_id": "IEC62443_01",
+    "source_type": "norma_internacional",
+    "reference": "ISA, visión general de la serie ISA/IEC 62443",
+    "principle": "La serie ISA/IEC 62443 establece requisitos y procesos para proteger sistemas de automatización y control industrial. Su enfoque comprende al propietario del activo, integradores, proveedores de productos y prestadores de servicios, y se basa en la responsabilidad compartida entre ellos.",
+    "can_support": [
+      "participación de varios roles en la seguridad del sistema de control",
+      "responsabilidad compartida en seguridad OT"
+    ],
+    "cannot_support": [
+      "asignar a una unidad concreta el control de configuración",
+      "equiparar un rol de la norma con un departamento"
+    ]
+  },
+  {
+    "source_id": "IEC62443_2_1_01",
+    "source_type": "norma_internacional",
+    "reference": "IEC 62443-2-1:2024 ed. 2.0, alcance público",
+    "principle": "Especifica requisitos del programa de seguridad del propietario del activo para sistemas en operación; el rol de propietario del activo incluye al operador del sistema. Contempla medidas compensatorias ante limitaciones de sistemas heredados.",
+    "can_support": [
+      "existencia de políticas y procedimientos de seguridad para sistemas en operación",
+      "medidas compensatorias cuando el sistema heredado no permite ciertos controles"
+    ],
+    "cannot_support": [
+      "identificar qué unidad interna ejerce el rol de propietario del activo",
+      "demostrar requisitos detallados de aprobación de cambios"
+    ]
+  },
+  {
+    "source_id": "IEC62443_3_2_01",
+    "source_type": "norma_internacional",
+    "reference": "IEC 62443-3-2 (alcance)",
+    "principle": "Aborda la evaluación de riesgos de seguridad y el diseño del sistema de automatización y control industrial.",
+    "can_support": [
+      "evaluar el riesgo de seguridad de un cambio según su criticidad"
+    ],
+    "cannot_support": [
+      "asignar responsabilidades organizativas específicas"
+    ]
+  },
+  {
+    "source_id": "ISA95_01",
+    "source_type": "norma_internacional",
+    "reference": "IEC 62264 / ISA-95, visión general",
+    "principle": "Define modelos y terminología para integrar sistemas empresariales y sistemas de control de manufactura mediante niveles funcionales.",
+    "can_support": [
+      "distinguir niveles funcionales de un sistema integrado"
+    ],
+    "cannot_support": [
+      "hacer corresponder un nivel funcional con una dependencia de una empresa eléctrica"
+    ]
+  },
+  {
+    "source_id": "NIST_OT_01",
+    "source_type": "guia_tecnica",
+    "reference": "NIST SP 800-82 Rev. 3 (2023), doi 10.6028/NIST.SP.800-82r3, visión general",
+    "principle": "La protección de la tecnología operacional (OT) debe considerar sus requisitos particulares de disponibilidad, seguridad física, desempeño y confiabilidad.",
+    "can_support": [
+      "priorizar la disponibilidad y la seguridad operacional al planificar intervenciones"
+    ],
+    "cannot_support": [
+      "asignar responsabilidades a unidades concretas"
+    ]
+  },
+  {
+    "source_id": "NIST_CM_01",
+    "source_type": "guia_tecnica",
+    "reference": "NIST SP 800-82 Rev. 3, sec. 6.2.4.2",
+    "principle": "Documentar la configuración base aprobada; documentar, probar y aprobar los cambios antes de su despliegue; centralizar el seguimiento y la documentación de los cambios.",
+    "can_support": [
+      "segregación entre modificación y aprobación",
+      "trazabilidad",
+      "gestión de configuración",
+      "registro centralizado de cambios"
+    ],
+    "cannot_support": [
+      "asignar la aprobación a una unidad concreta",
+      "deducir exclusividad departamental de edición a partir de la centralización del registro"
+    ]
+  },
+  {
+    "source_id": "NIST_CM_02",
+    "source_type": "guia_tecnica",
+    "reference": "NIST SP 800-82 Rev. 3, sec. 6.2.4.3",
+    "principle": "Verificar los respaldos y probar la restauración, integrando la recuperación con la gestión de cambios.",
+    "can_support": [
+      "exigir respaldo verificable y restauración probada antes y después de un cambio"
+    ],
+    "cannot_support": [
+      "asignar la ejecución del respaldo o de la restauración a una unidad concreta"
+    ]
+  },
+  {
+    "source_id": "NIST_AC_01",
+    "source_type": "guia_tecnica",
+    "reference": "NIST SP 800-82 Rev. 3, sec. 6.2.1.1",
+    "principle": "El control de acceso basado en roles asigna a cada persona los privilegios necesarios, con niveles diferenciados para consultar, utilizar y alterar datos o funciones.",
+    "can_support": [
+      "mínimo privilegio",
+      "diferenciar permisos de lectura, uso y modificación"
+    ],
+    "cannot_support": [
+      "asignar roles a departamentos concretos"
+    ]
+  },
+  {
+    "source_id": "NIST_SOD_01",
+    "source_type": "guia_tecnica",
+    "reference": "NIST SP 800-82 Rev. 3, apéndice F, AC-5 (separación de funciones)",
+    "principle": "En OT debe considerarse cuidadosamente la acumulación de roles críticos en una misma persona; se contemplan controles compensatorios de personal y de auditoría cuando la separación completa no es posible.",
+    "can_support": [
+      "separación entre autoría y revisión a nivel de personas",
+      "controles compensatorios"
+    ],
+    "cannot_support": [
+      "exigir que funciones separadas residan en departamentos distintos",
+      "asignar funciones a unidades concretas"
+    ]
+  },
+  {
+    "source_id": "NIST_TEAM_01",
+    "source_type": "guia_tecnica",
+    "reference": "NIST SP 800-82 Rev. 3, sec. 3.3.2",
+    "principle": "Recomienda un equipo multidisciplinario y coordinación entre seguridad OT, TI y gestión de riesgos.",
+    "can_support": [
+      "participación interáreas en la seguridad OT"
+    ],
+    "cannot_support": [
+      "considerar ese equipo como un órgano que aprueba cada actualización del modelo",
+      "asignar autoridad de aprobación a una unidad concreta"
+    ]
+  },
+  {
+    "source_id": "NERC_CIP010_01",
+    "source_type": "norma_sectorial_extranjera",
+    "reference": "NERC CIP-010-4",
+    "principle": "Establece controles de gestión de cambios de configuración y evaluación de vulnerabilidades para los sistemas cibernéticos aplicables dentro de su ámbito regulatorio norteamericano.",
+    "can_support": [
+      "referencia sectorial de gestión de cambios de configuración"
+    ],
+    "cannot_support": [
+      "obligar a ANDE, que no está en su ámbito regulatorio",
+      "asignar responsabilidades a unidades concretas"
+    ]
+  },
+  {
+    "source_id": "ENISA_ROLES_01",
+    "source_type": "guia_tecnica",
+    "reference": "ENISA, Technical implementation guidance, v1.0, junio 2025, apdos. 1.2.4-1.2.5",
+    "principle": "Distingue funciones incompatibles e independencia del auditor, y admite asignar responsabilidades adicionales a roles existentes según el tamaño y los recursos de la organización.",
+    "can_support": [
+      "identificar funciones incompatibles",
+      "acumular roles compatibles en organizaciones con recursos limitados",
+      "independencia de la auditoría"
+    ],
+    "cannot_support": [
+      "obligar a ANDE (guía no vinculante para entidades digitales de la UE)",
+      "asignar funciones a unidades concretas"
+    ]
+  },
+  {
+    "source_id": "ENISA_CHG_01",
+    "source_type": "guia_tecnica",
+    "reference": "ENISA, Technical implementation guidance, v1.0, junio 2025, apdo. 6.4.1",
+    "principle": "Propone flujos de gestión de cambios diferenciados según criticidad y urgencia, y un comité de cambios cuando resulte apropiado ('where appropriate').",
+    "can_support": [
+      "diferenciar cambios ordinarios, urgentes y de emergencia",
+      "prever un órgano colegiado de cambios si la organización lo considera apropiado"
+    ],
+    "cannot_support": [
+      "exigir un comité para todo cambio",
+      "designar a una unidad de ANDE como aprobadora",
+      "obligar a ANDE"
+    ]
+  },
+  {
+    "source_id": "ENISA_CHG_02",
+    "source_type": "guia_tecnica",
+    "reference": "ENISA, Technical implementation guidance, v1.0, junio 2025, apdos. 6.4.2-6.4.3",
+    "principle": "Contempla aprobación, reversión y registro de evidencia de los cambios, incluidos los cambios excepcionales o de emergencia, que se documentan y revisan con posterioridad.",
+    "can_support": [
+      "prever reversión y su evidencia",
+      "revisión posterior de cambios de emergencia"
+    ],
+    "cannot_support": [
+      "asignar la reversión o su autorización a una unidad concreta",
+      "obligar a ANDE"
+    ]
+  },
+  {
+    "source_id": "ISACA_RACI_01",
+    "source_type": "articulo_profesional",
+    "reference": "P. C. Tessin, 'RA(CI) Light', ISACA Now, 21/05/2020 (COBIT 2019)",
+    "principle": "Las matrices RACI de COBIT son una vista inicial y orientativa que cada organización debe adaptar a su contexto.",
+    "can_support": [
+      "adaptar una matriz RACI a la organización"
+    ],
+    "cannot_support": [
+      "atribuir a una unidad concreta la aprobación de cambios",
+      "constituir una norma organizativa"
+    ]
+  },
+  {
+    "source_id": "ERCOT_01",
+    "source_type": "practica_de_operador",
+    "reference": "Moseley et al., ERCOT NMMS, 2014, p. 14",
+    "principle": "Antes de su sistema de gestión del modelo (NMMS), los propietarios enviaban documentos y correos a varios grupos internos de ERCOT, cada uno con fuentes de datos independientes; la carga manual impedía saber quién había modificado un dato, por qué y cuándo. ERCOT diseñó una solicitud de cambio del modelo (NOMCR) formada por un archivo CIM incremental y metadatos, con una aplicación de seguimiento que registra revisión, pruebas y carga.",
+    "can_support": [
+      "trazabilidad de quién, qué, cuándo, dónde y por qué de cada cambio",
+      "evitar fuentes de datos paralelas"
+    ],
+    "cannot_support": [
+      "asignar unidades de ANDE",
+      "demostrar la práctica actual de ERCOT"
+    ]
+  },
+  {
+    "source_id": "ERCOT_02",
+    "source_type": "practica_de_operador",
+    "reference": "Moseley et al., ERCOT NMMS, 2014, p. 15",
+    "principle": "Cada solicitud de cambio atraviesa cinco niveles de validación: rangos y datos asociados; coherencia manual entre metadatos, cambio y documentación; estudio de impacto sobre el flujo de potencia del caso base; prueba conjunta de los cambios de un intervalo de energización; carga del modelo completo en todas las aplicaciones. El modelo temporal permite construir versiones con cambios futuros según su fecha de vigencia.",
+    "can_support": [
+      "validación escalonada antes de producción",
+      "versiones con fecha de vigencia"
+    ],
+    "cannot_support": [
+      "asignar niveles de validación a unidades de ANDE"
+    ]
+  },
+  {
+    "source_id": "ERCOT_03",
+    "source_type": "practica_de_operador",
+    "reference": "Moseley et al., ERCOT NMMS, 2014, p. 15",
+    "principle": "Cuando los mismos departamentos que mantienen una aplicación gestionan también sus datos, aparecen divergencias de datos entre aplicaciones y defectos de la lógica de la aplicación enmascarados por manipulación de los datos. ERCOT respondió con un conjunto de datos único para todas las aplicaciones.",
+    "can_support": [
+      "separar quien modifica datos de quien valida la aplicación que los usa",
+      "un conjunto de datos único para todas las aplicaciones"
+    ],
+    "cannot_support": [
+      "asignar esas funciones a unidades concretas de ANDE",
+      "demostrar la práctica actual de ERCOT"
+    ]
+  },
+  {
+    "source_id": "ERCOT_04",
+    "source_type": "practica_de_operador",
+    "reference": "Moseley et al., ERCOT NMMS, 2014, p. 19",
+    "principle": "Tras la implantación, dar a los propietarios de los equipos acceso a los datos de sus propios equipos facilitó que detectaran y corrigieran errores.",
+    "can_support": [
+      "participación de quien conoce la instalación física en la verificación de su representación"
+    ],
+    "cannot_support": [
+      "asignar unidades de ANDE"
+    ]
+  },
+  {
+    "source_id": "ERCOT_05",
+    "source_type": "practica_de_operador",
+    "reference": "Moseley et al., ERCOT NMMS, 2014, pp. 16-17",
+    "principle": "Los diagramas unifilares del EMS se actualizaban manualmente a partir de documentos; se omitían cambios y los errores solían ser descubiertos por los operadores durante una maniobra.",
+    "can_support": [
+      "riesgo de la transcripción manual de documentos a mímicos y modelo",
+      "necesidad de verificar la correspondencia con la instalación"
+    ],
+    "cannot_support": [
+      "asignar la verificación a una unidad concreta"
+    ]
+  },
+  {
+    "source_id": "ERCOT_06",
+    "source_type": "practica_de_operador",
+    "reference": "Moseley et al., ERCOT NMMS, 2014, p. 12",
+    "principle": "ERCOT es un operador independiente que no posee los equipos que modela; la interfaz principal es entre el operador y propietarios que son empresas distintas.",
+    "can_support": [
+      "advertir los límites de transferir su arreglo a una empresa verticalmente integrada"
+    ],
+    "cannot_support": [
+      "demostrar qué arreglo interno conviene a una empresa verticalmente integrada"
+    ]
+  },
+  {
+    "source_id": "PJM_01",
+    "source_type": "practica_de_operador",
+    "reference": "PJM Manual 03A, rev. 27 (2026), sec. 3.1, p. 34",
+    "principle": "El representante de cada propietario de transmisión ante el subcomité de operación responde por la información del modelo de su sistema.",
+    "can_support": [
+      "responsabilidad de quien origina el dato sobre su exactitud"
+    ],
+    "cannot_support": [
+      "asignar unidades de ANDE",
+      "transferir automáticamente el arreglo de un operador independiente"
+    ]
+  },
+  {
+    "source_id": "PJM_02",
+    "source_type": "practica_de_operador",
+    "reference": "PJM Manual 03A, rev. 27, sec. 3.1, p. 35",
+    "principle": "El personal de PJM interpreta y codifica los datos recibidos para preparar las actualizaciones del EMS, con cuatro actualizaciones programadas por año.",
+    "can_support": [
+      "separación entre quien aporta el dato y quien lo codifica en el modelo",
+      "calendario programado de versiones"
+    ],
+    "cannot_support": [
+      "asignar unidades de ANDE"
+    ]
+  },
+  {
+    "source_id": "PJM_03",
+    "source_type": "practica_de_operador",
+    "reference": "PJM Manual 03A, rev. 27, sec. 3.2, p. 44; sec. 4.1, p. 52",
+    "principle": "Los propietarios revisan informes de diferencias preliminares y finales y validan que el modelo representa con exactitud sus sistemas.",
+    "can_support": [
+      "revisión de diferencias respecto de la versión base",
+      "validación de la representación por quien origina el dato"
+    ],
+    "cannot_support": [
+      "asignar unidades de ANDE"
+    ]
+  },
+  {
+    "source_id": "PJM_04",
+    "source_type": "practica_de_operador",
+    "reference": "PJM Manual 03A, rev. 27, sec. 5.4, p. 65",
+    "principle": "Antes de pasar un modelo a producción se aplica una prueba de estabilización de hasta cuatro semanas con telemetría real; durante los dos días previos se aplican criterios del estimador de estado (convergencia, soluciones consecutivas no convergentes, iteraciones, datos erróneos). Ante condiciones no previstas se analiza la situación y se documenta la decisión de continuar.",
+    "can_support": [
+      "criterios objetivos de pase a producción",
+      "documentar la decisión de continuar ante desviaciones"
+    ],
+    "cannot_support": [
+      "copiar umbrales sin calibración local",
+      "asignar unidades de ANDE"
+    ]
+  },
+  {
+    "source_id": "EPRI_NMM_01",
+    "source_type": "informe_tecnico",
+    "reference": "EPRI 3002003053, Network Model Manager Technical Market Requirements, 2014",
+    "principle": "Especifica requisitos para una función de gestión de modelos con repositorio maestro, registro de objetos y espacios de trabajo.",
+    "can_support": [
+      "repositorio maestro único",
+      "espacios de trabajo separados para preparar cambios"
+    ],
+    "cannot_support": [
+      "demostrar capacidades del software instalado",
+      "asignar unidades de ANDE"
+    ]
+  },
+  {
+    "source_id": "EPRI_NMM_02",
+    "source_type": "informe_tecnico",
+    "reference": "EPRI 3002003053, caso A1, pp. 4-5 a 4-6",
+    "principle": "En el caso de uso A1, modeladores EMS mantienen conectividad y esquemas, con aportes y revisión de especialistas de planificación y protecciones. El informe aclara que el reparto puede variar entre empresas y que varios grupos requieren controles de acceso y coordinación.",
+    "can_support": [
+      "separación entre aportantes especializados y modeladores",
+      "controles de acceso y coordinación entre grupos"
+    ],
+    "cannot_support": [
+      "constituir un organigrama obligatorio",
+      "identificar qué unidad de ANDE cumple el rol de modelador"
+    ]
+  },
+  {
+    "source_id": "EPRI_NMM_03",
+    "source_type": "informe_tecnico",
+    "reference": "EPRI 3002003053, requisito R2, pp. 6-21 a 6-22",
+    "principle": "Contempla registros de correspondencia entre identificadores CIM (mRID) y estructuras de identificación locales; un mRID no es necesariamente idéntico a una clave propietaria.",
+    "can_support": [
+      "documentar clase, identificador, origen y correspondencias de cada objeto"
+    ],
+    "cannot_support": [
+      "asignar unidades de ANDE"
+    ]
+  },
+  {
+    "source_id": "ENTSOE_CGMES_01",
+    "source_type": "practica_de_operador",
+    "reference": "ENTSO-E, CGMES",
+    "principle": "ENTSO-E adoptó el estándar CGMES, basado en CIM, para el intercambio de modelos entre operadores.",
+    "can_support": [
+      "intercambio estructurado de modelos basado en CIM"
+    ],
+    "cannot_support": [
+      "asignar unidades de ANDE"
+    ]
+  },
+  {
+    "source_id": "CTX_DOMINIOS",
+    "source_type": "contexto_tecnico",
+    "reference": "Contexto técnico del dominio SCADA/EMS",
+    "principle": "Bajo la denominación general de 'base SCADA/EMS' coexisten seis dominios técnicos: (1) modelo eléctrico: topología, conectividad, parámetros de líneas y transformadores, equivalentes y estados operativos; (2) telemetría y telecontrol: puntos analógicos y digitales, calidad, escalas, comandos, alarmas, tiempos y correspondencia con equipos; (3) comunicaciones: RTU, IED, gateways, canales, direccionamiento, protocolos, ICCP/TASE.2 y sincronización; (4) aplicaciones EMS: estimador de estado, flujo de potencia, contingencias, control automático de generación y demás módulos; (5) plataforma técnica: servidores, almacenamiento, sistemas operativos, respaldo, virtualización, ambientes y herramientas del fabricante; (6) gobierno y seguridad: acceso, trazabilidad, configuración base, evidencias, aceptación, reversión y auditoría.",
+    "can_support": [
+      "delimitar el objeto afectado por cada decisión",
+      "identificar competencias técnicas requeridas por dominio"
+    ],
+    "cannot_support": [
+      "asignar dominios a unidades concretas"
+    ]
+  },
+  {
+    "source_id": "CTX_CICLO",
+    "source_type": "contexto_tecnico",
+    "reference": "Contexto técnico del ciclo de cambio",
+    "principle": "El ciclo de un cambio de la base SCADA/EMS comprende las fases de planificación, requisito, construcción, integración, prueba, aceptación, liberación, despliegue, operación y registro. Los tipos de intervención posibles incluyen ejecutar, supervisar, revisar, aprobar, administrar, autorizar en tiempo real, coordinar, apoyar, solicitar y definir criterios.",
+    "can_support": [
+      "ubicar cada decisión en una fase del ciclo",
+      "distinguir tipos de intervención sobre una misma fase"
+    ],
+    "cannot_support": [
+      "asignar fases o tipos de intervención a unidades concretas"
+    ]
+  },
+  {
+    "source_id": "CTX_MIMICO",
+    "source_type": "contexto_tecnico",
+    "reference": "Contexto técnico del dominio SCADA/EMS",
+    "principle": "Un mímico es la representación gráfica de una instalación en las consolas del SCADA/EMS: diagrama unifilar con los equipos, sus estados (abierto/cerrado), mediciones, alarmas y, cuando existen, los puntos de mando. Se vincula a los puntos de telemetría y telecontrol y a los objetos del modelo eléctrico; un mímico correcto requiere que ambas correspondencias reflejen la instalación física.",
+    "can_support": [
+      "delimitar el objeto 'mímico' y sus dependencias con telemetría y modelo"
+    ],
+    "cannot_support": [
+      "asignar la construcción, verificación o aceptación de mímicos a una unidad concreta"
+    ]
+  },
+  {
+    "source_id": "CTX_UNIFILAR",
+    "source_type": "practica_local_descrita",
+    "reference": "Práctica descrita por personal de ANDE para este trabajo; no figura en ninguna ficha del Manual de Organización",
+    "principle": "Según la práctica descrita, las unidades regionales a cargo de las instalaciones de transmisión en servicio (U18, U16, U21, U20, U11) no editan el SCADA: publican el diagrama unifilar oficial de cada instalación como archivo PDF en la red corporativa de TI, y los mímicos y el modelo se construyen a partir de ese documento.",
+    "can_support": [
+      "identificar el documento de origen de la configuración física",
+      "reconocer el riesgo de transcripción manual"
+    ],
+    "cannot_support": [
+      "constituir una atribución formal de ninguna unidad"
+    ]
+  },
+  {
+    "source_id": "CTX_CORPUS",
+    "source_type": "contexto_documental",
+    "reference": "Estado del corpus institucional",
+    "principle": "El corpus contiene fichas del Manual de Organización aprobadas por tres resoluciones distintas (P/N.º 34954 de 15/07/2014; P/N.º 48658 de 29/12/2023; P/N.º 50060 de 06/01/2025). No se dispone de las resoluciones completas ni de eventuales disposiciones modificatorias. Ninguna ficha del corpus contiene una disposición expresa que derogue o modifique atribuciones de otra ficha. Tampoco se dispone del inventario de objetos, de los permisos efectivos de la plataforma ni de la documentación del fabricante.",
+    "can_support": [
+      "declarar límites de la evidencia disponible"
+    ],
+    "cannot_support": [
+      "presumir derogaciones o modificaciones no documentadas"
+    ]
+  }
+]

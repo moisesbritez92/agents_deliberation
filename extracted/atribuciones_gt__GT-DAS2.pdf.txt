@@ -1,0 +1,28 @@
+Manual de Organización                                  ANDE Actualización: 00 
+  Página: 1 
+  Resolución P/Nº: 50060 
+  Fecha: 06.01.2025  
+ 
+SECCIÓN APLICATIVOS DEL SCADA/EMS 
+ 
+Nivel Jerárquico: “F”             Sigla: GT/DAS2                         CUA: 2651 
+   
+1. SUBORDINACIÓN 
+ 
+La Sección Aplicativos del SCADA /EMS está subordinada al Departamento de 
+Administración del SCADA/EMS.  
+ 
+2. ATRIBUCIONES 
+ 
+2.1. Administrar y gestionar el uso de aplicativos disponibles del SCADA /EMS, previsión de 
+carga de barras, procesamiento de topología de red, estimador de estado, análisis de 
+contingencias, flujo de potencia óptimo, etc. 
+ 
+2.2. Actualizar los aplicativos existentes del SCAD A/EMS para asegurar el correcto 
+funcionamiento ante nuevos requisitos del Sistema.  
+ 
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,676 @@
+Matriz RACI para la administración del
+SCADA/EMS
+1. ¿Qué problema resuelve?
+La matriz RACI es una herramienta para aclarar quién participa en cada actividad y quién responde
+por su resultado. Se utiliza cuando varias unidades intervienen en un mismo proceso y las
+atribuciones pueden confundirse.
+En la administración de un sistema SCADA/EMS, una actualización puede incluir datos de una
+instalación, modelo eléctrico, señales, comunicaciones, aplicaciones, pruebas y carga en producción.
+Una sola unidad no necesariamente ejecuta todas esas tareas. La RACI evita que la participación
+técnica se confunda con la autoridad de aprobación.
+La matriz no crea atribuciones por sí misma. Tampoco modifica un manual de organización, una
+resolución, un contrato o un procedimiento aprobado. Su función es convertir una distribución
+institucional en responsabilidades operativas verificables.
+2. Significado de las letras
+Letra Nombre
+Pregunta que
+responde
+Ejemplo en SCADA/EMS
+R
+Responsible,
+responsable de
+ejecutar
+¿Quién realiza el
+trabajo?
+Quién configura las señales o
+carga una versión autorizada
+A
+Accountable,
+responsable último
+¿Quién responde por el
+resultado?
+Quién acepta que el modelo
+funcional cumple el requisito
+C Consulted, consultado
+¿A quién se debe
+consultar antes de
+decidir?
+Quién aporta criterios operativos
+o técnicos
+I Informed, informado
+¿Quién debe conocer el
+avance o resultado?
+Quién recibe la comunicación
+del cierre del cambio
+En español, la letra  R  se entiende como ejecución y la letra  A  como responsabilidad última. La  A  no
+significa necesariamente «autoriza la entrada en producción». Esa autorización puede corresponder a
+una instancia específica de cambio.
+3. Regla fundamental
+Cada fila debe describir una actividad o entregable concreto. La matriz se interpreta horizontalmente,
+una fila a la vez.
+Para cada fila conviene comprobar lo siguiente:
+1. Existe al menos una persona o unidad que ejecuta la actividad, identificada con  R .
+2. Existe una sola  A , salvo que un procedimiento aprobado establezca otra regla.
+3. La unidad marcada con  A  tiene autoridad real sobre el resultado.
+4. Las unidades marcadas con  C  son consultadas antes de cerrar la actividad.
+5. Las unidades marcadas con  I  reciben información suficiente para actuar en su ámbito.
+6. La asignación no obliga a una persona a revisar su propio trabajo.
+Una unidad puede ser  R  en una fila y  C  en otra. Incluso puede ser  A/R  cuando ejecuta una
+actividad y responde por su resultado. Sin embargo,  A/R  no debe utilizarse para justificar
+autorrevisión en cambios críticos.
+4. Roles utilizados en este caso
+La siguiente interpretación se basa en las atribuciones revisadas en el artículo sobre gobierno y
+segregación de responsabilidades del SCADA/EMS. Las siglas describen roles dentro del proceso, no
+una nueva estructura jerárquica.
+Rol Función dentro de la matriz
+GT/DAS
+Administración funcional del SCADA/EMS, requisitos, modelo
+funcional y aplicativos
+GT/DAS1
+Diseño, implementación, mantenimiento y actualización de objetos
+asignados del modelo eléctrico
+GT/DAS2 Administración y actualización de aplicativos, incluido el
+procesamiento de topología
+Rol Función dentro de la matriz
+DTE/ISC2 Implementación, integración, elaboración o unificación de bases y
+pruebas FAT/SAT
+DTE/ISC3 Registros técnicos de planos, configuración y arquitectura
+DTE/MCO
+Infraestructura, mantenimiento, respaldos, despliegue y
+recuperación técnica
+GT/ODC Aceptación del uso operativo y habilitación o suspensión de
+ventanas en tiempo real
+GT/DOS, GT/DEL, GT/DEN
+y GT/DDR
+Aporte de criterios operativos, eléctricos, energéticos o regionales
+según el alcance
+Origen Certificación de los datos de la instalación o del equipo fuente
+AC Autoridad de Cambio con delegación formal para liberar una
+versión
+ GT*  puede utilizarse en una matriz resumida para representar la consulta selectiva a DOS, DEL, DEN
+o DDR. No significa que todas esas unidades deban ser consultadas en cada cambio ni que formen
+una autoridad colectiva.
+4.1. ¿Quién es Origen?
+ Origen  representa a la unidad, área o responsable que genera, posee y certifica el dato que da lugar
+al cambio. No es necesariamente un departamento fijo. Su identidad depende del objeto afectado y
+de la fuente oficial de la información.
+En un cambio de SCADA/EMS, Origen responde principalmente por tres preguntas:
+1. ¿Qué cambió físicamente o funcionalmente?
+2. ¿Cuál es el valor correcto que debe representarse?
+3. ¿Desde qué documento, instalación, equipo o sistema se obtiene ese dato?
+Origen certifica la información de entrada. No construye necesariamente el modelo EMS, no configura
+las comunicaciones y no libera la versión productiva. Su responsabilidad consiste en asegurar que el
+dato entregado corresponde a la realidad bajo su competencia y que tiene respaldo documental.
+Quiénes pueden integrar Origen
+La composición de Origen varía según la clase de modificación:
+Fuente del cambio
+Integrantes posibles de
+Origen
+Información que certifican
+Nueva instalación o
+modificación de
+transmisión
+Departamento regional de
+GT/DT: GT/TMB, GT/TES,
+GT/TSU, GT/TCE o GT/NAC
+Configuración de la instalación,
+equipos, planos, parámetros, fecha
+de energización y condición real
+Criterio de operación
+del sistema
+GT/DOS, GT/DEL, GT/DEN o
+GT/DDR, según el ámbito
+Criterios operativos, eléctricos,
+energéticos o regionales aplicables
+Equipo, RTU, IED o
+sistema de control
+Unidad responsable de la
+instalación y DTE/ISC o unidad
+técnica competente
+Datos técnicos, configuración,
+pruebas, correspondencia de
+señales y puesta en servicio
+Plataforma,
+comunicaciones o
+infraestructura OT
+DTE/ISC, DTE/MCO o
+responsable técnico de la
+plataforma
+Parámetros de comunicación,
+arquitectura, configuración técnica,
+versión y estado del servicio
+Aplicativo o requisito
+funcional EMS
+GT/DAS, con la unidad usuaria
+o especialista que origina el
+requisito
+Requisito, comportamiento
+esperado, impacto funcional y
+criterios de aceptación
+Instalación de
+generación o
+interconexión
+Unidad responsable del activo
+y especialistas de operación
+correspondientes
+Datos del activo, límites, estados,
+señales y fecha de disponibilidad
+La tabla expresa una composición propuesta. Las fichas de GT/DT y sus departamentos regionales
+acreditan responsabilidades sobre instalaciones, proyectos, pruebas y energización, pero no
+mencionan literalmente SCADA, EMS ni mímicos. Por tanto, su papel como Origen del cambio físico
+debe formalizarse mediante el procedimiento y la evidencia de la práctica real.
+Qué significa  A/R  para Origen
+En la fila «Certificar datos de instalación», Origen aparece como  A/R  porque realiza la certificación y
+responde por el resultado de esa certificación. La celda no significa que Origen sea responsable de
+todo el cambio ni que pueda modificar directamente la base SCADA/EMS.
+En la fila «Verificar mímicos y modelo con la instalación», Origen también puede ser  A/R  cuando
+confirma que la representación coincide con la instalación real. En ese caso, DAS participa como  R  o
+como revisor funcional según el procedimiento. Si Transmisión edita directamente los mímicos, esa
+práctica debe documentarse y la matriz debe separar la edición, la revisión independiente y la
+aceptación.
+Qué entrega Origen
+Como mínimo, Origen debería proporcionar:
+documento oficial de la alteración o instalación nueva;
+planos aprobados y fecha de vigencia;
+identificación de equipos y puntos de conexión;
+parámetros eléctricos y técnicos certificados;
+lista de señales, estados, alarmas y comandos aplicables;
+condición de energización, disponibilidad o puesta fuera de servicio;
+responsable nominal que firma o registra la certificación;
+aclaraciones sobre diferencias entre la instalación, los planos y el modelo anterior.
+La información de Origen debe conservarse junto con la solicitud de cambio. El registro permite
+comprobar qué versión de la realidad física fue utilizada para construir el modelo y quién la confirmó.
+Qué no hace Origen
+Origen no debe confundirse con DAS, ISC, MCO, ODC ni AC:
+ Origen  certifica la realidad o el requisito de entrada.
+ DAS  administra el modelo funcional y los aplicativos.
+ ISC  integra adquisición, comunicaciones y componentes técnicos.
+ MCO  mantiene la plataforma y ejecuta despliegue o recuperación.
+ ODC  acepta el uso operativo y habilita o suspende la ventana.
+ AC  decide la liberación de la versión según la delegación recibida.
+Una instalación puede estar correctamente certificada por Origen y, aun así, no estar lista para
+producción porque faltan pruebas, aceptación funcional, respaldo, autorización de cambio o una
+ventana operativa disponible.
+5.1. ¿Qué significa AC?
+ AC  significa Autoridad de Cambio. No es una quinta letra de RACI. Es una columna adicional
+creada para hacer visible quién tiene la facultad institucional de liberar una versión del SCADA/EMS,
+aprobar condiciones de reversión y resolver situaciones que afectan a más de una rama organizativa.
+La diferencia puede expresarse así:
+Rol Decisión principal
+ A  de la fila Responde por el resultado de una actividad concreta
+ R  de la fila Ejecuta o produce el entregable
+ AC Decide si el cambio completo puede avanzar a la siguiente condición de gobierno
+Por ejemplo, GT/DAS puede ser  A/R  al validar funcionalmente un aplicativo. DTE/ISC2 puede ser
+ A/R  al aprobar pruebas técnicas. MCO puede ser  A/R  al ejecutar una carga o una reversión.
+Ninguno de esos roles equivale por sí solo a liberar la versión completa para producción. Esa decisión
+corresponde a  AC  cuando el procedimiento institucional le haya delegado expresamente esa facultad.
+Qué puede decidir AC
+La Autoridad de Cambio puede:
+1. Liberar una versión cuando el expediente contiene las conformidades y evidencias requeridas.
+2. Rechazar, devolver o aplazar un cambio que no cumple los criterios definidos.
+3. Aprobar condiciones de reversión ordinaria o confirmar que se cumplen condiciones
+preautorizadas de emergencia.
+4. Resolver un desacuerdo entre conformidad funcional, aceptación técnica y condiciones
+operativas.
+5. Definir restricciones, responsables, ventana autorizada y condiciones de observación posteriores
+al despliegue.
+6. Exigir que una observación abierta sea corregida o que su aceptación quede documentada.
+AC no debería editar el modelo, ejecutar pruebas, cargar archivos ni certificar por sí misma los datos
+de una instalación, salvo que otra función separada y compatible se le asigne formalmente. Su valor
+está en decidir con base en evidencias producidas por otras funciones.
+Qué no puede decidir AC por sí sola
+La liberación de una versión no autoriza automáticamente una maniobra eléctrica ni una intervención
+en cualquier momento. GT/ODC conserva la decisión operativa de habilitar o suspender la ventana
+según el estado del SIN y las restricciones del despacho. Del mismo modo, AC no sustituye:
+la certificación del dato por la unidad de origen;
+la aprobación técnica de las pruebas de ISC2;
+la aceptación funcional de DAS;
+la conservación de registros técnicos por ISC3;
+la ejecución técnica de MCO;
+la autoridad de emergencia definida para una condición preautorizada.
+En consecuencia, un cambio puede estar liberado por AC y, sin embargo, quedar pendiente de
+habilitación operativa por ODC. También puede estar habilitado el horario, pero no ejecutarse la
+carga si falla una prueba o si no se cumplen los criterios del procedimiento.
+Requisitos mínimos de AC
+La designación de AC debe constar en un acto o procedimiento aprobado y debe incluir:
+autoridad delegada sobre las ramas involucradas, no solo coordinación informal;
+nombre del cargo o instancia decisora y su suplente;
+alcance de la decisión, clases de cambio y límites de riesgo;
+requisitos documentales y técnicos para liberar;
+tratamiento de desacuerdos y observaciones abiertas;
+reglas para cambios estándar, urgencias y emergencias;
+criterios para ordenar o confirmar una reversión;
+registro de la decisión, fecha, versión, condiciones y responsables.
+Una comisión sin decisor identificable no es suficiente. La RACI puede mostrar  AC , pero el
+procedimiento debe identificar quién ocupa esa función en cada turno y qué ocurre cuando la
+autoridad no está disponible.
+¿Quiénes conforman AC?
+En el artículo,  AC  no representa a todas las personas que intervienen en el cambio. Representa a la
+instancia decisora que debe tener autoridad delegada sobre las ramas involucradas. Su
+conformación propuesta es interáreas:
+Integrante o representación Función en AC
+Representación de GT/OP Coordinación institucional de la decisión y vínculo con
+la operación
+Representación de la División de
+Sistemas de Comunicación
+Garantía de que la decisión comprende ingeniería,
+plataforma y despliegue técnico
+GT/DAS
+Presenta la conformidad funcional, el impacto sobre el
+modelo y el estado de la línea base
+DTE/ISC
+Presenta la conformidad de ingeniería, integración y
+pruebas técnicas
+DTE/MCO
+Informa sobre respaldo, capacidad de despliegue,
+recuperación y riesgos de plataforma
+GT/ODC Informa sobre aceptación operativa y condiciones de la
+ventana en tiempo real
+Seguridad OT
+Evalúa controles, accesos, riesgos y medidas
+compensatorias según la criticidad
+GT/DOS u otras unidades
+especialistas
+Participan cuando el alcance requiere criterios
+operativos, eléctricos, energéticos o regionales
+La representación de GT/OP y de la División de Sistemas de Comunicación constituye la base de la
+autoridad interáreas propuesta. DAS, ISC, MCO, ODC y seguridad OT aportan evidencias y
+conformidades. DOS, DEL, DEN, DDR y los departamentos regionales de Transmisión se incorporan
+según el objeto y el impacto del cambio.
+Esta composición no significa que todas las personas tengan la misma capacidad de voto ni que
+todas deban reunirse para cada cambio. El instrumento de delegación debe distinguir tres categorías:
+1. Decisor: cargo o instancia que emite la decisión final y firma o registra la liberación.
+2. Miembros técnicos permanentes: representantes que revisan expedientes y emiten
+conformidades dentro de su competencia.
+3. Consultados por alcance: especialistas convocados solo cuando el cambio afecta su dominio.
+La decisión final debe quedar atribuida a un cargo o instancia concreta. No es suficiente escribir «AC
+aprueba» si no se identifica quién ejerce AC, qué delegación tiene y cómo se resuelve un desacuerdo.
+Una opción de diseño es que AC funcione como una autoridad con representantes permanentes y un
+decisor designado por cambio; otra es que un comité recomiende y un cargo con delegación emita la
+decisión. En ambos casos, la responsabilidad debe ser nominal y trazable.
+Cómo se conforma para cada cambio
+La composición puede variar según la criticidad y el objeto:
+Tipo de cambio Integración mínima sugerida
+Cambio funcional del modelo o
+aplicativo
+Decisor AC, DAS, ISC y ODC si afecta el uso operativo
+Cambio de adquisición,
+comunicaciones o plataforma
+Decisor AC, ISC, MCO, DAS y seguridad OT
+Cambio que representa una
+instalación de transmisión
+Decisor AC, DAS, ISC, MCO y departamento regional de
+Transmisión de origen
+Cambio con impacto energético
+u operativo amplio
+Integración anterior más ODC, DOS y especialistas de DEL,
+DEN o DDR según el ámbito
+Emergencia
+Autoridad de guardia designada, MCO, ODC y DAS o ISC
+según el componente afectado; revisión posterior obligatoria
+La participación de una unidad no transfiere automáticamente su atribución a AC. Por ejemplo, ODC
+informa si la ventana es operativamente viable, pero no por ello se convierte en propietario de la
+versión del modelo. Del mismo modo, DAS puede presentar la aceptación funcional, pero no debe
+decidir unilateralmente la liberación si la autoridad fue delegada a AC.
+Ejemplo sencillo
+Supóngase que una nueva instalación requiere modificar el modelo eléctrico, señales y mímicos.
+DAS1 actualiza los objetos funcionales, ISC2 configura y prueba la adquisición, la unidad regional de
+Transmisión certifica la instalación, MCO prepara el respaldo y ODC evalúa la ventana operativa. AC
+revisa el expediente y decide si la versión queda liberada.
+Si ODC informa que la red no admite la intervención esa noche, AC no debe interpretarlo como una
+autorización para cargar de todos modos. La versión puede permanecer liberada, pero la ventana
+queda suspendida. Si durante la carga se pierde visibilidad o aparece una condición de reversión,
+MCO ejecuta la recuperación conforme al criterio aprobado y comunica el resultado a AC y ODC.
+6. Matriz actualizada para un cambio
+La tabla siguiente refleja la versión revisada del artículo: incluye 19 actividades y una columna  Regla 
+que vincula cada asignación con las reglas de diseño R1-R9. La tabla es una propuesta didáctica.
+Debe validarse contra las resoluciones vigentes, el inventario real, los permisos de la herramienta y el
+procedimiento que apruebe la institución.
+Actividad DAS ISC MCO ODC GT* Origen AC Regla
+Definir requisito y alcance A/R C C C C C I R1
+Certificar datos de
+instalación
+C C I C C A/R I R6
+Especificar y aceptar
+semántica del modelo A/R C C C C C I R1
+Construir o actualizar
+modelo eléctrico
+A/R C C C C C I R2
+Configurar adquisición,
+pareamiento y
+comunicaciones
+C A/R R I I C I R2
+Unificar modelo y
+adquisición R A/R R C C I I R3
+Preparar paquete de
+implementación
+R A/R R I I I I R3
+Aprobar FAT/SAT y pruebas
+de integración
+C A/R C C C C I R4
+Administrar o actualizar
+aplicativos
+A/R C R C C I I
+R1,
+R5
+Validar estimador, flujo y
+aplicaciones
+A/R C C C C I I R4,
+R5
+Verificar mímicos y modelo
+con la instalación R C I I I A/R I R6
+Actividad DAS ISC MCO ODC GT* Origen AC Regla
+Aceptar mímicos, alarmas y
+uso operativo
+C C C A/R C C I R4
+Autorizar liberación de
+versión R C C C C I A R7
+Habilitar o suspender
+ventana en tiempo real
+C I R A C I I R8
+Ejecutar respaldo y carga
+autorizada
+C C A/R C I I I
+R8,
+R9
+Mantener registro técnico
+de configuración
+C A/R R I I I I R9
+Cerrar cambio y versión
+funcional
+A/R R R C C I I R1
+Aprobar criterios y
+delegación de reversión R C R C C I A R7
+Ejecutar reversión
+autorizada o preautorizada
+C C A/R C I I I R9
+ Origen  representa, según el cambio, al departamento regional de Transmisión o a la unidad que
+certifica la instalación y sus datos.  GT*  reúne consultas selectivas a DOS, DEL, DEN o DDR.  ISC 
+debe desagregarse en ISC2 e ISC3 cuando la decisión dependa de la diferencia entre integración,
+pruebas y registros técnicos. Una matriz resumida sirve para explicar el proceso, pero no sustituye el
+nivel de detalle necesario para asignar permisos y evidencias.
+7. Desarrollo de las 19 actividades
+La matriz resume responsabilidades, pero no describe por sí sola el trabajo que debe realizarse. Las
+actividades siguientes se explican como unidades de proceso. Cada una debe tener un expediente,
+un entregable y una condición de cierre.
+7.1. Definir requisito y alcance
+Esta actividad inicia el cambio. Se documenta qué instalación, equipo, señal, aplicativo, comunicación
+o función se modificará y por qué es necesario hacerlo. También se indica si el cambio es estándar,
+normal, urgente o de emergencia.
+La entrada mínima es una solicitud con origen, descripción, fecha requerida, impacto esperado y
+responsable solicitante. DAS coordina la definición funcional; las áreas técnicas y operativas revisan
+si el alcance es suficiente. El resultado es un registro de cambio con identificador único, clasificación
+de riesgo y unidades convocadas.
+El cambio no debe avanzar si el alcance mezcla objetos distintos sin explicitar sus dependencias. Por
+ejemplo, una nueva subestación puede afectar modelo eléctrico, telemetría, comunicaciones,
+mímicos, alarmas, aplicativos y plataforma. Cada objeto debe quedar identificado aunque forme parte
+de una misma solicitud.
+7.2. Certificar datos de instalación
+Origen confirma los datos que describen la realidad física o el requisito fuente. La certificación debe
+basarse en planos, documentos de alteración, actas de recepción, parámetros aprobados, listas de
+señales y fechas de energización o disponibilidad.
+El resultado no es una modificación en el SCADA/EMS. Es un conjunto de datos de entrada que otra
+unidad utilizará para construir o configurar el cambio. La certificación debe tener responsable nominal,
+fecha de vigencia y referencia al documento que la respalda.
+Si existen diferencias entre el plano, la instalación y la base anterior, Origen debe declararlas. No
+corresponde que DAS, ISC o MCO corrijan silenciosamente una discrepancia de origen, porque esa
+práctica elimina la trazabilidad del dato.
+7.3. Especificar y aceptar la semántica del modelo
+Aquí se define cómo debe representarse el objeto en el modelo: clase, nombre, identificador,
+conectividad, atributos, estados, relaciones, límites y comportamiento esperado. No se trata solo de
+introducir valores; también se establece qué significa cada objeto para las aplicaciones EMS.
+GT/DAS responde por la coherencia funcional de la semántica. ISC, Origen y las unidades
+especialistas aportan restricciones técnicas y del sistema real. El producto es una especificación
+aceptada, vinculada con los datos certificados y con la versión de referencia.
+La aceptación semántica no autoriza todavía la carga productiva. Solo confirma que las unidades
+entienden de la misma manera qué debe construirse y cómo deberá comportarse.
+7.4. Construir o actualizar el modelo eléctrico
+DAS1 construye o actualiza los objetos eléctricos que le correspondan según la delimitación del
+procedimiento. La actividad puede incluir equipos, terminales, conectividad, parámetros, estados y
+relaciones necesarias para que el modelo represente la instalación.
+La participación de ISC no desaparece: puede aportar datos de implementación, correspondencias de
+adquisición e integración técnica. Sin embargo, integrar el conjunto no significa ser autor exclusivo de
+todos sus objetos. El expediente debe conservar el autor de cada modificación y la revisión realizada
+por una persona distinta cuando el riesgo lo exija.
+El resultado es una versión de trabajo del modelo, todavía no una versión liberada. Debe compararse
+con la línea base anterior y registrar altas, bajas, modificaciones e identificadores afectados.
+7.5. Configurar adquisición, pareamiento y comunicaciones
+Esta actividad conecta la representación del modelo con los datos que llegan desde campo o desde
+otros sistemas. Incluye puntos analógicos y digitales, escalas, calidades, estados, comandos,
+direcciones, protocolos, gateways, ICCP/TASE.2 y sincronización, según el alcance.
+ISC configura o integra los componentes técnicos; MCO participa cuando se afectan servidores,
+redes, ambientes o herramientas de plataforma. DAS verifica que el pareamiento tenga sentido
+funcional y que la señal corresponda al objeto correcto.
+La salida debe permitir rastrear cada señal desde su origen hasta el objeto del modelo y la aplicación
+que la utiliza. No basta con demostrar que un punto comunica; también debe comprobarse que su
+significado, escala, estado y calidad son correctos.
+7.6. Unificar modelo y adquisición
+La unificación reúne la representación eléctrica, los datos de adquisición, las correspondencias
+técnicas y las dependencias necesarias para las aplicaciones. ISC responde por la integridad del
+entregable conjunto, mientras DAS conserva responsabilidad sobre la coherencia funcional de sus
+objetos.
+Esta actividad debe detectar identificadores duplicados, referencias rotas, objetos sin fuente, señales
+sin destino, equipos sin conectividad y diferencias entre la versión funcional y los registros técnicos. El
+resultado es una base integrada de prueba, no una autorización de producción.
+La unificación no borra la autoría distribuida. El paquete debe mantener quién creó cada objeto, qué
+unidad lo certificó y qué revisión independiente confirmó la integración.
+7.7. Preparar el paquete de implementación
+El paquete de implementación contiene los archivos, instrucciones, dependencias, respaldos,
+secuencia de carga, criterios de verificación y plan de reversión. Puede incluir componentes del
+modelo, adquisición, aplicativos, comunicaciones y plataforma.
+ISC prepara la integración técnica; MCO revisa que el paquete pueda desplegarse y recuperarse;
+DAS verifica que corresponda a la versión funcional aprobada para pruebas. El paquete debe tener
+una versión, una suma o mecanismo de identificación, fecha y responsable.
+Un paquete incompleto no debe pasar directamente a producción para «completarlo durante la
+carga». Cualquier modificación posterior a la aprobación debe generar una nueva revisión o activar el
+control de cambio definido.
+7.8. Aprobar FAT/SAT y pruebas de integración
+Las pruebas FAT y SAT comprueban, respectivamente, el comportamiento en fábrica y en el sitio o
+ambiente correspondiente. La prueba de integración verifica que los componentes trabajen juntos y
+que las interfaces no introduzcan errores.
+ISC2 ejecuta, analiza y aprueba las pruebas técnicas dentro de su competencia. DAS, MCO, Origen y
+ODC participan cuando el resultado afecta sus objetos o funciones. Cada prueba debe tener plan,
+datos de entrada, resultado esperado, evidencia obtenida, incidencias y conclusión.
+La aprobación técnica no implica que el cambio sea funcionalmente aceptado ni que esté liberado.
+Las observaciones críticas deben cerrarse o ser aceptadas por la autoridad competente antes de
+continuar.
+7.9. Administrar o actualizar aplicativos
+DAS2 administra y actualiza los aplicativos EMS afectados, incluido el procesamiento de topología y
+las funciones de análisis que utilicen el modelo. La tarea comprende parámetros, reglas, versiones,
+dependencias y compatibilidad con la base integrada.
+MCO puede intervenir en la instalación técnica o en los componentes de plataforma, pero esa
+intervención no sustituye la decisión funcional sobre el comportamiento del aplicativo. La persona que
+modifica una configuración crítica no debería ser la única que valida el resultado de la aplicación.
+El producto es una configuración de aplicativo identificada y vinculada con el modelo que la alimenta.
+Deben registrarse los parámetros modificados, las aplicaciones dependientes y las pruebas que se
+ejecutarán.
+7.10. Validar estimador, flujo y aplicaciones
+Esta actividad verifica el comportamiento del modelo y de las aplicaciones que lo utilizan. Puede
+incluir estimador de estado, flujo de potencia, contingencias, topología procesada, alarmas, controles,
+intercambios y otras funciones afectadas.
+La validación debe comparar la versión nueva con una línea base y con casos de prueba
+representativos. DAS responde por la validación funcional; ISC, MCO, ODC y las unidades
+especialistas aportan evidencias técnicas u operativas según el impacto.
+El criterio de aprobación debe ser reproducible. Los umbrales deben derivarse de la línea base de
+ANDE y no copiarse automáticamente de ERCOT, PJM u otro operador. El resultado es un informe
+con pruebas ejecutadas, desviaciones y decisión sobre la aptitud funcional.
+7.11. Verificar mímicos y modelo con la instalación
+Origen comprueba que la representación del sistema coincide con la instalación física o con el
+documento oficial de alteración. La revisión puede incluir equipos, conectividad, nombres, posiciones,
+estados, símbolos, límites, alarmas y correspondencia con planos.
+DAS participa como responsable de la representación funcional y puede corregir el modelo según las
+observaciones certificadas. Si Transmisión edita directamente mímicos, el procedimiento debe
+separar la edición, la revisión independiente y la aceptación para evitar que una misma persona valide
+su propio trabajo.
+El resultado es una conformidad de correspondencia, con observaciones cerradas o escaladas. Esta
+conformidad no equivale a la autorización de la carga productiva.
+7.12. Aceptar mímicos, alarmas y uso operativo
+ODC evalúa si los mímicos, alarmas, estados, controles y respuestas del sistema son utilizables para
+la operación en tiempo real. La revisión se refiere al uso operativo, no solo a que el objeto exista o
+que una señal comunique.
+La aceptación debe considerar claridad de la representación, coherencia de estados, prioridad de
+alarmas, disponibilidad de comandos, límites operativos y comportamiento ante pérdida o
+degradación de datos. DOS y otras unidades aportan criterios cuando el cambio afecta su ámbito.
+La conformidad de ODC es una aceptación operativa. No reemplaza la aprobación técnica de ISC2, la
+aceptación funcional de DAS ni la decisión de AC sobre la liberación.
+7.13. Autorizar la liberación de versión
+AC revisa el expediente completo y decide si la versión cumple las condiciones para ser liberada. La
+revisión debe incluir alcance, datos certificados, pruebas, conformidades, respaldos, plan de carga,
+plan de reversión, responsables y ventana prevista.
+AC no vuelve a ejecutar todas las pruebas ni sustituye a las unidades que emitieron las
+conformidades. Su función es verificar que las decisiones parciales sean suficientes, compatibles y
+formalmente válidas para liberar el conjunto.
+La decisión debe registrar versión, fecha, alcance, condiciones, riesgos aceptados, restricciones y
+autoridad que la emitió. Una versión liberada puede quedar pendiente de una ventana operativa
+aprobada por ODC.
+7.14. Habilitar o suspender la ventana en tiempo real
+ODC determina si la intervención puede realizarse en el momento previsto, considerando el estado
+del SIN, restricciones operativas, trabajos simultáneos, contingencias, disponibilidad de personal y
+condiciones de seguridad.
+La habilitación es una decisión temporal y operativa. No convierte a ODC en propietario de la versión
+ni le permite modificar el modelo sin el procedimiento correspondiente. Del mismo modo, AC no
+puede obligar a ODC a intervenir si las condiciones del sistema no son aceptables.
+El resultado debe indicar ventana autorizada, condiciones de inicio, restricciones, responsable de
+coordinación y criterios para suspender. Una ventana suspendida debe generar comunicación y,
+cuando corresponda, reprogramación.
+7.15. Ejecutar respaldo y carga autorizada
+MCO realiza o coordina el respaldo y la carga técnica dentro de la ventana habilitada. Antes de
+cargar, debe comprobar versión, integridad del paquete, disponibilidad de recuperación, permisos,
+secuencia y punto de retorno.
+El registro de ejecución debe incluir operador, fecha, hora de inicio y fin, versión, ambiente, resultado,
+mensajes de error y verificaciones posteriores. DAS, ISC y ODC deben recibir la información
+necesaria para observar el comportamiento.
+La carga no debe convertirse en una nueva etapa de diseño. Si se necesita modificar el paquete
+durante la ejecución, se detiene o se aplica el flujo de emergencia definido, dejando evidencia de la
+decisión.
+7.16. Mantener registro técnico de configuración
+ISC3 conserva la documentación de planos, archivos de configuración, arquitectura, versiones y
+relaciones técnicas de los equipos y sistemas de tecnología de operación. MCO aporta registros de
+plataforma, respaldo y despliegue.
+El registro técnico debe relacionarse con la versión funcional de DAS mediante un identificador
+común. Debe ser posible reconstruir qué configuración estaba activa, quién la cambió, qué respaldo
+existe y qué componentes dependen de ella.
+El registro no es un archivo pasivo. Debe actualizarse después de una carga, reversión, cambio de
+emergencia o modificación de infraestructura, y debe conservar las versiones anteriores según la
+política institucional.
+7.17. Cerrar cambio y versión funcional
+DAS cierra el cambio cuando confirma que la versión funcional, las evidencias técnicas, las
+aceptaciones y el resultado de la carga están vinculados. El cierre no consiste solo en marcar una
+solicitud como terminada.
+El expediente debe indicar resultado, desviaciones, incidencias, observaciones pendientes, versión
+instalada, fecha de entrada en vigor y enlaces a los registros de ISC3 y MCO. Si hubo diferencias
+entre lo aprobado y lo desplegado, deben resolverse o aceptarse formalmente.
+El cierre establece la nueva línea base y permite iniciar cambios posteriores sobre un estado
+conocido. Sin cierre, la organización pierde claridad sobre cuál es la versión oficial.
+7.18. Aprobar criterios y delegación de reversión
+Antes del despliegue se definen los eventos que obligan a suspender, revertir o escalar. Pueden
+incluir pérdida de visibilidad, errores críticos, comportamiento incorrecto de controles, degradación del
+estimador, incompatibilidad de aplicaciones o imposibilidad de recuperar el servicio.
+AC aprueba la delegación y los criterios de reversión; DAS, ISC, MCO y ODC aportan condiciones
+técnicas y operativas. Debe distinguirse entre una reversión preautorizada, que MCO puede ejecutar
+al cumplirse una condición objetiva, y una reversión que requiere decisión de la autoridad de guardia.
+El resultado es un plan con disparadores, decisor, ejecutor, versión de retorno, tiempo objetivo,
+comunicaciones y revisión posterior. La existencia del plan reduce la improvisación, pero no elimina la
+obligación de registrar lo ocurrido.
+7.19. Ejecutar reversión autorizada o preautorizada
+MCO ejecuta la recuperación técnica de la versión anterior o del estado definido en el plan. La acción
+debe preservar la seguridad, la disponibilidad y la trazabilidad, y debe coordinarse con ODC cuando
+afecte la operación en tiempo real.
+La reversión puede ser ordenada por AC o por la autoridad de guardia, o ejecutarse automáticamente
+dentro de los límites preautorizados. MCO no debe decidir por sí solo fuera de esos límites, salvo que
+exista una regla de emergencia explícita.
+Después de recuperar, se verifica el servicio, la visibilidad, las alarmas, los aplicativos y la coherencia
+entre la versión funcional y la configuración activa. El expediente debe documentar disparador,
+decisión, versión recuperada, hora, resultado, comunicaciones y análisis posterior.
+8. Cómo leer cuatro filas importantes
+8.1. Construir o actualizar el modelo eléctrico
+GT/DAS1 aparece como  A/R  porque el modelo funcional requiere criterios, calidad y mantenimiento
+coherentes. DTE puede aportar integración, datos técnicos y puesta en servicio. Esa participación no
+convierte a DTE en propietario exclusivo del modelo, del mismo modo que la responsabilidad
+funcional de DAS no autoriza cambios unilaterales en las comunicaciones o en la plataforma.
+8.2. Autorizar la liberación de una versión
+La  A  corresponde a  AC , porque la liberación es una decisión de gobierno del cambio. DAS aporta la
+conformidad funcional, ISC aporta la conformidad técnica y MCO puede aportar la evidencia de
+despliegue o recuperación. La autoridad de cambio debe estar delegada, tener un decisor
+identificable y contar con suplencias. La columna  Regla  vincula esta fila con R7, que exige un decisor
+sobre las ramas involucradas.
+La liberación no equivale a la habilitación de una intervención en tiempo real. Aunque una versión
+esté aprobada, GT/ODC puede suspender la ventana si las condiciones operativas del sistema no
+permiten ejecutar el trabajo.
+8.3. Habilitar la ventana en tiempo real
+En esta fila  ODC  es  A , porque la decisión se relaciona con las condiciones operativas del sistema.
+MCO aparece como  R  cuando prepara la intervención técnica.  AC  figura como  I : debe conocer la
+condición, pero su liberación previa no reemplaza la decisión de Despacho sobre la ventana concreta.
+8.4. Ejecutar una reversión
+MCO aparece como  A/R  en la ejecución técnica de la reversión. La matriz no significa que MCO
+pueda decidir por sí solo que una reversión es necesaria. La decisión debe provenir de la autoridad
+definida en el procedimiento o de una condición de emergencia previamente autorizada.
+9. Diferencias que no deben confundirse
+Responsabilidad funcional y custodia técnica
+La responsabilidad funcional se refiere a requisitos, semántica, calidad y aceptación del resultado. La
+custodia técnica comprende configuración, respaldo, recuperación, registros y operación de la
+plataforma. Ambas pueden recaer en unidades diferentes y deben quedar vinculadas por
+identificadores de versión.
+Aprobación técnica y aceptación operativa
+La aprobación de una prueba FAT/SAT demuestra que se evaluó la implementación técnica. La
+aceptación operativa confirma que el resultado es utilizable en las condiciones del despacho. Una
+aprobación no reemplaza a la otra.
+Liberación y carga en producción
+La autoridad de cambio puede liberar una versión. La unidad técnica puede ejecutar la carga.
+Despacho puede habilitar o suspender la ventana según el estado del sistema. Son decisiones
+distintas, aunque pertenezcan al mismo cambio.
+Consulta e información
+Una unidad  C  debe ser escuchada antes del cierre de la actividad. Una unidad  I  solo necesita
+recibir información. Marcar a todos como  C  hace que la matriz sea impracticable y oculta quién debe
+aportar una decisión.
+10. Errores frecuentes
+1. Marcar varias  A  en una fila sin explicar cómo se resuelven los desacuerdos.
+2. Usar  A  como sinónimo de editor, propietario patrimonial o autorizador de producción.
+3. Asignar  R  a una unidad sin confirmar que dispone de acceso, competencia y recursos.
+4. Convertir una unidad consultada en una autoridad que el documento institucional no le reconoce.
+5. Usar una matriz departamental para afirmar segregación de funciones. La segregación exige
+revisar personas, permisos, suplencias y evidencias.
+6. Asignar  A/R  a la misma persona que revisa y aprueba su propio trabajo.
+7. Dejar fuera el origen de los datos, aunque la calidad del modelo dependa de esa certificación.
+8. Confundir el modelo eléctrico, la telemetría, las comunicaciones, la plataforma y los aplicativos
+bajo la expresión genérica «base SCADA».
+9. Tratar una propuesta RACI como si fuera una atribución literal de una resolución.
+10. No definir el tratamiento de emergencias, cambios estándar y reversión.
+11. Evidencias que debe producir cada actividad
+Una RACI es útil cuando se relaciona con registros verificables. Según la actividad, pueden
+conservarse los siguientes elementos:
+Actividad Evidencia mínima sugerida
+Requisito Solicitud, alcance, impacto y origen
+Datos de instalación Certificación, planos, parámetros y fecha de vigencia
+Configuración Archivo o registro de cambios, versión y autor
+Pruebas Plan, resultados, incidencias y conformidades
+Aceptación funcional Lista de criterios y aprobación identificada
+Liberación Decisión de AC, versión, alcance y condiciones
+Carga Registro de ejecución, operador, fecha y ventana
+Reversión Disparador, autorización, versión restaurada y resultado
+Cierre Informe, desviaciones aceptadas y enlace con la línea base
+La matriz indica quién debe participar. El registro demuestra que la participación ocurrió.
+12. Procedimiento recomendado para construir una
+RACI
+1. Enumerar los objetos del cambio: modelo eléctrico, señales, comunicaciones, aplicativos,
+plataforma y documentación.
+2. Separar las fases: requisito, diseño, construcción, integración, prueba, aceptación, liberación,
+despliegue, operación y cierre.
+3. Formular actividades con verbos concretos, como «certificar», «configurar», «validar» o
+«ejecutar».
+4. Asignar primero la  R , según la competencia y el acceso real.
+5. Asignar una sola  A  por actividad y comprobar su autoridad formal.
+6. Añadir  C  solo a las unidades cuya información pueda modificar la decisión.
+7. Añadir  I  a quienes necesitan conocer el resultado para cumplir sus funciones.
+8. Revisar conflictos de interés, autorrevisión, suplencias y emergencias.
+9. Vincular cada fila con un entregable, un permiso y una evidencia.
+10. Aprobar la matriz dentro del procedimiento correspondiente y revisarla cuando cambien la
+organización, la arquitectura o la herramienta.
+13. Conclusión
+La RACI no decide por sí sola si una atribución pertenece a GT/DAS, DTE, Despacho u otra unidad.
+Su valor consiste en hacer visible qué resultado se espera, quién lo ejecuta, quién responde y qué
+consultas son necesarias.
+Para el SCADA/EMS, la matriz debe conservar cuatro separaciones: modelo funcional, integración
+técnica, operación en tiempo real y autoridad de cambio. El reparto propuesto articula competencias
+concurrentes, pero requiere validación institucional, delegación formal, permisos adecuados y
+trazabilidad de cada versión.

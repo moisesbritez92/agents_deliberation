@@ -1,0 +1,296 @@
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+1
+1
+
+2
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+3
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+4
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+5
+5
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+6
+6
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+7
+7
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+8
+8
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+9
+9
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+10
+10
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+11
+11
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+12
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+13
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+14
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+15
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+16
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+17
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+18
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+19
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+20
+20
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+21
+21
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+22
+22
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+23
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+24
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+25
+25
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+26
+26
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+27
+27
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+28
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+29
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+30
+30
+A pictorial view of the solution architecture is above. While limited in scope, the 
+diagram shows that users and EMS machines are defined in Active Directory, 
+and these users and machines authenticate to AD within the domain context. A 
+user named Ray Santini logs in to WebFG Client and authenticates to AD and 
+the WebFG Server. WebFG server passes the authenticated identity to PERMIT 
+and PERMIT subsequently looks up access permissions for Ray. Ray may have 
+a slightly different name in PERMIT. e.g. Ray’s middle name is added in the 
+PERMIT database. PERMIT does the name mapping to find the correct name, 
+account, and permissions. 
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+31
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+32
+32
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+33
+03 
+-
+e
+-
+terra
+habitat
+Software Overview
+03 
+-
+e
+-
+terrahabitat Software Overview
+34

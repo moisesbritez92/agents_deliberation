@@ -1,0 +1,137 @@
+# Revisión de evidencia de gobierno y responsabilidades
+
+Fecha: 22 de septiembre de 2026.
+
+## Alcance y procedencia
+
+Cuaderno revisado: [Architecture of Accountability](https://notebook.google.com/notebook/e35b28c7-69f4-4aa0-b6d8-e6f6d9bda0b0), 38 fuentes en el inventario recuperado.
+
+Se revisó el inventario completo y se seleccionaron fuentes pertinentes. Se recuperaron textos indexados de NIST, ENISA, IEC, ISA, ISACA y una síntesis de gobierno. Se realizó además una consulta asistida restringida a NIST, ENISA e ISACA. No se leyó exhaustivamente cada una de las 38 fuentes ni todo el contenido de los documentos extensos.
+
+Una consulta síncrona agotó el tiempo de espera. La consulta asíncrona `67eb50d9a0b5` finalizó correctamente, conversación `af98f795-629d-465a-87e2-9f1bda347c96`. Sus respuestas se trataron como orientación y se contrastaron con el texto indexado, no como evidencia independiente.
+
+Del cuaderno `atribuciones_grande` se recuperó el inventario de 73 fuentes. La ampliación de casos internacionales con sus documentos permanece pendiente.
+
+## Evidencia incorporada al artículo
+
+| Fuente y localizador verificado | Contenido comprobado | Consecuencia para la propuesta |
+|---|---|---|
+| NIST SP 800-82 Rev. 3, §3.3.2 | Recomienda equipo multidisciplinario y coordinación de seguridad OT, TI y gestión de riesgos. | Participación interáreas, sin convertir ese equipo automáticamente en un comité de liberación de versiones. |
+| NIST, §6.2.1.1 | Acceso basado en roles, mínimo privilegio y niveles para consultar, utilizar y alterar datos o funciones. | Complementar RACI con personas y permisos efectivos. |
+| NIST, §6.2.4.2 | Línea base aprobada; documentación, pruebas y aprobación antes de desplegar; seguimiento centralizado. | Registro integrado y verificable, sin deducir monopolio departamental de edición. |
+| NIST, §6.2.4.3 | Verificación de respaldos, pruebas de restauración e integración con gestión de cambios. | Recuperación comprobable dentro del expediente del cambio. |
+| NIST, apéndice F, F.7.1, AC-5 | Examinar la acumulación de roles críticos en una persona; contempla controles compensatorios de personal y auditoría. | No confundir segregación con separación automática de departamentos. |
+| IEC 62443-2-1:2024, alcance público, ed. 2.0, 07/08/2024 | Programa de seguridad del propietario del activo; este rol incluye al operador. Limitaciones de sistemas heredados y medidas compensatorias. | No equiparar automáticamente el rol IEC con DAS como responsable funcional del modelo. |
+| Peter C. Tessin, «RA(CI) Light», ISACA, 21/05/2020 | Matrices COBIT como vista inicial y orientación flexible adaptable a la organización. | Una A por entregable es convención explícita de esta propuesta; no demuestra por sí misma autoridad de producción. |
+| ENISA, junio de 2025, v1.0, §§1.2.4–1.2.5 | Roles según recursos, funciones incompatibles e independencia del auditor. | Distinguir revisión técnica entre pares y auditoría del control. |
+| ENISA, §§6.4.1–6.4.3 | Flujos por riesgo y urgencia, aprobación, reversión y evidencia de cambios excepcionales. El comité se propone «Where appropriate». | Autoridad delegada, cambios estándar preautorizados y decisor de guardia; no exigir reunión colegiada para toda emergencia. |
+
+NIST y ENISA se consultaron mediante sus textos indexados recuperados del cuaderno. Se verificaron título, fecha y alcance en las páginas editoriales originales. ISACA se leyó también íntegramente en su web original. La fuente IEC 62443-2-1 es una ficha de catálogo, no el texto completo de 189 páginas.
+
+### URLs primarias
+
+- NIST: https://csrc.nist.gov/pubs/sp/800/82/r3/final
+- Texto NIST identificado: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-82r3.pdf
+- IEC: https://webstore.iec.ch/en/publication/62883
+- ISACA: https://www.isaca.org/resources/news-and-trends/isaca-now-blog/2020/raci-light
+- ENISA: https://www.enisa.europa.eu/publications/nis2-technical-implementation-guidance
+- Texto ENISA identificado: https://www.enisa.europa.eu/sites/default/files/2025-06/ENISA_Technical_implementation_guidance_on_cybersecurity_risk_management_measures_version_1.0.pdf
+
+La ficha de NIST seguía identificando Rev. 3 como publicación final. Su nota del 21/09/2026 enlazaba Rev. 4 como borrador inicial sujeto a comentarios, no como sustitución final.
+
+ENISA ofrece orientación no vinculante para las entidades digitales comprendidas en el Reglamento de Ejecución (UE) 2024/2690. No es una obligación automática de ANDE ni una guía específica de administración de modelos EMS.
+
+### Identificadores de fuentes en NotebookLM
+
+- NIST: `3aa72d09-b495-4e87-bc12-aef019a98f88`.
+- ENISA: `86b687ff-ff62-44a6-9405-1b3ec9c486db`.
+- IEC 62443-2-1: `98a4fb17-665b-4d37-bbac-f440bd4202f2`.
+- ISACA: `336aed24-effd-4bec-9186-9d035716df3f`.
+- Extracto ISA: `215e846e-191b-48be-a361-6767a71e9379`.
+- Síntesis examinada: `876b7bd4-40a9-4df9-b208-810e1a5d6ef9`.
+
+## Correcciones a las síntesis y a la consulta asistida
+
+1. La respuesta asistida ubicó el comité ENISA en «5.1.4 / 6.1.4». El texto recuperado lo sitúa en **6.4.1**. Se utilizó este último localizador.
+2. La consulta estaba restringida a tres fuentes. Su afirmación sobre ausencia de otros documentos IEC/ISA no describe el cuaderno completo: sí se recuperaron la ficha IEC 62443-2-1 y un extracto ISA.
+3. No se usaron las páginas sugeridas por el asistente cuando no pudieron corroborarse. El artículo cita secciones y controles localizados en el texto.
+4. «Architecture of Accountability…» es una síntesis con referencias secundarias. Sus afirmaciones categóricas sobre exclusividad del propietario, regla universal de una A y prohibiciones absolutas de acceso no se trasladaron al manuscrito.
+5. Esa síntesis invoca RFC 2119, pero su referencia final enlaza RFC 6365, sobre internacionalización. No se incorporó esa cadena de referencia defectuosa.
+6. El documento titulado genéricamente «Security for industrial automation and control systems - ISA» es un **extracto** de ANSI/ISA-62443-2-4-2018 / IEC 62443-2-4:2015+AMD1:2017, con introducción, alcance y definiciones. No equivale a IEC 62443-2-1:2024 ni a una revisión de la edición actual de 2-4. No se añadió como requisito vigente.
+
+## Evidencia institucional nueva
+
+Se leyeron los PDF originales de GT/OP, GT/ODC, GT/DOS, GT/DEL, GT/DEN y GT/DDR y se contrastaron sus pasajes con el compilado Markdown. Todos indican Resolución P/N.º 34954, 15/07/2014.
+
+- OP: dependencia de Gerencia Técnica y coordinación operativa, especialmente 2.3.
+- ODC: dependencia de OP; control real 2.1; maniobras 2.5; mantenimiento y restricciones operativas 2.6; solicitud de herramientas a DOS 2.14.
+- DOS: criterios operativos 2.2; soporte tecnológico 2.7; apoyo a turnos 2.10.
+- DEL: estudios y criterios eléctricos 2.1 y 2.5.
+- DEN: estudios energéticos 2.1 y 2.5.
+- DDR: control de datos 2.2 y monitoreo/control regional 2.6.
+
+La habilitación de ventanas SCADA/EMS por ODC es una **propuesta de aplicación** de su papel operativo. No se presenta como atribución literal de aprobar software. La coexistencia con DAS requiere formalizar soporte y decisiones; las fichas no permiten inferir derogaciones sin las resoluciones completas.
+
+## Pendientes conservados
+
+Resoluciones completas y modificaciones; arquitectura y permisos e-terra; objetos de datos; dependencias SUBTOP/RTUTOP, MAS y DBSEQ; ampliación primaria de ERCOT y ENTSO-E; cláusulas IEC completas cuando se invoque un requisito; fecha y vigencia de CIP-010-4. Se retiró de esta última referencia el año 2023 no confirmado.
+
+## Ampliación con DAS1, DAS2 e IEC 61970
+
+Se releyó íntegramente `atribuciones_gt/atribuciones_gt.md` y se cotejaron `GT-DAS1.pdf` y `GT-DAS2.pdf`. Ambas fichas tienen Resolución P/N.º 50060, 06/01/2025, actualización 00, una página.
+
+| Fuente | Evidencia literal | Cambio del análisis |
+|---|---|---|
+| DAS1, 2.1 | Diseñar e implementar bases para almacenar y gestionar datos SCADA. | La intervención de DAS incluye ejecución, no solo administración o validación. |
+| DAS1, 2.2 | Mantener y actualizar bases existentes ante requisitos del sistema. | Incluir participación efectiva en mantenimiento y actualización. |
+| DAS1, 2.3 | Asegurar requisitos de seguridad y mejora continua. | Articular responsabilidad de datos con controles técnicos y revisión. |
+| DAS2, 2.1 | Administrar aplicativos, incluidos previsión, procesamiento de topología, estimador, contingencias y flujo óptimo. | Diferenciar representación de entrada, procesamiento y validación del resultado. |
+| DAS2, 2.2 | Actualizar aplicativos existentes. | Reconocer actualización de aplicaciones, además de las pruebas funcionales. |
+
+La participación ejecutora de DAS1 en bases SCADA es literal. La asignación concreta del modelo eléctrico a DAS1 y de la integración conjunta a ISC2 es propuesta organizativa. No se afirma exclusividad ni derogación automática.
+
+### Repositorio IEC 61970 y pasajes recuperados
+
+ID: `3ab9395d-799d-44dc-bc4c-5cdb89b18e4a`. Título recuperado: «CIM Model Comparison Report: IEC61970CIM18v02 to 18v03». Inventario: 27 fuentes. No se auditó íntegramente todo el repositorio.
+
+- `29f38ab2-a2dd-434c-9207-f11bd55cf965`: IEC 61970-301:2020, edición 7.0, junio. La vista previa contiene portada e índice, hasta la página numerada 13. El alcance figura en el índice como p. 39, pero no se recuperó su texto. Solo se empleó para identificar la parte y edición; no se citaron cláusulas ausentes.
+- `59ca357a-e0cf-4b71-ab26-3768051afb19`: IEC 61970-456:2018, edición 2.0, marzo. Texto recuperado de introducción p. 6, alcance p. 7, información de perfiles p. 8 y sección 5 pp. 8–13. Se verificaron EQ, SSH, TP y SV, conectividad y nodos calculados, Model Authority/Model Authority Sets y particularidades de identidad de TopologicalNode. El documento completo no se revisó.
+- `3bed09c9-8a8e-4228-a4dc-9971b4dcf829`: EPRI, *Network Model Manager Technical Market Requirements: The Transmission Perspective*, informe 3002003053, agosto de 2014. Metadatos en portada y cita institucional; casos A1–A2 pp. 4-5–4-7; registro de objetos R2 pp. 6-21–6-22; espacios de trabajo R3 pp. 6-23. Se consultaron esos pasajes, no cada requisito del informe.
+- `755dfdf1-a861-4bd2-82a0-ccf6fdfc4a62`: presentación de Margaret Goodrich, *CIM XML Incremental Model Files*, 14/11/2006. Se leyó, pero no se añadió a la bibliografía: es material explicativo histórico, insuficiente para demostrar una práctica vigente de ERCOT.
+
+La consulta asíncrona `3053f4efca93` perdió su identificador temporal antes de recuperar el resultado. La respuesta se recuperó mediante el historial de chat, conversación `61ebd409-bbf0-4fc3-bf70-6bf71b78d4b8`. Se utilizó solo como ayuda de localización. Correcciones relevantes:
+
+1. La vista previa de 301 no incluye el cuerpo del prólogo o la introducción aunque estén enumerados en el índice.
+2. «Model Authority» no se interpretó como autoridad legal o administrativa general: la sección 5 de 456 trata responsabilidad sobre los datos de una partición de red.
+3. No se adoptó como hecho general que todo mRID sea necesariamente UUID/GUID ni que equivalga a claves propietarias. EPRI contempla mapeo a estructuras locales y 456 presenta particularidades de nodos procesados.
+4. El tutorial de archivos incrementales no demuestra por sí solo que ERCOT use hoy un flujo concreto.
+5. Los requisitos multiusuario R3 de EPRI no prueban capacidades de la versión e-terra instalada.
+
+Los catálogos web de iTeh y EPRI devolvieron páginas que requieren JavaScript. La evidencia técnica utilizada procede del texto de las publicaciones recuperado; no se afirma una segunda verificación íntegra en esos portales ni vigencia actual de las ediciones.
+
+### Reglas de presentación y contexto
+
+Por indicación del usuario, el cuerpo del artículo describe una revisión bibliográfica para localizar evidencia. NotebookLM aparece solo en una declaración de uso de IA al final. Los identificadores del repositorio se mantienen en este registro de trabajo, fuera del manuscrito.
+
+Se leyeron los dos resúmenes de `resumen_correos` exclusivamente como contexto de posturas. No se incorporaron como fuentes, no se mencionan en el artículo y no se utilizaron para acreditar incidentes, capacidades, acuerdos, prácticas de otras entidades o dependencias técnicas del fabricante.
+
+### Resultado de esta ampliación
+
+Artículo de 10 páginas, 31 referencias citadas y RACI de 18 actividades. La construcción del modelo y la administración de aplicativos se hacen explícitas para DAS1 y DAS2; la unificación técnica por ISC2 no implica autoría exclusiva. La integración puede organizarse por edición coordinada o secuencial supervisada según capacidades comprobadas. El proceso ahora ubica la revisión independiente después de la construcción y antes de las pruebas del paquete integrado.
+
+## Revisión 23/09/2026: respuesta al informe del revisor (Major Revision, 75/100)
+
+### Fuentes primarias verificadas en esta revisión
+
+- Moseley, Mago, Grady y Santoso, «Lessons and Experiences in the Implementation of a Consolidated Transmission Modeling Data System at ERCOT», *IEEE Power and Energy Technology Systems Journal*, vol. 1, 2014, pp. 12–20, DOI 10.1109/JPETS.2014.2363405. PDF en `casos/06963585.pdf` y texto en `casos/Gobierno_y_segregacion_...md` (el nombre del MD no corresponde a su contenido: es el artículo de ERCOT). Pasajes usados: p. 12 problemas 1–8 (el ISO no posee los equipos); p. 14 cambio documental a NOMCR y PTC, quién/qué/cuándo/dónde/por qué; p. 15 cinco niveles de validación, modelo temporal y «Common schema» (mismos departamentos que mantienen la aplicación y sus datos: divergencia y defectos enmascarados por manipulación de datos); p. 18 CAISO 2014 (envío manual a un empleado del ISO) y ENTSO-E CGMES; p. 19 observaciones 1–5, propietarios con acceso a los datos de sus equipos.
+- PJM Manual 3A, revisión 27, vigente desde 04/03/2026, descargado del sitio oficial (`https://www.pjm.com/-/media/DotCom/documents/manuals/m03a.pdf`) y archivado en `casos/pjm_m03a_rev27_2026-03-04.pdf`. Páginas impresas (la numeración del PDF es la impresa + 1): §1.3 p. 11; §3.1 pp. 34–35 (SOS-T responde por el modelo de su sistema; personal de PJM interpreta y codifica; cuatro actualizaciones anuales); §3.2 p. 44 (informes de diferencias preliminares y finales); §4.1 p. 52 (SOS-T valida la representación); §5.4 p. 65 (soak hasta cuatro semanas; criterios de dos días: ≥98 % convergencia, ≤10 no convergentes consecutivas, <20 iteraciones, ≤25 datos erróneos, ≤2 ubicaciones nuevas).
+- NERC CIP-010-4, PDF oficial: tabla de historial de versiones. Versión 4 adoptada por el Board el 05/11/2020; orden FERC de aprobación, Docket RD21-2-000, 18/03/2021. La fecha de vigencia remite al plan de implementación del proyecto 2019-03, no consultado.
+
+### Fuentes mencionadas por el revisor y no incorporadas
+
+- Experiencias de CAISO, NSTAR y AEP/PJM (2024) citadas por el revisor con enlaces de ResearchGate/buscador. No se recuperó su texto completo; no se citan. CAISO aparece solo como dato histórico de 2014 reportado en el artículo de ERCOT.
+- `ercot_model_schedule` (página web de calendario) retirada del manuscrito: sustituida por la fuente primaria revisada por pares.
+
+### Nuevos artefactos
+
+- `suplemento/S1_matriz_extraccion.csv|.md` y `suplemento/generar_matriz.py`: 96 numerales codificados (29 D, 39 I, 28 N; 6 con objeto ambiguo), libro de códigos, 8 cruces C1–C8 enlazados a las reglas R1–R10. Un solo codificador.

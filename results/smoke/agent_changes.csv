@@ -1,0 +1,6 @@
+agent,scenario_id,n_decisions,position_change_rate,declared_MAINTAIN,declared_MODIFY,declared_AMBIGUOUS,declaration_inconsistency_rate
+ALL,S01,20,0.2,13,5,2,0.1
+DAS,S01,5,0.4,2,3,0,0.2
+ISC,S01,5,0.2,4,0,1,0.0
+MCO,S01,5,0.2,3,2,0,0.2
+ODC,S01,5,0.0,4,0,1,0.0

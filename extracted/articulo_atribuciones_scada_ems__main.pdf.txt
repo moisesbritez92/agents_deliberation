@@ -1,0 +1,1626 @@
+Gobierno y segregación de responsabilidades en la
+administración de sistemas SCADA/EMS
+Documento técnico de trabajo
+Propuesta para discusión institucional
+Administración del SCADA/EMS y unidades técnicas de telecomunicaciones
+Resumen—Se presenta un método de descomposición por objeto,
+fase y tipo de autoridad para analizar mandatos organizativos
+concurrentes sobre un sistema SCADA/EMS y derivar de ellos
+una asignación de responsabilidades trazable. El método se
+aplica a una empresa eléctrica verticalmente integrada, la
+Administración Nacional de Electricidad (ANDE), donde dos
+ramas con resoluciones distintas tienen atribuciones sobre la
+misma base. Se codificaron los 135 numerales de veinte fichas
+organizativas: 40 resultaron directamente pertinentes, seis con
+objeto ambiguo, y se identificaron nueve cruces entre unidades.
+El resultado principal es que la concurrencia alcanza la ejecución:
+GT/DAS1 diseña, implementa y actualiza bases, y DTE/ISC2
+las elabora o unifica; ninguna ficha demuestra exclusividad. Los
+departamentos regionales de Transmisión originan los cambios
+físicos que la base representa, aunque sus fichas no mencionan
+el SCADA/EMS. De los cruces y de la práctica documentada de
+ERCOT, PJM y EPRI se derivan diez reglas de diseño que generan
+cada fila de una matriz RACI y descartan cinco alternativas. La
+matriz separa aprobación técnica, aceptación funcional, liberación
+de versión y habilitación en tiempo real. La propuesta es una
+hipótesis de diseño: se especifica un protocolo de validación
+retrospectiva con cambios históricos, todavía no ejecutado, y no
+constituye una auditoría de conformidad normativa.
+Index Terms —SCADA/EMS, gestión del modelo de red, se-
+gregación de funciones, gestión de cambios, análisis documental.
+Abstract
+An object, phase, and authority-type decomposition method
+is presented for analysing concurrent organizational man-
+dates over a SCADA/EMS and deriving a traceable respon-
+sibility assignment from them. The method is applied to a
+vertically integrated utility, the Administración Nacional
+de Electricidad (ANDE), where two branches created by
+different resolutions hold duties over the same database.
+All 135 clauses of twenty organizational records were
+coded: 40 were directly relevant, six had an ambiguous
+object, and nine cross-unit overlaps were identified. The
+main finding is that the overlap extends to execution:
+GT/DAS1 designs, implements, and updates databases, and
+DTE/ISC2 develops or unifies them; no record establishes
+exclusivity. The regional transmission departments originate
+the physical changes the database represents, although their
+records do not mention the SCADA/EMS. Ten design rules
+are derived from the overlaps and from documented practice
+at ERCOT, PJM, and EPRI; they generate each row of
+a RACI matrix and rule out five alternatives. The matrix
+separates technical approval, functional acceptance, version
+release, and real-time clearance. The proposal is a design
+hypothesis: a retrospective validation protocol based on
+historical changes is specified but not yet executed, and
+the work is not a standards compliance audit.
+Keywords: SCADA/EMS, network model management, segre-
+gation of duties, change management, document analysis.
+I. I NTRODUCCIÓN
+La operación del Sistema Interconectado Nacional (SIN)
+requiere que la información de campo, el modelo eléctrico y
+las aplicaciones de análisis representen de forma consistente las
+instalaciones. El sistema de supervisión, control y adquisición
+de datos (SCADA) y el sistema de gestión de energía (EMS)
+vinculan estas funciones. Su disponibilidad técnica y su aptitud
+para apoyar el despacho son resultados diferentes, aunque
+interdependientes.
+En la Administración Nacional de Electricidad (ANDE), el
+Departamento de Administración del SCADA/EMS (GT/DAS)
+depende de la División de Operación (GT/OP). Su manual le
+atribuye administrar datos y aplicativos, proporcionar soporte y
+gestionar nuevos requisitos [1]. GT/OP depende de la Gerencia
+Técnica y coordina la operación eléctrica y energética del
+sistema [2]. La Oficina de Despacho de Carga (GT/ODC)
+también depende de GT/OP y supervisa la operación en tiempo
+real [3]. Por tanto, las fichas sitúan a DAS y ODC bajo una
+misma división, sin subordinación de DAS a Despacho.
+Además, el Departamento de Operación del Sistema
+(GT/DOS) proporciona soporte tecnológico a Despacho y
+apoyo al personal de turno [4, numerales 2.7 y 2.10]. La
+distribución de responsabilidades debe considerar esa interfaz
+interna de Operación, además de su relación con las unidades
+de telecomunicaciones.
+La División de Transmisión (GT/DT), subordinada direc-
+tamente a la Gerencia Técnica, agrega una tercera rama [5].
+Sus departamentos regionales, Metropolitana y Bajo Chaco
+(GT/TMB), Este (GT/TES), Sur (GT/TSU), Centro (GT/TCE)
+y Norte y Alto Chaco (GT/NAC), coordinan con GT/DOS la
+operación de las estaciones y líneas de su ámbito geográfico
+[6]–[10]. Como responsables de las instalaciones físicas, su
+interfaz con el SCADA/EMS se sitúa en el origen de cada
+cambio.
+La Sección Base de Datos del SCADA (GT/DAS1) diseña,
+implementa, mantiene y actualiza bases de datos. La Sección
+Aplicativos del SCADA/EMS (GT/DAS2) administra y ac-
+tualiza aplicaciones, incluido el procesamiento de topología
+de red [11], [12]. Estas atribuciones requieren examinar la
+participación de DAS en la construcción, además de su
+validación funcional.
+En paralelo, los departamentos de Ingeniería de Sistemas
+de Control (DTE/ISC) y Mantenimiento de Sistemas de
+Control (DTE/MCO) dependen de la División de Sistemas
+de Comunicación. Sus atribuciones comprenden ingeniería,
+implementación, integración, mantenimiento y administración
+de equipos y redes SCADA/EMS [13], [14]. La Sección
+Implementación de Sistemas de Control (DTE/ISC2) tiene,
+además, competencia expresa para elaborar o unificar bases de
+datos [15, numeral 2.5]. Reducir estas unidades a la provisión
+de enlaces de telecomunicación omitiría parte de su mandato.
+El problema organizativo consiste en determinar si estas
+competencias recaen sobre el mismo objeto, durante la misma
+fase y con la misma autoridad. Un flujo inicial de actualización
+asignaba a GT/DAS el modelado topológico y a DTE/ISC la
+señalización, las pruebas punto a punto y la carga en producción
+[16]. La propuesta posterior de DTE concentra la ingeniería,
+incluido ese modelado, y el despliegue en DTE, mientras
+reserva a GT/DAS la consolidación y la validación analítica
+[17], [18]. Ese traslado del modelado es el origen del presente
+análisis. Corresponde evaluar si esa distribución articula las
+atribuciones existentes o deja indefinidas decisiones sobre el
+modelo y su uso productivo.
+La gestión del modelo de red del EMS cuenta con experien-
+cias documentadas. ERCOT sustituyó el envío de documentos y
+la transcripción manual por solicitudes de cambio estructuradas,
+un repositorio consolidado basado en CIM y cinco niveles de
+validación [19]. PJM publica un manual de actualización y
+aseguramiento de calidad del modelo EMS con responsabili-
+dades de los propietarios de transmisión y criterios de pase a
+producción [20]. EPRI especifica requisitos para una función
+de gestión de modelos con repositorio maestro y espacios de
+trabajo [21].
+Sin embargo, estas fuentes resuelven principalmente la
+interfaz entre un operador independiente y los propietarios
+de los equipos, que son empresas distintas. ERCOT parte
+precisamente de que el operador no posee los equipos mo-
+delados [19, p. 12]. En una empresa verticalmente integrada
+como ANDE, propietario y operador coinciden, y la frontera se
+traslada al interior de la organización. En las fuentes revisadas
+no se encontró un método para analizar mandatos internos
+concurrentes, asignados por actos organizativos distintos, y
+convertirlos en una asignación de responsabilidades trazable.
+Este trabajo aborda tres preguntas. La primera es qué
+concurrencias existen entre los mandatos formales sobre la base
+SCADA/EMS y sobre qué objetos, fases y tipos de autoridad
+recaen. La segunda es qué reglas de diseño permiten asignar
+cada decisión del ciclo de cambio sin vaciar atribuciones
+vigentes. La tercera es cómo verificar empíricamente si la
+asignación resultante elimina ambigüedades.
+Las contribuciones son las siguientes:
+1) Un método de descomposición por objeto, fase y tipo de
+autoridad, con libro de códigos y matriz de extracción
+publicados como suplemento, aplicable a otras empresas
+con mandatos concurrentes.
+2) Su aplicación a los 135 numerales de veinte fichas de ANDE,
+con clasificación de cada cruce como complementariedad o
+concurrencia.
+3) Diez reglas de diseño que derivan cada fila de una matriz
+RACI a partir de la evidencia, junto con las alternativas
+descartadas.
+4) Un protocolo de validación retrospectiva con cambios
+históricos, especificado antes de su ejecución.
+El organigrama no se deduce de normas técnicas ni se
+atribuye conformidad sin evaluación. La propuesta resultante
+es una hipótesis de diseño sujeta a validación institucional y
+empírica.
+II. M ÉTODO Y CRITERIO DE EVIDENCIA
+Se realizó un análisis documental cualitativo. El corpus
+interno comprende veinte fichas: GT/DAS, DAS1 y DAS2 de
+la Resolución P/N.º 50060; doce unidades GT de la Resolución
+P/N.º 34954, seis de la División de Operación y seis de
+la División de Transmisión; y cinco unidades DTE de la
+Resolución P/N.º 48658. Se examinan también el flujo inicial
+de actualización, el procedimiento propuesto por DTE y su flujo
+[1]–[18], [22]–[26]. Las transcripciones permitieron localizar
+numerales, cotejados con las fichas originales para los pasajes
+utilizados. Las referencias externas aportan contexto y controles
+de tecnología operacional (OT).
+Se considera complementariedad cuando coinciden los
+sistemas pero difieren los objetos o las fases. Se considera
+concurrencia potencial cuando coinciden parcialmente objeto y
+actividad sin delimitar autoridad. Solo se afirmaría contradic-
+ción si dos mandatos exigieran decisiones incompatibles sobre
+el mismo resultado. La ficha GT/DAS de 2025 no se interpreta
+como derogación automática de competencias de GT de 2014
+ni de DTE de 2023. Tampoco la lista organizativa de GT/OP
+de 2014 se toma como organigrama consolidado posterior a la
+creación de DAS.
+La unidad de análisis es el numeral de atribución. Se
+codificaron los 135 numerales de las veinte fichas, pertinentes
+o no, para que el recuento sea reproducible. Cada numeral
+recibe cuatro códigos. El dominio corresponde al objeto
+nombrado, según los seis dominios de la Tabla II, más la
+operación del sistema y sus criterios. La fase se toma del ciclo
+de cambio: planificación, requisito, construcción, integración,
+prueba, aceptación, liberación, despliegue, operación y registro.
+El tipo de autoridad se asigna por el verbo rector: ejecutar,
+supervisar, revisar, aprobar, administrar, autorizar en tiempo
+real, coordinar, apoyar, solicitar o definir criterios. Por último,
+la pertinencia es directa si el numeral actúa sobre la base,
+las aplicaciones o su cambio; indirecta si aporta insumos o
+criterios; y nula en otro caso.
+Dos numerales se comparan solo si comparten al menos un
+dominio y una fase. Cuando el texto no delimita el objeto, el
+código se marca como ambiguo y no se resuelve por inferencia.
+El libro de códigos, la matriz completa y el script que genera
+los recuentos constituyen el suplemento S1. La codificación
+fue realizada por un solo codificador; la segunda codificación
+independiente forma parte del protocolo de validación de la
+Sección XI.
+La Fig. 1 resume la cadena analítica. Cada cruce identificado
+se traduce en una regla de diseño, y cada regla determina una
+Corpus: 20 fichas, 135 numerales; flujo
+inicial, flujo y procedimiento de DTE
+Codificación: dominio, fase, tipo de
+autoridad y pertinencia (suplemento S1)
+Cruces: 9 cruces clasificados como
+complementariedad o concurrencia (Tabla III)
+Reglas de diseño R1–R10, con evi-
+dencia interna y externa (Tabla VII)
+Matriz RACI: 20 activida-
+des, una A por fila (Tabla VIII)
+Validación retrospectiva y panel
+de expertos (protocolo, Sección XI)
+Figura 1. Cadena analítica del método. La etapa discontinua está especificada
+pero no ejecutada.
+o más filas de la matriz RACI. Así, toda asignación puede
+rastrearse hasta los numerales o la evidencia externa que la
+motivan.
+La Tabla I establece el uso admisible de cada fuente.
+Esta clasificación evita convertir una buena práctica en una
+obligación normativa o utilizar una norma técnica para justificar
+un organigrama específico.
+Se realizó una revisión bibliográfica dirigida a localizar
+evidencia sobre representación del modelo eléctrico, control de
+cambios y asignación de responsabilidades. Se priorizaron docu-
+mentos de organismos de normalización, guías institucionales,
+informes técnicos y procedimientos de operadores. Para cada
+afirmación se distinguieron el alcance de la fuente, la edición
+consultada y el pasaje disponible. Las síntesis se utilizaron
+para orientar la búsqueda, no para acreditar requisitos.
+El estudio no incluye las resoluciones completas y sus
+disposiciones modificatorias, contratos del fabricante ni perfiles
+efectivos de acceso. La revisión IEC se apoya en alcances
+y extractos públicos, sin verificación exhaustiva. De IEC
+61970-301:2020 se comprobó la identificación bibliográfica;
+el desarrollo técnico se sustenta en los pasajes disponibles de
+IEC 61970-456:2018 y en el informe de EPRI sobre gestión
+de modelos. Las ediciones se identifican como consultadas, sin
+presumir su aplicabilidad contractual ni su condición de última
+versión.
+III. O BJETOS QUE DEBEN GOBERNARSE
+La delimitación organizativa debe comenzar por los objetos
+administrados. La Tabla II separa seis dominios que suelen
+quedar confundidos bajo la denominación general de base
+SCADA/EMS.
+La coexistencia de estos dominios exige identificar funciones
+incompatibles y revisiones independientes. Una misma unidad
+puede alojar varios roles si su asignación a personas, permisos
+y controles conserva la independencia requerida. Asimismo,
+separar completamente el modelo topológico de la integración
+de señales puede introducir errores de correspondencia. Se pro-
+pone un paquete único y trazable, con decisiones diferenciadas.
+Conviene distinguir cuatro conceptos. La responsabilidad
+funcional comprende requisitos, calidad y aceptación del
+resultado. La custodia técnica comprende conservación, con-
+figuración y recuperación de la plataforma. La autoridad de
+cambio habilita decisiones expresamente delegadas. Por último,
+el rol de propietario del activo en IEC 62443 no equivale
+automáticamente a la propiedad funcional aquí propuesta
+para DAS. El alcance público de la Parte 2-1 incluye al
+operador del sistema dentro de ese rol [27]. La asignación
+de responsabilidades internas corresponde a ANDE y debe
+documentarse.
+IV. A NÁLISIS DE LAS ATRIBUCIONES VIGENTES
+De los 135 numerales codificados, 40 tienen pertinencia
+directa para el cambio de la base SCADA/EMS, 56 indirecta
+y 39 ninguna. Los directos se concentran en la División
+de Transmisión y sus departamentos regionales (11), DAS
+y sus secciones (9), DTE/MCO (7), DTE/ISC2 (5), GT/ODC
+(3), GT/DOS (2) y un numeral en cada una de DTE/ISC,
+DTE/ISC3 y GT/DEL. Las unidades de estudios y de despacho
+regional aportan sobre todo pertinencia indirecta, como fuente
+de criterios y datos.
+Los once numerales directos de Transmisión tienen un
+contenido distinto de los de DAS y DTE: no construyen ni
+integran la base, sino que originan el cambio físico que la
+base debe representar. Cada departamento regional coordina y
+controla los proyectos de alteraciones provisorias o permanentes
+de las instalaciones en servicio de su ámbito, y acompaña la
+construcción y las pruebas de las instalaciones nuevas; los
+numerales 2.4 y 2.6 son idénticos en las cinco fichas [6]–[10].
+La División participa en las pruebas de recepción y energización
+[5, numeral 2.4]. Ninguna de estas fichas menciona mímicos,
+el SCADA ni el EMS. En la práctica descrita para este trabajo,
+estos departamentos no editan el SCADA: publican el diagrama
+unifilar oficial de cada instalación como archivo PDF en la
+red corporativa de tecnologías de la información (TI), y los
+mímicos y el modelo se construyen a partir de ese documento.
+Esta práctica tampoco figura en las fichas, por lo que debe
+formalizarse en un procedimiento o instrucción.
+Seis numerales directos tienen un objeto que el texto no
+delimita. GT/DAS 2.1 se refiere a datos del SIN «obtenidos
+mediante el Sistema SCADA», y DAS1 2.1–2.2 a bases «del
+SCADA». DTE/ISC2 2.5 alude a bases de «equipos y sistemas
+de tecnologías de operación», y MCO 2.6 y 2.9 a integraciones
+y software cuyo alcance depende del producto. Ninguna de
+estas fichas nombra expresamente el modelo eléctrico del EMS.
+Por tanto, la asignación del modelo no puede resolverse por
+lectura literal a favor de ninguna rama; requiere una regla de
+diseño explícita.
+Los numerales 2.1–2.4 de GT/DAS establecen administración
+de datos, aplicativos, soporte y gestión de cambios [1]. Su
+alcance debe interpretarse junto con las funciones de sus
+secciones. DAS1 tiene atribuciones expresas de diseñar e
+implementar bases (2.1), mantenerlas y actualizarlas (2.2),
+Cuadro I
+JERARQUÍA DE EVIDENCIA EMPLEADA EN EL ANÁLISIS
+Tipo de fuente Uso válido Límite interpretativo
+Acto organizativo in-
+terno
+Determinar atribuciones vigentes, subordinación y autoridad
+formal.
+Un procedimiento de menor jerarquía no debería vaciar una
+atribución aprobada sin modificar el acto organizativo.
+Norma internacional Establecer requisitos de seguridad, interoperabilidad, ciclo de
+vida y control de configuración.
+No permite asignar una tarea a GT/DAS o DTE si la norma no
+identifica esa estructura.
+Guía o estándar secto-
+rial
+Definir controles y resultados esperados para sistemas OT y
+centros de control.
+Requiere adaptación al contexto técnico, regulatorio y
+contractual de ANDE.
+Práctica de otro opera-
+dor
+Comparar flujos, controles, pruebas y responsabilidades
+funcionales.
+No demuestra que el mismo organigrama sea obligatorio o
+conveniente para ANDE.
+Cuadro II
+DOMINIOS DE ADMINISTRACIÓN DEL SCADA/EMS
+Dominio Contenido Competencia principal requerida
+Modelo eléctrico Topología, conectividad, parámetros de líneas y transformadores,
+equivalentes y estados operativos.
+Operación de sistemas eléctricos, estudios de red y modelado
+EMS.
+Telemetría y telecontrol Puntos analógicos y digitales, calidad, escalas, comandos,
+alarmas, tiempos y correspondencia con equipos.
+Automatización, protección, instrumentación y operación.
+Comunicaciones RTU, IED, gateways, canales, direccionamiento, protocolos,
+ICCP/TASE.2 y sincronización.
+Telecomunicaciones y OT.
+Aplicaciones EMS Estimador de estado, flujo de potencia, contingencias, control
+automático de generación y demás módulos.
+Análisis eléctrico, operación y soporte de aplicaciones EMS.
+Plataforma técnica Servidores, almacenamiento, sistemas operativos, respaldo,
+virtualización, ambientes y herramientas del fabricante.
+Infraestructura OT, sistemas y continuidad tecnológica.
+Gobierno y seguridad Autoridad de cambio, acceso, trazabilidad, configuración base,
+evidencias, aceptación, reversión y auditoría.
+Responsabilidad conjunta del propietario del activo, operación,
+OT y ciberseguridad.
+y asegurar requisitos de seguridad y mejora continua (2.3)
+[11]. Por tanto, describir a DAS únicamente como solicitante
+o validador omitiría funciones documentadas de ejecución.
+DAS2 administra aplicativos de previsión de carga, procesa-
+miento de topología, estimación de estado, contingencias y flujo
+de potencia óptimo (2.1), y los actualiza ante nuevos requisitos
+(2.2) [12]. Administrar el procesador de topología no equivale,
+por sí solo, a una atribución exclusiva sobre toda la conectividad
+de entrada. Sin embargo, combinado con el mandato de DAS1,
+respalda una participación técnica sustantiva de DAS en el
+modelo y las aplicaciones. Las fichas no asignan herramientas
+propietarias, claves internas ni secuencias de despliegue.
+La Tabla III contrasta los mandatos de ambas ramas.
+DTE/ISC1 desarrolla estudios, proyectos, revisión de terceros y
+contratos (2.1–2.5); esas funciones complementan los requisitos
+funcionales de GT/DAS [25]. DTE/ISC2 elabora o unifica bases
+y aprueba pruebas FAT/SAT, es decir, aceptación de fábrica y
+de sitio [15, numerales 2.3–2.6]. DTE/ISC3 mantiene registros
+de planos, configuración y arquitectura; su objeto documental
+no debe confundirse automáticamente con las mediciones y el
+modelo eléctrico [26, numeral 2.5].
+DTE/MCO administra y mantiene equipos y redes (2.8),
+supervisa y recepciona integraciones SCADA/EMS/DMS (2.6)
+y administra actualizaciones de software de monitoreo (2.9)
+[14]. Estos numerales respaldan intervención técnica sustantiva,
+aunque no atribuyen expresamente propiedad exclusiva del
+modelo eléctrico. A su vez, la participación de DTE en una
+base no anula la administración funcional de GT/DAS.
+Dentro de GT, ODC solicita a DOS el desarrollo de
+herramientas mediante la Sección Procesamiento de Datos
+de Operación [3, numeral 2.14]. Esta previsión y el soporte de
+DOS requieren una delimitación conjunta con DAS. Se propone
+diferenciar incidencias del SCADA/EMS, asistencia al proceso
+operativo y desarrollo de herramientas complementarias. Esa
+diferenciación debe formalizarse mediante un catálogo común
+de servicios, responsables y escalamiento.
+Por su parte, Estudios Eléctricos (GT/DEL) elabora estudios
+y define criterios operativos; DOS también define criterios en
+su área de responsabilidad [22, numeral 2.5] [4, numeral 2.2].
+Estudios Energéticos (GT/DEN) aporta estudios de operación
+energética, y Despacho Regional (GT/DDR) controla datos y
+coordina el monitoreo en su ámbito [23, numerales 2.1 y 2.5]
+[24, numerales 2.2 y 2.6]. Se propone su participación según
+el objeto afectado. Administrar parámetros en DAS no implica
+sustituir a quienes definen o certifican el criterio eléctrico,
+energético u operativo.
+En cambio, la propuesta de procedimiento reserva a GT/DAS
+la consolidación documental y la validación analítica. DTE/ISC
+y DTE/MCO ejecutarían el modelado topológico, el pareamien-
+to, la configuración ICCP, las pruebas, el ensamblaje MAS,
+el control de calidad, la carga DBSEQ y la reversión [17]. El
+flujo resumido mantiene esa distribución y ubica el despliegue
+productivo bajo DTE/MCO [18].
+El flujo inicial distribuía las mismas actividades de otro
+modo [16]. Las unidades proveedoras de información (Mante-
+nimiento, Supervisión de Generación y Transmisión, Proyectos,
+Transmisión y Generación) remiten insumos topológicos y
+parámetros eléctricos. GT/OP recibe los mímicos y parámetros
+Cuadro III
+CONCURRENCIA Y COMPLEMENTARIEDAD : TRAZABILIDAD A NUMERALES INSTITUCIONALES
+Cruce de mandatos Hallazgo documental Delimitación propuesta, no mandato literal
+C1 GT/DAS1 2.1–2.2 e
+ISC2 2.5
+Diseño, implementación y actualización frente a
+elaboración/unificación de bases. Concurrencia
+también en ejecución; objeto ambiguo en ambas
+fichas.
+DAS1 construye y mantiene objetos del modelo
+eléctrico; ISC2 integra adquisición y base conjunta.
+Delimitar objetos, permisos y entregables.
+C2 GT/DAS 2.1 y ISC3
+2.5
+ISC3 explicita planos, archivos de configuración y
+arquitectura. No prueba exclusividad sobre la base
+maestra EMS.
+Mantener registros de configuración técnica en ISC3
+y versión funcional en DAS, vinculados por un
+identificador común.
+C3 GT/DAS2 2.1–2.2 y
+MCO 2.8
+Aplicativos, incluido procesamiento de topología,
+frente a equipos y redes. Predomina
+complementariedad.
+DAS2 administra y actualiza funciones EMS; MCO
+mantiene infraestructura. Delimitar componentes
+compartidos.
+C4 GT/DAS2 2.2 y
+MCO 2.9
+Actualización de aplicativos frente a software de
+consultas, reportes y monitoreo. Concurrencia
+potencial según producto.
+Inventariar aplicaciones y componentes; distinguir
+análisis eléctrico y monitoreo técnico.
+C5 GT/DAS 2.4, ISC
+2.1/2.5, ISC2 2.3/2.6
+y MCO 2.4–2.7
+Requisitos, ingeniería, implementación, pruebas,
+integración y recepción aparecen en una misma
+cadena de cambio.
+Separar gestión funcional, aceptación técnica y
+autorización operativa.
+C6 GT/DAS 2.3 y MCO
+2.3
+Soporte a usuarios y atención/derivación de reclamos
+técnicos.
+Ticket único con diagnóstico conjunto y escalamiento
+por objeto afectado.
+C7 GT/DAS 2.3 y DOS
+2.7/2.10; ODC 2.14
+DOS presta soporte tecnológico a Despacho; ODC le
+solicita herramientas a través de Procesamiento de
+Datos.
+DAS atiende funciones SCADA/EMS; DOS conserva
+apoyo operativo. Definir interfaces y catálogo de
+soporte sin presumir derogación.
+C8 GT/ODC 2.5–2.6 y
+gestión de cambios
+ODC autoriza maniobras y habilita o suspende
+mantenimiento según restricciones operativas.
+Separar liberación de versión y habilitación en tiempo
+real. Formalizar esta última para intervenciones
+SCADA/EMS.
+C9 GT/DT 2.4; TMB,
+TES, TSU, TCE y
+NAC 2.4 y 2.6;
+DAS1 2.1–2.2; ISC2
+2.5
+Transmisión controla las alteraciones de instalaciones
+en servicio y acompaña pruebas de las nuevas; DAS1
+e ISC2 construyen la base. Complementariedad. Las
+fichas no mencionan mímicos.
+El departamento regional certifica la configuración
+física y verifica la correspondencia de mímicos y
+modelo con la instalación. Formalizar el unifilar
+oficial en PDF y su control de revisiones de cambio.
+aprobados, y GT/DAS realiza el modelado topológico. Luego
+DTE/ISC incorpora la señalización, ejecuta las pruebas punto a
+punto y genera y carga el archivo DBSEQ. Por último, GT/DAS
+verifica el resultado y cierra el proceso. El flujo inicial fija
+además criterios de rechazo del proyecto a cargo de DTE/ISC,
+pero deja sin asignar la revisión de calidad del modelo y la
+aprobación de cambios. La Tabla IV compara ambos flujos
+con la propuesta.
+La propuesta coincide con el flujo inicial en el núcleo: DAS
+modela, ISC señaliza y prueba, y DAS verifica y cierra. Esa
+coincidencia no procede de adoptar el flujo inicial, sino de las
+reglas R2 y R4, apoyadas en DAS1 2.1–2.2 e ISC2 2.3 y 2.5.
+Del flujo de DTE se conservan la reversión, la participación
+de ODC en la observación posterior y la validación conjunta,
+ausentes en el inicial. La propuesta añade, respecto de ambos,
+un titular de la aprobación y la verificación de correspondencia
+por el origen. La unidad de DTE que ejecuta la carga, ISC en
+el flujo inicial o MCO en el de DTE, es una asignación interna
+de esa rama; la propuesta sigue a MCO por su numeral 2.8,
+sin efecto sobre las demás filas.
+La Tabla V resume los puntos que requieren precisión. El
+borrador sí reconoce el visto bueno funcional de GT/DAS,
+por lo que no existe una ausencia total de autoridad. Falta
+determinar el alcance vinculante de ese visto bueno, quién
+mantiene la versión funcional y quién decide la liberación y
+la reversión.
+No se demuestra una contradicción insalvable entre los
+manuales. Se identifica concurrencia tanto en administración
+como en implementación y actualización. Un procedimiento
+puede articular la construcción de DAS1, la gestión de
+aplicativos de DAS2 y la integración de DTE mediante objetos
+y entregables definidos. Una exclusión general de DAS1 de
+toda implementación o mantenimiento no quedaría justificada
+solo por asignar integración a ISC2. A la vez, el mandato de
+DAS1 no elimina la elaboración y unificación de bases de
+ISC2. La delimitación y cualquier modificación de atribuciones
+requieren decisión institucional expresa.
+V. A LCANCE REAL DE LAS NORMAS CITADAS
+V-A. IEC 62443 y seguridad de sistemas de control
+La serie ISA/IEC 62443 establece requisitos y procesos
+para proteger sistemas de automatización y control industrial.
+Su enfoque comprende al propietario del activo, integradores,
+proveedores de productos y prestadores de servicios. La ISA
+identifica la responsabilidad compartida como principio de la
+serie [28]. La Parte 2-1 contiene requisitos del programa de
+seguridad del propietario del activo, mientras que la Parte 3-2
+aborda la evaluación de riesgos y el diseño del sistema [27],
+[29].
+El alcance público de IEC 62443-2-1:2024 especifica políti-
+cas y procedimientos del programa de seguridad para sistemas
+Cuadro IV
+ASIGNACIÓN DE ACTIVIDADES EN LOS DOS FLUJOS Y EN LA PROPUESTA
+Actividad Flujo inicial [16] Flujo de DTE [18] Propuesta (A; R principal)
+Insumos y certificación Unidades proveedoras de GT GT/DAS consolida y solicita Origen; DAS registra
+Modelado topológico GT/DAS DTE/ISC y DTE/MCO DAS; DAS1
+Señalización y pareamiento DTE/ISC DTE/ISC y DTE/MCO ISC; ISC2 y MCO
+Pruebas punto a punto DTE/ISC DTE/ISC y DTE/MCO ISC; ISC2
+Revisión de calidad del mo-
+delo
+Criterios de rechazo de DTE/ISC;
+revisión QC/QA sin asignar
+DTE/MCO y GT/DAS ISC; ISC2, distinto del autor
+Validación de aplicaciones No prevista DTE/MCO y GT/DAS DAS; DAS2
+Aprobación de cambios Prevista, sin asignar Decisión «¿Aprobado?» sin titular AC
+Carga en producción DTE/ISC, archivo DBSEQ DTE/MCO, conjunta, los jueves MCO; ventana habilitada por
+ODC
+Verificación posterior y cie-
+rre
+GT/DAS DTE/ISC y GT/ODC, 24 h DAS; con ISC, MCO y ODC
+Reversión No prevista DTE/MCO MCO, con criterios aprobados por
+AC
+Cuadro V
+BRECHAS ENTRE EL ACTO ORGANIZATIVO Y EL PROCEDIMIENTO PROPUESTO
+Materia Atribución de DAS y sus secciones Efecto del procedimiento propuesto
+Base de datos del SIN DAS administra; DAS1 diseña, implementa, mantiene y
+actualiza.
+Solicitar y validar no cubre por sí solo la ejecución atribuida a
+DAS1. Precisar su participación en construcción y
+mantenimiento.
+Aplicaciones
+SCADA/EMS
+DAS2 administra y actualiza aplicativos, incluido
+procesamiento de topología.
+La validación analítica no agota administración y actualización.
+Delimitar configuración, versiones y soporte.
+Gestión de cambios Gestionar nuevos requisitos. No se define a GT/DAS como propietario del cambio ni de la
+configuración base.
+Soporte técnico Proporcionar soporte a usuarios finales. No se establecen niveles de soporte, escalamiento ni gestión
+de incidentes.
+Reversión No detallada en el acto organizativo. Se asigna ejecución a MCO; falta precisar autorización,
+disparadores y coordinación operativa.
+en operación. También contempla medidas compensatorias
+ante limitaciones de sistemas heredados [27]. Ese alcance no
+permite asignar el control de configuración a DTE o GT/DAS,
+ni demostrar por sí solo requisitos detallados de aprobación.
+La asignación interna y su aplicabilidad deben documentarse;
+para controles concretos se emplean a continuación pasajes
+verificables de NIST.
+V-B. IEC 61850 e integración de subestaciones
+IEC 61850 normaliza modelos de datos y servicios de
+comunicación para la automatización de sistemas eléctricos.
+La Parte 6 define el lenguaje de descripción de configuración
+para la comunicación entre herramientas de ingeniería de IED
+[30]. Este marco favorece la trazabilidad entre el proceso, los
+IED, la estación y el centro de control.
+Sin embargo, IEC 61850 no prescribe que la unidad que
+ejecuta pruebas punto a punto mantenga también el modelo
+eléctrico maestro del EMS. Esa conclusión es una decisión de
+diseño organizativo que no se deriva del alcance de la norma.
+V-C. IEC 62264 e integración empresa-control
+IEC 62264, también conocida como ISA-95, define modelos
+y terminología para integrar sistemas empresariales y sistemas
+de control de manufactura [31]. Sus niveles funcionales no
+corresponden de forma automática a dependencias de una
+empresa eléctrica. Por ello, no resulta válido afirmar que la
+norma asigna el nivel 3 a DTE y el nivel 4 a GT/DAS.
+V-D. IEC 61970: conectividad, topología y autoridad del
+modelo
+La Parte 301 de IEC 61970 identifica el Modelo de
+Información Común (CIM) base [32]. La introducción de la
+Parte 456 lo describe como un modelo abstracto de los objetos
+necesarios para representar aspectos operativos de una empresa
+eléctrica [33, p. 6]. Este nivel semántico no especifica por sí
+solo el esquema físico de una base ni los permisos de una
+herramienta comercial.
+La Parte 456 distingue equipos y conectividad, condiciones
+de entrada, topología procesada y variables de estado [33, sec.
+5, pp. 8–13]. Los terminales vinculan equipos conductores con
+nodos de conectividad. En una representación nodo-interruptor,
+el procesamiento de topología utiliza conectividad y estados
+de maniobra para formar nodos topológicos de cálculo. Las
+variables de estado describen resultados de flujo de potencia o
+estimación. Por ello, editar conexiones, configurar el procesador
+de topología y validar su resultado son actividades relacionadas,
+pero distintas.
+Esta separación ayuda a precisar la interfaz DAS1–DAS2.
+Se propone que DAS1 mantenga la representación eléctrica
+de entrada y DAS2 administre el procesamiento y verifique
+su comportamiento, con datos certificados por las unidades
+competentes. ISC2 integra las mediciones y su correspondencia
+con el modelo. La asignación es organizativa; los perfiles CIM
+no son departamentos ni prueban que la plataforma instalada
+soporte edición concurrente.
+La misma norma distingue perfiles de información y par-
+ticiones de red bajo una Model Authority , responsable de
+sus datos. Estas últimas se denominan Model Authority Sets
+(MAS) [33, sec. 5, pp. 8–10]. El concepto ayuda a identificar
+responsabilidad sobre conjuntos de datos, pero no designa una
+unidad de ANDE. Tampoco se presume equivalencia entre
+este MAS y el paquete denominado MAS en el procedimiento
+de actualización: su correspondencia debe verificarse en la
+documentación del fabricante.
+La identidad de los objetos requiere otra distinción. EPRI
+contempla registros de correspondencia entre identificadores
+CIM, denominados mRID, y estructuras de identificación
+locales [21, requisito R2, pp. 6-21–6-22]. No puede suponerse
+que un mRID sea idéntico a una clave propietaria. Además,
+la Parte 456 describe particularidades de los identificadores
+de nodos calculados según la versión del modelo [33, sec.
+5, p. 13]. Se propone documentar clase, identificador, origen,
+correspondencias y regla de actualización, en lugar de aplicar
+una única regla de identidad a todos los objetos.
+V-E. Seguridad OT y control de cambios
+NIST SP 800-82 Rev. 3 recomienda proteger la OT conside-
+rando sus requisitos particulares de disponibilidad, seguridad
+física, desempeño y confiabilidad [34]. A su vez, NERC CIP-
+010 establece controles de gestión de cambios de configuración
+y evaluación de vulnerabilidades para sistemas cibernéticos
+aplicables en su ámbito regulatorio [35]. Aunque NERC no
+rige automáticamente a ANDE, su estructura constituye una
+referencia sectorial útil.
+En particular, NIST recomienda documentar la configuración
+base y probar y aprobar los cambios antes del despliegue.
+También plantea centralizar su seguimiento y documentación
+[34, sec. 6.2.4.2]. La centralización propuesta es del registro
+de cambios; no se deduce de ella una exclusividad departa-
+mental. La guía recomienda verificar los respaldos y probar la
+restauración [34, sec. 6.2.4.3].
+Respecto de la segregación, NIST vincula el acceso basado
+en roles con los privilegios necesarios para cada persona
+[34, sec. 6.2.1.1]. Su tratamiento OT del control AC-5 pide
+considerar cuidadosamente la acumulación de roles críticos en
+una persona y contempla controles compensatorios de personal
+y auditoría [34, apéndice F, AC-5]. Por tanto, la propuesta
+debe verificar incompatibilidades efectivas, no solo nombres
+de departamentos. El equipo multidisciplinario recomendado
+para seguridad OT tampoco equivale automáticamente a un
+comité que apruebe cada actualización del modelo [34, sec.
+3.3.2].
+V-F. RACI, independencia y autoridad de decisión
+El artículo explicativo de ISACA sobre COBIT 2019 presenta
+las matrices RACI como una asignación inicial y adaptable a
+cada organización [36]. No constituye una norma que atribuya
+a una unidad específica la aprobación de cambios. En este
+trabajo, una sola A por entregable es una convención de diseño
+para identificar quién responde por el resultado. No sustituye
+las aprobaciones técnicas, funcionales y operativas ni confiere
+aceptación ilimitada del riesgo.
+La guía de ENISA distingue funciones incompatibles y
+contempla responsabilidades adicionales a roles existentes
+según tamaño y recursos [37, apdos. 1.2.4–1.2.5]. En gestión
+de cambios propone flujos según criticidad y urgencia, y
+un comité de cambios cuando resulte apropiado [37, apdo.
+6.4.1]. Se trata de orientación no vinculante para entidades de
+infraestructura digital, gestión de servicios TIC y proveedores
+digitales comprendidas en el Reglamento de Ejecución (UE)
+2024/2690. Aquí se utiliza como referencia de diseño, sin
+atribuirle obligatoriedad para ANDE.
+En consecuencia, se propone separar autoría y revisión de
+cambios críticos y mantener una auditoría independiente de
+la ejecución. La revisión entre pares verifica el artefacto; la
+auditoría evalúa el funcionamiento del control. Una RACI
+departamental no acredita por sí sola ninguna de estas inde-
+pendencias. Debe complementarse con responsables nominales,
+suplencias, permisos y evidencia de quién solicitó, construyó,
+revisó, autorizó y desplegó cada versión.
+VI. P RÁCTICA INTERNACIONAL DOCUMENTADA
+El caso de ERCOT es el mejor documentado en la literatura
+revisada. Antes de su sistema de gestión del modelo de red
+(NMMS), los propietarios enviaban documentos y correos a
+varios grupos internos, y cada grupo mantenía fuentes de
+datos independientes [19, p. 14]. La carga manual impedía
+saber quién había modificado un dato, por qué y cuándo, y
+ese conocimiento dependía de la memoria informal de la
+organización. ERCOT diseñó una solicitud de cambio del
+modelo de operación de red (NOMCR), formada por un archivo
+CIM incremental y un paquete de metadatos. Una aplicación
+de seguimiento registra su revisión, pruebas y carga, de modo
+que cada cambio responde a quién, qué, cuándo, dónde y por
+qué [19, p. 14].
+Cada NOMCR atraviesa cinco niveles de validación. El
+primero comprueba rangos y datos asociados; el segundo,
+de forma manual, la coherencia entre metadatos, cambio y
+documentación. En el tercero, un ingeniero de ERCOT estudia
+el impacto sobre el flujo de potencia del modelo base. El cuarto
+prueba en conjunto los cambios de un intervalo de energización,
+y el quinto carga el modelo completo en todas las aplicaciones
+[19, p. 15]. Además, el modelo temporal permite construir
+versiones con cambios futuros según su fecha de vigencia [19,
+p. 15].
+Una observación de ERCOT afecta directamente a la interfaz
+DAS1–DAS2. Los autores señalan que, cuando los mismos
+departamentos que mantienen una aplicación gestionan también
+sus datos, aparecen dos problemas: divergencia de datos
+entre aplicaciones y defectos de la lógica de la aplicación
+enmascarados por manipulación de los datos [19, p. 15]. La
+respuesta de ERCOT fue un conjunto de datos único para todas
+las aplicaciones. Tras la implantación, dar a los propietarios
+acceso a los datos de sus propios equipos facilitó que detectaran
+y corrigieran errores [19, p. 19]. Estas lecciones proceden de
+un operador independiente en 2014 y no acreditan el estado
+actual de ERCOT.
+El Manual 3A de PJM, revisión 27, establece que el
+representante de cada propietario de transmisión ante el
+subcomité de operación responde por el modelo de su sistema
+[20, sec. 3.1, p. 34]. El personal de PJM interpreta y codifica los
+datos recibidos para preparar las actualizaciones del EMS, con
+cuatro actualizaciones programadas por año [20, sec. 3.1, p. 35].
+Los propietarios revisan informes de diferencias preliminares y
+finales y validan que PJM representa con exactitud sus sistemas
+[20, sec. 3.2, p. 44; sec. 4.1, p. 52].
+Antes de pasar un modelo a producción, PJM lo somete a
+una prueba de estabilización de hasta cuatro semanas con la
+telemetría real. Durante los dos días previos aplica criterios del
+estimador de estado: convergencia, soluciones consecutivas
+no convergentes, iteraciones y datos erróneos. Si surgen
+condiciones no previstas, PJM analiza la situación y documenta
+la decisión de continuar [20, sec. 5.4, p. 65]. Los umbrales
+de PJM no deben copiarse sin calibración, pero muestran que
+la preparación de una versión puede decidirse con evidencia
+reproducible.
+Según el mismo artículo de ERCOT, en 2014 CAISO recibía
+los cambios de modelo de las entidades externas de forma
+manual a través de un empleado que operaba su sistema de
+gestión del modelo [19, p. 18]. ENTSO-E adoptó el estándar
+CGMES, basado en CIM, para el intercambio de modelos
+entre operadores [38], [19, p. 18]. Ambos datos se citan como
+contexto histórico y no se utilizan para derivar reglas.
+La Tabla VI compara estos arreglos con la propuesta para
+ANDE. En todos los casos externos, una sola función del
+operador construye el modelo integrado, y la separación
+relevante es entre quien aporta el dato y quien lo integra.
+En ANDE, en cambio, dos ramas internas tienen mandatos de
+construcción. Esta diferencia limita la transferencia directa de
+cualquiera de esos modelos.
+Como referencia de diseño, EPRI propone una función de
+gestión de modelos con repositorio maestro, registro de objetos
+y espacios de trabajo [21]. Su caso A1 contempla modeladores
+EMS a cargo de conectividad y esquemas, con aportes y
+revisión de especialistas de planificación y protecciones. El
+informe aclara que el reparto puede variar y que varios grupos
+requieren controles de acceso y coordinación [21, caso A1,
+pp. 4-5–4-6]. Se trata de un escenario de requisitos, no de un
+organigrama obligatorio ni de una demostración de capacidades
+de e-terra. En conjunto, ni PJM ni ERCOT ni EPRI demuestran
+la ubicación departamental que debería adoptar ANDE; la
+autoridad colegiada y la asignación a GT/DAS formuladas aquí
+son propuestas propias.
+VII. R EGLAS DE DISEÑO DERIVADAS
+Los cruces de la Tabla III y la práctica documentada se
+traducen en diez reglas. La Tabla VII indica, para cada regla, la
+evidencia interna y externa que la motiva y las filas de la matriz
+RACI que determina. Toda fila de la matriz queda cubierta por
+al menos una regla, de modo que ninguna asignación depende
+solo del criterio del redactor.
+Las reglas permiten descartar de forma explícita cinco
+alternativas. Primero, hacer de DAS el editor exclusivo de
+toda la base vaciaría ISC2 2.5 y MCO 2.6, contra R2 y R3.
+Segundo, la distribución del procedimiento propuesto, en la que
+DTE construye y DAS solo valida, omitiría DAS1 2.1–2.2 y
+DAS2 2.2, contra R2. Tercero, mantener modelo y adquisición
+en bases separadas sin integración reproduciría la divergencia
+que motivó el NMMS de ERCOT, contra R3. Cuarto, asignar la
+A de la liberación a un comité sin decisor identificable dejaría
+la responsabilidad indeterminada, contra R7. Quinto, convertir
+a ODC en autoridad de liberación extendería sus numerales de
+maniobras y trabajos a versiones de software, contra R8.
+Queda la cuestión de por qué la responsabilidad funcional
+recae en DAS y no en una estructura compartida. R1 se apoya
+en que DAS, con sus secciones, es la única unidad cuyas fichas
+incluyen gestionar cambios para nuevos requisitos del sistema,
+además de administrar base y aplicativos. Una propiedad
+funcional compartida entre DAS e ISC violaría la convención
+de una A por fila. El reparto ya refleja lo compartido: la
+responsabilidad técnica de ISC2 sobre integración y pruebas
+tiene su propia A. La propiedad funcional aquí recomendada
+significa responsabilidad sobre requisitos y aceptación, no
+exclusividad de edición ni propiedad patrimonial del activo.
+VIII. M ATRIZ DE RESPONSABILIDADES PROPUESTA
+La Tabla VIII aplica el modelo RACI: R ejecuta, A responde
+por el resultado, C es consultado e I recibe información. Cada
+fila resulta de las reglas de la Tabla VII. Cada fila tiene una
+A como convención de diseño; A/R no admite autorrevisión
+personal. AC identifica la Autoridad de Cambio. La columna
+DAS representa al departamento: DAS1 ejecuta construcción
+y mantenimiento de datos, y DAS2 administra aplicativos y su
+validación, mediante personas distintas cuando exista incompa-
+tibilidad. ISC actúa mediante ISC2 en integración e ISC3 en
+registros técnicos. Origen identifica al certificador de cada dato.
+Siguiendo las unidades proveedoras del flujo inicial, esa función
+corresponde a Mantenimiento, Supervisión de Generación y
+Transmisión, Proyectos, Transmisión o Generación según el tipo
+de cambio [16]. Para la configuración de las instalaciones de
+transmisión en servicio, corresponde al departamento regional
+de GT/DT del ámbito afectado; para parámetros y límites, a
+DEL o DOS según su competencia. Las fichas de las unidades
+proveedoras ajenas a Operación y Transmisión no forman parte
+del corpus codificado.
+La fila de correspondencia separa dos preguntas que antes
+quedaban juntas en la aceptación de mímicos. El departamento
+regional responde si el mímico y el modelo representan
+fielmente la instalación física; ODC responde si el resultado
+es utilizable para operar. DAS prepara la evidencia de la
+comparación, pero no la certifica, porque es autor del objeto
+revisado.
+Como Transmisión publica el unifilar oficial en PDF y no
+edita el SCADA, la separación entre autor y certificador se
+Cuadro VI
+ARREGLOS DOCUMENTADOS DE GESTIÓN DEL MODELO EMS Y PROPUESTA PARA ANDE
+Dimensión ERCOT, 2014 [19] PJM, rev. 27 [20] EPRI, caso A1 [21] ANDE, propuesta
+Origen del dato Propietarios envían
+NOMCR y acceden a los
+datos de sus equipos.
+Representante del
+propietario responde por el
+modelo de su sistema.
+Planificación y protecciones
+aportan y revisan.
+En transmisión, el
+departamento regional de
+GT/DT certifica la
+configuración y verifica su
+representación.
+Construcción Repositorio único NMMS
+en CIM; se elimina la
+transcripción intermedia.
+Personal de PJM interpreta
+y codifica las
+actualizaciones.
+Modeladores EMS
+mantienen conectividad y
+esquemas.
+DAS1 construye objetos del
+modelo; ISC2 integra
+adquisición y unifica.
+Validación Cinco niveles, del control
+de rangos a la prueba
+integrada.
+Informes de diferencias;
+estabilización de hasta
+cuatro semanas.
+Controles de acceso y
+coordinación entre grupos.
+Revisión independiente,
+pruebas técnicas y
+aceptación funcional y
+operativa.
+Pase a produc-
+ción
+No detallado en el artículo. Criterios del estimador
+durante dos días previos.
+No aplicable: escenario de
+requisitos.
+AC libera la versión; ODC
+habilita la ventana; MCO
+despliega.
+Trazabilidad Quién, qué, cuándo, dónde
+y por qué de cada cambio.
+Informes de diferencias por
+actualización.
+Registro de objetos y
+correspondencia de
+identificadores.
+Identificador común entre
+versión funcional, registros
+de ISC3 y respaldos de
+MCO.
+cumple sin cambios de permisos: Transmisión no tiene acceso
+de escritura a los mímicos, y DAS no altera el documento
+de origen. Sin embargo, el formato tiene tres consecuencias.
+En primer lugar, el paso del PDF a mímicos y modelo
+es una transcripción manual. ERCOT describe ese mismo
+riesgo: los unifilares del EMS se actualizaban a mano a
+partir de documentos, se omitían cambios y los errores solían
+descubrirlos los operadores durante una maniobra [19, pp. 16–
+17]. Por ello, la verificación de correspondencia no puede
+omitirse ni delegarse en quien transcribió. En segundo lugar,
+el expediente de cada cambio debe citar el identificador, la
+revisión y la fecha de vigencia del PDF utilizado, de modo
+que se sepa contra qué versión del unifilar se construyó cada
+mímico. En tercer lugar, el documento reside en la red de
+TI y su contenido se incorpora a un sistema OT; el traslado
+debe seguir el canal controlado que defina seguridad OT, sin
+conexiones directas entre ambas redes.
+La columna GT* reúne unidades de apoyo que se designan
+por cambio: DOS para criterios y soporte operativo, DEL para
+estudios y criterios eléctricos, DEN para aspectos energéticos
+y DDR para su ámbito regional. No constituye una autoridad
+colectiva ni exige consultar a todas las unidades en cada
+actualización. La aplicación a ODC de la habilitación de
+ventanas SCADA/EMS se propone sobre la base de sus
+numerales 2.5–2.6, sin equiparar maniobras eléctricas con
+aprobación de software.
+VIII-A. Autoridad de Cambio: composición, funciones y
+constitución
+Ninguna de las veinte fichas analizadas atribuye a una unidad
+la liberación de versiones del SCADA/EMS. La Autoridad de
+Cambio (AC) es, por tanto, una instancia nueva que debe
+crearse por un acto expreso; no se deduce de las atribuciones
+vigentes. Su justificación procede de R7: DAS y DTE dependen
+de divisiones distintas, y ninguna puede decidir con autoridad
+sobre la otra. La AC no es un comité que vote cada cambio.
+Es un decisor identificable que resuelve con las conformidades
+de las áreas a la vista, de modo que la A de la matriz recae
+en una persona y no en un cuerpo colectivo [36]. La Tabla IX
+resume su composición propuesta.
+Sus funciones serían seis. Primero, liberar o rechazar las
+versiones de cambios normales. Segundo, aprobar el catálogo
+de cambios estándar, que quedan preautorizados dentro de
+límites explícitos. Tercero, aprobar los criterios de reversión
+y la delegación de su ejecución en MCO. Cuarto, resolver
+los desacuerdos entre conformidades. Quinto, decidir sobre
+observaciones abiertas y riesgos residuales dentro del límite
+delegado, y escalar lo que lo supere. Sexto, revisar después
+de ocurridos los cambios de emergencia y las reversiones. A
+la inversa, la AC no ejecuta cambios, no aprueba pruebas
+FAT/SAT, no sustituye la conformidad funcional de DAS ni
+la aceptación operativa de ODC, y no habilita la ventana en
+tiempo real. Tampoco modifica atribuciones de ninguna unidad.
+La AC se constituiría mediante un acto de delegación de
+la instancia competente sobre la División de Operación y
+la División de Sistemas de Comunicación. Ese acto debe
+fijar, como mínimo, el decisor titular y sus suplentes por
+nombre y cargo, las clases de cambio (estándar, normal y de
+emergencia), el límite de riesgo que el decisor puede aceptar,
+las conformidades exigidas antes de decidir, los plazos y el
+registro de cada decisión. Además, el decisor no puede haber
+sido autor ni revisor del cambio que libera; si lo fue, decide
+el suplente. Cuando un miembro permanente mantiene una
+objeción técnica, el caso se eleva a la instancia que delegó,
+en lugar de convertir la objeción en veto. La coordinación por
+GT/OP, como división usuaria del sistema, es una opción de
+diseño y no implica subordinación de DTE a Operación.
+El funcionamiento se adapta a la criticidad, en línea con
+Cuadro VII
+REGLAS DE DISEÑO : DE LA EVIDENCIA A LAS FILAS DE LA MATRIZ RACI
+Regla Evidencia que la motiva Filas RACI determinadas
+R1 Una sola unidad responde por el
+resultado funcional del modelo y las
+aplicaciones.
+DAS 2.1, 2.2 y 2.4: única ficha con gestión expresa de
+cambios del sistema (C5).
+Requisito; semántica; cierre de
+versión.
+R2 La edición se asigna por clase de
+objeto, no por departamento.
+Concurrencia ejecutora DAS1–ISC2 y objeto ambiguo en
+seis numerales (C1).
+Construir modelo eléctrico; con-
+figurar adquisición.
+R3 El integrador responde por la in-
+tegridad del conjunto, sin autoría
+exclusiva de sus objetos.
+ISC2 2.5–2.6 (C1); divergencia por fuentes separadas [19,
+pp. 14–15].
+Unificar base integrada; preparar
+paquete MAS.
+R4 Aprobación técnica, aceptación fun-
+cional y aceptación operativa son
+decisiones distintas.
+ISC2 2.3; DAS 2.4; ODC 2.1 (C5). FAT/SAT; validar aplicaciones;
+aceptar uso operativo.
+R5 Quien construye un objeto no lo re-
+visa; quien modifica datos no valida
+la aplicación que los usa.
+Criterios de rechazo de DTE/ISC en el flujo inicial [16];
+DAS1 y DAS2 en un mismo departamento; defectos
+enmascarados por datos [19, p. 15]; AC-5 [34].
+Revisar calidad topológica
+(QC/QA); administrar aplicativos;
+validar estimador y flujo.
+R6 El dato se certifica en su origen, y
+quien lo certifica verifica su repre-
+sentación.
+TMB, TES, TSU, TCE y NAC 2.4 y 2.6; GT/DT 2.4 (C9);
+DOS 2.2 y DEL 2.5; propietarios responsables de sus
+datos [19, p. 19], [20, sec. 3.1].
+Certificar datos de instalación;
+verificar correspondencia de mí-
+micos y modelo.
+R7 La liberación tiene un decisor identi-
+ficable con delegación sobre ambas
+ramas.
+DAS y DTE dependen de divisiones distintas (C5); una A
+por fila [36]; comité según criticidad [37].
+Autorizar liberación; aprobar cri-
+terios de reversión.
+R8 Liberar una versión no habilita por
+sí solo intervenir en tiempo real.
+ODC 2.5–2.6 (C8). Habilitar o suspender ventana;
+ejecutar carga.
+R9 La custodia técnica, el despliegue y
+la reversión residen en la unidad de
+plataforma, bajo criterios preaproba-
+dos.
+MCO 2.8; ISC3 2.5 (C2, C3); [34, secs. 6.2.4.2–6.2.4.3];
+[37, apdo. 6.4].
+Respaldo y carga; registro técni-
+co; ejecutar reversión.
+R10 El soporte usa un registro único con
+escalamiento por objeto afectado.
+DAS 2.3; MCO 2.3; DOS 2.7 y 2.10; ODC 2.14 (C6, C7). Procedimiento de soporte, fuera
+de la matriz de cambios.
+la distinción entre flujos ordinarios y urgentes de ENISA [37,
+apdo. 6.4.1]. Los cambios estándar no llegan a la AC: se
+ejecutan con la autorización previa del catálogo. Los normales
+se deciden por expediente, sin exigir reunión, en el calendario
+de versiones. Las emergencias quedan en manos del decisor
+de guardia, con criterios de reversión preautorizados y revisión
+posterior obligatoria. El equipo multidisciplinario de seguridad
+OT que recomienda NIST no equivale a esta instancia, aunque
+puede integrarse en ella [34, sec. 3.3.2].
+La liberación de una versión declara cumplidas las condi-
+ciones documentales, técnicas y funcionales. Su carga requiere
+además la habilitación de ODC según la situación del SIN. Se
+propone que una restricción operativa suspenda la intervención
+y active el escalamiento previsto, aunque la versión esté
+liberada.
+VIII-B. Conformidades y límites de la matriz
+Las conformidades de ISC2, DAS y ODC deben constituir
+registros distintos y trazables. Una aprobación técnica no
+sustituye la aceptación funcional, y la liberación no debe
+omitir observaciones abiertas sin decisión documentada de
+la autoridad competente. Seguridad OT revisa el riesgo y los
+controles según criticidad; su participación transversal debe
+detallarse en el procedimiento y en los permisos, además de
+la RACI resumida.
+La responsabilidad de ISC en la unificación recae sobre la
+integridad del entregable conjunto, no sobre la autoría exclusiva
+de todos sus objetos. La responsabilidad de DAS en el modelo
+eléctrico tampoco habilita cambios unilaterales en adquisición
+o producción. Para cada clase de objeto deben acordarse editor,
+revisor, dependencias y permisos. Si la herramienta no permite
+separar accesos con suficiente granularidad, se propone edición
+secuencial supervisada o integración mediante un operador
+habilitado, conservando autoría y revisión técnica de ambas
+áreas.
+IX. A TRIBUCIONES PROPUESTAS
+IX-A. Departamento de Administración del SCADA/EMS
+Se propone que GT/DAS tenga las siguientes atribuciones:
+1) Gobernar el modelo lógico y la configuración funcional de
+la base SCADA/EMS del SIN.
+2) Administrar los módulos y parámetros funcionales de las
+aplicaciones EMS.
+3) Definir criterios de calidad, nomenclatura, versionado y
+aceptación del modelo integrado.
+4) Gestionar el ciclo de vida de los cambios, desde el requisito
+hasta su cierre y archivo de evidencias.
+5) Diseñar, implementar, mantener y actualizar mediante DAS1
+los objetos asignados del modelo eléctrico, con parámetros
+y planos certificados e integración coordinada con ISC2.
+6) Aceptar la correspondencia funcional entre objetos del
+modelo y señales, sin sustituir la aprobación técnica de
+implementación y pruebas de DTE/ISC2.
+Cuadro VIII
+MATRIZ RACI PROPUESTA PARA CAMBIOS DE LA BASE SCADA/EMS
+Actividad DAS ISC MCO ODC GT* Origen AC Regla
+Definir requisito y alcance A/R C C C C C I R1
+Certificar datos de instalación C C I C C A/R I R6
+Especificar y aceptar semántica del modelo A/R C C C C C I R1
+Construir/actualizar modelo eléctrico (DAS1) A/R C C C C C I R2
+Revisar calidad topológica y de nomenclatura (QC/QA) C A/R I I I I I R5
+Configurar adquisición, pareamiento y comunicaciones C A/R R I I C I R2
+Unificar modelo y adquisición en base integrada R A/R R C C I I R3
+Preparar paquete MAS de implementación R A/R R I I I I R3
+Aprobar FAT/SAT y pruebas de integración C A/R C C C C I R4
+Administrar/actualizar aplicativos (DAS2) A/R C R C C I I R1, R5
+Validar estimador, flujo y aplicaciones A/R C C C C I I R4, R5
+Verificar correspondencia de mímicos y modelo con la
+instalación
+R C I C I A/R I R6
+Aceptar mímicos, alarmas y uso operativo C C C A/R C C I R4
+Autorizar liberación de versión R C C C C I A R7
+Habilitar o suspender ventana en tiempo real C I R A C I I R8
+Ejecutar respaldo y carga autorizada C C A/R C I I I R8, R9
+Mantener registro técnico de configuración C A/R R I I I I R9
+Verificar posactualización y cerrar el cambio A/R R R C C I I R1
+Aprobar criterios y delegación de reversión R C R C C I A R7
+Ejecutar reversión autorizada o preautorizada C C A/R C I I I R9
+Cuadro IX
+COMPOSICIÓN PROPUESTA DE LA AUTORIDAD DE CAMBIO
+Rol Integrante Función
+Decisor titular Persona designada
+por la instancia con
+autoridad sobre
+ambas ramas
+Libera o rechaza la versión y
+responde por la A de la matriz.
+Suplente y
+guardia
+Designación
+nominal, ajena a la
+autoría del cambio
+Decide en ausencia del titular, en
+conflicto de interés y en
+emergencias.
+Miembros
+permanentes
+DAS, ISC2, MCO,
+ODC y seguridad
+OT
+Presentan sus conformidades u
+objeciones; no deciden.
+Convocados
+según alcance
+DOS, DEL, DEN,
+DDR y
+departamento
+regional de
+Transmisión
+Aportan criterio sobre el objeto
+afectado.
+Registro DAS, según su
+numeral 2.4
+Integra el expediente, registra la
+decisión y su fundamento.
+7) Administrar y actualizar mediante DAS2 el procesamiento
+de topología y los demás aplicativos; realizar su validación
+con revisión independiente de quien modificó el componen-
+te.
+8) Coordinar con GT/ODC la aceptación operativa de diagra-
+mas, alarmas, controles y comportamiento del sistema.
+9) Mantener la línea base funcional, el historial de versiones
+y las desviaciones aceptadas, vinculados a los registros
+técnicos de ISC3 y respaldos de MCO.
+10) Proporcionar soporte funcional a usuarios y gestionar mejo-
+ras del SCADA/EMS, mediante un catálogo y escalamiento
+acordados con DOS y DTE.
+IX-B. Unidades técnicas de telecomunicaciones y plataforma
+OT
+Se propone explicitar las siguientes interfaces sin reducir las
+competencias de ingeniería y mantenimiento ya documentadas:
+1) DTE/ISC dirige proyectos y especificaciones; ISC1 prepara
+estudios y soluciones; ISC2 elabora e integra los componen-
+tes asignados y unifica la base con DAS1. ISC2 conserva la
+aprobación FAT/SAT; ISC3 mantiene documentación técnica
+e ingeniería de mantenimiento.
+2) Administrar la infraestructura de telecomunicaciones, RTU,
+IED, gateways, canales y protocolos vinculados al SCA-
+DA/EMS.
+3) Configurar la adquisición, el telecontrol, el ruteo,
+ICCP/TASE.2, la sincronización y los atributos técnicos
+de comunicación.
+4) Ejecutar pruebas punto a punto y documentar la trazabilidad
+desde el equipo de campo hasta el objeto del centro de
+control.
+5) Administrar servidores, almacenamiento, sistemas opera-
+tivos, ambientes, respaldo y herramientas técnicas de la
+plataforma SCADA/EMS.
+6) DTE/ISC2 coordina la integración del paquete con aportes
+de DAS1, DAS2 y MCO; DTE/MCO ejecuta despliegue
+y recuperación. La asignación de MAS y DBSEQ es
+procedimental y requiere verificar capacidades, permisos y
+documentación del fabricante.
+7) Implementar controles técnicos de ciberseguridad, monito-
+reo, respaldo y recuperación de la plataforma OT.
+8) Ejecutar la carga productiva dentro de una ventana autori-
+zada y conservar las evidencias técnicas del despliegue.
+9) Ejecutar la reversión cuando se cumplan los criterios
+aprobados o la Autoridad de Cambio la ordene.
+10) Proporcionar soporte técnico de segundo y tercer nivel
+sobre comunicaciones, infraestructura y herramientas del
+fabricante.
+La autoridad institucional deberá determinar si estas pre-
+cisiones pueden formalizarse mediante un procedimiento de
+coordinación o requieren modificar el manual. Las funciones
+de DTE ajenas al SIN de transmisión, incluidos otros ámbitos
+de generación y distribución, permanecen fuera del alcance de
+esta propuesta.
+X. P ROCESO DE CAMBIO RECOMENDADO
+El flujo propuesto comprende diez etapas:
+1) Registro. GT/DAS asigna un identificador, propietario, clase
+de cambio, riesgo y fecha requerida.
+2) Validación de insumos. Las unidades de origen certifican
+planos, parámetros, listas de señales y fechas. En transmi-
+sión, el departamento regional publica el unifilar oficial en
+PDF, con identificador de revisión y fecha de vigencia, de
+la alteración o de la instalación nueva.
+3) Diseño integrado. DAS1, DAS2 e ISC2 delimitan objetos,
+identificadores, dependencias, responsables de edición y
+pruebas dentro de un cambio único.
+4) Construcción. DAS1 construye o actualiza la representación
+eléctrica asignada; ISC2 configura adquisición y pareamien-
+to y unifica el conjunto con apoyo de MCO. DAS2 ajusta los
+aplicativos afectados; ISC3 conserva los registros técnicos.
+5) Revisión independiente. ISC2 aplica los criterios de
+rechazo sobre la calidad topológica y la nomenclatura
+del modelo construido por DAS1. Personas distintas de
+los autores comprueban conexiones, identidades, escalas,
+límites y dependencias. Se revisan las diferencias respecto
+de la versión base antes de generar y probar el paquete
+integrado.
+6) Pruebas. Se ejecutan controles automáticos, pruebas punto
+a punto, estimador de estado, flujo de potencia, alarmas y
+funciones afectadas.
+7) Aceptación. El departamento regional de Transmisión
+verifica la correspondencia de mímicos y modelo con la
+instalación; ISC2 registra la aprobación técnica; DAS, la
+conformidad funcional; y ODC, la operativa, con especialis-
+tas según el alcance. Cada observación se resuelve o escala
+antes de liberar.
+8) Autorización. La Autoridad de Cambio libera la versión al
+verificar evidencias, respaldo, recuperación y responsables.
+ODC confirma la habilitación de la ventana según las
+condiciones reales del SIN.
+9) Despliegue y observación. MCO ejecuta la carga autorizada
+y registra versión, operador, hora y resultado. Las áreas
+participantes observan el servicio y aplican los criterios de
+suspensión o reversión.
+10) Cierre. DAS actualiza la línea base funcional y enlaza
+pruebas, aprobaciones, registros de ISC3 y respaldos de
+MCO. Se documentan incidentes, desviaciones y lecciones
+aprendidas.
+Los criterios mínimos deberían incluir cero errores críticos,
+registro y aceptación de cada advertencia, completitud de
+señales, resultados de pruebas, estabilidad del estimador y
+respaldo verificable. Los umbrales numéricos deben derivarse
+de la línea base de ANDE. El flujo inicial propone rechazar el
+proyecto con más de 13 advertencias o 24 errores y cuando
+no se identifiquen los cambios [16]. Ese criterio debería
+precisar que los errores topológicos que menciona, como
+nodos flotantes o errores de bahía, no admiten tolerancia,
+y que el límite numérico se aplica solo a observaciones
+no críticas. Copiar valores de otro operador sin analizar
+arquitectura, observabilidad y calidad de telemetría produciría
+una conformidad aparente.
+La reversión debe contemplar fallos de comunicación,
+pérdida de visibilidad, comportamiento incorrecto de controles
+y degradación de aplicaciones, con umbrales definidos para
+cada cambio. MCO puede ejecutar una recuperación inmediata
+cuando se cumpla una condición preautorizada; fuera de ella,
+decide la autoridad de guardia designada. Deben registrarse
+disparador, decisión, versión recuperada y comunicación a ODC
+y DAS. La revisión posterior completa la evidencia excepcional,
+pero no sustituye la delegación previa. Este diseño recoge la
+distinción entre flujos ordinarios y de emergencia de ENISA
+[37, apdos. 6.4.1–6.4.3].
+Para verificar la implementación se propone medir cambios
+con expediente completo, despliegues sin autorización, fallos
+que exigieron recuperación y tiempo de restauración probado.
+También deben registrarse discrepancias entre la versión
+funcional y la configuración desplegada. Los objetivos se
+fijarán con una línea base local; estos indicadores evalúan el
+procedimiento propuesto, no acreditan certificación normativa.
+XI. P ROTOCOLO DE VALIDACIÓN
+El análisis documental muestra dónde concurren los manda-
+tos, pero no que el reparto propuesto elimine ambigüedades en
+la práctica. Por ello, se especifica un protocolo de validación
+antes de su ejecución. Fijar el diseño de antemano evita ajustar
+las reglas a los casos después de observarlos. Ninguno de sus
+resultados forma parte del presente documento.
+XI-A. Validación retrospectiva con cambios históricos
+Se propone un estudio de casos múltiples con 10 a 20 cam-
+bios de la base SCADA/EMS ya ejecutados. La muestra será
+intencional y estratificada por clase de cambio: incorporación
+de una instalación, modificación de parámetros, cambio de
+telemetría o enlaces ICCP, actualización de aplicativos y, si
+existen, reversiones o cambios de emergencia. Las fuentes serán
+solicitudes, notas, informes FAT/SAT, registros de despliegue
+y respaldos.
+Para cada cambio se reconstruirá quién solicitó, construyó,
+integró, revisó, probó, aceptó, liberó, desplegó y, en su caso,
+revirtió. Se codificarán seis tipos de evento: autoridad ambigua,
+autorización ausente, autorrevisión, retrabajo por error de datos,
+evidencia faltante y discrepancia entre la versión funcional y la
+desplegada. A continuación, se aplicarán las reglas R1–R10 a
+cada decisión del caso. La variable principal será la proporción
+de decisiones que quedan asignadas a una única A sin conflicto
+con ningún numeral vigente. Las decisiones que el marco no
+resuelva se analizarán una por una y motivarán la revisión de
+la regla correspondiente.
+Los resultados se informarán mediante conteos y proporcio-
+nes con intervalos de Wilson, sin inferencia causal. Con una
+muestra de este tamaño, el estudio puede mostrar si el marco
+resuelve los casos observados, no estimar su efecto sobre la
+tasa de errores.
+XI-B. Triangulación y fiabilidad
+Un segundo codificador independiente repetirá la codifi-
+cación del suplemento S1 y la de los casos históricos. La
+concordancia se medirá con el coeficiente kappa de Cohen por
+variable, y los desacuerdos se resolverán por consenso docu-
+mentado. Además, un panel estructurado con representantes
+de DAS, ISC, MCO, ODC, DOS y seguridad OT revisará las
+reglas y las alternativas descartadas. El panel contrastará lo
+que dicen las fichas con las herramientas, claves, permisos y
+secuencias de despliegue efectivos.
+XI-C. Piloto prospectivo
+Por último, tres a cinco cambios reales se tramitarán con
+el procedimiento propuesto en un ambiente controlado. Se
+medirán los indicadores de la sección anterior frente a la línea
+base obtenida en la validación retrospectiva. Una comparación
+antes y después con mayor número de cambios queda fuera
+del alcance de este documento.
+XII. D ISCUSIÓN
+La integración del modelo y la adquisición es una condición
+de consistencia que debe preservarse. IEC 61970 distingue
+dominios semánticos relacionados; esa distinción no demuestra
+independencia transaccional de las herramientas instaladas. Por
+tanto, no permite afirmar ni descartar la edición concurrente
+en e-terra. Las dependencias específicas requieren manuales,
+permisos comprobados y pruebas de integración. La atribución
+de tareas debe asegurar un resultado consistente sin excluir las
+funciones expresas de DAS1 o ISC2.
+El modelo propuesto distingue responsabilidad, ejecución
+y autoridad. DAS respondería por la integridad funcional,
+con construcción y mantenimiento mediante DAS1 y ad-
+ministración de aplicativos mediante DAS2. DTE conserva
+ingeniería, integración, plataforma y despliegue según el objeto.
+ODC aportaría aceptación y habilitación operativa; DOS y
+las unidades de estudios, el apoyo de su competencia. La
+participación ejecutora de DAS1 es literal en su ámbito de
+bases SCADA; su delimitación por objetos del modelo eléctrico
+sigue siendo una propuesta a formalizar.
+Asimismo, la propuesta articula centralización y segregación.
+Los artefactos se vinculan en un repositorio y un paquete de
+cambio; decisiones, ejecución y revisiones quedan identificadas.
+Una matriz entre departamentos puede ocultar que una persona
+acumula permisos incompatibles. A la inversa, un equipo
+integrado puede mantener revisión independiente y autorización
+separada. La eficacia dependerá de los accesos y de la evidencia
+observada, no solo del organigrama.
+El método puede transferirse a otras empresas eléctricas en
+las que varias unidades tengan mandatos formales sobre el
+mismo sistema. Requiere tres insumos: los actos organizativos
+con sus numerales, un inventario de objetos y un ciclo de
+cambio con fases definidas. El libro de códigos no depende
+de ANDE; los dominios y las fases proceden de la estructura
+del problema. Lo específico del caso son los cruces y, en
+consecuencia, las reglas R1 y R7. Su transferencia a una
+empresa con otra estructura exige repetir la codificación, no
+copiar la matriz.
+Esta observación aclara también la relación con la literatura.
+ERCOT y PJM ordenan el flujo entre propietarios externos
+y una función de modelado del operador. En una empresa
+integrada, la misma lógica se aplica dentro de la organización,
+pero con un rasgo que esos casos no presentan: la función de
+construcción está repartida por actos organizativos distintos. El
+papel del propietario externo tiene, en cambio, un equivalente
+interno claro: los departamentos regionales de Transmisión
+ocupan una posición análoga a la del representante del
+propietario en PJM, que responde por el modelo de su sistema
+y valida su representación [20, secs. 3.1 y 4.1]. La lección
+de ERCOT sobre defectos de la aplicación enmascarados por
+ajustes de los datos [19, p. 15] sugiere además que la separación
+relevante dentro de DAS es entre personas que modifican datos
+y personas que validan aplicaciones, no entre departamentos.
+El intercambio del unifilar como PDF marca otra diferencia
+con ERCOT. Allí los propietarios envían el cambio como
+archivo CIM incremental, y los unifilares del EMS se regeneran
+comparando versiones del modelo [19, pp. 14 y 17]. En ANDE,
+la fuente oficial es un documento gráfico que debe interpretarse.
+El reparto propuesto funciona con ese formato, porque la
+verificación de correspondencia compensa la transcripción
+manual. A medio plazo, un formato estructurado de intercambio
+permitiría comparar versiones de forma automática; su adopción
+es una decisión de Transmisión y de DAS, no un requisito de
+este procedimiento.
+La implementación requiere recursos. GT/DAS necesita perfi-
+les de modelado, aplicaciones EMS y gestión de configuración;
+DTE, ingeniería OT, integración y recuperación. Se propone
+verificar capacidades en un ambiente de pruebas mediante
+cambios representativos, revisión cruzada y restauración. La
+habilitación de permisos se basaría en resultados documentados
+y formación, no en una presunción de capacidad o incapacidad
+por dependencia. Cuando falten recursos, un equipo conjunto
+puede ejercer transitoriamente las funciones con responsabili-
+dades explícitas.
+XIII. C ONCLUSIONES
+La descomposición por objeto, fase y tipo de autoridad
+permitió convertir 135 numerales en nueve cruces y diez reglas
+de diseño, y derivar de ellas cada fila de la matriz RACI. La
+principal aportación metodológica es esa trazabilidad: cualquier
+asignación puede discutirse señalando el numeral, el cruce o
+la evidencia externa que la sostiene.
+Las fuentes normativas y de orientación consultadas no apor-
+tan sustento para asignar en exclusiva el modelo SCADA/EMS
+a alguna de las unidades de ANDE. Los alcances públicos
+orientan seguridad, interoperabilidad y responsabilidad; una
+afirmación de obligatoriedad específica exige identificar la
+cláusula aplicable. La segregación y la autoridad de cambio
+aquí desarrolladas son decisiones de diseño propuestas.
+Las fichas organizativas reconocen concurrencia ejecutora:
+DAS1 diseña, implementa y actualiza bases; ISC2 elabora o
+unifica bases de tecnologías de operación. DAS2 administra y
+actualiza aplicativos, incluido el procesamiento de topología.
+En consecuencia, un reparto que redujera toda intervención
+de DAS a solicitar y validar omitiría atribuciones expresas.
+Tampoco estas funciones demuestran exclusividad de DAS ni
+anulan la integración de DTE. La delimitación debe abarcar
+objetos, construcción, aceptación y autoridad.
+La alternativa recomendada combina responsabilidad fun-
+cional de DAS, construcción coordinada de DAS1 e ISC2
+y administración de aplicativos por DAS2. MCO ejecuta el
+despliegue autorizado y mantiene la plataforma. ODC acepta el
+comportamiento operativo y habilita la ventana; una autoridad
+interáreas delegada decide la liberación y las reglas de reversión.
+IEC 61970 y la bibliografía de gestión de modelos orientan la
+delimitación semántica y la trazabilidad, sin sustituir la decisión
+institucional ni la validación de la plataforma.
+LIMITACIONES
+El análisis documental no acredita el desempeño del reparto
+propuesto ni la vigencia consolidada del organigrama. La
+codificación fue realizada por un solo codificador, y el
+protocolo de la Sección XI no se ha ejecutado. La validación
+requiere además las resoluciones completas, el inventario de
+objetos, las capacidades del fabricante y los permisos efectivos.
+Deben comprobarse las dependencias entre SUBTOP, RTUTOP,
+identificadores y mecanismos de despliegue antes de definir
+accesos. El contraste internacional se apoya en un artículo de
+2014 sobre ERCOT, un manual vigente de PJM y un informe de
+requisitos de EPRI; no se revisaron otros trabajos académicos
+sobre gestión de modelos EMS con acceso a su texto completo.
+Parte del corpus es interno de ANDE y puede no ser publicable;
+el suplemento S1 compensa esa limitación con una síntesis de
+cada numeral, su localizador y sus códigos.
+REFERENCIAS
+[1] Administración Nacional de Electricidad, “Manual de organización:
+Departamento de administración del scada/ems,” ANDE, Asunción,
+Paraguay, Tech. Rep. Resolución P/N. º 50060, Jan. 2025, documento
+interno, actualización 00, 6 de enero de 2025.
+[2] ——, “Manual de organización: División de operación (gt/op),” ANDE,
+Tech. Rep. Resolución P/N. º 34954, 2014, 15 de julio de 2014. Archivo
+GT-OP.pdf, p. 1.
+[3] ——, “Manual de organización: Oficina de despacho de carga (gt/odc),”
+ANDE, Tech. Rep. Resolución P/N. º 34954, 2014, 15 de julio de 2014.
+Archivo GT-ODC.pdf, pp. 1–3.
+[4] ——, “Manual de organización: Departamento de operación del sistema
+(gt/dos),” ANDE, Tech. Rep. Resolución P/N. º 34954, 2014, 15 de julio
+de 2014. Archivo GT-DOS.pdf, pp. 1–2.
+[5] ——, “Manual de organización: División de transmisión (gt/dt),” ANDE,
+Tech. Rep. Resolución P/N. º 34954, 2014, 15 de julio de 2014. Archivo
+GT-DT.pdf, p. 1. Publicado en el MECIP de ANDE, capítulo 5, Gerencia
+Técnica. Consultado: 23-09-2026.
+[6] ——, “Manual de organización: Departamento de transmisión metropoli-
+tana y bajo chaco (gt/tmb),” ANDE, Tech. Rep. Resolución P/N. º 34954,
+2014, 15 de julio de 2014. Archivo GT-TMB.pdf, pp. 1–2. Publicado
+en el MECIP de ANDE, capítulo 5, Gerencia Técnica. Consultado:
+23-09-2026.
+[7] ——, “Manual de organización: Departamento de transmisión este
+(gt/tes),” ANDE, Tech. Rep. Resolución P/N. º 34954, 2014, 15 de julio
+de 2014. Archivo GT-TES.pdf, pp. 1–2. Publicado en el MECIP de
+ANDE, capítulo 5, Gerencia Técnica. Consultado: 23-09-2026.
+[8] ——, “Manual de organización: Departamento de transmisión sur (gt/tsu),”
+ANDE, Tech. Rep. Resolución P/N. º 34954, 2014, 15 de julio de 2014.
+Archivo GT-TSU.pdf, p. 1. Publicado en el MECIP de ANDE, capítulo
+5, Gerencia Técnica. Consultado: 23-09-2026.
+[9] ——, “Manual de organización: Departamento de transmisión centro
+(gt/tce),” ANDE, Tech. Rep. Resolución P/N. º 34954, 2014, 15 de julio
+de 2014. Archivo GT-TCE.pdf, p. 1. Publicado en el MECIP de ANDE,
+capítulo 5, Gerencia Técnica. Consultado: 23-09-2026.
+[10] ——, “Manual de organización: Departamento de transmisión norte y alto
+chaco (gt/nac),” ANDE, Tech. Rep. Resolución P/N. º 34954, 2014, 15 de
+julio de 2014. Archivo GT-NAC.pdf, pp. 1–2. Publicado en el MECIP
+de ANDE, capítulo 5, Gerencia Técnica. Consultado: 23-09-2026.
+[11] ——, “Manual de Organización: Sección Base de Datos del SCADA
+(GT/DAS1),” ANDE, Tech. Rep. Resolución P/N. º 50060, 2025, 6 de
+enero de 2025. Actualización 00. Archivo GT-DAS1.pdf, p. 1.
+[12] ——, “Manual de Organización: Sección Aplicativos del SCADA/EMS
+(GT/DAS2),” ANDE, Tech. Rep. Resolución P/N. º 50060, 2025, 6 de
+enero de 2025. Actualización 00. Archivo GT-DAS2.pdf, p. 1.
+[13] ——, “Manual de Organización: Departamento de Ingeniería de Sistemas
+de Control (DTE/ISC),” ANDE, Tech. Rep. Resolución P/N. º 48658,
+2023, 29 de diciembre de 2023. Ficha institucional, 2 páginas. Archivo
+DTE-ISC.pdf.
+[14] ——, “Manual de Organización: Departamento de Mantenimiento de
+Sistemas de Control (DTE/MCO),” ANDE, Tech. Rep. Resolución P/N. º
+48658, 2023, 29 de diciembre de 2023. Archivo DTE-MCO.pdf, pp. 1–2.
+[15] ——, “Manual de Organización: Sección Implementación de Sistemas
+de Control (DTE/ISC2),” ANDE, Tech. Rep. Resolución P/N. º 48658,
+2023, 29 de diciembre de 2023. Archivo DTE-ISC2.pdf, p. 1.
+[16] ——, “Flujo de actualización de la base de datos del SCADA/EMS,
+versión 00,” 2026, diagrama interno de trabajo previo a la propuesta de
+DTE. Archivo flujo_propuesto_inicial.pdf, generado desde una planilla
+de cálculo; no acredita aprobación.
+[17] ——, “Propuesta de procedimiento de actualización de la base de datos
+del sistema scada/ems, versión 00,” 2026, borrador interno no aprobado,
+archivo analizado en septiembre de 2026.
+[18] ——, “Flujo del procedimiento de actualización de la base de datos
+scada/ems,” 2026, diagrama interno de trabajo propuesto por DTE.
+Archivo flujo_actualizacion_bd_scada_ems_propuesto_DTE.pdf. Fecha
+de impresión: 18 de septiembre de 2026; no acredita aprobación.
+[19] J. D. Moseley, N. V . Mago, W. M. Grady, and S. Santoso, “Lessons
+and experiences in the implementation of a consolidated transmission
+modeling data system at ERCOT,” IEEE Power and Energy Technology
+Systems Journal, vol. 1, pp. 12–20, 2014.
+[20] PJM Interconnection, “PJM manual 3a: Energy management system
+(EMS) model updates and quality assurance (QA),” PJM Interconnection,
+Operations Support Division, Audubon, PA, USA, Tech. Rep. Revision 27,
+Mar. 2026, vigente desde el 4 de marzo de 2026. Disponible: https://www.
+pjm.com/-/media/DotCom/documents/manuals/m03a.pdf. Consultado: 23-
+09-2026.
+[21] Electric Power Research Institute, “Network model manager technical
+market requirements: The transmission perspective,” EPRI, Palo Alto,
+CA, USA, Tech. Rep. 3002003053, Aug. 2014, informe final. Casos
+A1–A2, pp. 4-5–4-7; requisitos R2–R3, pp. 6-21–6-23.
+[22] Administración Nacional de Electricidad, “Manual de organización: De-
+partamento de estudios eléctricos (gt/del),” ANDE, Tech. Rep. Resolución
+P/N.º 34954, 2014, 15 de julio de 2014. Archivo GT-DEL.pdf, p. 1.
+[23] ——, “Manual de organización: Departamento de estudios energéticos
+(gt/den),” ANDE, Tech. Rep. Resolución P/N. º 34954, 2014, 15 de julio
+de 2014. Archivo GT-DEN.pdf, p. 1.
+[24] ——, “Manual de organización: Departamento de despacho regional
+(gt/ddr),” ANDE, Tech. Rep. Resolución P/N. º 34954, 2014, 15 de julio
+de 2014. Archivo GT-DDR.pdf, p. 1.
+[25] ——, “Manual de Organización: Sección Ingeniería de Sistemas de
+Control (DTE/ISC1),” ANDE, Tech. Rep. Resolución P/N. º 48658, 2023,
+29 de diciembre de 2023. Archivo DTE-ISC1.pdf, p. 1.
+[26] ——, “Manual de Organización: Sección Ingeniería de Mantenimiento
+de Sistemas de Control (DTE/ISC3),” ANDE, Tech. Rep. Resolución
+P/N.º 48658, 2023, 29 de diciembre de 2023. Archivo DTE-ISC3.pdf, p.
+1.
+[27] International Electrotechnical Commission, “Security for industrial
+automation and control systems, part 2-1: Security program requirements
+for iacs asset owners,” IEC, Geneva, Switzerland, Tech. Rep. IEC 62443-
+2-1:2024, ed. 2.0, 2024, alcance y metadatos públicos, 7 de agosto de
+2024. Disponible: https://webstore.iec.ch/en/publication/62883. No se
+revisó el texto normativo completo.
+[28] International Society of Automation, “Isa/iec 62443
+series of standards,” Recurso en línea, 2026, disponible:
+https://www.isa.org/standards-and-publications/isa-standards/
+isa-iec-62443-series-of-standards. Consultado: 22-09-2026.
+[29] International Electrotechnical Commission, “Security for industrial
+automation and control systems, part 3-2: Security risk assessment for
+system design,” IEC, Geneva, Switzerland, Tech. Rep. IEC 62443-3-
+2:2020, 2020.
+[30] ——, “Communication networks and systems for power utility automa-
+tion, part 6: Configuration description language for communication in
+electrical substations related to ieds,” IEC, Geneva, Switzerland, Tech.
+Rep. IEC 61850-6:2009+AMD1:2018, 2018.
+[31] International Society of Automation, “Isa-95 standard: Enterprise-control
+system integration,” Recurso en línea, 2026, disponible: https://www.isa.
+org/standards-and-publications/isa-standards/isa-95-standard. Consulta-
+do: 22-09-2026.
+[32] International Electrotechnical Commission, “Energy management system
+application program interface (ems-api), part 301: Common information
+model (cim) base,” IEC, Geneva, Switzerland, Tech. Rep. IEC 61970-
+301:2020, ed. 7.0, 2020, edición de junio de 2020. Vista previa consultada:
+portada e índice; no se revisó el articulado completo.
+[33] ——, “Energy management system application program inter-
+face (EMS-API), part 456: Solved power system state pro-
+files,” IEC, Tech. Rep. IEC 61970-456:2018, ed. 2.0, Mar.
+2018, vista previa consultada: introducción, alcance y sec. 5,
+pp. 6–13. Disponible: https://standards.iteh.ai/catalog/standards/sist/
+2ecc82e3-7ce0-49c2-9e21-15ecb2f0b6c0/iec-61970-456-2018.
+[34] K. Stouffer, M. Pease, C. Tang, T. Zimmerman, V . Pillitteri, S. Lightman,
+A. Hahn, S. Saravia, A. Sherule, and M. Thompson, “Guide to operational
+technology (ot) security,” National Institute of Standards and Technology,
+Gaithersburg, MD, USA, Tech. Rep. NIST Special Publication 800-82
+Revision 3, Sep. 2023, doi: 10.6028/NIST.SP.800-82r3.
+[35] North American Electric Reliability Corporation, “CIP-010-4: Cyber
+security, configuration change management and vulnerability assessments,”
+NERC, Atlanta, GA, USA, Tech. Rep., 2020, adoptada por el NERC
+Board of Trustees el 5 de noviembre de 2020; aprobada por FERC el 18
+de marzo de 2021, Docket No. RD21-2-000. Disponible: https://www.nerc.
+com/globalassets/standards/reliability-standards/cip/cip-010-4.pdf. Con-
+sultado: 23-09-2026.
+[36] P. C. Tessin, “RA(CI) Light,” ISACA Now Blog, May 2020, 21 de
+mayo de 2020. Artículo explicativo. Disponible: https://www.isaca.org/
+resources/news-and-trends/isaca-now-blog/2020/raci-light. Consultado:
+22-09-2026.
+[37] European Union Agency for Cybersecurity, “Technical implementation
+guidance on cybersecurity risk management measures,” ENISA, Tech.
+Rep. Version 1.0, Jun. 2025, apartados 1.2.4–1.2.5 y 6.4.1–6.4.3. Guía no
+vinculante para entidades comprendidas en el Reglamento de Ejecución
+(UE) 2024/2690. Disponible: https://www.enisa.europa.eu/publications/
+nis2-technical-implementation-guidance. Consultado: 22-09-2026.
+[38] European Network of Transmission System Operators for Electricity,
+“Common information model and common grid model exchange standard,”
+Recurso en línea, 2026, disponible: https://www.entsoe.eu/data/cim/
+cim-for-grid-models-exchange/. Consultado: 22-09-2026.
+DECLARACIÓN DE USO DE INTELIGENCIA ARTIFICIAL
+Se utilizó NotebookLM como apoyo en la revisión biblio-
+gráfica para localizar documentos y pasajes pertinentes. Se
+emplearon asimismo herramientas de inteligencia artificial
+para apoyar la organización del análisis y la revisión de la
+redacción. Las respuestas generadas no se consideraron fuentes
+de evidencia ni sustituyeron el contraste con los documentos
+citados. La responsabilidad por la interpretación, la verificación
+final y el contenido publicado corresponde a los autores.

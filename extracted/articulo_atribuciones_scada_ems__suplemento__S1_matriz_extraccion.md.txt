@@ -1,0 +1,241 @@
+# Suplemento S1. Matriz de extracción y codificación de atribuciones
+
+Unidad de análisis: numeral de atribución de cada ficha del Manual de Organización. Se codificaron todos los numerales de las veinte fichas, pertinentes o no, para que el recuento sea reproducible. El signo «?» marca un objeto que el texto no delimita.
+
+Codificación realizada por un solo codificador. Queda pendiente una segunda codificación independiente y el cálculo de concordancia (kappa de Cohen) por variable.
+
+## Libro de códigos
+
+**Dominio (objeto)**
+
+| Código | Significado |
+|---|---|
+| ME | Modelo eléctrico |
+| TT | Telemetría y telecontrol |
+| CO | Comunicaciones |
+| AP | Aplicaciones EMS |
+| PT | Plataforma técnica |
+| GS | Gobierno y seguridad |
+| OR | Operación del sistema y criterios operativos |
+| - | Fuera del objeto SCADA/EMS |
+
+**Fase del ciclo de cambio**
+
+| Código | Significado |
+|---|---|
+| PLA | Planificación y proyecto |
+| REQ | Requisito |
+| CON | Diseño y construcción |
+| INT | Integración e implementación |
+| PRU | Prueba |
+| ACE | Aceptación o recepción |
+| LIB | Liberación o habilitación |
+| DES | Despliegue y puesta en servicio |
+| OPE | Operación, soporte y mantenimiento |
+| REG | Registro y documentación |
+
+**Tipo de autoridad**
+
+| Código | Significado |
+|---|---|
+| EJE | Ejecuta |
+| SUP | Supervisa |
+| REV | Revisa o verifica |
+| APR | Aprueba |
+| ADM | Administra o gestiona |
+| AUT | Autoriza o suspende en tiempo real |
+| COO | Coordina |
+| SOP | Soporte o apoyo |
+| SOL | Solicita o recomienda |
+| DEF | Define criterios, normas o políticas |
+
+**Pertinencia para el cambio de base SCADA/EMS**
+
+| Código | Significado |
+|---|---|
+| D | Directa |
+| I | Indirecta |
+| N | No pertinente |
+
+Reglas: (1) se codifica el verbo rector literal; (2) si un numeral tiene varios verbos, se registran todos; (3) el dominio se asigna por el objeto nombrado, no por la unidad; (4) la pertinencia es directa si el numeral actúa sobre la base, las aplicaciones o su cambio, indirecta si aporta insumos, criterios o contexto, y nula en otro caso; (5) dos numerales se comparan solo si comparten al menos un dominio y una fase.
+
+## Resumen
+
+Numerales codificados: 135. Directos: 40; indirectos: 56; no pertinentes: 39. Numerales con objeto ambiguo: 6.
+
+| Unidad | D | I | N | Total |
+|---|---:|---:|---:|---:|
+| DTE/ISC | 1 | 8 | 2 | 11 |
+| DTE/ISC1 | 0 | 4 | 1 | 5 |
+| DTE/ISC2 | 5 | 1 | 0 | 6 |
+| DTE/ISC3 | 1 | 4 | 0 | 5 |
+| DTE/MCO | 7 | 5 | 0 | 12 |
+| GT/OP | 0 | 2 | 4 | 6 |
+| GT/ODC | 3 | 2 | 10 | 15 |
+| GT/DOS | 2 | 3 | 5 | 10 |
+| GT/DEN | 0 | 2 | 4 | 6 |
+| GT/DEL | 1 | 4 | 0 | 5 |
+| GT/DDR | 0 | 4 | 2 | 6 |
+| GT/DT | 1 | 2 | 1 | 4 |
+| GT/TMB | 2 | 3 | 2 | 7 |
+| GT/TES | 2 | 3 | 2 | 7 |
+| GT/TSU | 2 | 3 | 2 | 7 |
+| GT/TCE | 2 | 3 | 2 | 7 |
+| GT/NAC | 2 | 3 | 2 | 7 |
+| GT/DAS | 4 | 0 | 0 | 4 |
+| GT/DAS1 | 3 | 0 | 0 | 3 |
+| GT/DAS2 | 2 | 0 | 0 | 2 |
+
+## Cruces entre numerales
+
+| Cruce | Numerales | Clasificación | Reglas de diseño |
+|---|---|---|---|
+| C1 | GT/DAS1 2.1-2.2; GT/DAS 2.1; DTE/ISC2 2.5 | Concurrencia en construcción y actualización de bases; objeto ambiguo en ambas fichas | R2, R3 |
+| C2 | GT/DAS 2.1; DTE/ISC3 2.5 | Complementariedad: versión funcional frente a registro técnico de configuración | R6 |
+| C3 | GT/DAS 2.2; GT/DAS2 2.1; DTE/MCO 2.8 | Complementariedad: aplicativos frente a equipos y redes | R5 |
+| C4 | GT/DAS2 2.2; DTE/MCO 2.9 | Concurrencia potencial según el producto de software | R5 |
+| C5 | GT/DAS 2.4; DTE/ISC 2.1, 2.5; DTE/ISC2 2.3, 2.6; DTE/MCO 2.4-2.7 | Concurrencia en la cadena de cambio: requisito, integración, pruebas, recepción | R1, R4, R7 |
+| C6 | GT/DAS 2.3; DTE/MCO 2.3 | Complementariedad con interfaz de escalamiento | R8 |
+| C7 | GT/DAS 2.3; GT/DOS 2.7, 2.10; GT/ODC 2.14 | Concurrencia interna de Operación en soporte y herramientas | R8 |
+| C8 | GT/ODC 2.5-2.6; gestión de cambios | Complementariedad: habilitación en tiempo real frente a liberación de versión | R8 |
+| C9 | GT/DT 2.4; TMB, TES, TSU, TCE y NAC 2.4 y 2.6; GT/DAS1 2.1-2.2; DTE/ISC2 2.5; GT/ODC | Complementariedad: configuración física certificada en origen frente a construcción del modelo y los mímicos | R6 |
+
+## Matriz
+
+| id | unidad | resolucion | numeral | sintesis | dominio | fase | autoridad | pertinencia | nota |
+|---|---|---|---|---|---|---|---|---|---|
+| N001 | DTE/ISC | 48658 (29/12/2023) | 2.1 | Elaborar planes de expansión y proyectos SCADA, SAS, comunicación industrial y ciberseguridad | TT;CO;GS | PLA | EJE | I |  |
+| N002 | DTE/ISC | 48658 (29/12/2023) | 2.2 | Elaborar proyectos de retrofit de sistemas de control de estaciones | TT | PLA | EJE | N |  |
+| N003 | DTE/ISC | 48658 (29/12/2023) | 2.3 | Promover la innovación en tecnologías de operación | - | PLA | SOP | N |  |
+| N004 | DTE/ISC | 48658 (29/12/2023) | 2.4 | Analizar, revisar y aprobar proyectos de terceros de tecnologías de operación | TT;CO | PLA | APR | I |  |
+| N005 | DTE/ISC | 48658 (29/12/2023) | 2.5 | Ejecutar y supervisar montaje, instalación, ampliación y puesta en servicio | TT;CO;PT | INT;DES | EJE;SUP | D | Cruce C5 |
+| N006 | DTE/ISC | 48658 (29/12/2023) | 2.6 | Elaborar, ejecutar y supervisar proyectos de redes LAN, WAN y radioenlaces | CO | PLA;INT | EJE;SUP | I |  |
+| N007 | DTE/ISC | 48658 (29/12/2023) | 2.7 | Elaborar, ejecutar y supervisar proyectos de ciberseguridad OT | GS;PT | PLA;INT | EJE;SUP | I |  |
+| N008 | DTE/ISC | 48658 (29/12/2023) | 2.8 | Administrar contratos de adquisición e implementación | PT | PLA | ADM | I |  |
+| N009 | DTE/ISC | 48658 (29/12/2023) | 2.9 | Estudiar y desarrollar normas y especificaciones técnicas | GS | PLA | DEF | I |  |
+| N010 | DTE/ISC | 48658 (29/12/2023) | 2.10 | Controlar, evaluar y seguir el mantenimiento de tecnologías de operación | TT;CO;PT | OPE | SUP | I |  |
+| N011 | DTE/ISC | 48658 (29/12/2023) | 2.11 | Elaborar políticas, manuales e instrucciones de mantenimiento | GS | OPE | DEF | I |  |
+| N012 | DTE/ISC1 | 48658 (29/12/2023) | 2.1 | Realizar estudios y proyectos técnico-económicos SCADA, SAS y ciberseguridad | TT;CO;GS | PLA | EJE | I |  |
+| N013 | DTE/ISC1 | 48658 (29/12/2023) | 2.2 | Realizar estudios y proyectos de retrofit | TT | PLA | EJE | N |  |
+| N014 | DTE/ISC1 | 48658 (29/12/2023) | 2.3 | Analizar y revisar proyectos de terceros | TT;CO | PLA | REV | I |  |
+| N015 | DTE/ISC1 | 48658 (29/12/2023) | 2.4 | Administrar contratos de adquisición e implementación | PT | PLA | ADM | I |  |
+| N016 | DTE/ISC1 | 48658 (29/12/2023) | 2.5 | Investigar y desarrollar soluciones para tecnologías de operación | TT;CO;PT | PLA | EJE | I |  |
+| N017 | DTE/ISC2 | 48658 (29/12/2023) | 2.1 | Realizar o supervisar montaje, instalación, ampliación y puesta en servicio SCADA/SAS | TT;CO;PT | INT;DES | EJE;SUP | D |  |
+| N018 | DTE/ISC2 | 48658 (29/12/2023) | 2.2 | Realizar o supervisar trabajos de redes de comunicaciones | CO | INT | EJE;SUP | I |  |
+| N019 | DTE/ISC2 | 48658 (29/12/2023) | 2.3 | Efectuar, analizar y aprobar pruebas FAT y SAT | TT;CO;PT | PRU;ACE | EJE;APR | D | Cruce C5 |
+| N020 | DTE/ISC2 | 48658 (29/12/2023) | 2.4 | Verificar la correcta implementación y puesta en servicio según estándares | TT;CO;PT | PRU | REV | D |  |
+| N021 | DTE/ISC2 | 48658 (29/12/2023) | 2.5 | Elaborar o unificar base de datos y planos de equipos y sistemas OT | TT;CO;ME? | CON;INT;REG | EJE | D | Cruce C1. Objeto ambiguo: no precisa si incluye el modelo eléctrico |
+| N022 | DTE/ISC2 | 48658 (29/12/2023) | 2.6 | Coordinar implementación y puesta en servicio con otras unidades | TT;CO;PT | INT;DES | COO | D | Cruce C5 |
+| N023 | DTE/ISC3 | 48658 (29/12/2023) | 2.1 | Planificar y supervisar el mantenimiento de sistemas SCADA/SAS | TT;CO;PT | OPE | SUP | I |  |
+| N024 | DTE/ISC3 | 48658 (29/12/2023) | 2.2 | Elaborar normas técnicas y manuales de mantenimiento | GS | OPE | DEF | I |  |
+| N025 | DTE/ISC3 | 48658 (29/12/2023) | 2.3 | Monitorear, analizar y evaluar el desempeño de sistemas OT | TT;CO;PT | OPE | SUP | I |  |
+| N026 | DTE/ISC3 | 48658 (29/12/2023) | 2.4 | Definir indicadores clave de desempeño | GS | OPE | DEF | I |  |
+| N027 | DTE/ISC3 | 48658 (29/12/2023) | 2.5 | Mantener actualizada la base de planos, archivos de configuración y arquitectura | TT;CO;PT | REG | EJE | D | Cruce C2 |
+| N028 | DTE/MCO | 48658 (29/12/2023) | 2.1 | Planificar, ejecutar o coordinar mantenimiento preventivo y correctivo | TT;CO;PT | OPE | EJE;COO | I |  |
+| N029 | DTE/MCO | 48658 (29/12/2023) | 2.2 | Monitorear, analizar y controlar el desempeño de sistemas de control | TT;CO;PT | OPE | SUP | I |  |
+| N030 | DTE/MCO | 48658 (29/12/2023) | 2.3 | Atender, derivar e informar reclamos de sistemas de supervisión y control | TT;CO;PT | OPE | SOP | D | Cruce C6 |
+| N031 | DTE/MCO | 48658 (29/12/2023) | 2.4 | Supervisar montaje, recepcionar y gestionar integración al Sistema de Operación | TT;CO | INT;ACE | SUP;APR;ADM | D | Cruce C5 |
+| N032 | DTE/MCO | 48658 (29/12/2023) | 2.5 | Supervisar ampliación, actualización y adecuación en estaciones integradas | TT;CO | INT | SUP | D | Cruce C5 |
+| N033 | DTE/MCO | 48658 (29/12/2023) | 2.6 | Supervisar, gestionar y recepcionar integraciones al SCADA, EMS o DMS | TT;CO;AP? | INT;ACE | SUP;ADM;APR | D | Cruce C5 |
+| N034 | DTE/MCO | 48658 (29/12/2023) | 2.7 | Supervisar, gestionar y recepcionar integración y puesta en servicio en instalaciones nuevas | TT;CO | INT;DES;ACE | SUP;ADM;APR | D | Cruce C5 |
+| N035 | DTE/MCO | 48658 (29/12/2023) | 2.8 | Administrar y mantener equipos y redes SCADA, EMS y DMS | PT;CO | OPE | ADM;EJE | D | Cruce C3 |
+| N036 | DTE/MCO | 48658 (29/12/2023) | 2.9 | Administrar la actualización de software de consultas, reportes y monitoreo OT | PT;AP? | OPE;DES | ADM | D | Cruce C4. Objeto ambiguo según producto |
+| N037 | DTE/MCO | 48658 (29/12/2023) | 2.10 | Supervisar configuración de ciberseguridad de frontera | GS;CO | OPE | SUP | I |  |
+| N038 | DTE/MCO | 48658 (29/12/2023) | 2.11 | Supervisar cumplimiento de políticas de seguridad de frontera | GS | OPE | SUP | I |  |
+| N039 | DTE/MCO | 48658 (29/12/2023) | 2.12 | Proponer políticas de mantenimiento | GS | OPE | DEF | I |  |
+| N040 | GT/OP | 34954 (15/07/2014) | 2.1 | Planificar y controlar a mediano plazo la operación del sistema | OR | PLA | ADM | I |  |
+| N041 | GT/OP | 34954 (15/07/2014) | 2.2 | Analizar el sistema de alta tensión y elaborar planes | OR | PLA | EJE | N |  |
+| N042 | GT/OP | 34954 (15/07/2014) | 2.3 | Coordinar la operación eléctrica y energética | OR | OPE | COO | I |  |
+| N043 | GT/OP | 34954 (15/07/2014) | 2.4 | Realizar previsiones de carga | OR | PLA | EJE | N |  |
+| N044 | GT/OP | 34954 (15/07/2014) | 2.5 | Administrar contratos de interconexión | - | OPE | ADM | N |  |
+| N045 | GT/OP | 34954 (15/07/2014) | 2.6 | Coordinar presupuestos anuales | - | PLA | COO | N |  |
+| N046 | GT/ODC | 34954 (15/07/2014) | 2.1 | Supervisar y controlar en tiempo real la operación (2.1.1 a 2.1.3) | OR | OPE | EJE | I | Usuario principal del SCADA/EMS |
+| N047 | GT/ODC | 34954 (15/07/2014) | 2.2 | Coordinar la operación electroenergética | OR | OPE | COO | N |  |
+| N048 | GT/ODC | 34954 (15/07/2014) | 2.3 | Controlar previsiones y reprogramar generación | OR | OPE | EJE | N |  |
+| N049 | GT/ODC | 34954 (15/07/2014) | 2.4 | Aplicar contratos de compra, venta e intercambio | - | OPE | EJE | N |  |
+| N050 | GT/ODC | 34954 (15/07/2014) | 2.5 | Supervisar, coordinar, ejecutar y autorizar maniobras mediante SCADA | OR | OPE | AUT | D | Cruce C8 |
+| N051 | GT/ODC | 34954 (15/07/2014) | 2.6 | Autorizar o suspender en tiempo real trabajos de mantenimiento | OR | LIB | AUT | D | Cruce C8 |
+| N052 | GT/ODC | 34954 (15/07/2014) | 2.7 | Recomponer el sistema tras perturbaciones | OR | OPE | EJE | N |  |
+| N053 | GT/ODC | 34954 (15/07/2014) | 2.8 | Ordenar maniobras de compuertas de embalses | - | OPE | EJE | N |  |
+| N054 | GT/ODC | 34954 (15/07/2014) | 2.9 | Cubrir turnos rotativos en sala de operación | OR | OPE | EJE | N |  |
+| N055 | GT/ODC | 34954 (15/07/2014) | 2.10 | Elaborar partes e informes diarios de operación | OR | REG | EJE | N |  |
+| N056 | GT/ODC | 34954 (15/07/2014) | 2.11 | Participar en grupos ad hoc de operación | OR | OPE | SOP | N |  |
+| N057 | GT/ODC | 34954 (15/07/2014) | 2.12 | Cubrir personal prevenido fuera de horario | OR | OPE | EJE | N |  |
+| N058 | GT/ODC | 34954 (15/07/2014) | 2.13 | Solicitar estudios para reglamentos e instrucciones | OR | REQ | SOL | I |  |
+| N059 | GT/ODC | 34954 (15/07/2014) | 2.14 | Solicitar a DOS el desarrollo de herramientas o aplicativos | AP | REQ | SOL | D | Cruce C7 |
+| N060 | GT/ODC | 34954 (15/07/2014) | 2.15 | Representar a ANDE ante la CMO | - | OPE | SOP | N |  |
+| N061 | GT/DOS | 34954 (15/07/2014) | 2.1 | Programar y evaluar la operación de su área | OR | PLA | EJE | N |  |
+| N062 | GT/DOS | 34954 (15/07/2014) | 2.2 | Definir criterios operativos de utilización de líneas y equipos de su área | OR;ME | REQ | DEF | I | Insumo de parámetros y límites |
+| N063 | GT/DOS | 34954 (15/07/2014) | 2.3 | Programar y evaluar maniobras y disponibilidad para mantenimiento | OR | PLA | EJE | I |  |
+| N064 | GT/DOS | 34954 (15/07/2014) | 2.4 | Programar y evaluar contratos de intercambio | - | PLA | EJE | N |  |
+| N065 | GT/DOS | 34954 (15/07/2014) | 2.5 | Analizar perturbaciones de su área | OR | OPE | EJE | I |  |
+| N066 | GT/DOS | 34954 (15/07/2014) | 2.6 | Realizar estudios para reglamentos e instrucciones | OR | PLA | EJE | N |  |
+| N067 | GT/DOS | 34954 (15/07/2014) | 2.7 | Proporcionar soporte técnico a ODC sobre recursos tecnológicos e informáticos | AP;PT | OPE | SOP | D | Cruce C7 |
+| N068 | GT/DOS | 34954 (15/07/2014) | 2.8 | Proporcionar información de pre y posdespacho | OR | REG | SOP | N |  |
+| N069 | GT/DOS | 34954 (15/07/2014) | 2.9 | Representar a ANDE ante la CMO | - | OPE | SOP | N |  |
+| N070 | GT/DOS | 34954 (15/07/2014) | 2.10 | Apoyar técnicamente al personal de turno de ODC | OR;AP | OPE | SOP | D | Cruce C7 |
+| N071 | GT/DEN | 34954 (15/07/2014) | 2.1 | Elaborar estudios de operación energética integrada | OR | PLA | EJE | I |  |
+| N072 | GT/DEN | 34954 (15/07/2014) | 2.2 | Administrar contratos de energía | - | OPE | ADM | N |  |
+| N073 | GT/DEN | 34954 (15/07/2014) | 2.3 | Participar en grupos de estudios energéticos | OR | PLA | SOP | N |  |
+| N074 | GT/DEN | 34954 (15/07/2014) | 2.4 | Elaborar estudios de factibilidad de suministro | - | PLA | EJE | N |  |
+| N075 | GT/DEN | 34954 (15/07/2014) | 2.5 | Estudiar la operación energética del sistema | OR | PLA | EJE | I |  |
+| N076 | GT/DEN | 34954 (15/07/2014) | 2.6 | Procesar facturación de energía exportada | - | OPE | EJE | N |  |
+| N077 | GT/DEL | 34954 (15/07/2014) | 2.1 | Elaborar estudios de operación eléctrica | OR;ME | PLA | EJE | I |  |
+| N078 | GT/DEL | 34954 (15/07/2014) | 2.2 | Participar en la programación de la expansión | ME | PLA | COO | I | Origen de equipos futuros |
+| N079 | GT/DEL | 34954 (15/07/2014) | 2.3 | Analizar perturbaciones y desempeño de protecciones | OR | OPE | EJE | I |  |
+| N080 | GT/DEL | 34954 (15/07/2014) | 2.4 | Elaborar estudios de protecciones | ME | PLA | EJE | I |  |
+| N081 | GT/DEL | 34954 (15/07/2014) | 2.5 | Definir criterios operativos de utilización de líneas y equipos | OR;ME | REQ | DEF | D | Insumo de parámetros y límites |
+| N082 | GT/DDR | 34954 (15/07/2014) | 2.1 | Ejecutar la operación integrada | OR | OPE | EJE | I |  |
+| N083 | GT/DDR | 34954 (15/07/2014) | 2.2 | Controlar datos recibidos de los centros regionales | TT | OPE | SUP | I |  |
+| N084 | GT/DDR | 34954 (15/07/2014) | 2.3 | Cubrir turnos de centros regionales | OR | OPE | EJE | N |  |
+| N085 | GT/DDR | 34954 (15/07/2014) | 2.4 | Normalizar manuales e instrucciones de centros regionales | OR | REG | DEF | N |  |
+| N086 | GT/DDR | 34954 (15/07/2014) | 2.5 | Coordinar la gestión técnica y administrativa de centros regionales | OR | OPE | COO | I |  |
+| N087 | GT/DDR | 34954 (15/07/2014) | 2.6 | Coordinar el monitoreo y controlar equipos de su área | OR | OPE | EJE | I |  |
+| N088 | GT/DT | 34954 (15/07/2014) | 2.1 | Coordinar la operación del sistema, líneas de transmisión y subtransmisión | OR | OPE | COO | I |  |
+| N089 | GT/DT | 34954 (15/07/2014) | 2.2 | Coordinar trabajos de mantenimiento de menor envergadura | OR | OPE | COO | I |  |
+| N090 | GT/DT | 34954 (15/07/2014) | 2.3 | Proponer instrucciones técnicas de operación y ensayos | GS | OPE | DEF | N |  |
+| N091 | GT/DT | 34954 (15/07/2014) | 2.4 | Participar en programas y pruebas de recepción y energización de nuevas instalaciones | ME;TT | PRU;ACE | SOP | D | Cruce C9 |
+| N092 | GT/TMB | 34954 (15/07/2014) | 2.1 | Coordinar con DOS y Distribución la operación de estaciones y líneas de su ámbito geográfico | OR | OPE | COO | I |  |
+| N093 | GT/TMB | 34954 (15/07/2014) | 2.2 | Programar mantenimiento de menor envergadura y apoyar el de mayor envergadura | OR | PLA | EJE | I |  |
+| N094 | GT/TMB | 34954 (15/07/2014) | 2.3 | Coordinar, supervisar y autorizar trabajos que no afecten la operación del sistema | OR | LIB | AUT | I |  |
+| N095 | GT/TMB | 34954 (15/07/2014) | 2.4 | Coordinar y controlar proyectos de alteraciones provisorias o permanentes en instalaciones en servicio | ME | REQ | COO;SUP | D | Cruce C9. Origen de cambios de configuración física; no menciona mímicos, SCADA ni EMS |
+| N096 | GT/TMB | 34954 (15/07/2014) | 2.5 | Coordinar y controlar instrucciones técnicas de operación y ensayos | GS | OPE | DEF | N |  |
+| N097 | GT/TMB | 34954 (15/07/2014) | 2.6 | Orientar y acompañar la construcción de nuevas instalaciones, participando en programas y pruebas | ME;TT | PRU;ACE | SOP | D | Cruce C9 |
+| N098 | GT/TMB | 34954 (15/07/2014) | 2.7 | Administrar repuestos de equipos e instalaciones a su cargo | - | OPE | ADM | N |  |
+| N099 | GT/TES | 34954 (15/07/2014) | 2.1 | Coordinar con DOS y Distribución la operación de estaciones y líneas de su ámbito geográfico | OR | OPE | COO | I |  |
+| N100 | GT/TES | 34954 (15/07/2014) | 2.2 | Programar mantenimiento de menor envergadura y apoyar el de mayor envergadura | OR | PLA | EJE | I |  |
+| N101 | GT/TES | 34954 (15/07/2014) | 2.3 | Coordinar, supervisar y autorizar trabajos que no afecten la operación del sistema | OR | LIB | AUT | I |  |
+| N102 | GT/TES | 34954 (15/07/2014) | 2.4 | Coordinar y controlar proyectos de alteraciones provisorias o permanentes en instalaciones en servicio | ME | REQ | COO;SUP | D | Cruce C9. Origen de cambios de configuración física; no menciona mímicos, SCADA ni EMS |
+| N103 | GT/TES | 34954 (15/07/2014) | 2.5 | Coordinar y controlar instrucciones técnicas de operación y ensayos | GS | OPE | DEF | N |  |
+| N104 | GT/TES | 34954 (15/07/2014) | 2.6 | Orientar y acompañar la construcción de nuevas instalaciones, participando en programas y pruebas | ME;TT | PRU;ACE | SOP | D | Cruce C9 |
+| N105 | GT/TES | 34954 (15/07/2014) | 2.7 | Administrar repuestos de equipos e instalaciones a su cargo | - | OPE | ADM | N |  |
+| N106 | GT/TSU | 34954 (15/07/2014) | 2.1 | Coordinar con DOS y Distribución la operación de estaciones y líneas de su ámbito geográfico | OR | OPE | COO | I |  |
+| N107 | GT/TSU | 34954 (15/07/2014) | 2.2 | Programar mantenimiento de menor envergadura y apoyar el de mayor envergadura | OR | PLA | EJE | I |  |
+| N108 | GT/TSU | 34954 (15/07/2014) | 2.3 | Coordinar, supervisar y autorizar trabajos que no afecten la operación del sistema | OR | LIB | AUT | I |  |
+| N109 | GT/TSU | 34954 (15/07/2014) | 2.4 | Coordinar y controlar proyectos de alteraciones provisorias o permanentes en instalaciones en servicio | ME | REQ | COO;SUP | D | Cruce C9. Origen de cambios de configuración física; no menciona mímicos, SCADA ni EMS |
+| N110 | GT/TSU | 34954 (15/07/2014) | 2.5 | Coordinar y controlar instrucciones técnicas de operación y ensayos | GS | OPE | DEF | N |  |
+| N111 | GT/TSU | 34954 (15/07/2014) | 2.6 | Orientar y acompañar la construcción de nuevas instalaciones, participando en programas y pruebas | ME;TT | PRU;ACE | SOP | D | Cruce C9 |
+| N112 | GT/TSU | 34954 (15/07/2014) | 2.7 | Administrar repuestos de equipos e instalaciones a su cargo | - | OPE | ADM | N |  |
+| N113 | GT/TCE | 34954 (15/07/2014) | 2.1 | Coordinar con DOS y Distribución la operación de estaciones y líneas de su ámbito geográfico | OR | OPE | COO | I |  |
+| N114 | GT/TCE | 34954 (15/07/2014) | 2.2 | Programar mantenimiento de menor envergadura y apoyar el de mayor envergadura | OR | PLA | EJE | I |  |
+| N115 | GT/TCE | 34954 (15/07/2014) | 2.3 | Coordinar, supervisar y autorizar trabajos que no afecten la operación del sistema | OR | LIB | AUT | I |  |
+| N116 | GT/TCE | 34954 (15/07/2014) | 2.4 | Coordinar y controlar proyectos de alteraciones provisorias o permanentes en instalaciones en servicio | ME | REQ | COO;SUP | D | Cruce C9. Origen de cambios de configuración física; no menciona mímicos, SCADA ni EMS |
+| N117 | GT/TCE | 34954 (15/07/2014) | 2.5 | Coordinar y controlar instrucciones técnicas de operación y ensayos | GS | OPE | DEF | N |  |
+| N118 | GT/TCE | 34954 (15/07/2014) | 2.6 | Orientar y acompañar la construcción de nuevas instalaciones, participando en programas y pruebas | ME;TT | PRU;ACE | SOP | D | Cruce C9 |
+| N119 | GT/TCE | 34954 (15/07/2014) | 2.7 | Administrar repuestos de equipos e instalaciones a su cargo | - | OPE | ADM | N |  |
+| N120 | GT/NAC | 34954 (15/07/2014) | 2.1 | Coordinar con DOS y Distribución la operación de estaciones y líneas de su ámbito geográfico | OR | OPE | COO | I |  |
+| N121 | GT/NAC | 34954 (15/07/2014) | 2.2 | Programar mantenimiento de menor envergadura y apoyar el de mayor envergadura | OR | PLA | EJE | I |  |
+| N122 | GT/NAC | 34954 (15/07/2014) | 2.3 | Coordinar, supervisar y autorizar trabajos que no afecten la operación del sistema | OR | LIB | AUT | I |  |
+| N123 | GT/NAC | 34954 (15/07/2014) | 2.4 | Coordinar y controlar proyectos de alteraciones provisorias o permanentes en instalaciones en servicio | ME | REQ | COO;SUP | D | Cruce C9. Origen de cambios de configuración física; no menciona mímicos, SCADA ni EMS |
+| N124 | GT/NAC | 34954 (15/07/2014) | 2.5 | Coordinar y controlar instrucciones técnicas de operación y ensayos | GS | OPE | DEF | N |  |
+| N125 | GT/NAC | 34954 (15/07/2014) | 2.6 | Orientar y acompañar la construcción de nuevas instalaciones, participando en programas y pruebas | ME;TT | PRU;ACE | SOP | D | Cruce C9 |
+| N126 | GT/NAC | 34954 (15/07/2014) | 2.7 | Administrar repuestos de equipos e instalaciones a su cargo | - | OPE | ADM | N |  |
+| N127 | GT/DAS | 50060 (06/01/2025) | 2.1 | Administrar y gestionar la base de datos del SIN obtenidos mediante SCADA | TT;ME? | CON;OPE;REG | ADM | D | Cruces C1 y C2. Objeto ambiguo: datos obtenidos mediante SCADA |
+| N128 | GT/DAS | 50060 (06/01/2025) | 2.2 | Administrar y gestionar los módulos de aplicativos SCADA/EMS | AP | OPE | ADM | D | Cruce C3 |
+| N129 | GT/DAS | 50060 (06/01/2025) | 2.3 | Proporcionar soporte técnico a usuarios finales | AP;TT | OPE | SOP | D | Cruces C6 y C7 |
+| N130 | GT/DAS | 50060 (06/01/2025) | 2.4 | Gestionar los cambios para nuevos requisitos del sistema | GS | REQ;LIB | ADM | D | Cruce C5 |
+| N131 | GT/DAS1 | 50060 (06/01/2025) | 2.1 | Diseñar e implementar bases de datos del SCADA | TT;ME? | CON | EJE | D | Cruce C1 |
+| N132 | GT/DAS1 | 50060 (06/01/2025) | 2.2 | Mantener y actualizar bases existentes ante nuevos requisitos | TT;ME? | CON;OPE | EJE | D | Cruce C1 |
+| N133 | GT/DAS1 | 50060 (06/01/2025) | 2.3 | Asegurar la base en requisitos de seguridad y mejora continua | GS | OPE | ADM | D |  |
+| N134 | GT/DAS2 | 50060 (06/01/2025) | 2.1 | Administrar aplicativos: previsión, topología, estimador, contingencias, OPF | AP | OPE | ADM | D | Cruces C3 y C4 |
+| N135 | GT/DAS2 | 50060 (06/01/2025) | 2.2 | Actualizar aplicativos ante nuevos requisitos | AP | CON;DES | EJE | D | Cruce C4 |

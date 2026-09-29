@@ -1,0 +1,611 @@
+ 
+ 
+Abstract—The harmonization of CIM (IEC 61968/61970) and 
+IEC 61850 standards is a major issue in the interoperability 
+between smart grid devices, systems and applications. This paper 
+describes how Ontology Matching methods, mainly developed for 
+the Semantic Web, can be employed to solve the problems or 
+mismatches that appear in this harmonization. The paper also 
+includes a description of the ESODAT software tool, which 
+processes OWL alignments to translate configuration files from 
+one of the standards (CIM or IEC 61850) to the other one. The 
+tests carried out with this tool proved its ability to solve 
+mismatches that appear in the state of the art. Besides, the 
+solution proposed in this work is based on open source resources 
+and does not require any modification of the original standards.  
+I. INTRODUCTION 
+HE NEXT -GENERATION of electric networks will be 
+managed by local and remote control systems in which 
+large amounts of information will have to flow easily. In order 
+to optimize these systems, their applications and devices (even 
+if they are from different designers) will have to exchange 
+data without the employment of complex and expensive 
+format converters. This is the main reason why the adoption of 
+standards that promote interoperability in the electric system 
+domains will be advantageous, if not a necessity [1], in the 
+Smart Grid initiative.  
+ Through this decad e the International Electrotechnical 
+Commission Technical Committee 57 (IEC TC57) has 
+standardized information models for the electric systems in 
+order to facilitate the interoperability between different 
+developers in this domain. Unfortunately, a unique IEC TC57 
+information model has not been standardized. Instead, on the 
+one hand, the Common Information Model (CIM) was 
+developed in the IEC 61968 and IEC 61970 standards in order 
+to facilitate the interoperability between the applications of the 
+remote energy management systems. On the other hand, the 
+61850 model was developed to achieve the interoperability 
+between the local automation devices. Both information 
+models are now very consolidated in their respective control 
+level. However, there are many cases in which an exchange of 
+information between the 61850 devices or tools and the CIM 
+applications is needed. Therefor e there is an obvious interest 
+in harmonizing these two standard information models.  
+The harmonization between CIM and 61850 has become a 
+big issue for various researchers in the last seven years. Some 
+of the main contributions to the solution of this problem came 
+from the ABB group led by Tatjana Kostic. Between the years 
+2003 and 2007, this group translated all the 61850 model to 
+UML [2], used this formal language to express the semantic 
+correspondences between the two information models [3] and 
+developed a tool for the bi-directional translation of 
+configuration files between CIM and 61850 [4]. During their 
+research, the ABB group detected and classified different 
+types of mismatches between the information models that 
+became the main barrier to automate the harmonization 
+process. In fact, the tool developed by this group requires the 
+user intervention to carry out the translation.  
+To solve the harmonization problems derived from these 
+mismatches, the work group led by Terry Saxton, from 
+Xtensible Solutions, Herb Falk, from SISCO, and Dave 
+Becker, from EPRI, [5] proposes the creation of a Unified 
+Model. This Unified Model conforms to the CIM model with 
+new 61850 packages, which have to include changes to the 
+original 61850 model. So, basically, this group proposes to 
+modify the 61850 model to merge it with the CIM and create a 
+Unified Model for the electric systems. This solution solves 
+the mismatches, but implies that all the 61850 existing devices 
+and tools will have to be modified for their adaptation to a 
+new standard version.  
+ In 2006 the EPRI published a technical report about 
+harmonization between CIM and 61850 [6]. In this technical 
+report a detailed analysis of the harmonization problem was 
+performed including: an accurate comparison of the models, 
+various harmonization use cases and a series of 
+recommendations to automate the harmonization process as 
+much as possible. One of these recommendations is the use of 
+the Web Ontology Language (OWL) [7] for the representation 
+of the semantic correspondences. The EPRI proposed this 
+language because it is more precise than UML, so it can solve 
+some of the mismatches that appear in the harmonization 
+process. However, the main contribution of this 
+recommendation is not the idea of employing this language 
+but the introduction of a new concept to the harmonization 
+problem, the ontology, and all the concepts and methods that 
+may be derived from it. Thus, an important issue that can be 
+inferred from the use of the OWL is the possible adoption of 
+the Ontology Matching methods to solve the harmonization 
+problem. 
+II. ONTOLOGY MATCHING 
+The distinction between the terms “ontology” and 
+“information model” is still a subject of discussion in the 
+computer science field [8]. Attending to the most accepted 
+definitions, it can be concluded that both are representations or 
+Ontology Matching Approach to the 
+Harmonization of CIM and IEC 61850 Standards 
+R. Santodomingo, J. A. Rodríguez-Mondéjar, and M. A. Sanz-Bobi 
+Comillas Pontifical University. ICAI School of Engineering. Institute for Research in Technology (IIT)  
+C/ Santa Cruz de Marcenado 26, 28015 Madrid, Spain 
+T
+978-1-4244-6511-8/10/$26.00 ©2010 IEEE 55
+ 
+projections of a system or domain of knowledge, but the 
+ontologies have some particular characteristics. In any case, as 
+explained in [9], the CIM and 61850 OWL-based ontologies 
+can be developed from the standards.  
+Ontology Matching can be defined as the process of finding 
+and processing the semantic correspondences, called 
+alignments, between entities of different ontologies [10]. This 
+process is employed in traditional applications, such as 
+schema integration. Recently there has been a great 
+improvement in the Ontology Matching methods and 
+techniques for being considered an optimal solution in new 
+applications, such as navigation on the Semantic Web [11]. 
+The harmonization between CIM and 61850 models can be 
+treated as an Ontology Matching problem in which the aim is 
+to find and process the semantic correspondences between 
+entities of the CIM and the 61850 ontologies. So, it could be 
+interesting to adopt and improve the methods, techniques and 
+tools developed in the Ontology Matching applications 
+(mainly, in the Semantic Web) to harmonize these two 
+information models. In fact, the Ontology Matching approach 
+could be advantageous in the harmonization of any two 
+information models that may be required in the smart grids. 
+The OFFIS group led by Mathias Uslar was the first one to 
+apply Ontology Matching techniques to this problem [9]. 
+Thus, this group developed a methodology called COLIN 
+(CIM Ontology aLIgNment methodology) to achieve an 
+ontology-based integration of the IEC TC57 standards. This 
+methodology includes the employment of a tool called 
+CIMBench which semi-automatically obtains the alignments 
+between the CIM ontology and other ones defined by the IEC 
+TC57, such as, the 61850, or the 62351-7, that is a standard 
+for communication system management.  
+Whereas the work of Mathias Uslar is mainly focused on 
+the methods for obtaining the alignments, the work presented 
+in this paper deals with the alignment processing to 
+completely harmonize the CIM and the 61850 standards. 
+Thus, the following sections will show: a) how the OWL can 
+represent semantic correspondences that can be employed to 
+solve an existing mismatch, b) the methodology to process the 
+alignments obtained in an Ontology Matcher  (such as the 
+CIMBench) to harmonize the standards, c) the ESODAT tool, 
+which was designed in this work and is able to process the 
+alignments expressed in OWL to translate configuration files, 
+and d) the tests that were carried out with the ESODAT tool. 
+III. ALIGNMENTS EXPRESSED IN OWL 
+As mentioned in the introduction, the ABB group led by 
+Tatjana Kostic detected some mismatches between CIM and 
+61850 models and classified them into different types [12]. 
+These types are: class level, relationship level and attribute 
+level mismatches. The class level type occurs when an entity 
+described in an ontology class does not correspond to any 
+class in the other ontology. The relationship level type occurs 
+when a relationship between two classes in one of the 
+ontologies does not exist between the two equivalent classes in 
+the other ontology. Finally, the attribute level type occurs 
+when a mandatory attribute in one of the ontologies is 
+considered optional in the other one.  
+This section shows that the OWL is precise enough to 
+express the complex correspondences which are required to 
+solve class level mismatches. However, the relationship level 
+and attribute level mismatches are caused, respectively, by the 
+optional relationships and attributes. That is, they stand for the 
+flexibility of the standards. That way, as will be explained in 
+the next section, these two types of mismatches have to be 
+solved by the elaboration of the appropriate profiles. 
+The following lines describe the semantic correspondences 
+expressed in OWL which were employed to solve one of the 
+class level mismatches that appear in the state of the art. The 
+BusbarSection mismatch occurs because that in CIM there is 
+a class which represents the electric bus bar sections 
+(cim:BusbarSection), whereas in 61850 there is not. However, 
+the IEC 61850 standard – Part 6 establishes that these 
+elements can be represented in 61850 by a bay which only 
+contains a connectivity node. So, this mismatch can be solved 
+if the suitable correspondences between the bay, connectivity 
+node and bus bar section classes from both ontologies are 
+precisely described in the alignments.  
+That way, firstly, all the connectivity nodes in CIM 
+(cim:ConnectivityNode objects) that are associated to a bus bar 
+section terminal were described in OWL. Fig. 1 shows this 
+description in ODM [13], which is a formal language (created 
+by the OMG) that can represent OWL expressions. In the 
+figure these objects are represented as members of a class 
+called CIMBusbarCNode. As can be seen, OWL terms such as 
+owl:intersectionOf were required to describe this class. 
+Secondly, all the connectivity nodes in 61850 
+(scl:tConnectivityNode objects) which are located in a bay that 
+only has one connectivity node and that has no conducting 
+equipment were also described in OWL. This class will be 
+referred in this paper as SCLBusbarCNode. Again, OWL 
+terms such as owl:somevaluesFrom or owl:inverseOf were 
+employed in the class description. Finally, CIMBusbarCNode 
+was declared to be equivalent to SCLBusbarCNode by using 
+the owl:equivalentClass term.  
+ 
+ 
+Fig 1. CIMBusbarCNode class represents all the cim:ConnectivityNode 
+objects which are associated to a bus bar section terminal. The bus bar section 
+terminals are represented by a subclass of cim:Terminal which has to be 
+associated to a cim:BusbarSection by the cim:Terminal.ConductingEquipment 
+property. 
+56
+ 
+ 
+In conclusion, the above correspondences establish that the 
+CIM connectivity nodes which are associated to a bus bar 
+section are equivalent to the 61850 connectivity nodes which 
+are located in a bay that only has one connectivity node. 
+As will be explained in the following sections, these 
+semantic correspondences expressed in OWL were 
+successfully processed by OWL reasoners in ESODAT. Thus, 
+this tool was able to infer the required statements from those 
+correspondences in order to translate a configuration file of a 
+substation that included a bus bar section, from CIM to 61850 
+and vice versa. 
+IV. ALIGNMENT PROCESSING METHODOLOGY 
+The previous section showed how the OWL can be 
+employed to describe alignments that can be used to solve 
+class level mismatches. In this section the alignment 
+processing methodology for the harmonization between CIM 
+and 61850 is presented (Fig. 2). This methodology includes 
+the required actions and tools to automatically solve all the 
+mismatches without modifying the original standards.  
+Once the Ontology Matcher , for example the CIMBench, 
+obtains the alignments from the ontologies, the rest of the 
+tools presented in this section will be able to easily process 
+those alignments and to infer new information from them by 
+using open source code, mainly developed for the Semantic 
+Web.  
+In the first step of the methodology, the Profiler has to 
+process the alignments to create coordinated CIM and 61850 
+profiles. CIM and 61850 standards can be employed in 
+different areas, such as, distribution networks, transmission 
+networks or electrified railway systems [14] . Thus, they have 
+optional attributes and relationships that may be necessary in 
+some areas, but dispensable in other ones. 
+ 
+ 
+Fig. 2.  Alignment Processing Methodology includes all the actions and tools 
+which are required to harmonize the CIM and 61850 by processing the 
+alignments obtained in an Ontology Matcher 
+ 
+For this reason, the elaboration of profiles that constraint 
+the flexibility of the standards is required to ensure the 
+interoperability between different agents in a particular area. 
+As there will be an information exchange between CIM and 
+61850, both profiles have to be coordinated. This means, for 
+example, that if a CIM application has to get an attribute value 
+from a 61850 device as input, this attribute has to appear in the 
+61850 profile, even if it was declared optional in the 61850 
+standard. In this way, most of the relationship level and 
+attribute level mismatches will be solved. 
+Currently, the profile elaboration is not automated at all. 
+There are some useful tools which have a graphical user 
+interface that eases the CIM profile design [15]. However, this 
+design has to be carried out by CIM specialists, as it consists 
+of selecting one by one all the classes, relationships and 
+attributes that will be part of the profile. Moreover, these tools 
+can only elaborate CIM profiles, but not 61850 profiles. The 
+Profiler tool is being developed. Currently, this tool only 
+performs basic operations, but in future works it will be able 
+to process the alignments between the ontologies in order to 
+guide the user in the semi-automatic elaboration of the 
+coordinated profiles. The format of the configuration files will 
+be defined by the original schemas and the additional 
+constraints imposed by the profiles. These additional 
+constraints can be expressed in OWL.  
+In the second step of the methodology, the Translator has 
+to process the alignments to translate the configuration files. 
+The alignments that will be processed by the Translator will 
+be provided by the Profiler, adding profile constraints for a 
+given area, or directly by the Ontology Matcher. In any case, 
+these alignments will express the semantic correspondences 
+between the entities of different ontologies in a similar way to 
+that which was explained in the previous section. The 
+following sections will briefly describe the Translator that 
+was developed in this work, the Electric System Ontologies 
+Data Translator (ESODAT), and the tests that were carried out 
+with this tool. 
+Finally, in the third step of the methodology, the Gateway 
+has to process the signal mappings to translate the real-time 
+signals. Until now, this paper was focused on the translation of 
+configuration files. However, th ere has to also be a real-time 
+integration between the 61850 devices and the CIM 
+applications. The problem is that, in fact, the IEC 61850 
+standard does not define a unique information model, but 
+rather two models. The first one is called SCL (Substation 
+Configuration Language), is described in the IEC 61850 
+standard – Part 6, and represents the configuration information 
+for the 61850 systems. The second one is called LN (Logical 
+Nodes), is described in the IEC 61850 standard – Part 7, and 
+represents the information that has to be allocated in the 61850 
+devices. For this reason, there are two different temporal 
+levels in the harmonization between CIM and 61850 [6]. The 
+configuration level refers to the translation of configuration 
+files (SCL and CIM/XML), which will be carried out by 
+ESODAT. The real-time level refers to the signals that have to 
+be exchanged between 61850 devices and CIM applications. 
+57
+ 
+As showed in Fig. 2 this real-time level harmonization will be 
+carried out by a Gateway, which will be able to translate these 
+signals by processing the signal mappings. In the future, these 
+mappings will be automatically elaborated by ESODAT. 
+V. THE ESODAT TOOL 
+The Electric System Ontologies Data Translator (ESODAT)  
+is a tool which is able to process the alignments expressed in 
+OWL to translate configuration files from one ontology (CIM 
+or 61850) to the other. In future works this tool will be able to 
+process alignments in the INRIA Alignment Format [16] in 
+order to facilitate its interaction with the COLIN tools, mainly 
+with the CIMBench [9]. ESODAT was developed in Java, uses 
+various classes and interfaces from the API Jena (which is an 
+open source Java framework for building Semantic Web 
+applications [17]) and consists of different parts or modules 
+which are described below (Fig. 3).  
+The Format Converters  are responsible for converting the 
+configuration file format in a format in which the information 
+can be easily processed by ESODAT, and vice versa. All the 
+information processed in ESODAT is organized in RDF [18] 
+statements. In that way, on the one hand, the information 
+described in the input configuration file has to be converted 
+into RDF statements, and, on the other hand, the information 
+described in RDF statements in ESODAT has to be converted 
+into the output configuration file format. The CIM/XML files 
+are based on RDF/XML [19], so both conversions can be 
+automatically carried out by using the Jena classes and 
+interfaces. However, the SCL files are based on XML [20] 
+against XSD [21], i.e. it is organized in a hierarchical tree, so 
+the conversion from the input file to the RDF statements is 
+carried out by a format converter called xml2rdf and the 
+conversion from the RDF statements to the output file is 
+carried out by another format converter called rdf2xml. Both 
+format converters are based on the algorithms described in 
+different works related with the Semantic Web [22] and the 
+business applications integration [23]. A comparison between 
+the CIM/XML and the SCL formats is presented with 
+examples in [24]. 
+ 
+Fig. 3  Electric System Ontologies Data Translator (ESODAT) modules 
+ 
+The OWL Reasoner  is in charge of obtaining all the 
+inferences which are required to achieve the translation. There 
+are several open source reasoners which are able to infer 
+statements from an OWL file. 
+The Fulfill tool is used to solve some of the class level 
+mismatches in which the semantic correspondences cannot be 
+expressed in OWL. In most cases, the OWL is precise enough 
+to represent the correspondences between entities of different 
+ontologies in a way that a normal OWL reasoner can infer the 
+required information to solve a class level mismatch. This is 
+the case of the BusbarSection mismatch, for example. But, 
+during the tests carried out with ESODAT, a new mismatch 
+was found in which the required correspondences were too 
+complex to be expressed in OWL. The Measurement-
+Transformer mismatch stands for the fact that in the 61850 
+standard the measurement transformers are represented as 
+conducting equipment, whereas in the CIM standard they are 
+simply represented as measurements. From the 
+correspondences expressed in OWL, the OWL reasoners  were 
+able to infer that each measurement transformer in 61850 was 
+equivalent to the appropriate measurement in CIM. However, 
+they were not able to infer that if the measurement transformer 
+in 61850 is connected to a connectivity node, the equivalent 
+measurement in CIM has to be associated to a specific 
+terminal (Fig. 4). This is because the correspondences between 
+the relationships that associate a 61850 measurement 
+transformer to a connectivity node and the relationships that 
+associate a CIM measurement to a terminal are very 
+complicated and cannot be expressed in OWL. For this reason, 
+the Fulfill tool, that detects these cases and fulfills the inferred 
+information, was designed in this work.  
+The Filters are required in ESODAT because most OWL 
+reasoners commonly infer more statements than those actually 
+needed in the translation. The Filters detect and remove these 
+additional statements. 
+The RDFValidator and the XSDValidator are used to 
+validate the input configuration files in ESODAT. The 
+RDFValidator validates the CIM/XML configuration file 
+against the CIM RDF Schema and the XSDValidator validates 
+the SCL configuration file against the SCL Schema. 
+ 
+ 
+58
+ 
+Finally, the Buffer stores in an XML file all the information 
+which was lost in the translation. Due to the conceptual 
+heterogeneity between CIM and 61850 ontologies, there will 
+always be information lost in the translation process. The main 
+reason for this conceptual heterogeneity is the difference in 
+perspective between both ontologies [25]. This difference in 
+perspective occurs because, whereas the 61850 ontology is 
+focused on the automation systems, the CIM ontology takes 
+into account the information that is required in the electric 
+management systems, i.e., for example, the electric parameters 
+of the facility equipment. This will not be a problem if there is 
+not a feedback process. This means that there is not any 
+problem at all if a CIM/XML file is translated into a SCL file 
+and, once modified by a SCL configuration tool, it does not 
+have to come back to the CIM application. But if this feedback 
+is required, then the lost information from CIM to 61850 
+(information about electric charact eristics of a bus bar section, 
+the rdf identifiers [5], etc.) has to be stored somewhere. The 
+Buffer accomplishes this mission in ESODAT. 
+VI. TESTS CARRIED OUT IN ESODAT 
+The tests carried out in ESODAT consisted of the translation 
+between CIM and 61850 of a configuration file that describes 
+the topology of a simple electric facility. In particular, this 
+facility was the substation that is represented in the example 
+shown in the IEC 61850 standard – Part 6. The substation 
+consists of: two voltage levels (220 kV and 132 kV), five 
+bays, a power transformer, three voltage transformers, four 
+current transformers, three breakers and three disconnectors.  
+One of the five bays represents a bus bar section that connects 
+three electric branches.  
+The first test was the SCL-CIM/XML-SCL translation. In 
+this process the input was the SCL file that describes the 
+substation topology in 61850. This file was directly obtained 
+from the IEC 61850 standard. ESODAT imported the SCL file 
+and obtained the appropriate CIM/XML file. In order to check 
+if the output was a correct CIM/XML file, it was validated 
+with the CIMTool [15]. However, it was also necessary to 
+verify that this output represented exactly the original 
+substation topology. 
+ 
+ 
+Fig. 4 Fulfill in the Measurement-Transformer mismatch. The OWL Reasoner  
+is able to infer that the 61850 current transformer is equivalent to a CIM 
+analog measurement with type name = “ Current”. However, it cannot infer 
+that this analog measurement is associated to a specific terminal. 
+For this reason, ESODAT imported the CIM/XML file that 
+was obtained as the output in the first step and translated it 
+into another SCL file. To check that this SCL file was valid 
+and that it represented exactly the same as the original SCL 
+file, the 61850 Siemens Validator [26] and the Kalki SCL 
+Manager [27] were employed. There was information in the 
+original SCL file that was not represented in the CIM/XML 
+file such as, for example, header information about versions. 
+However, the  Buffer  was able to recover that information in 
+the final SCL file.   
+The second test was the CIM/XML-SCL-Modification-
+CIM/XML process. In this case the input was the CIM/XML 
+file obtained in the previous test. ESODAT translated this 
+CIM/XML file into the appropriate SCL file, which was 
+modified with the Kalki SCL Manager. The modification 
+consisted of changing the type of a switch from a disconnector 
+to load break switch. ESODAT imported this SCL file and 
+translated it into another CIM/XML file, which successfully 
+represented the modified disconnector as a load break switch. 
+Again, the Buffer was able to recover information that was lost 
+in the first translation such as, for example, electric parameters 
+of the bus bar section. 
+ In the above tests different OWL reasoners were employed. 
+These reasoners were: the Jena’s OWLReasoner, Pellet  [28], 
+which are open source reasoners, and the OWLTranslator, 
+which was developed in this work. All of them were able to 
+infer the required statements to achieve all the translations. 
+However, whereas Jena’s OWLReasoner and Pellet obtained 
+many useless statements that had to be eliminated by the 
+Filters, the OWLTranslator inferred the required statements in 
+a much more effective way.  
+VII. CONCLUSION 
+An Ontology Matching approach to the harmonization of 
+CIM and 61850 information models has been presented. 
+Mathias Uslar, from the OFFIS, has already made important 
+contributions in this direction. However, whereas his work is 
+mainly focused on the methods for obtaining the required 
+alignments, the work described in this paper deals with 
+alignment processing. 
+The existing mismatches between CIM and 61850 had 
+supposed an important barrier for harmonization. Thus, on the 
+one hand, due to these mismatches, the data translator 
+developed by the ABB group led by Tatjana Kostic required 
+human intervention in some critical situations. On the other 
+hand, the work group led by Terry Saxton, from Xtensible 
+Solutions, proposes extensions in the 61850 model to solve the 
+mismatches. This solution would require the adaptation of the 
+existing 61850 tools and devices to a new standard version. 
+Since their recent application in the Semantic Web, the 
+Ontology Matching methods, tools and languages underwent a 
+great development. This work shows how, by employing some 
+of these Ontology Matching methods, tools and languages, the 
+mismatches between CIM and 61850 could be solved 
+automatically and without modifying the original standards.  
+Firstly, some semantic correspondences expressed in OWL 
+were described. These correspondences show how the OWL 
+59
+ 
+can be employed to solve class level mismatches. However, 
+some problems were detected when trying to express very 
+complicated semantic correspondences in this language. A 
+solution to these problems was explained. This solution is 
+based on the development of a specific tool, called Fulfill, 
+which adds the required statements to fulfill the incomplete 
+inferences obtained by an OWL reasoner. 
+Secondly, the alignment processing methodology was 
+explained. The alignment processing methodology describes 
+how to process the alignments in order to solve the 
+relationship level and attribute level mismatches. Moreover, 
+this methodology not only covers the temporal level of 
+configuration, but also the real-time signal harmonization.  
+Finally, the Electric System Ontologies Data Translator  
+(ESODAT) was presented. ESODAT is a tool based on the API 
+Jena, which is an open source Java framework for building 
+Semantic Web applications. The tool is able to process 
+alignments in OWL to translate configuration files. In future 
+works, ESODAT will be able to process alignments expressed 
+in the INRIA Alignment Format. This will solve some 
+limitations of the OWL as an alignment language and will 
+ease the interaction between ESODAT and the tools developed 
+by the OFFIS in the COLIN method, mainly the CIMBench. 
+In any case, as shown in the tests that were carried out in this 
+work, ESODAT proved its ability to solve some of the 
+mismatches that appear in the state of the art and, also, its 
+ability to recover the information lost in translation. Existing 
+reasoners (Jena’s OWLReasoner and Pellet) were successfully 
+tested in ESODAT. Also, a new reasoner was developed in this 
+work, the OWLTranslator. This reasoner showed to be able to 
+infer the required statements in a more effective way than the 
+other two. 
+ACKNOWLEDGMENT 
+The work reported here was supported by the grant of the 
+Ministry of Education of the Madrid Goverment for research 
+assistants. Resolution No. 6032/2008/02, 30 of December 
+2008 (CPI/0349/2008).  
+REFERENCES 
+[1] S. D. J. McArthur, E. M. Davidson, V. M. Catterson, A. L. Dimeas, N. 
+D. Hatziargyriou, F. Ponci and T. Funabashi, "Multi-Agent Systems for 
+Power Engineering Applications—Part II: Technologies, Standards, and 
+Tools for Building Multi-agent Systems," IEEE Trans. Power Syst., 
+ vol. 22, pp. 1753-1759, 11. 2007.  
+[2] T. Kostic, O. Preiss and C. Frei, "Understanding and using the IEC 
+61850: a case for meta-modelling," Elsevier Journal of Computer 
+Standards & Interfaces, Vol. 27/6, Pp. 679-695, 2005.  
+[3] T. Kostic, O. Preiss and C. Frei, “Towards the formal integration of two 
+upcoming standards: IEC 61970 and IEC 61850,” presented at Large 
+Engineering Systems Conference on Power Engineering (LESCOPE), 7-
+9 may 2003, Montreal, Quebec, Canada.  
+[4] C. Frei, O. Preiss and T. Kostic, "Method and System for bi-directional 
+data conversion between IEC 61850 and IEC 61970," International 
+Patent Application PCT/CH2004/000510, 2006.  
+[5] T. Saxton, H. Falk and D. Becker, "EPRI CIM and 61850 
+harmonization," 2009. Available: http://cimug.ucaiug.org/ 
+[6] J. Hughes, "Harmonization of IEC 61970, 61968, and 61850 models," 
+EPRI Technical Report, 2006. 
+[7]  W3C, OWL Web Ontology Language Guide, W3C Recommendation 10 
+February 2004. Available: http://www.w3.org/TR/owl-guide/ 
+[8] C. Atkinson, M. Gutheil and K. Kiko “On the relationship of ontologies 
+and models,” presented at the 2nd International Workshop on Meta-
+Modelling (WoMM), 12-13 October 2006, Karlsruhe, Germany. 
+[9] M. Uslar, S. Rohjans, S. Schulte and R. Steinmetz, "Building the 
+semantic utility with standards and semantic web services," in Lecture 
+Notes in Computer Science - on the Move to Meaningful Internet 
+Systems: OTM 2008 Workshops, A. Hofmann, B. Apfel, U. Barth, C. 
+Gunther, I. Haas, F. Holzwarth, A. Kramer, L. Kunz, N. Sator, E. 
+Siebert-Cole and P. Straber, Eds. Springer-Verlag, Computer Science 
+Editorial, 2008. 
+[10] J. Euzenat and P. Shvaiko, Ontology Matching. Springer-Verlag, 2007. 
+[11] W3C, Tutorial on Semantic Web . Available: 
+http://www.w3.org/People/Ivan/CorePresentations/SWTutorial/ 
+[12] O. Preiss, T. Kostic, “Unified information models in support of location 
+transparency for future utility applications,” presented at the 39th 
+Hawaii International Conference on System Sciences (HICSS), 4-7 
+January 2006, Kauai, Hawaii, USA. 
+[13] OMG, ODM, Ontology Definition Metamodel . OMG Specification. 
+Available: http://www.omg.org/spec/ODM/1.0/ 
+[14] R. Santodomingo, E. Pilo, J. A. Rodríguez-Mondéjar and M. A. García-
+Vaquero, "Adapting the CIM model to describe electrified railway 
+systems," presented at the XI International Conference on Computer 
+System Design and Operation in the Railway and Other Transit Systems 
+- COMPRAIL2008, 15-17 September 2008, Toledo, Spain, 2008.  
+[15] CIMTool, Available: http://www.cimtool.org/ 
+[16] J.Euzenat, An API for ontology aligment. February 2006.  
+[17] Jena Semantic Web Framework, Available: http://jena.sourceforge.net/ 
+[18] W3C, RDF Primer , W3C Recommendation 10 February 2004. 
+Available: http://www.w3.org/TR/rdf-primer/ 
+[19] W3C, RDF/XML Syntax Specification . W3C Recommendation 10 
+February 2004. Available: http://www.w3.org/TR/REC-rdf-syntax/ 
+[20] W3C, Extensible Markup Language (XML) 1.0 (Fifth Edition).  W3C 
+Recommendation 26 November 2008. Available: 
+http://www.w3.org/TR/REC-xml/ 
+[21] W3C, XML Schema Part 0: Primer Second Edition.  W3C 
+Recommendation 28 October 2004. Available: 
+http://www.w3.org/TR/xmlschema-0/ 
+[22]  R. Garcia, R. Gil and W. Abramowicz, "Facilitating business 
+interoperability from the semantic web," in Business Information 
+Systems. 10th International Conference, BIS 2007. Proceedings (Lecture 
+Notes in Computer Science Vol.4439), 2007. 
+[23] I. Miletic, M. Vujasinovic, N. Ivezic and Z. Marjanovic, "Enabling 
+semantic mediation for business applications: XML-RDF, RDF-XML 
+and XSD-RDFS transformations," in Enterprise Interoperability II: New 
+Challenges and Approachs, R .  J .  G o n ç a l v e s ,  P .  J .  M ü l l e r ,  K .  M e r t i n s  
+and M. Zelm, Eds. Springer-Verlag, Computer Science Editorial, 2007. 
+[24] Y. Pradeep, P. Seshuraju, S. A. Khaparde, V. S. Warrier and S. Cherian. 
+“CIM and IEC 61850 integration issues: Application to power systems,” 
+presented at the IEEE PES General Meeting, 26-29 July 2009, Calgary, 
+Alberta, Canada. 
+[25] M. Benerecetti, P. Bouquet, C. Ghidini, V. Akman, P. Bouquet, R. 
+Thomason and R. A. Young, "On the dimensions of context dependence: 
+Partiality, approximation, and perspective," in Modeling and using 
+Context. Third International and Interdisciplinary Conference, 
+CONTEXT 2001. Proceedings (Lecture Notes in Artificial Intelligence 
+Vol.2116), 2001. 
+[26] Siemens IEC 61850  Validator. Available: http://www.61850.com/  
+[27] Kalki SCL Manager , Evaluation License Available: 
+http://www.kalkitech.in/IEC61850SCLManager.htm 
+[28] Pellet OWL reasoner. Available: http://clarkparsia.com/pellet/ 
+ 
+ 
+60

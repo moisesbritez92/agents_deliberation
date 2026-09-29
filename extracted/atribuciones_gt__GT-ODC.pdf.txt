@@ -1,0 +1,115 @@
+Manual de Organización  ANDE                N°: 
+                 Actualización:  
+                    Página: 1 
+                    Resolución P/Nº: 34954  
+                    Fecha:             15/07/14 
+   
+OFICINA DE DESPACHO DE CARGA 
+ 
+Nivel Jerárquico: “E”        Sigla: GT/ODC                            CUA: 1964  
+ 
+1. SUBORDINACIÓN 
+ 
+La Oficina de Despacho de Carga está subordinada a la División de Operación. 
+ 
+2. ATRIBUCIONES 
+ 
+  
+2.1. Supervisar y controlar en tiempo real,  la operación eléctrica y energética del sistema 
+de potencia mediante el monitoreo de los parámetros eléctricos típicos, adoptando las 
+medidas necesarias cuando los mismos se aparten de los valores aceptables o 
+preestablecidos en las Instru cciones de Operación del Sistema (IOS) y en las 
+Instrucciones de Operación de las Interconexiones (IOI). 
+ 
+2.1.1. Niveles de tensión en barras de todos los locales del SIN.  
+ 
+2.1.2. Niveles de c argas y corrientes en las líneas de transmisión, transformadores   
+de potencia, compensadores estáticos, bancos de capacitores , reactores  y 
+generadores.   
+ 
+2.1.3. Frecuencia de la red a cargo de Itaipú y Yacyretá. 
+ 
+2.2. Coordinar y controlar , de acuerdo a criterios técnicos y económicos,  la operación 
+electro energética  del sistema de po tencia desde el punto de vista de la generación 
+eléctrica, considerando los recursos propios (Central Acaray) y los contratos de 
+intercambio con entidades externas (Itaipú y Yacyretá).  
+ 
+2.3. Controlar en tiempo real las previsiones o programas de demanda de ca rga 
+diaria/horaria del sistema en viadas a las Centrales de Itaip ú y Yacyretá en la fase de 
+pre despacho y readecuar en caso de ser necesario dichos programas de tal forma a 
+minimizar las desviaciones entre los valores registrados y programados. (Reprogramar 
+la generación e intercambios en tiempo real). 
+ 
+2.4. Aplicar y controlar, en coordinación con las empresas extranjeras interconectadas o 
+nacionales electro intensivas, los contratos vigentes de compra, venta e intercambio de 
+energía.  
+ 
+2.5. Supervisar, coordinar,  ejecutar y autorizar maniobras de equipos en el sistema  de 
+potencia mediante el uso del SCADA o mediante orden de operación a los operadores 
+de locales en los siguientes casos: 
+ 
+2.5.1. Trabajos programados por los sectores de mantenimiento y/o supervisión. 
+Manual de Organización  ANDE                N°: 
+                 Actualización:  
+                    Página: 2 
+                    Resolución P/Nº: 34954  
+                    Fecha:             15/07/14 
+   
+ 
+2.5.2. Situaciones de urgencia y/o emergencia en tiempo real. 
+ 
+2.5.3. Mantener los parámetros del sistema potencia dentro de valores adecuados. 
+ 
+2.6. Autorizar y/o suspender en tiempo real, la ejecución de los trabajos de mantenimiento 
+programados en función a la constatación o no der restricciones operativas.  
+ 
+2.7. Recomponer el sistema eléctrico posterior a la ocurrencia de  perturbaciones 
+originadas en las centrales de generación o en líneas de interconexión con las mismas.  
+ 
+2.8. Supervisar, controlar y ordenar maniobras de abertura o cierre de compuertas de los  
+embalses de Presa Yguaz ú y Presa Acaray para controlar los niveles de dichos 
+embalses y de la regla de confluencia, de tal manera a optimizar y promover el uso 
+racional de los recursos hídricos  considerando además el impacto social y ambiental 
+de las zonas ribereñas (inundaciones y/o sequias). 
+ 
+2.9. Realizar la cobertura en tres turnos rotativos en la sala de operación del Despacho de 
+Carga durante los 365 días del año, 24 horas /día. 
+ 
+2.10. Elaborar los Partes Diarios e Informes Diarios, de Operación.  
+ 
+2.10.1. Acompañar el comportamiento electro -energético del sistema, colectando 
+datos de generación, transmisión, transformación, etc.  
+ 
+2.10.2. Registrar informaciones y datos de novedades y ocurrencias de la operación 
+diaria. 
+ 
+2.11. Participar cuando sea requerido en grupos AD HOC relacionados con la operación del 
+sistema.  
+ 
+2.12. Realizar la cobertura de personal prevenido fuera de horar io comercial, fines de 
+semana y/o feriados. 
+ 
+2.13. Solicitar, proponer y/o recomendar  la realización de estudios de operación para 
+elaborar o actualizar los Reglamentos, Norma s e Instrucciones de operación en 
+función a constataciones o necesidades detectadas en la operación de tiempo real.  
+ 
+2.14. Solicitar, proponer y/o recomendar al Departamento de Operación del Sistema a 
+través de la Sección  Procesamiento de Datos de Operación  el desarrollo de 
+herramientas o aplicativos (programas o software) para la utilización eficiente y eficaz 
+de los recursos tecnológicos e informáticos utilizados en la operación en tiempo re al 
+del SIN. 
+Manual de Organización  ANDE                N°: 
+                 Actualización:  
+                    Página: 3 
+                    Resolución P/Nº: 34954  
+                    Fecha:             15/07/14 
+   
+2.15. Representar a la ANDE ante la Comisión Mixta de Operación y Coordinación de los 
+Sistemas Interconectados de la ANDE-ITAIPÚ-ELETROBRAS (CMO), a través de la 
+participación en Grupos de Estudio de dicha Comisión, así como ante otros 
+organismos. 
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,255 @@
+# INFORME DEL REVISOR
+
+**Título:** *Gobierno y segregación de responsabilidades en la administración de sistemas SCADA/EMS*
+**Área:** SCADA/EMS, operación de sistemas eléctricos, gobernanza OT, gestión del modelo de red
+**Tipo de artículo:** análisis documental + estudio de caso organizativo + propuesta de gobernanza
+**Versión evaluada:** documento técnico de trabajo, 10 páginas
+
+## 1. Dictamen ejecutivo
+
+**DECISIÓN RECOMENDADA: MAJOR REVISION**
+
+**Puntuación global: 75/100**
+
+El manuscrito es técnicamente serio y bastante más sólido de lo que suele encontrarse en un documento institucional. Su mayor mérito es que no intenta utilizar IEC 61970, IEC 62443, IEC 61850, NIST u otros documentos como una justificación artificial de qué departamento de ANDE debe hacer cada tarea. Al contrario, distingue explícitamente entre atribuciones institucionales, objetos administrados, fases del ciclo de cambio y autoridad, y reconoce los límites probatorios de cada tipo de fuente. Esa disciplina interpretativa está bien planteada desde el método. 
+
+El problema es distinto: **como documento técnico institucional es muy bueno; como artículo científico todavía no termina de demostrar su contribución**. La propuesta de RACI, Autoridad de Cambio y distribución DAS–ISC–MCO–ODC está razonada, pero sigue siendo fundamentalmente una **arquitectura organizativa propuesta**, no una solución cuya eficacia haya sido validada. El propio manuscrito lo reconoce al señalar que el análisis documental no acredita el desempeño del reparto propuesto y que todavía serían necesarios inventarios, permisos, información del fabricante y cambios controlados. 
+
+No encuentro un *fatal flaw*. El razonamiento central no parece inválido. Pero sí existe un riesgo claro de que un revisor diga: **«la discusión es razonable, pero ¿qué nuevo conocimiento científico demuestra el artículo?»**. Ese es ahora mismo el principal obstáculo editorial.
+
+---
+
+# 2. ¿Cuál es exactamente la contribución científica?
+
+La contribución más defendible no es:
+
+> «proponer cómo debe organizarse el SCADA/EMS de ANDE».
+
+Eso sería principalmente consultoría o normativa interna.
+
+La contribución científicamente más interesante que realmente aparece en el trabajo es:
+
+> **Un marco de descomposición de responsabilidades SCADA/EMS basado en objeto–actividad–fase–autoridad que permite analizar mandatos organizativos concurrentes sin derivar el organigrama de normas técnicas, y convertir ese análisis en una arquitectura trazable de gobierno del cambio.**
+
+Esto sí tiene potencial de generalización.
+
+La pieza más valiosa es precisamente la separación conceptual entre responsabilidad funcional, custodia técnica, autoridad de cambio y propiedad del activo, junto con la distinción de dominios como modelo eléctrico, telemetría, comunicaciones, aplicaciones EMS, plataforma y gobierno. 
+
+**Novedad científica:** moderada-baja en su forma actual.
+**Novedad aplicada al caso ANDE:** alta.
+**Relevancia:** alta para operadores/empresas eléctricas con SCADA/EMS complejo.
+**Evidencia del diagnóstico institucional:** fuerte.
+**Evidencia de que la solución propuesta funciona:** todavía débil.
+
+Además, la búsqueda externa muestra que la gestión centralizada de modelos, los procesos de actualización, CIM y el rediseño de responsabilidades ya han sido tratados en experiencias como ERCOT, CAISO, NSTAR, AEP/PJM y el propio procedimiento de PJM. Por ejemplo, ERCOT publicó una experiencia de implementación de un sistema consolidado de gestión del modelo, CAISO discutió explícitamente la reorganización del ciclo completo de cambios de modelos, y en 2024 AEP presentó un enfoque CIM para mantenimiento del modelo EMS. ([ResearchGate][1])
+
+Por tanto, **la novedad no puede descansar en «gestionar mejor el modelo EMS» ni en «separar responsabilidades»**. Debe descansar en el método de análisis institucional y en su aplicación demostrable.
+
+---
+
+# 3. Principales fortalezas
+
+La mejor parte del artículo es la trazabilidad argumental. No se limita a afirmar que dos dependencias «se pisan», sino que compara numerales concretos y distingue concurrencia de complementariedad. El análisis de DAS1 frente a ISC2 es especialmente convincente: ambos tienen atribuciones de ejecución sobre bases, de manera que no resulta defendible convertir a una de las partes exclusivamente en solicitante o validador. 
+
+También está muy bien manejada la relación entre normas y estructura organizacional. Por ejemplo, el artículo establece correctamente que IEC 61850 no determina quién debe mantener el modelo EMS y que ISA-95 no permite trasladar sus niveles funcionales directamente al organigrama de ANDE.  Esto evita uno de los errores más frecuentes de este tipo de documentos.
+
+Otro punto fuerte es que la propuesta no termina en una RACI abstracta. Se diferencia aprobación técnica, aceptación funcional, liberación de versión, habilitación operativa y reversión. Esa separación es conceptualmente buena para un entorno crítico. La matriz y el proceso de diez etapas forman además un sistema coherente entre sí.  
+
+Finalmente, las limitaciones están excepcionalmente bien explicitadas. El texto evita afirmar que CIM prueba capacidades de e-terra, reconoce que MAS del fabricante puede no ser equivalente al concepto IEC, no presupone granularidad de permisos y no presenta la propuesta como auditoría normativa. Esto aumenta mucho la credibilidad del manuscrito.
+
+---
+
+# 4. Debilidades principales
+
+| Problema                                                            | Gravedad     | Por qué importa                                                                                                                                                              | Cómo resolverlo                                                                                                                           |
+| ------------------------------------------------------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| **La propuesta no está validada empíricamente.**                    | **MAYOR**    | El artículo demuestra que existe concurrencia de atribuciones, pero no demuestra que la RACI propuesta reduzca errores, ambigüedad, tiempo de cambio o riesgo.               | Aplicar el modelo a cambios históricos o a un piloto controlado y reportar resultados.                                                    |
+| **El estado del arte científico es insuficiente.**                  | **MAYOR**    | Hay muchas normas, manuales y documentos institucionales, pero faltan trabajos académicos directamente relacionados con gestión de modelos EMS y transformación de procesos. | Incorporar ERCOT, CAISO, NSTAR, AEP/PJM y literatura sobre Network Model Management; explicar exactamente qué no resuelven esos trabajos. |
+| **La contribución generalizable no está formulada explícitamente.** | **MAYOR**    | Actualmente puede percibirse como resolución de una disputa organizativa específica de ANDE.                                                                                 | Reformular pregunta, método y discusión alrededor del marco objeto–actividad–fase–autoridad.                                              |
+| **El método documental necesita mayor reproducibilidad.**           | **MODERADA** | Se explican el corpus y algunos criterios, pero otro investigador no podría reconstruir fácilmente todo el análisis.                                                         | Añadir matriz de extracción: fuente, numeral, objeto, actividad, fase, autoridad, clasificación y decisión. Idealmente como suplemento.   |
+| **Algunas referencias necesitan actualización/verificación final.** | **MODERADA** | PJM ya tiene una revisión más reciente y NERC CIP-010-4 aparece en la bibliografía con fecha/vigencia pendientes.                                                            | Actualizar las fuentes antes de enviar y justificar expresamente las ediciones antiguas si fueran necesarias.                             |
+
+Un ejemplo concreto del último punto: el manuscrito cita el Manual 3A de PJM, revisión 23 de 2023.  Actualmente PJM muestra la **Revision 27, efectiva desde el 4 de marzo de 2026**, y la describe precisamente como el manual sobre actualización, validación y responsabilidades del modelo EMS. ([PJM][2]) No significa que lo escrito sea incorrecto, pero en una publicación de 2026 el revisor probablemente preguntará por qué se usó Rev. 23.
+
+Más problemático editorialmente es dejar en la bibliografía de NERC CIP-010-4 que la «fecha de edición y vigencia» están pendientes de verificación.  Eso debe desaparecer en una versión sometida a revista.
+
+---
+
+# 5. Revisión metodológica
+
+El diseño documental es **adecuado para responder la primera pregunta**: «¿qué dicen formalmente las atribuciones y dónde existe concurrencia?».
+
+El corpus está suficientemente delimitado: se analizaron catorce fichas organizativas, el procedimiento propuesto y su flujo, y se establecieron definiciones operativas para complementariedad, concurrencia y contradicción. 
+
+Aquí hay rigor real.
+
+Sin embargo, falta convertir esa metodología en algo plenamente reproducible. Por ejemplo, no vemos la tabla completa mediante la cual cada numeral fue codificado según:
+
+**fuente → unidad → objeto → verbo/actividad → fase → autoridad → solapamiento → interpretación.**
+
+Una matriz suplementaria de ese tipo sería probablemente más importante que añadir cinco páginas de texto.
+
+La otra carencia es de **triangulación**. El documento descubre lo que los manuales permiten afirmar, pero no comprueba suficientemente cómo funciona realmente el proceso. Esto importa porque el propio manuscrito reconoce que las fichas no determinan herramientas, claves, permisos ni secuencias reales de despliegue. 
+
+No exigiría un experimento gigantesco. Una validación realista bastaría.
+
+Una opción especialmente fuerte sería tomar **10–20 modificaciones SCADA/EMS históricas** y reconstruir para cada una quién solicitó, modeló, integró, probó, aprobó, desplegó y revirtió. Después se podrían identificar ambigüedades, retrabajos, autorizaciones faltantes o conflictos y comprobar si el modelo propuesto resuelve esos casos.
+
+Incluso un piloto prospectivo con pocos cambios representativos tendría mucho valor científico.
+
+---
+
+# 6. Revisión estadística y evidencia
+
+No considero un defecto que el artículo no emplee estadística inferencial: **la pregunta actual es fundamentalmente documental y organizativa**.
+
+El problema aparecería únicamente si se pretendiera demostrar que la nueva estructura «mejora» seguridad, calidad o eficiencia. Actualmente el manuscrito es prudente y no hace esa inferencia.
+
+De hecho, propone indicadores razonables —expedientes completos, despliegues sin autorización, recuperaciones, tiempo de restauración y discrepancias entre la configuración funcional y la desplegada— y aclara que deberían utilizar una línea base local. 
+
+Ese fragmento contiene precisamente el camino para fortalecer el artículo:
+
+**ahora esos indicadores están propuestos; una versión científicamente mucho más fuerte los mediría.**
+
+No hacen falta *p-values* por obligación. Para un piloto pequeño sería más útil presentar conteos, tiempos, proporciones, distribución de incidencias y tamaños de efecto con intervalos de incertidumbre cuando sea razonable.
+
+---
+
+# 7. Resultados, tablas y estructura
+
+Las Tablas III, IV y V son probablemente el núcleo del trabajo. Especialmente buena es la separación entre **hallazgo documental** y **delimitación propuesta, no mandato literal**. Esto evita que una recomendación termine presentada como interpretación normativa. 
+
+La matriz RACI también es comprensible, pero científicamente debería presentarse más claramente como **resultado de un procedimiento de derivación**, no solo como la propuesta final.
+
+Ahí falta una capa intermedia:
+
+**evidencia institucional → conflicto identificado → regla de diseño → asignación RACI.**
+
+Si cada fila de la RACI pudiera trazarse sistemáticamente hasta esa cadena, el artículo ganaría mucho.
+
+Visualmente el PDF está bien compuesto, con aspecto IEEE y tablas legibles. Sin embargo, el título aparece acompañado de «Documento técnico de trabajo» y «Propuesta para discusión institucional». Para circulación interna está perfecto; para una revista científica, esa presentación refuerza innecesariamente la percepción de informe institucional.
+
+---
+
+# 8. Discusión y conclusiones
+
+Aquí el artículo es bastante disciplinado.
+
+### Respaldado directamente por la evidencia
+
+Está bien respaldado que **no se demuestra exclusividad de una sola unidad** y que existe concurrencia documental: DAS1 tiene diseño, implementación y actualización, mientras ISC2 tiene elaboración/unificación de bases; DAS2 administra aplicaciones y topología. 
+
+También está bien respaldado que una norma técnica no puede utilizarse, por sí sola, para asignar departamentos de ANDE.
+
+### Plausible pero no demostrado
+
+Que **GT/DAS deba ser propietario funcional del modelo**, que una Autoridad de Cambio interáreas sea la estructura más adecuada o que la distribución propuesta sea superior a otras alternativas.
+
+Son recomendaciones razonables y consistentemente construidas, pero siguen siendo hipótesis de diseño.
+
+### No respaldado
+
+No sería admisible afirmar que la propuesta:
+
+* reduce errores;
+* aumenta disponibilidad;
+* reduce el tiempo de despliegue;
+* mejora la ciberseguridad;
+* reduce incidentes;
+* es superior al procedimiento vigente.
+
+Afortunadamente, el artículo prácticamente no cae en esa sobreinterpretación.
+
+---
+
+# 9. Reproducibilidad
+
+**Clasificación: Media.**
+
+El lector conoce cuáles fueron los documentos analizados y los criterios conceptuales generales. También recibe referencias bastante precisas a numerales.
+
+Pero necesitaría, para una reproducción fuerte, acceso o suplemento con:
+
+**corpus documental exacto + matriz de extracción + versión de cada documento + reglas completas de codificación + trazabilidad entre evidencia y asignación propuesta.**
+
+El problema adicional es que una parte esencial del corpus es interna de ANDE, por lo que probablemente no pueda publicarse íntegramente. Eso no invalida el trabajo, pero obliga a compensarlo con una descripción metodológica especialmente transparente.
+
+---
+
+# 10. Puntuación desglosada
+
+| Criterio                        | Puntuación |
+| ------------------------------- | ---------: |
+| Contribución y originalidad     |  **10/15** |
+| Problema, pregunta y objetivos  |   **8/10** |
+| Estado del arte                 |   **6/10** |
+| Metodología                     |  **14/20** |
+| Rigor analítico e incertidumbre |  **12/15** |
+| Resultados                      |   **8/10** |
+| Discusión y conclusiones        |    **7/8** |
+| Reproducibilidad                |    **3/5** |
+| Redacción                       |    **5/5** |
+| Impacto/publicabilidad          |    **2/2** |
+| **TOTAL**                       | **75/100** |
+
+La puntuación relativamente alta refleja que **el artículo está bien razonado**. El *Major Revision* viene de algo más importante que la redacción: falta cerrar el salto entre diagnóstico documental y contribución científica validada.
+
+---
+
+# 11. Los cinco puntos que más amenazan la publicación
+
+1. **Que el editor lo interprete como un informe interno de organización y no como investigación.** Este es el riesgo número uno.
+
+2. **No posicionar la contribución frente a la literatura existente de Network Model Management.** ERCOT, CAISO, NSTAR y trabajos recientes de AEP ya han publicado procesos de mantenimiento, integración y gestión centralizada de modelos. ([ResearchGate][1])
+
+3. **Ausencia de validación de la arquitectura organizacional propuesta.**
+
+4. **Método de análisis documental insuficientemente operacionalizado para reproducirse.**
+
+5. **Bibliografía técnica todavía en estado de trabajo**, especialmente las versiones de algunos documentos.
+
+---
+
+# 12. Preguntas difíciles que haría un Reviewer 2
+
+Un revisor exigente probablemente preguntaría: ¿qué aspecto de esta propuesta constituye conocimiento nuevo más allá de una reorganización de responsabilidades específica de ANDE?; ¿cómo se derivó exactamente cada asignación de la Tabla V a partir de la evidencia y qué alternativas fueron descartadas?; ¿qué evidencia demuestra que GT/DAS es la opción apropiada para ejercer la propiedad funcional y no otra unidad o una estructura compartida?; ¿por qué la revisión de práctica internacional se concentra principalmente en manuales de operadores y no incorpora la literatura académica existente sobre EMS Network Model Management?; ¿se ha aplicado el procedimiento propuesto a algún cambio real o histórico para demostrar que elimina ambigüedades?; ¿cómo cambia el modelo si la plataforma e-terra no permite la granularidad de permisos supuesta?; ¿qué criterios determinarían empíricamente que el nuevo esquema funciona mejor que el procedimiento actual?; y ¿hasta qué punto la metodología objeto–actividad–fase–autoridad puede transferirse a otra empresa eléctrica?
+
+Esas preguntas son respondibles. Pero algunas necesitan datos adicionales, no solamente redacción.
+
+---
+
+# 13. Experimentos/validaciones adicionales
+
+| Nivel                | Acción                                                                                            | Valor científico                                                          |
+| -------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| **Esencial**         | Validar el marco contra un conjunto de cambios SCADA/EMS históricos o un piloto real.             | Convierte una propuesta razonada en evidencia.                            |
+| **Esencial**         | Construir la matriz completa de trazabilidad documental que genera las clasificaciones y la RACI. | Hace reproducible el método.                                              |
+| **Muy recomendable** | Entrevistas estructuradas o panel de expertos de DAS, ISC, MCO, ODC/DOS y OT.                     | Triangula documento frente a práctica real.                               |
+| **Muy recomendable** | Comparar explícitamente ANDE con ERCOT, CAISO, PJM/AEP y otros modelos publicados.                | Establece novedad y transferibilidad.                                     |
+| **Opcional**         | Métricas cuantitativas antes/después cuando el procedimiento sea implantado.                      | Permitiría un segundo artículo mucho más fuerte sobre eficacia operativa. |
+
+No pediría más experimentos simplemente para engordar el manuscrito. **Una única validación histórica bien diseñada podría cambiar materialmente el nivel del trabajo.**
+
+---
+
+# 14. Plan de revisión priorizado
+
+| Prioridad                        | Qué modificar                                                                                                                                                                 |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **PRIORIDAD 1 — imprescindible** | Replantear la contribución como método generalizable de análisis y gobernanza; añadir validación con casos reales; incorporar literatura científica directamente relacionada. |
+| **PRIORIDAD 2 — importante**     | Publicar la matriz de extracción/codificación; explicar la derivación de la RACI; actualizar PJM/NERC y revisar todas las ediciones normativas.                               |
+| **PRIORIDAD 3 — refinamiento**   | Transformar el tono de «propuesta institucional» en artículo académico, ajustar título/resumen, añadir autores/afiliaciones y posiblemente una figura conceptual del método.  |
+
+## Conclusión editorial
+
+Mi evaluación cambia bastante según qué quieras hacer con este documento.
+
+**Como documento técnico para ANDE: ~9/10.** Está muy bien construido, prudente normativamente y suficientemente fuerte para sustentar una discusión institucional.
+
+**Como artículo científico: 75/100 y Major Revision.** No porque esté mal, sino porque todavía es mucho más fuerte en **argumentación técnica** que en **demostración científica**.
+
+Y hay una buena noticia conceptual: **yo no intentaría convertirlo en un artículo con más normas y más bibliografía.** El salto real está en validar el marco. Si agregas una aplicación retrospectiva a cambios reales y reposicionas la contribución como metodología de gobernanza de responsabilidades SCADA/EMS, el manuscrito cambia sustancialmente de categoría.
+
+
+[1]: https://www.researchgate.net/publication/276254831_Lessons_and_Experiences_in_the_Implementation_of_a_Consolidated_Transmission_Modeling_Data_System_at_ERCOT?utm_source=chatgpt.com "(PDF) Lessons and Experiences in the Implementation of a Consolidated Transmission Modeling Data System at ERCOT"
+[2]: https://www.pjm.com/library/manuals?utm_source=chatgpt.com "PJM - Manuals"

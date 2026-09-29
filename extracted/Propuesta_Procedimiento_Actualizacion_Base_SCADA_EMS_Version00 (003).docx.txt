@@ -1,0 +1,90 @@
+ ACTUALIZACIÓN DE LA BASE DE DATOS DEL SISTEMA SCADA/EMS
+
+OBJETIVO
+
+Establecer el alcance, los conceptos, las condiciones, las disposiciones generales, la normativa aplicada, las responsabilidades, la determinación de insumos, proveedores, productos y clientes, los indicadores y el procedimiento para la actualización unificada de la Base de Datos del Sistema SCADA/EMS (plataforma e-terra), asegurando que la información proveniente de las áreas de infraestructura y mantenimiento sea consolidada por el área de administración SCADA/EMS (GT/DAS), y que el modelado topológico, pareamiento de señalizaciones, protocolo ICCP y ruteo sean diseñados, procesados, compilados mediante el Paquete MAS y cargados en producción (DBSEQ) de manera integral por la DTE/ISC y DTE/MCO.
+
+ALCANCE
+
+Este procedimiento comprende desde la recepción de la información técnica y mímicos remitidos por las unidades proveedoras de información (GT/GT, GT/MT, GT/TMB) y su consolidación a cargo del Departamento de Administración del SCADA/EMS (GT/DAS), pasando por el modelado topológico de red, pareamiento de señalizaciones, pruebas de punto a punto y control de calidad a cargo de la DTE/ISC y DTE/MCO, la validación analítica/funcional por parte de GT/DAS, hasta la carga semanal en el ambiente productivo (DBSEQ) para la supervisión y control en tiempo real por la Oficina de Despacho de Carga (GT/ODC).
+
+CONCEPTOS
+Energy Management System (EMS): Es una plataforma de hardware y software que tiene la atribución de supervisar, controlar, analizar y optimizar elementos relevantes como: la generación y transmisión de EE.
+		Funciones principales
+Monitoreo en tiempo real (Infraestructura eléctrica)
+Programación y evaluación de interrupciones (mantenimiento)
+Optimización del despacho de energía eléctrica (minimizar costos y pérdidas)
+Gestión de la Demanda (mejorar eficiencia)
+Análisis de fallas y alarmas.
+Simulación de diversos escenarios para eventuales contingencias. 
+Integración con energías renovables.
+Sistema de Supervisión, Control y Adquisición de Datos (SCADA): Es un sistema informático que permite supervisar y controlar el funcionamiento de instalaciones remotas del Sistema Eléctrico de Transmisión, a través de la recopilación, transmisión y análisis de datos en tiempo real. Adquisición de datos en tiempo real.
+Base de datos SCADA/EMS: Estructura de datos unificada en el entorno e-terra que almacena de forma centralizada la topología de la red de transmisión/subtransmisión, parámetros técnicos de los equipos de potencia (líneas, transformadores, reactores), definiciones de puntos analógicos/digitales, enlaces ICCP, mímicos y atributos operativos necesarios para la supervisión, control e integración analítica en tiempo real.
+Mímico (Diagrama Unifilar Dinámico): Representación gráfica interactiva y esquemática de la topología de una Subestación (EE/EESS) o línea de transmisión dentro de la interfaz del sistema SCADA/EMS, que muestra en tiempo real el estado de los equipos de corte, mediciones analógicas y alarmas operativas.
+DBSEQ (Database Sequence): Archivo o conjunto de scripts de secuencia de base de datos generado tras la consolidación y compilación de los cambios topológicos y de señalización, el cual permite la migración, actualización e integración de proyectos de red de forma estructurada en el ambiente productivo e-terra (tiempo real).
+Paquete MAS (Model Assembly System): Subsistema/herramienta de la suite e-terra que gestiona la construcción, ensamblaje, validación y control de calidad de las modificaciones del modelo de red (agregación de proyectos, expansión de bahías, mantenimientos), empaquetando los cambios desde el ambiente de desarrollo/estudio antes de su conversión a secuencias de actualización (DBSEQ) para producción.
+Protocolo ICCP (TASE.2): Estándar internacional de comunicación para el intercambio bidireccional de datos en tiempo real entre el sistema SCADA/EMS y otros centros de control o entidades externas.
+Pareamiento de Señalizaciones: Proceso de asignación, mapeo y verificación de señales analógicas, discretas, genéricas y etiquetas (TAGs) con los puntos del modelo topológico para su correcta interpretación por el SCADA y las aplicaciones EMS.
+Señales:
+Analógicas: son aquellas que varían de forma continua, tanto en el tiempo como en su amplitud. (corrientes, tensiones, temperaturas, potencias, etc.)
+Discretas: son señales definidas en instantes específicos del tiempo, no de manera continua (posición de interruptores o estados de relés).
+Genéricas: Variables de monitoreo, estados lógicos o señales auxiliares del sistema que se procesan e interpretan en la plataforma SCADA para supervisión o alarmas, pero que se encuentran disociadas del modelo topológico-analítico del EMS (no intervienen directamente en el cálculo de red/estimador de estados).
+Nodo Flotante: Inconsistencia o error topológico caracterizado por un elemento o nodo de red desconectado de la conectividad eléctrica válida del modelo, el cual impide el correcto cálculo analítico en el EMS y constituye un motivo de rechazo del proyecto.
+
+CONDICIONES 
+Toda la información y mímicos deben ser remitidos oficialmente por las divisiones/unidades responsables (GT/GT, GT/MT, GT/TMB).
+No se ejecutará ningún proceso de actualización sin la documentación de respaldo debidamente validada y firmada.
+Debido a la arquitectura de la base de datos e-terra (donde SUBTOP y RTUTOP comparten claves primarias), el modelado topológico y la asignación de telemetría no pueden ser fragmentados entre distintas dependencias, debiendo ejecutarse en un solo proceso de ingeniería.
+Todo proyecto que supere el límite tolerable de warnings y errores conocidos en el compilador MAS, o presente inconsistencias de linking en la adquisición de campo, será rechazado en la etapa de control de calidad.
+  DISPOSICIONES GENERALES
+La actualización de la base de datos del EMS deberá realizarse conforme a las normativas y     estándares internacionales vigentes, específicamente:
+IEC 62443 (Ciberseguridad en Sistemas de Control): Se debe aplicar una estricta Gestión de Modificaciones (Change Management) y de Integridad del Sistema. El control de la configuración debe estar centralizado en el área técnica (DTE) para mitigar riesgos de corrupción de base de datos.
+IEC 61850 (Automatización de Subestaciones): Establece la trazabilidad integral de las señales desde el proceso (Nivel 0 y 1), pasando por el control local (Nivel 2), hasta el Centro de Control (Nivel 3). El área que realiza las pruebas punto a punto en Nivel 2 y 3 debe ser la misma que modela la base de datos maestra.
+IEC 62264 (Integración de Sistemas): Define la segregación de funciones entre las operaciones técnicas de control (Nivel 3 - Responsabilidad de DTE) y las operaciones analíticas y de gestión de la red (Nivel 4 - Responsabilidad de GT/DAS).
+La centralización del modelado topológico, pareamiento de señales, gestión de TAGs, pruebas de punto a punto y la carga en ambiente productivo (DBSEQ) es de responsabilidad exclusiva de la DTE/ISC y DTE/MCO.
+La validación analítica de la red (convergencia del Estimador de Estado y Flujo de Potencia) es de responsabilidad de GT/DAS, actuando como auditor funcional en el ambiente de Estudio.
+La carga en el ambiente productivo mediante el archivo DBSEQ es un proceso ejecutado por la DTE/MCO con una frecuencia semanal (días jueves).
+RESPONSABILIDADES 
+Unidades Proveedoras de Información (GT/GT / GT/MT / GT/TMB): Remitir la carpeta de mímicos, evidencias de mímicos, planos y datos técnicos de las instalaciones, subestaciones (EE/EESS) y líneas del SIN.
+Departamento de Estudios Eléctricos (GT/DEE / GT/DEL): Proporcionar los parámetros de líneas de transmisión, transformadores y datos técnicos de equipos de potencia del SIN.
+Departamento de Administración del SCADA/EMS (GT/DAS): Consolidar la información de las unidades proveedoras, emitir el requerimiento formal de actualización a la DTE, y realizar la validación analítica y funcional del modelo de red sobre el entorno de Estudio habilitado por DTE.
+Departamentos de DTE (DTE/ISC y DTE/MCO): Ejecutar la ingeniería integral de la base de datos (modelado topológico y pareamiento de señales simultáneamente). Ensamblar el Paquete MAS, ejecutar control de calidad técnico, realizar las pruebas de punto a punto en campo y Centro de Control, asignar Etiquetas/TAGs y ejecutar la carga semanal productiva (DBSEQ).
+Oficina de Despacho de Carga (GT/ODC): Validar en tiempo real la consistencia del modelo, señalizaciones, mímicos y parámetros operativos una vez incorporados en producción.
+DETERMINACIÓN DE INSUMOS, PROVEEDORES, PRODUCTOS Y CLIENTES 
+
+
+
+
+
+INDICADORES 
+Porcentaje de proyectos rechazados en el Control de Calidad Técnico de DTE por superar el límite de errores permitidos errores y warnings o presentar nodos flotantes.
+Cumplimiento de la frecuencia semanal de carga en ambiente productivo (días jueves).
+Tiempo promedio de procesamiento desde la recepción del mímico hasta el pareamiento de señales y puesta en producción.
+Porcentaje de pruebas de punto a punto aprobadas por la DTE/ISC antes de la liberación a producción.
+Disponibilidad e integridad operativa del sistema SCADA/EMS posterior a la carga del DBSEQ.
+
+DESCRIPCION DEL PROCEDIMIENTO
+
+
+
+
+
+INSUMOS | PROVEEDORES | PRODUCTOS | CLIENTES 
+Carpeta de mímicos, evidencia de mímico de EE/EESS (obras nuevas, actualizaciones, mantenimientos). | División de Transmisión / GT/TMB, GT/GT, GT/MT | Requerimiento consolidado para actualización del modelo. | GT/DAS
+Requerimiento consolidado de actualización y modelado de red. | Departamento de Administración SCADA/EMS (GT/DAS) | Base de datos topológica y parámetros para la configuración en el entorno e-terrasource. | DTE/ISC, DTE/MCO
+Base de datos topológica/telemétrica. |  DTE/SC (DTE/ISC, DTE/MCO) | Paquete MAS (Model Assembly System) ensamblado, validado y estructurado sin errores críticos y disponibilizado en entorno de Estudio. | GT/DAS
+Paquete MAS en entorno de Estudio. | Departamento de Administración SCADA/EMS (GT/DAS | Validación Analítica (Visto Bueno funcional de EMS). | DTE/ISC, DTE/MCO
+Paquete MAS validado funcionalmente, pruebas de punto a punto exitosas. | División de DTE (DTE/ISC, DTE/MCO) | Archivo DBSEQ cargado en producción. | 
+GT/ODC, GT/DAS
+
+N° | Actividades | Tareas | Descripción | Registros Aplicables | Procedimientos Asociados
+9.1 | Gestión de Insumos y Parámetros | Recopilar mímicos, parámetros y requerimientos operativos. | Las Unidades Proveedoras de Información remiten los insumos a GT/DAS. GT/DAS consolida la documentación técnica y los parámetros de Estudios Eléctricos en un requerimiento unificado. |  | 
+9.2 | Solicitud de Ingeniería de Base de Datos | Emisión de la solicitud de modelado. | GT/DAS remite oficialmente el requerimiento técnico consolidado a DTE/ISC y DTE/MCO para el inicio de la ingeniería de configuración en e-terrasource. |  | 
+9.3 | Ingeniería Integral de Base de Datos (DTE) | Modelado topológico y pareamiento simultáneo. | DTE (ISC y MCO) ejecuta la estructuración de la base de datos de manera indivisible. Se modela la topología de red y simultáneamente se configuran las señalizaciones (analógicas, discretas), ruteos, protocolo ICCP y asignación de TAGs, resguardando la integridad de las claves (ISD Keys). |  | 
+9.4 | Pruebas de Punto a Punto (DTE/ISC) | Ejecución de integración de campo. | DTE/ISC ejecuta las pruebas de punto a punto validando la correcta adquisición de datos entre los niveles 1 (IED), 2 (Estación) y 3 (Centro de Control / SCADA). |  | 
+9.5 | Ensamblaje y Control de Calidad Técnico (DTE/MCO) | Control exhaustivo de consistencia del modelo. | DTE/MCO compila el proyecto creando el Paquete MAS. Criterios de Aprobación: 1. Sin errores críticos ni nodos flotantes. 2. Límite:  warnings y errores no críticos conocidos. Si es aprobado, DTE lo transfiere al entorno de Estudio. |  | 
+9.6 | Validación Analítica y Funcional (GT/DAS) | Auditoría del comportamiento eléctrico. | Sobre el Paquete MAS habilitado en Estudio, GT/DAS ejecuta el Estimador de Estado y análisis de flujo de potencia para auditar el modelo y la viabilidad de la red. Si existen inconsistencias eléctricas, se retorna a DTE para ajuste. Si es correcto, GT/DAS emite el "Visto Bueno". |  | 
+9.7 | Validación Operativa (Conjunta) | Control pre-producción de visualización. | DTE/ISC, DTE/MCO, GT/DAS y GT/ODC realizan la revisión previa de los despliegues gráficos (displays), mímicos y alarmas en el ambiente pre-productivo garantizando la correcta ergonomía e información. |  | 
+9.8 | Carga en Producción (DTE/MCO) | Carga en ambiente productivo (DBSEQ). | DTE/MCO generan el archivo de secuencia DBSEQ definitivo y ejecutan la carga en el ambiente productivo los días jueves, dentro de la ventana operativa autorizada. |  | 
+9.9 | Monitoreo y Cierre | Monitoreo en tiempo real. | DTE/ISC y GT/ODC monitorean la disponibilidad operativa y de comunicaciones durante 24 horas. |  | 
+9.1 | Procedimiento de Reversión (Rollback) | Acción de contención ante fallas. | En caso de inestabilidad, caída de SCADA o corrupción de BD, DTE/MCO ejecutará unilateralmente el rollback del DBSEQ previo para salvaguardar la operación del SIN. |  | 

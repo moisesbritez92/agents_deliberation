@@ -1,0 +1,32 @@
+Modelo: gpt-6-luna | corridas pendientes: 30 | llamadas previstas: ~420
+[1/30] corrida 01 S07 completada | coste estimado acumulado USD 0.10
+[2/30] corrida 01 S03 completada | coste estimado acumulado USD 0.10
+[3/30] corrida 01 S10 completada | coste estimado acumulado USD 0.11
+[4/30] corrida 01 S09 completada | coste estimado acumulado USD 0.21
+[5/30] corrida 01 S06 completada | coste estimado acumulado USD 0.21
+[6/30] corrida 01 S08 completada | coste estimado acumulado USD 0.22
+[7/30] corrida 01 S05 completada | coste estimado acumulado USD 0.31
+[8/30] corrida 01 S02 completada | coste estimado acumulado USD 0.32
+[9/30] corrida 01 S04 completada | coste estimado acumulado USD 0.33
+[10/30] corrida 02 S05 completada | coste estimado acumulado USD 0.42
+[11/30] corrida 02 S06 completada | coste estimado acumulado USD 0.42
+[12/30] corrida 01 S01 completada | coste estimado acumulado USD 0.43
+[13/30] corrida 02 S08 completada | coste estimado acumulado USD 0.51
+[14/30] corrida 02 S01 completada | coste estimado acumulado USD 0.53
+[15/30] corrida 02 S03 completada | coste estimado acumulado USD 0.54
+[16/30] corrida 02 S10 completada | coste estimado acumulado USD 0.62
+[17/30] corrida 02 S02 completada | coste estimado acumulado USD 0.64
+[18/30] corrida 02 S04 completada | coste estimado acumulado USD 0.64
+[19/30] corrida 02 S07 completada | coste estimado acumulado USD 0.71
+[20/30] corrida 02 S09 completada | coste estimado acumulado USD 0.73
+[21/30] corrida 03 S01 completada | coste estimado acumulado USD 0.75
+[22/30] corrida 03 S07 completada | coste estimado acumulado USD 0.81
+[23/30] corrida 03 S03 completada | coste estimado acumulado USD 0.83
+[24/30] corrida 03 S05 completada | coste estimado acumulado USD 0.86
+[25/30] corrida 03 S04 completada | coste estimado acumulado USD 0.91
+[26/30] corrida 03 S10 completada | coste estimado acumulado USD 0.94
+[27/30] corrida 03 S02 completada | coste estimado acumulado USD 0.95
+[28/30] corrida 03 S06 completada | coste estimado acumulado USD 1.04
+[29/30] corrida 03 S09 completada | coste estimado acumulado USD 1.04
+[30/30] corrida 03 S08 completada | coste estimado acumulado USD 1.05
+Resultados en C:\Users\moise\Documents\0001_GT-DAS\atribuciones\experimento\results\luna_paraphrase\raw_results.jsonl. Ejecute: python analysis.py --label luna_paraphrase

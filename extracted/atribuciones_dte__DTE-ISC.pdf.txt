@@ -1,0 +1,70 @@
+Manual de Organización ANDE Actualización:  
+Página: 1 
+Resolución P/Nº: 48658 
+Fecha: 29.12.2023 
+ 
+ DEPARTAMENTO DE INGENIERÍA DE SISTEMAS DE CONTROL 
+ 
+Nivel Jerárquico: “E”  Sigla: DTE/ISC CUA: 2114  
+ 
+1. SUBORDINACIÓN 
+  
+El Departamento de Ingeniería de Sistemas de Control está subordinado a la División de 
+Sistemas de Comunicación. 
+ 
+2. ATRIBUCIONES 
+  
+2.1. Elaborar planes de expansión y proyectos para la  implementación de sistemas de 
+supervisión, control y adquisición de datos (SCADA), de automatización de 
+subestaciones (SAS) y de comunicación industrial y ciberseguridad correspondientes a 
+las tecnologías de operació n para  la generación, transmisión y distribución  del sistema 
+eléctrico de la ANDE. 
+ 
+2.2. Elaborar proyectos de retrofit de sistemas de control de estaciones y subestaciones. 
+ 
+2.3. Promover la innovación y acompañar la evolución de las tecnologías de operación. 
+ 
+2.4. Analizar, revisar y aprobar proyectos elaborados por terceros, relacionados con las 
+tecnologías de operación.  
+ 
+2.5. Ejecutar y supervisar el montaje, instalación, ampliación y puesta en servicio de las 
+tecnologías de operación 
+ 
+2.6. Elaborar, ejecutar y supervisar proyectos de relacionados a redes de comunicaciones (Red 
+de Área Local – LAN, Red de Área Amplia – WAN, radio enlaces, etc.) utilizadas para 
+las tecnologías de operación.  
+ 
+2.7. Elaborar, ejecutar y supervisar proyectos de relacionados a ciberseguridad utilizadas e n 
+las tecnologías de operación. 
+ 
+2.8. Administrar los contratos de adquisición e implementación de sistemas, equipos, 
+materiales, servicios e infraestructura aso ciada, de tecnologías de operación , como 
+también los de consultorías externas inherentes a proyectos específicos. 
+ 
+2.9. Estudiar y desarrollar normas y especificaciones técnicas de todo lo relacionado con las 
+tecnologías de operación. 
+ 
+2.10. Realizar control, evaluación y seguimiento al mantenimiento de los diferentes sistemas 
+componentes de las tecnologías de operación. 
+ 
+2.11. Elaborar políticas, manuales e instrucciones de mantenimiento de tecnologías de 
+operación, de acuerdo a las recomendaciones del fabricante, experiencia de campo y otros 
+factores de determinación. 
+ 
+ 
+Manual de Organización ANDE Actualización:  
+Página: 2 
+Resolución P/Nº: 48658 
+Fecha: 29.12.2023 
+ 
+3. ORGANIZACIÓN 
+ 
+3.1. Sección Ingeniería de Sistemas de Control 
+3.2. Sección Implementación de Sistemas de Control 
+3.3. Sección Ingeniería de Mantenimiento de Sistemas de Control 
+ 
+ 
+ 
+ 
+ 
+ 

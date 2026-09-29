@@ -1,0 +1,427 @@
+{
+  "_warning": "REFERENCE_RACI: propuesta previa del artículo, no verdad conocida. No debe enviarse a ningún agente. Solo para comparación post hoc.",
+  "source": "articulo_atribuciones_scada_ems/main.tex (Tabla tab:raci)",
+  "column_mapping": {
+    "GT_SUPPORT": "GT*: DOS/DEL/DEN/DDR según el cambio",
+    "ORIGIN": "unidad que certifica el dato (p. ej., departamento regional de Transmisión, DEL o DOS)",
+    "NEW_AUTHORITY": "AC: Autoridad de Cambio, instancia nueva propuesta"
+  },
+  "rows": [
+    {
+      "activity_article": "Definir requisito y alcance",
+      "rule": "R1",
+      "accountable": [
+        "DAS"
+      ],
+      "responsible": [
+        "DAS"
+      ],
+      "consulted": [
+        "ISC",
+        "MCO",
+        "ODC",
+        "GT_SUPPORT",
+        "ORIGIN"
+      ],
+      "informed": [
+        "NEW_AUTHORITY"
+      ],
+      "activity_id": "ACT01"
+    },
+    {
+      "activity_article": "Certificar datos de instalación",
+      "rule": "R6",
+      "accountable": [
+        "ORIGIN"
+      ],
+      "responsible": [
+        "ORIGIN"
+      ],
+      "consulted": [
+        "DAS",
+        "ISC",
+        "ODC",
+        "GT_SUPPORT"
+      ],
+      "informed": [
+        "MCO",
+        "NEW_AUTHORITY"
+      ],
+      "activity_id": "ACT02"
+    },
+    {
+      "activity_article": "Especificar y aceptar semántica del modelo",
+      "rule": "R1",
+      "accountable": [
+        "DAS"
+      ],
+      "responsible": [
+        "DAS"
+      ],
+      "consulted": [
+        "ISC",
+        "MCO",
+        "ODC",
+        "GT_SUPPORT",
+        "ORIGIN"
+      ],
+      "informed": [
+        "NEW_AUTHORITY"
+      ],
+      "activity_id": "ACT03"
+    },
+    {
+      "activity_article": "Construir/actualizar modelo eléctrico (DAS1)",
+      "rule": "R2",
+      "accountable": [
+        "DAS"
+      ],
+      "responsible": [
+        "DAS"
+      ],
+      "consulted": [
+        "ISC",
+        "MCO",
+        "ODC",
+        "GT_SUPPORT",
+        "ORIGIN"
+      ],
+      "informed": [
+        "NEW_AUTHORITY"
+      ],
+      "activity_id": "ACT04"
+    },
+    {
+      "activity_article": "Revisar calidad topológica y de nomenclatura (QC/QA)",
+      "rule": "R5",
+      "accountable": [
+        "ISC"
+      ],
+      "responsible": [
+        "ISC"
+      ],
+      "consulted": [
+        "DAS"
+      ],
+      "informed": [
+        "MCO",
+        "ODC",
+        "GT_SUPPORT",
+        "ORIGIN",
+        "NEW_AUTHORITY"
+      ],
+      "activity_id": "ACT05"
+    },
+    {
+      "activity_article": "Configurar adquisición, pareamiento y comunicaciones",
+      "rule": "R2",
+      "accountable": [
+        "ISC"
+      ],
+      "responsible": [
+        "ISC",
+        "MCO"
+      ],
+      "consulted": [
+        "DAS",
+        "ORIGIN"
+      ],
+      "informed": [
+        "ODC",
+        "GT_SUPPORT",
+        "NEW_AUTHORITY"
+      ],
+      "activity_id": "ACT06"
+    },
+    {
+      "activity_article": "Unificar modelo y adquisición en base integrada",
+      "rule": "R3",
+      "accountable": [
+        "ISC"
+      ],
+      "responsible": [
+        "DAS",
+        "ISC",
+        "MCO"
+      ],
+      "consulted": [
+        "ODC",
+        "GT_SUPPORT"
+      ],
+      "informed": [
+        "ORIGIN",
+        "NEW_AUTHORITY"
+      ],
+      "activity_id": "ACT07"
+    },
+    {
+      "activity_article": "Preparar paquete MAS de implementación",
+      "rule": "R3",
+      "accountable": [
+        "ISC"
+      ],
+      "responsible": [
+        "DAS",
+        "ISC",
+        "MCO"
+      ],
+      "consulted": [],
+      "informed": [
+        "ODC",
+        "GT_SUPPORT",
+        "ORIGIN",
+        "NEW_AUTHORITY"
+      ],
+      "activity_id": "ACT08"
+    },
+    {
+      "activity_article": "Aprobar FAT/SAT y pruebas de integración",
+      "rule": "R4",
+      "accountable": [
+        "ISC"
+      ],
+      "responsible": [
+        "ISC"
+      ],
+      "consulted": [
+        "DAS",
+        "MCO",
+        "ODC",
+        "GT_SUPPORT",
+        "ORIGIN"
+      ],
+      "informed": [
+        "NEW_AUTHORITY"
+      ],
+      "activity_id": "ACT09"
+    },
+    {
+      "activity_article": "Administrar/actualizar aplicativos (DAS2)",
+      "rule": "R1, R5",
+      "accountable": [
+        "DAS"
+      ],
+      "responsible": [
+        "DAS",
+        "MCO"
+      ],
+      "consulted": [
+        "ISC",
+        "ODC",
+        "GT_SUPPORT"
+      ],
+      "informed": [
+        "ORIGIN",
+        "NEW_AUTHORITY"
+      ],
+      "activity_id": "ACT10"
+    },
+    {
+      "activity_article": "Validar estimador, flujo y aplicaciones",
+      "rule": "R4, R5",
+      "accountable": [
+        "DAS"
+      ],
+      "responsible": [
+        "DAS"
+      ],
+      "consulted": [
+        "ISC",
+        "MCO",
+        "ODC",
+        "GT_SUPPORT"
+      ],
+      "informed": [
+        "ORIGIN",
+        "NEW_AUTHORITY"
+      ],
+      "activity_id": "ACT11"
+    },
+    {
+      "activity_article": "Verificar correspondencia de mímicos y modelo con la instalación",
+      "rule": "R6",
+      "accountable": [
+        "ORIGIN"
+      ],
+      "responsible": [
+        "DAS",
+        "ORIGIN"
+      ],
+      "consulted": [
+        "ISC",
+        "ODC"
+      ],
+      "informed": [
+        "MCO",
+        "GT_SUPPORT",
+        "NEW_AUTHORITY"
+      ],
+      "activity_id": "ACT12"
+    },
+    {
+      "activity_article": "Aceptar mímicos, alarmas y uso operativo",
+      "rule": "R4",
+      "accountable": [
+        "ODC"
+      ],
+      "responsible": [
+        "ODC"
+      ],
+      "consulted": [
+        "DAS",
+        "ISC",
+        "MCO",
+        "GT_SUPPORT",
+        "ORIGIN"
+      ],
+      "informed": [
+        "NEW_AUTHORITY"
+      ],
+      "activity_id": "ACT13"
+    },
+    {
+      "activity_article": "Autorizar liberación de versión",
+      "rule": "R7",
+      "accountable": [
+        "NEW_AUTHORITY"
+      ],
+      "responsible": [
+        "DAS"
+      ],
+      "consulted": [
+        "ISC",
+        "MCO",
+        "ODC",
+        "GT_SUPPORT"
+      ],
+      "informed": [
+        "ORIGIN"
+      ],
+      "activity_id": "ACT14"
+    },
+    {
+      "activity_article": "Habilitar o suspender ventana en tiempo real",
+      "rule": "R8",
+      "accountable": [
+        "ODC"
+      ],
+      "responsible": [
+        "MCO"
+      ],
+      "consulted": [
+        "DAS",
+        "GT_SUPPORT"
+      ],
+      "informed": [
+        "ISC",
+        "ORIGIN",
+        "NEW_AUTHORITY"
+      ],
+      "activity_id": "ACT15"
+    },
+    {
+      "activity_article": "Ejecutar respaldo y carga autorizada",
+      "rule": "R8, R9",
+      "accountable": [
+        "MCO"
+      ],
+      "responsible": [
+        "MCO"
+      ],
+      "consulted": [
+        "DAS",
+        "ISC",
+        "ODC"
+      ],
+      "informed": [
+        "GT_SUPPORT",
+        "ORIGIN",
+        "NEW_AUTHORITY"
+      ],
+      "activity_id": "ACT16"
+    },
+    {
+      "activity_article": "Mantener registro técnico de configuración",
+      "rule": "R9",
+      "accountable": [
+        "ISC"
+      ],
+      "responsible": [
+        "ISC",
+        "MCO"
+      ],
+      "consulted": [
+        "DAS"
+      ],
+      "informed": [
+        "ODC",
+        "GT_SUPPORT",
+        "ORIGIN",
+        "NEW_AUTHORITY"
+      ],
+      "activity_id": "ACT17"
+    },
+    {
+      "activity_article": "Verificar posactualización y cerrar el cambio",
+      "rule": "R1",
+      "accountable": [
+        "DAS"
+      ],
+      "responsible": [
+        "DAS",
+        "ISC",
+        "MCO"
+      ],
+      "consulted": [
+        "ODC",
+        "GT_SUPPORT"
+      ],
+      "informed": [
+        "ORIGIN",
+        "NEW_AUTHORITY"
+      ],
+      "activity_id": "ACT18"
+    },
+    {
+      "activity_article": "Aprobar criterios y delegación de reversión",
+      "rule": "R7",
+      "accountable": [
+        "NEW_AUTHORITY"
+      ],
+      "responsible": [
+        "DAS",
+        "MCO"
+      ],
+      "consulted": [
+        "ISC",
+        "ODC",
+        "GT_SUPPORT"
+      ],
+      "informed": [
+        "ORIGIN"
+      ],
+      "activity_id": "ACT19"
+    },
+    {
+      "activity_article": "Ejecutar reversión autorizada o preautorizada",
+      "rule": "R9",
+      "accountable": [
+        "MCO"
+      ],
+      "responsible": [
+        "MCO"
+      ],
+      "consulted": [
+        "DAS",
+        "ISC",
+        "ODC"
+      ],
+      "informed": [
+        "GT_SUPPORT",
+        "ORIGIN",
+        "NEW_AUTHORITY"
+      ],
+      "activity_id": "ACT20"
+    }
+  ]
+}

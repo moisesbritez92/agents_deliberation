@@ -1,0 +1,281 @@
+group,scenario_id,activity_id,column,modal_role,share,n,stable,distribution,reference_role
+especializados_f1,ALL,ACT01,DAS,-,0.394,160,False,-:63; C:61; I:19; A:7; R:7; A/R:3,A/R
+especializados_f1,ALL,ACT01,GT_SUPPORT,C,0.381,160,False,C:61; R:33; -:23; A:20; I:12; A/R:11,C
+especializados_f1,ALL,ACT01,ISC,-,0.544,160,False,-:87; C:46; I:17; R:9; A/R:1,C
+especializados_f1,ALL,ACT01,MCO,C,0.463,160,False,C:74; -:40; I:37; R:7; A:2,C
+especializados_f1,ALL,ACT01,NEW_AUTHORITY,-,1.0,160,True,-:160,I
+especializados_f1,ALL,ACT01,ODC,A/R,0.375,160,False,A/R:60; C:42; R:35; A:19; I:3; -:1,C
+especializados_f1,ALL,ACT01,ORIGIN,-,0.838,160,True,-:134; I:25; C:1,C
+especializados_f1,ALL,ACT02,DAS,-,0.731,160,True,-:117; I:40; C:3,C
+especializados_f1,ALL,ACT02,GT_SUPPORT,-,0.294,160,False,-:47; C:39; A/R:31; A:27; R:9; I:7,C
+especializados_f1,ALL,ACT02,ISC,A/R,0.331,160,False,A/R:53; -:37; C:29; R:27; A:11; I:3,C
+especializados_f1,ALL,ACT02,MCO,-,0.556,160,False,-:89; C:30; I:24; A:13; R:3; A/R:1,I
+especializados_f1,ALL,ACT02,NEW_AUTHORITY,-,1.0,160,True,-:160,I
+especializados_f1,ALL,ACT02,ODC,I,0.438,160,False,-:70; I:70; C:20,C
+especializados_f1,ALL,ACT02,ORIGIN,-,0.406,160,False,-:65; C:47; R:24; A/R:14; I:9; A:1,A/R
+especializados_f1,ALL,ACT03,DAS,R,0.237,80,False,R:19; C:16; I:15; A:11; A/R:10; -:9,A/R
+especializados_f1,ALL,ACT03,GT_SUPPORT,C,0.562,80,False,C:45; -:19; A:7; I:5; R:4,C
+especializados_f1,ALL,ACT03,ISC,A/R,0.312,80,False,A/R:25; R:21; A:18; C:13; -:3,C
+especializados_f1,ALL,ACT03,MCO,-,0.338,80,False,-:27; C:25; I:19; A/R:3; R:3; A:3,C
+especializados_f1,ALL,ACT03,NEW_AUTHORITY,-,1.0,80,True,-:80,I
+especializados_f1,ALL,ACT03,ODC,C,0.75,80,True,C:60; I:17; -:3,C
+especializados_f1,ALL,ACT03,ORIGIN,-,0.8,80,True,-:64; I:11; C:5,C
+especializados_f1,ALL,ACT04,DAS,A/R,0.9,240,True,A/R:216; R:14; C:7; A:2; I:1,A/R
+especializados_f1,ALL,ACT04,GT_SUPPORT,-,0.642,240,True,-:154; C:73; I:13,C
+especializados_f1,ALL,ACT04,ISC,-,0.508,240,False,-:122; C:99; I:14; R:4; A:1,C
+especializados_f1,ALL,ACT04,MCO,-,0.383,240,False,-:92; I:80; C:46; A:15; A/R:6; R:1,C
+especializados_f1,ALL,ACT04,NEW_AUTHORITY,-,1.0,240,True,-:240,I
+especializados_f1,ALL,ACT04,ODC,-,0.583,240,False,-:140; I:96; C:4,C
+especializados_f1,ALL,ACT04,ORIGIN,-,0.958,240,True,-:230; C:9; I:1,C
+especializados_f1,ALL,ACT05,DAS,A/R,0.756,160,True,A/R:121; R:18; C:11; A:6; -:3; I:1,C
+especializados_f1,ALL,ACT05,GT_SUPPORT,-,0.6,160,True,-:96; C:51; I:11; A:2,I
+especializados_f1,ALL,ACT05,ISC,-,0.719,160,True,-:115; C:25; I:12; A/R:4; R:3; A:1,A/R
+especializados_f1,ALL,ACT05,MCO,-,0.512,160,False,-:82; I:26; C:20; A:17; A/R:9; R:6,I
+especializados_f1,ALL,ACT05,NEW_AUTHORITY,-,1.0,160,True,-:160,I
+especializados_f1,ALL,ACT05,ODC,-,0.525,160,False,-:84; I:64; C:12,I
+especializados_f1,ALL,ACT05,ORIGIN,-,0.994,160,True,-:159; I:1,I
+especializados_f1,ALL,ACT06,DAS,C,0.316,320,False,C:101; -:82; R:76; A/R:29; I:17; A:15,C
+especializados_f1,ALL,ACT06,GT_SUPPORT,-,0.9,320,True,-:288; I:20; C:12,I
+especializados_f1,ALL,ACT06,ISC,R,0.372,320,False,R:119; C:95; -:47; A/R:35; I:20; A:4,A/R
+especializados_f1,ALL,ACT06,MCO,A,0.45,320,False,A:144; A/R:93; C:40; R:24; -:11; I:8,R
+especializados_f1,ALL,ACT06,NEW_AUTHORITY,-,1.0,320,True,-:320,I
+especializados_f1,ALL,ACT06,ODC,I,0.634,320,True,I:203; C:87; -:30,I
+especializados_f1,ALL,ACT06,ORIGIN,-,0.984,320,True,-:315; I:3; C:2,C
+especializados_f1,ALL,ACT07,DAS,A/R,0.588,80,False,A/R:47; R:23; A:6; C:4,R
+especializados_f1,ALL,ACT07,GT_SUPPORT,-,0.988,80,True,-:79; I:1,C
+especializados_f1,ALL,ACT07,ISC,C,0.425,80,False,C:34; -:33; R:8; I:5,A/R
+especializados_f1,ALL,ACT07,MCO,C,0.45,80,False,C:36; A:23; I:9; -:8; A/R:4,R
+especializados_f1,ALL,ACT07,NEW_AUTHORITY,-,1.0,80,True,-:80,I
+especializados_f1,ALL,ACT07,ODC,I,0.7,80,True,I:56; -:22; C:2,C
+especializados_f1,ALL,ACT07,ORIGIN,-,1.0,80,True,-:80,I
+especializados_f1,ALL,ACT08,DAS,A/R,0.55,80,False,A/R:44; R:24; C:8; A:4,R
+especializados_f1,ALL,ACT08,GT_SUPPORT,-,0.95,80,True,-:76; C:4,I
+especializados_f1,ALL,ACT08,ISC,C,0.463,80,False,C:37; -:37; R:4; I:2,A/R
+especializados_f1,ALL,ACT08,MCO,C,0.425,80,False,C:34; A:19; A/R:13; I:6; R:5; -:3,R
+especializados_f1,ALL,ACT08,NEW_AUTHORITY,-,1.0,80,True,-:80,I
+especializados_f1,ALL,ACT08,ODC,I,0.688,80,True,I:55; C:14; -:11,I
+especializados_f1,ALL,ACT08,ORIGIN,-,0.975,80,True,-:78; I:2,I
+especializados_f1,ALL,ACT09,DAS,-,0.658,240,True,-:158; C:42; I:33; R:4; A:2; A/R:1,C
+especializados_f1,ALL,ACT09,GT_SUPPORT,-,0.658,240,True,-:158; C:49; I:33,C
+especializados_f1,ALL,ACT09,ISC,R,0.55,240,False,R:132; A/R:85; A:9; -:6; C:6; I:2,A/R
+especializados_f1,ALL,ACT09,MCO,A,0.537,240,False,A:129; C:68; A/R:13; I:11; R:10; -:9,C
+especializados_f1,ALL,ACT09,NEW_AUTHORITY,-,1.0,240,True,-:240,I
+especializados_f1,ALL,ACT09,ODC,C,0.621,240,True,C:149; I:69; -:22,C
+especializados_f1,ALL,ACT09,ORIGIN,-,0.954,240,True,-:229; I:10; C:1,C
+especializados_f1,ALL,ACT10,DAS,A/R,1.0,80,True,A/R:80,A/R
+especializados_f1,ALL,ACT10,GT_SUPPORT,-,0.775,80,True,-:62; I:13; C:5,C
+especializados_f1,ALL,ACT10,ISC,-,0.812,80,True,-:65; C:13; I:2,C
+especializados_f1,ALL,ACT10,MCO,C,0.738,80,True,C:59; -:12; I:9,R
+especializados_f1,ALL,ACT10,NEW_AUTHORITY,-,1.0,80,True,-:80,I
+especializados_f1,ALL,ACT10,ODC,I,0.588,80,False,I:47; C:31; -:2,C
+especializados_f1,ALL,ACT10,ORIGIN,-,0.975,80,True,-:78; I:2,I
+especializados_f1,ALL,ACT11,DAS,A/R,0.883,240,True,A/R:212; R:20; A:5; I:2; C:1,A/R
+especializados_f1,ALL,ACT11,GT_SUPPORT,C,0.492,240,False,C:118; -:83; I:24; A:10; R:4; A/R:1,C
+especializados_f1,ALL,ACT11,ISC,-,0.933,240,True,-:224; I:12; C:3; R:1,C
+especializados_f1,ALL,ACT11,MCO,-,0.604,240,True,-:145; I:70; C:14; A:8; R:2; A/R:1,C
+especializados_f1,ALL,ACT11,NEW_AUTHORITY,-,1.0,240,True,-:240,I
+especializados_f1,ALL,ACT11,ODC,C,0.721,240,True,C:173; I:49; -:12; R:4; A:2,C
+especializados_f1,ALL,ACT11,ORIGIN,-,0.988,240,True,-:237; I:3,I
+especializados_f1,ALL,ACT12,DAS,-,0.419,160,False,-:67; I:24; C:24; R:22; A:17; A/R:6,R
+especializados_f1,ALL,ACT12,GT_SUPPORT,-,0.863,160,True,-:138; I:12; C:8; R:1; A:1,I
+especializados_f1,ALL,ACT12,ISC,-,0.338,160,False,-:54; R:48; C:27; A/R:16; I:11; A:4,C
+especializados_f1,ALL,ACT12,MCO,A,0.4,160,False,A:64; A/R:26; -:24; R:20; C:14; I:12,I
+especializados_f1,ALL,ACT12,NEW_AUTHORITY,-,1.0,160,True,-:160,I
+especializados_f1,ALL,ACT12,ODC,I,0.331,160,False,I:53; C:46; -:34; A:20; R:6; A/R:1,C
+especializados_f1,ALL,ACT12,ORIGIN,C,0.469,160,False,C:75; -:57; R:14; I:10; A/R:4,A/R
+especializados_f1,ALL,ACT13,DAS,-,0.419,160,False,-:67; C:54; I:19; R:17; A:3,C
+especializados_f1,ALL,ACT13,GT_SUPPORT,C,0.463,160,False,C:74; -:67; I:15; R:4,C
+especializados_f1,ALL,ACT13,ISC,-,0.619,160,True,-:99; C:35; I:25; R:1,C
+especializados_f1,ALL,ACT13,MCO,R,0.362,160,False,R:58; C:31; A:29; -:18; I:13; A/R:11,C
+especializados_f1,ALL,ACT13,NEW_AUTHORITY,-,1.0,160,True,-:160,I
+especializados_f1,ALL,ACT13,ODC,A,0.463,160,False,A:74; A/R:36; R:35; C:15,A/R
+especializados_f1,ALL,ACT13,ORIGIN,-,0.8,160,True,-:128; I:29; C:3,C
+especializados_f1,ALL,ACT14,DAS,R,0.354,240,False,R:85; C:63; -:52; A/R:29; I:11,R
+especializados_f1,ALL,ACT14,GT_SUPPORT,-,0.658,240,True,-:158; C:48; I:32; R:1; A:1,C
+especializados_f1,ALL,ACT14,ISC,-,0.796,240,True,-:191; I:27; C:22,C
+especializados_f1,ALL,ACT14,MCO,C,0.271,240,False,C:65; -:44; A/R:43; I:42; R:31; A:15,C
+especializados_f1,ALL,ACT14,NEW_AUTHORITY,-,1.0,240,True,-:240,A
+especializados_f1,ALL,ACT14,ODC,C,0.55,240,False,C:132; A:59; A/R:34; R:9; I:6,C
+especializados_f1,ALL,ACT14,ORIGIN,-,0.725,240,True,-:174; I:56; C:5; A:4; A/R:1,I
+especializados_f1,ALL,ACT15,DAS,-,0.619,320,True,-:198; C:71; I:49; R:2,C
+especializados_f1,ALL,ACT15,GT_SUPPORT,-,0.469,320,False,-:150; C:94; I:76,C
+especializados_f1,ALL,ACT15,ISC,-,0.931,320,True,-:298; I:18; C:4,I
+especializados_f1,ALL,ACT15,MCO,C,0.509,320,False,C:163; I:95; -:52; R:9; A:1,R
+especializados_f1,ALL,ACT15,NEW_AUTHORITY,-,1.0,320,True,-:320,I
+especializados_f1,ALL,ACT15,ODC,A/R,0.963,320,True,A/R:308; A:9; R:3,A
+especializados_f1,ALL,ACT15,ORIGIN,-,0.769,320,True,-:246; I:56; C:17; A:1,I
+especializados_f1,ALL,ACT16,DAS,C,0.425,160,False,C:68; R:51; A/R:15; -:11; A:10; I:5,C
+especializados_f1,ALL,ACT16,GT_SUPPORT,-,0.938,160,True,-:150; I:10,I
+especializados_f1,ALL,ACT16,ISC,-,0.925,160,True,-:148; C:7; I:4; R:1,C
+especializados_f1,ALL,ACT16,MCO,A/R,0.656,160,True,A/R:105; A:30; R:11; -:10; I:3; C:1,A/R
+especializados_f1,ALL,ACT16,NEW_AUTHORITY,-,1.0,160,True,-:160,I
+especializados_f1,ALL,ACT16,ODC,I,0.625,160,True,I:100; C:60,C
+especializados_f1,ALL,ACT16,ORIGIN,-,0.975,160,True,-:156; I:4,I
+especializados_f1,ALL,ACT17,DAS,C,0.35,80,False,C:28; A:20; I:20; -:9; A/R:2; R:1,C
+especializados_f1,ALL,ACT17,GT_SUPPORT,-,0.988,80,True,-:79; I:1,I
+especializados_f1,ALL,ACT17,ISC,R,0.537,80,False,R:43; A/R:33; A:2; -:1; C:1,A/R
+especializados_f1,ALL,ACT17,MCO,C,0.375,80,False,C:30; A:23; I:17; -:8; R:2,R
+especializados_f1,ALL,ACT17,NEW_AUTHORITY,-,1.0,80,True,-:80,I
+especializados_f1,ALL,ACT17,ODC,-,0.775,80,True,-:62; I:18,I
+especializados_f1,ALL,ACT17,ORIGIN,-,0.975,80,True,-:78; I:2,I
+especializados_f1,ALL,ACT18,DAS,C,0.4,160,False,C:64; R:49; A/R:20; -:13; I:9; A:5,A/R
+especializados_f1,ALL,ACT18,GT_SUPPORT,-,0.794,160,True,-:127; I:22; C:9; R:2,C
+especializados_f1,ALL,ACT18,ISC,-,0.6,160,True,-:96; I:40; C:13; R:11,R
+especializados_f1,ALL,ACT18,MCO,A,0.35,160,False,A:56; A/R:40; I:19; -:18; C:14; R:13,R
+especializados_f1,ALL,ACT18,NEW_AUTHORITY,-,1.0,160,True,-:160,I
+especializados_f1,ALL,ACT18,ODC,C,0.581,160,False,C:93; R:27; A/R:22; A:13; I:5,C
+especializados_f1,ALL,ACT18,ORIGIN,-,0.919,160,True,-:147; I:13,I
+especializados_f1,ALL,ACT19,DAS,R,0.369,160,False,R:59; C:39; -:26; A/R:25; I:11,R
+especializados_f1,ALL,ACT19,GT_SUPPORT,-,0.819,160,True,-:131; C:14; I:11; R:4,C
+especializados_f1,ALL,ACT19,ISC,-,0.713,160,True,-:114; C:30; I:7; R:3; A/R:3; A:3,C
+especializados_f1,ALL,ACT19,MCO,C,0.275,160,False,C:44; -:34; A/R:25; R:21; A:19; I:17,R
+especializados_f1,ALL,ACT19,NEW_AUTHORITY,-,0.994,160,True,-:159; A:1,A
+especializados_f1,ALL,ACT19,ODC,C,0.781,160,True,C:125; R:15; A:9; I:5; A/R:3; -:3,C
+especializados_f1,ALL,ACT19,ORIGIN,-,0.725,160,True,-:116; I:39; A:4; C:1,I
+especializados_f1,ALL,ACT20,DAS,R,0.512,160,False,R:82; C:32; -:20; A/R:13; I:8; A:5,C
+especializados_f1,ALL,ACT20,GT_SUPPORT,-,0.794,160,True,-:127; I:25; C:8,I
+especializados_f1,ALL,ACT20,ISC,-,0.863,160,True,-:138; I:18; C:3; R:1,C
+especializados_f1,ALL,ACT20,MCO,A/R,0.35,160,False,A/R:56; R:39; A:35; -:16; I:8; C:6,A/R
+especializados_f1,ALL,ACT20,NEW_AUTHORITY,-,1.0,160,True,-:160,I
+especializados_f1,ALL,ACT20,ODC,C,0.588,160,False,C:94; A:50; I:15; A/R:1,C
+especializados_f1,ALL,ACT20,ORIGIN,-,0.938,160,True,-:150; I:10,I
+neutral_f1,ALL,ACT01,DAS,C,0.4,40,False,-:16; C:16; I:4; R:2; A/R:1; A:1,A/R
+neutral_f1,ALL,ACT01,GT_SUPPORT,C,0.35,40,False,C:14; R:10; A:6; -:5; A/R:3; I:2,C
+neutral_f1,ALL,ACT01,ISC,-,0.575,40,False,-:23; C:11; I:4; R:2,C
+neutral_f1,ALL,ACT01,MCO,C,0.375,40,False,C:15; -:14; I:9; R:1; A:1,C
+neutral_f1,ALL,ACT01,NEW_AUTHORITY,-,1.0,40,True,-:40,I
+neutral_f1,ALL,ACT01,ODC,A/R,0.375,40,False,A/R:15; C:12; R:8; A:5,C
+neutral_f1,ALL,ACT01,ORIGIN,-,0.775,40,True,-:31; I:8; C:1,C
+neutral_f1,ALL,ACT02,DAS,-,0.675,40,True,-:27; I:12; C:1,C
+neutral_f1,ALL,ACT02,GT_SUPPORT,-,0.275,40,False,-:11; C:10; A/R:10; A:5; R:4,C
+neutral_f1,ALL,ACT02,ISC,-,0.325,40,False,-:13; C:10; A/R:8; R:5; I:4,C
+neutral_f1,ALL,ACT02,MCO,-,0.475,40,False,-:19; C:7; I:7; A:5; A/R:2,I
+neutral_f1,ALL,ACT02,NEW_AUTHORITY,-,1.0,40,True,-:40,I
+neutral_f1,ALL,ACT02,ODC,I,0.45,40,False,-:18; I:18; C:4,C
+neutral_f1,ALL,ACT02,ORIGIN,C,0.375,40,False,C:15; -:11; R:7; A/R:5; I:2,A/R
+neutral_f1,ALL,ACT03,DAS,C,0.3,20,False,C:6; R:5; I:3; A/R:3; A:3,A/R
+neutral_f1,ALL,ACT03,GT_SUPPORT,C,0.5,20,False,C:10; -:9; A/R:1,C
+neutral_f1,ALL,ACT03,ISC,A/R,0.35,20,False,A/R:7; A:5; R:4; C:2; -:2,C
+neutral_f1,ALL,ACT03,MCO,C,0.45,20,False,C:9; -:8; I:3,C
+neutral_f1,ALL,ACT03,NEW_AUTHORITY,-,1.0,20,True,-:20,I
+neutral_f1,ALL,ACT03,ODC,C,0.55,20,False,C:11; I:6; -:3,C
+neutral_f1,ALL,ACT03,ORIGIN,-,0.55,20,False,-:11; I:5; C:4,C
+neutral_f1,ALL,ACT04,DAS,A/R,0.917,60,True,A/R:55; R:4; A:1,A/R
+neutral_f1,ALL,ACT04,GT_SUPPORT,-,0.517,60,False,-:31; C:24; I:5,C
+neutral_f1,ALL,ACT04,ISC,-,0.533,60,False,-:32; C:26; I:2,C
+neutral_f1,ALL,ACT04,MCO,I,0.35,60,False,I:21; -:21; C:14; A:3; R:1,C
+neutral_f1,ALL,ACT04,NEW_AUTHORITY,-,1.0,60,True,-:60,I
+neutral_f1,ALL,ACT04,ODC,-,0.6,60,True,-:36; I:23; C:1,C
+neutral_f1,ALL,ACT04,ORIGIN,-,0.933,60,True,-:56; C:3; I:1,C
+neutral_f1,ALL,ACT05,DAS,A/R,0.7,40,True,A/R:28; C:5; R:4; -:1; I:1; A:1,C
+neutral_f1,ALL,ACT05,GT_SUPPORT,-,0.55,40,False,-:22; C:10; I:6; A/R:2,I
+neutral_f1,ALL,ACT05,ISC,-,0.6,40,True,-:24; C:7; I:5; A/R:2; R:2,A/R
+neutral_f1,ALL,ACT05,MCO,-,0.575,40,False,-:23; I:5; C:5; A:4; A/R:2; R:1,I
+neutral_f1,ALL,ACT05,NEW_AUTHORITY,-,1.0,40,True,-:40,I
+neutral_f1,ALL,ACT05,ODC,-,0.625,40,True,-:25; I:13; C:2,I
+neutral_f1,ALL,ACT05,ORIGIN,-,0.95,40,True,-:38; I:2,I
+neutral_f1,ALL,ACT06,DAS,C,0.312,80,False,C:25; -:23; R:18; I:6; A/R:6; A:2,C
+neutral_f1,ALL,ACT06,GT_SUPPORT,-,0.912,80,True,-:73; I:4; C:3,I
+neutral_f1,ALL,ACT06,ISC,R,0.35,80,False,R:28; C:23; -:11; A/R:11; I:7,A/R
+neutral_f1,ALL,ACT06,MCO,A,0.45,80,False,A:36; A/R:25; C:11; I:4; -:3; R:1,R
+neutral_f1,ALL,ACT06,NEW_AUTHORITY,-,1.0,80,True,-:80,I
+neutral_f1,ALL,ACT06,ODC,I,0.525,80,False,I:42; C:23; -:15,I
+neutral_f1,ALL,ACT06,ORIGIN,-,0.95,80,True,-:76; I:3; C:1,C
+neutral_f1,ALL,ACT07,DAS,A/R,0.5,20,False,A/R:10; R:7; A:3,R
+neutral_f1,ALL,ACT07,GT_SUPPORT,-,1.0,20,True,-:20,C
+neutral_f1,ALL,ACT07,ISC,C,0.5,20,False,C:10; -:7; R:3,A/R
+neutral_f1,ALL,ACT07,MCO,A,0.35,20,False,A:7; C:6; -:4; I:3,R
+neutral_f1,ALL,ACT07,NEW_AUTHORITY,-,1.0,20,True,-:20,I
+neutral_f1,ALL,ACT07,ODC,I,0.8,20,True,I:16; -:4,C
+neutral_f1,ALL,ACT07,ORIGIN,-,1.0,20,True,-:20,I
+neutral_f1,ALL,ACT08,DAS,A/R,0.6,20,True,A/R:12; R:7; C:1,R
+neutral_f1,ALL,ACT08,GT_SUPPORT,-,1.0,20,True,-:20,I
+neutral_f1,ALL,ACT08,ISC,-,0.55,20,False,-:11; C:6; I:2; R:1,A/R
+neutral_f1,ALL,ACT08,MCO,C,0.55,20,False,C:11; A:7; I:1; A/R:1,R
+neutral_f1,ALL,ACT08,NEW_AUTHORITY,-,1.0,20,True,-:20,I
+neutral_f1,ALL,ACT08,ODC,I,0.75,20,True,I:15; -:3; C:2,I
+neutral_f1,ALL,ACT08,ORIGIN,-,1.0,20,True,-:20,I
+neutral_f1,ALL,ACT09,DAS,-,0.717,60,True,-:43; C:11; I:5; R:1,C
+neutral_f1,ALL,ACT09,GT_SUPPORT,-,0.7,60,True,-:42; I:10; C:8,C
+neutral_f1,ALL,ACT09,ISC,R,0.55,60,False,R:33; A/R:22; -:3; C:2,A/R
+neutral_f1,ALL,ACT09,MCO,A,0.533,60,False,A:32; C:18; A/R:5; -:3; I:1; R:1,C
+neutral_f1,ALL,ACT09,NEW_AUTHORITY,-,1.0,60,True,-:60,I
+neutral_f1,ALL,ACT09,ODC,C,0.55,60,False,C:33; I:17; -:9; A:1,C
+neutral_f1,ALL,ACT09,ORIGIN,-,0.9,60,True,-:54; I:5; C:1,C
+neutral_f1,ALL,ACT10,DAS,A/R,0.9,20,True,A/R:18; R:2,A/R
+neutral_f1,ALL,ACT10,GT_SUPPORT,-,0.85,20,True,-:17; C:3,C
+neutral_f1,ALL,ACT10,ISC,-,0.95,20,True,-:19; C:1,C
+neutral_f1,ALL,ACT10,MCO,C,0.7,20,True,C:14; I:4; A:2,R
+neutral_f1,ALL,ACT10,NEW_AUTHORITY,-,1.0,20,True,-:20,I
+neutral_f1,ALL,ACT10,ODC,I,0.75,20,True,I:15; C:4; -:1,C
+neutral_f1,ALL,ACT10,ORIGIN,-,1.0,20,True,-:20,I
+neutral_f1,ALL,ACT11,DAS,A/R,0.85,60,True,A/R:51; R:6; A:1; C:1; I:1,A/R
+neutral_f1,ALL,ACT11,GT_SUPPORT,C,0.583,60,False,C:35; -:15; I:6; A:3; A/R:1,C
+neutral_f1,ALL,ACT11,ISC,-,0.967,60,True,-:58; I:2,C
+neutral_f1,ALL,ACT11,MCO,-,0.533,60,False,-:32; I:20; C:5; A:3,C
+neutral_f1,ALL,ACT11,NEW_AUTHORITY,-,1.0,60,True,-:60,I
+neutral_f1,ALL,ACT11,ODC,C,0.617,60,True,C:37; I:13; -:8; R:2,C
+neutral_f1,ALL,ACT11,ORIGIN,-,0.983,60,True,-:59; I:1,I
+neutral_f1,ALL,ACT12,DAS,-,0.35,40,False,-:14; R:8; A:6; I:5; C:4; A/R:3,R
+neutral_f1,ALL,ACT12,GT_SUPPORT,-,0.725,40,True,-:29; C:7; I:2; R:2,I
+neutral_f1,ALL,ACT12,ISC,-,0.4,40,False,-:16; R:8; I:8; C:7; A:1,C
+neutral_f1,ALL,ACT12,MCO,A,0.4,40,False,A:16; A/R:8; I:7; -:4; C:3; R:2,I
+neutral_f1,ALL,ACT12,NEW_AUTHORITY,-,1.0,40,True,-:40,I
+neutral_f1,ALL,ACT12,ODC,-,0.3,40,False,-:12; I:11; C:10; A:5; R:2,C
+neutral_f1,ALL,ACT12,ORIGIN,C,0.35,40,False,C:14; -:11; R:11; I:3; A/R:1,A/R
+neutral_f1,ALL,ACT13,DAS,-,0.5,40,False,-:20; C:11; R:5; I:4,C
+neutral_f1,ALL,ACT13,GT_SUPPORT,-,0.475,40,False,-:19; C:14; I:5; R:1; A/R:1,C
+neutral_f1,ALL,ACT13,ISC,-,0.725,40,True,-:29; C:8; I:3,C
+neutral_f1,ALL,ACT13,MCO,R,0.35,40,False,R:14; C:7; A:5; -:5; I:5; A/R:4,C
+neutral_f1,ALL,ACT13,NEW_AUTHORITY,-,1.0,40,True,-:40,I
+neutral_f1,ALL,ACT13,ODC,A,0.45,40,False,A:18; A/R:9; R:7; C:6,A/R
+neutral_f1,ALL,ACT13,ORIGIN,-,0.775,40,True,-:31; I:6; C:2; A:1,C
+neutral_f1,ALL,ACT14,DAS,C,0.317,60,False,C:19; R:18; -:16; A/R:5; I:2,R
+neutral_f1,ALL,ACT14,GT_SUPPORT,-,0.683,60,True,-:41; C:14; I:5,C
+neutral_f1,ALL,ACT14,ISC,-,0.817,60,True,-:49; I:11,C
+neutral_f1,ALL,ACT14,MCO,A/R,0.267,60,False,A/R:16; C:14; I:11; -:8; R:6; A:5,C
+neutral_f1,ALL,ACT14,NEW_AUTHORITY,-,0.983,60,True,-:59; A:1,A
+neutral_f1,ALL,ACT14,ODC,C,0.567,60,False,C:34; A:12; A/R:9; R:3; I:1; -:1,C
+neutral_f1,ALL,ACT14,ORIGIN,-,0.8,60,True,-:48; I:11; C:1,I
+neutral_f1,ALL,ACT15,DAS,-,0.6,80,True,-:48; C:20; I:11; R:1,C
+neutral_f1,ALL,ACT15,GT_SUPPORT,-,0.362,80,False,-:29; I:26; C:25,C
+neutral_f1,ALL,ACT15,ISC,-,0.975,80,True,-:78; I:2,I
+neutral_f1,ALL,ACT15,MCO,C,0.487,80,False,C:39; I:27; -:14,R
+neutral_f1,ALL,ACT15,NEW_AUTHORITY,-,1.0,80,True,-:80,I
+neutral_f1,ALL,ACT15,ODC,A/R,0.988,80,True,A/R:79; A:1,A
+neutral_f1,ALL,ACT15,ORIGIN,-,0.838,80,True,-:67; I:12; C:1,I
+neutral_f1,ALL,ACT16,DAS,C,0.425,40,False,C:17; R:12; A/R:6; A:4; I:1,C
+neutral_f1,ALL,ACT16,GT_SUPPORT,-,0.975,40,True,-:39; I:1,I
+neutral_f1,ALL,ACT16,ISC,-,0.95,40,True,-:38; I:2,C
+neutral_f1,ALL,ACT16,MCO,A/R,0.55,40,False,A/R:22; A:8; R:5; C:2; I:2; -:1,A/R
+neutral_f1,ALL,ACT16,NEW_AUTHORITY,-,1.0,40,True,-:40,I
+neutral_f1,ALL,ACT16,ODC,I,0.65,40,True,I:26; C:14,C
+neutral_f1,ALL,ACT16,ORIGIN,-,0.975,40,True,-:39; I:1,I
+neutral_f1,ALL,ACT17,DAS,C,0.55,20,False,C:11; -:4; I:4; A:1,C
+neutral_f1,ALL,ACT17,GT_SUPPORT,-,1.0,20,True,-:20,I
+neutral_f1,ALL,ACT17,ISC,A/R,0.6,20,True,A/R:12; R:7; -:1,A/R
+neutral_f1,ALL,ACT17,MCO,C,0.35,20,False,C:7; A:6; I:6; A/R:1,R
+neutral_f1,ALL,ACT17,NEW_AUTHORITY,-,1.0,20,True,-:20,I
+neutral_f1,ALL,ACT17,ODC,-,0.9,20,True,-:18; I:2,I
+neutral_f1,ALL,ACT17,ORIGIN,-,1.0,20,True,-:20,I
+neutral_f1,ALL,ACT18,DAS,C,0.375,40,False,C:15; R:13; -:6; A/R:3; I:2; A:1,A/R
+neutral_f1,ALL,ACT18,GT_SUPPORT,-,0.7,40,True,-:28; I:8; C:4,C
+neutral_f1,ALL,ACT18,ISC,-,0.7,40,True,-:28; I:10; R:2,R
+neutral_f1,ALL,ACT18,MCO,A/R,0.45,40,False,A/R:18; A:13; R:4; I:3; -:1; C:1,R
+neutral_f1,ALL,ACT18,NEW_AUTHORITY,-,1.0,40,True,-:40,I
+neutral_f1,ALL,ACT18,ODC,C,0.65,40,True,C:26; R:8; A/R:3; A:2; I:1,C
+neutral_f1,ALL,ACT18,ORIGIN,-,0.95,40,True,-:38; I:2,I
+neutral_f1,ALL,ACT19,DAS,R,0.375,40,False,R:15; -:10; C:6; A/R:6; I:3,R
+neutral_f1,ALL,ACT19,GT_SUPPORT,-,0.85,40,True,-:34; C:4; R:1; I:1,C
+neutral_f1,ALL,ACT19,ISC,-,0.75,40,True,-:30; I:5; C:3; A:2,C
+neutral_f1,ALL,ACT19,MCO,C,0.35,40,False,C:14; A/R:7; -:7; R:5; I:4; A:3,R
+neutral_f1,ALL,ACT19,NEW_AUTHORITY,-,0.95,40,True,-:38; A:2,A
+neutral_f1,ALL,ACT19,ODC,C,0.775,40,True,C:31; A:3; I:2; -:2; A/R:1; R:1,C
+neutral_f1,ALL,ACT19,ORIGIN,-,0.9,40,True,-:36; I:4,I
+neutral_f1,ALL,ACT20,DAS,R,0.6,40,True,R:24; C:8; A/R:4; I:2; -:1; A:1,C
+neutral_f1,ALL,ACT20,GT_SUPPORT,-,0.75,40,True,-:30; I:10,I
+neutral_f1,ALL,ACT20,ISC,-,0.9,40,True,-:36; I:4,C
+neutral_f1,ALL,ACT20,MCO,A/R,0.4,40,False,A/R:16; A:8; R:8; I:4; C:3; -:1,A/R
+neutral_f1,ALL,ACT20,NEW_AUTHORITY,-,1.0,40,True,-:40,I
+neutral_f1,ALL,ACT20,ODC,C,0.65,40,True,C:26; A:11; I:3,C
+neutral_f1,ALL,ACT20,ORIGIN,-,0.925,40,True,-:37; I:3,I

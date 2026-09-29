@@ -1,0 +1,6 @@
+activity_id,activity,REFERENCE_A,match_individual_especializados_f1,n_individual_especializados_f1,match_neutral_f1,n_neutral_f1,match_post_debate_f2,n_post_debate_f2,match_arbitro_f3,n_arbitro_f3
+ACT02,Certificar los datos de la instalación (configuración física y parámetros),ORIGIN,0.75,4,1.0,1,1.0,4,1.0,1
+ACT04,"Construir o actualizar el modelo eléctrico (topología, conectividad, parámetros)",DAS,1.0,4,1.0,1,1.0,4,1.0,1
+ACT06,"Configurar la adquisición, la correspondencia señal-modelo y las comunicaciones",ISC,0.5,4,0.0,1,0.75,4,1.0,1
+ACT09,Aprobar las pruebas FAT/SAT y de integración,ISC,1.0,4,1.0,1,1.0,4,1.0,1
+ACT12,Verificar la correspondencia de mímicos y modelo con la instalación física,ORIGIN,0.0,4,0.0,1,0.0,4,0.0,1

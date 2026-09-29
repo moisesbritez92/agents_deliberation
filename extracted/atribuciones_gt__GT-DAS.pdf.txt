@@ -1,0 +1,36 @@
+Manual de Organización                                  ANDE Actualización: 00 
+  Página: 1 
+  Resolución P/Nº: 50060 
+  Fecha: 06.01.2025 
+ 
+DEPARTAMENTO DE ADMINISTRACIÓN DEL SCADA/EMS 
+ 
+Nivel Jerárquico: “E”             Sigla: GT/DAS                        CUA: 2649 
+   
+1. SUBORDINACIÓN 
+ 
+El Departamento de Administración del SCADA/EMS, está subordinado a la División de 
+Operación.  
+ 
+2. ATRIBUCIONES 
+ 
+2.1. Administrar y gestionar la Base de Datos del Sistema Interconectado Nacional (SIN) 
+obtenidos mediante el Sistema SCADA. 
+ 
+2.2. Administrar y gestionar los módulos de los aplicativos informáticos del SCADA/EMS. 
+ 
+2.3. Proporcionar soporte técnico para usuarios finales. 
+ 
+2.4. Gestionar los cambios para los nuevos requisitos del Sistema.  
+ 
+ 
+3. ORGANIZACIÓN 
+ 
+3.1.  Sección Base de Datos del SCADA 
+3.2.  Sección Aplicativos del SCADA/EMS 
+ 
+ 
+ 
+ 
+ 
+ 

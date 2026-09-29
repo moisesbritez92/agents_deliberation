@@ -1,0 +1,42 @@
+Manual de Organización ANDE Actualización:  
+Página: 1 
+Resolución P/Nº: 48658 
+Fecha: 29.12.2023 
+ 
+SECCIÓN IMPLEMENTACIÓN DE SISTEMAS DE CONTROL 
+ 
+Nivel Jerárquico: “F” Sigla: DTE/ISC2 CUA: 2116 
+ 
+1. SUBORDINACIÓN 
+ 
+La Sección Implementación de Sistemas de Control está subordinada al Departamento de 
+Ingeniería de Sistemas de Control.  
+ 
+2. ATRIBUCIONES 
+ 
+2.1. Realizar o supervisar trabajos relacionados al montaje, instalación, ampliación y puesta en 
+servicio de los equipos y sistemas de supervisión, control y adquisición de datos (SCADA), 
+de automatización de subestaciones (SAS) y de comunicación industrial y ciberseguridad 
+correspondientes a las tecnologías de operación. 
+ 
+2.2. Realizar o supervisar trabajos relacionados a redes de comunicaciones (Red de Área Local – 
+LAN, Red de Área Amplia – WAN, radio enlaces, etc.) utilizadas para las tecnologías de 
+operación. 
+ 
+2.3. Efectuar, analizar y aprobar  pruebas de aceptación de fábrica (FAT) y de aceptación del sitio 
+(SAT) de los equipos y sistemas de tecnologías de operación adquiridos. 
+ 
+2.4. Verificar de acuerdo  a estándares internacionales y normas de ANDE , la correcta 
+implementación y puesta en servicio de los equipos y sistemas de tecnologías de operación. 
+ 
+2.5. Elaborar o unificar Base de Datos y planos referentes a los equipos y sistemas de tecnologías 
+de operación. 
+ 
+2.6. Coordinar con las d emás Unidades Administrativas  involucradas, l os trabajos de 
+implementación y puesta en servicio de los equipos y sistemas de tecnologías de operación. 
+ 
+ 
+ 
+ 
+ 
+ 

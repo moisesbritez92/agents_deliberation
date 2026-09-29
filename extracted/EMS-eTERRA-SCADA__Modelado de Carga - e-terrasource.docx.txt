@@ -1,0 +1,135 @@
+Jerarquía del modelo de carga
+La estructura del modelo de carga proporciona una manera de modificar el modelo de carga automáticamente desde RTNET y establecer manualmente la carga total desde una aplicación. La Figura 26 ilustra la jerarquía del modelo de carga.
+
+
+
+Figura 26. Jerarquía del modelo de carga
+El propósito de la jerarquía del modelo de carga es distribuir los valores de MW correctos a las cargas en la parte inferior de la jerarquía.
+En la parte superior de la jerarquía hay áreas de carga designadas como áreas de carga de nivel superior. Estos generalmente coinciden con las Áreas de pronóstico en la aplicación de Pronóstico de carga. En las áreas de carga de nivel superior, puede insertar capas adicionales de áreas de carga en una jerarquía de relaciones padre / hijo. Las capas de área de carga secundaria le permiten dividir un área de carga principal en grupos utilizando programaciones comunes.
+Cada área de carga debe pertenecer a un horario. Los horarios pueden diseñarse para tener un valor constante o variar con la frecuencia que cada minuto de la semana. Un cambio en el horario de un área de carga principal afecta las cargas asignadas a sus hijos y, en menor grado, la carga asignada a sus áreas de carga de hermanos y sus hijos. En la parte inferior de la jerarquía de carga hay cargas individuales. Las cargas se conectan al sistema de red de energía a través de sus nodos terminales o buses, y determinan cuánta energía extraer de la red en función de los valores de MW distribuidos.
+
+Cargas
+Las empresas de servicios públicos utilizan el modelado de carga por una variedad de razones, que incluyen el pronóstico de generación, el análisis de carga de línea y el análisis de contingencia. La estructura de modelado para una carga equivalente se muestra a continuación.
+
+
+
+La carga de una empresa de servicios públicos cuando se suma proporciona una curva de carga para la región de responsabilidad. Esta curva de las cargas agregadas es la base para determinar los tiempos de demanda pico del sistema. Las cargas generalmente se dividen en dos clasificaciones: conformes y no conformes.
+Una carga conforme utiliza el factor de potencia como una relación fija entre su potencia real y reactiva. En relación con un grupo de cargas, una carga conforme tiene una curva de carga que se parece a la curva de carga del grupo. Las cargas residenciales son un ejemplo de cargas conformes.
+Para una carga no conforme, sus potencias reales y reactivas se definen por sus curvas de "carga frente a tiempo". A diferencia de las cargas conformes, una curva de carga no conforme no se parece a la curva de carga de un grupo. Un ejemplo de una carga no conforme es una carga liviana de la ciudad, ya que estas cargas tienden a alcanzar su punto máximo en las horas pico del sistema. Las fábricas de acero con sus hornos de arco eléctrico y otras cargas industriales similares que generan picos de uso de carga intermitente y afilada, tampoco son conformes.
+EquivalentLoad también se puede modelar como "modelo zip" con las relaciones de potencia constante (A / D), corriente constante (B / E) e impedancia constante (C / F) para componentes reales y reactivos. Las relaciones definen cómo se divide una carga dada a un voltaje nominal.
+A * V * V + B * V + C = P
+D * V * V + E * V + F = Q
+Los registros de LoadTransfer definen una tabla de distribución de cambio de carga. Cada LoadTransfer corresponde a una Carga Equivalente que recoge el porcentaje de carga perdida.
+Las mediciones SCADA se definen directamente en EquivalentLoad (para más detalles, consulte Mediciones / Límites).
+Los datos de simulación se definen directamente en Switch (para obtener más detalles, consulte Modelado de simulación).
+Áreas de carga
+Cada área de carga debe pertenecer a un horario. La programación puede especificar un valor constante o un valor diferente para cada minuto de la semana. El horario de un área de carga principal afecta la cantidad de carga asignada a sus elementos secundarios y, en menor grado, la cantidad de carga asignada a sus áreas de carga de hermanos.
+Estimación de estado actualiza los cronogramas de todas las áreas de carga que son observables por medición. Las áreas de carga observables de medición tienen un porcentaje de carga determinado por el usuario que se mide directamente desde SCADA.
+ Áreas de carga de nivel superior (pronóstico): Estas áreas de nivel superior son un elemento principal de otras áreas de carga. En consecuencia, la información de la carga base y la fracción principal tiene un significado diferente en las áreas de carga de pronóstico que en otras áreas de carga.
+ Horarios de carga: los horarios de carga se asignan a las áreas de carga. Contienen cargas base variables en el tiempo (cargas mínimas) y una fracción asignada de la carga total del padre.
+ Horarios de carga VAr: los horarios de carga VAR se asignan a cargas individuales. Contienen cargas MVAr de base variable en el tiempo (cargas MVAr mínimas), así como el factor de potencia de la carga. El factor de potencia se utiliza para determinar la carga de MVAr, además de la base, a partir de la carga de MW. La suma de los dos componentes produce la carga total de MVAr.
+ Carga base: esta es la carga mínima distribuida a esa rama de carga. En las áreas de carga de nivel superior (áreas de carga pronosticadas), esta es la carga total + pérdida para un árbol de carga completo. Las cargas base pueden ingresarse manualmente o actualizarse a través de RTNET en modo de estudio o en tiempo real.
+ Fracciones principales: se modelan en los horarios del área de carga.
+ Fracciones de carga: este es un factor de distribución asignado a las cargas. La fracción de carga determina la cantidad de carga por encima de la carga base que se distribuye a esa rama de la jerarquía del modelo de carga. En las áreas de carga de nivel superior, esta es la fracción de la carga total + pérdida que representa la carga total del árbol. Las fracciones de carga pueden ingresarse manualmente o actualizarse a través de RTNET en modo de estudio o en tiempo real.
+El primer paso en la carga de modelado es decidir cómo estructurar la Región Geográfica y sus Regiones Geográficas. Las Regiones SubGeoográficas son importantes porque definen cómo se divide o divide la red física en el modelo. Además, la información de carga y pérdida se obtiene de las mediciones SCADA y se resume en el nivel SubGeographicalRegion.
+La estructura del modelo de área de carga es un árbol o jerarquía que consta de áreas de carga y cargas, como se muestra en la Figura 27. Por lo general, su modelo de área de carga está compuesto por varios árboles de carga, cada uno encabezado por un "nivel superior" área de carga. El propósito de esta estructura de árbol es vincular las áreas de carga a cargas individuales en la red.
+Las cargas de la barra colectora de la subestación están en la parte inferior del "árbol de carga". En general, cada bus en la red tiene varias cargas y la suma de estas cargas es la carga neta del bus (demanda de inyección).
+Estas cargas se pueden agrupar en áreas de carga, que a su vez se pueden agrupar en áreas de carga de nivel superior, hasta que finalmente se forme un área de carga de nivel superior en la parte superior del árbol.
+
+Diseño de modelo de carga
+Un modelo de carga consiste en "árboles de carga", con cada área de carga de nivel superior (Área de carga de pronóstico) que representa el tronco del árbol. Los árboles de software, en comparación, generalmente están invertidos, con la raíz en la parte superior.
+Cada área de carga "secundaria" es una rama. La carga real es como la savia del árbol. La carga total se especifica para cada troncal (área de carga de nivel superior) y fluye hacia las ramas. La cantidad que recibe cada rama de área de carga "secundaria" nunca puede ser mayor que la que recibe su rama "principal".
+La Figura 27 muestra un árbol de carga de muestra.
+
+Figura 27. Árbol de carga de muestra
+Usando datos del árbol de carga en la Figura 27, la carga se calcula de la siguiente manera:
+ Las sumas base secundarias se calculan para todo el árbol. Las sumas de los valores en los campos de MW base de los hijos en cada área de carga se calculan y guardan.
+ La suma base secundaria del área de carga prevista es igual a la suma de los valores base en las áreas de carga A y B, que en este caso es:
+200 + 80 = 280 MW
+ El área de carga B tiene una suma base secundaria igual a la suma de los valores base en el área de carga C y la carga B, que en este caso es:
+100 + 10 = 110 MW
+ El área de carga C tiene una suma base secundaria igual a la suma de los valores base en las cargas C y D, que en este caso es:
+0 + 60 = 60 MW
+ Las Sumas Frac Infantiles se calculan para todo el árbol. Las sumas de los valores en los campos de fracción de los hijos en cada área de carga se calculan y guardan.
+ La suma de fractales infantiles del área de pronóstico es igual a la suma de los valores de fracción en las áreas de carga A y B, que en este caso es:
+100 + 300 = 400 MW
+ El área de carga A tiene una Suma Frac Child de 50 MW.
+ El área de carga B tiene una Suma Frac de Niño igual a la suma de los valores de fracción en el área de carga C y la carga B, que es:
+200 + 0 = 200 MW
+ El área de carga C tiene una Suma Frac Child igual a la suma de los valores de fracción en las cargas C y D, que es:
+100 + 300 = 400 MW
+ La carga total para el área de carga de nivel superior se calcula multiplicando su valor base en MW y su fracción en por unidad:
+1000 x .88 = 880 MW
+Para el ejemplo de la Figura 27, la carga total es de 880 MW.
+El valor base en MW para el área de carga superior representa la carga total + pérdidas en MW, y la fracción en Por unidad para el área de carga superior es la fracción de la carga total dividida por la carga total + pérdidas. La carga total se distribuye a sus hijos inmediatos, áreas de carga A y B.
+ Primero, la suma base secundaria se resta de la carga restante total para obtener la carga restante fraccional:
+880 280 = 600 MW
+Esto es para garantizar que las cargas base siempre se distribuyan al área de carga secundaria.
+ En segundo lugar, la fracción de la carga restante se asigna al área de carga secundaria dividiendo la fracción del área de carga por la Suma Fractal y luego multiplicando el resultado por la carga restante fraccional:
+Para el área de carga A: (100/400) x 600 = 150 MW
+Para el área de carga B: (300/400) x 600 = 450 MW
+ Por último, los valores base se vuelven a agregar para obtener la carga distribuida en cada área:
+Para área de carga A: 150 + 80 = 230 MW
+Para área de carga B: 450 + 200 = 650 MW
+El mismo proceso se repite en cada rama. Condensada, la fórmula para calcular la carga distribuida a la carga secundaria o al área de carga es:
+t = b + [(f / FS) x (T BS)]
+dónde:
+ t = la carga total para el niño
+ b = el valor de carga base del niño
+ f = el valor de carga de fracción del niño
+ FS = la Suma Fractal del área de carga principal
+ T = la carga total del área de carga principal
+ BS = la suma base secundaria del área de carga principal
+Para la carga A, la carga es: 0 + [(50/50) x (230 0)] = 230 MW.
+Para el área de carga C, la carga es: 100 + [(200/200) x (650110)] = 640 MW.
+Para la carga B, la carga es: 10 + [(0/200) x (650110)] = 10 MW.
+Para la carga C, la carga es: 0 + [(100/400) x (640 60)] = 145 MW.
+Para la carga D, la carga es: 60 + [(300/400) x (640 60)] = 495 MW.
+Si suma los valores calculados para las cargas, el resultado es la carga total (880 MW). En el ejemplo, agregue las cargas calculadas de las cargas A, B, C y D (230 + 10 + 145 + 495 = 880 MW).
+Por último, la porción reactiva de la carga se calcula para las cargas. El factor de potencia representa el coseno del ángulo del vector MVA, y el MVAr base se acaba de agregar. Por lo tanto, la carga total de MVAr es:
+R = r + [(W b) x sqrt (1 (p) ²) / p]
+dónde:
+ R = el componente reactivo total de la carga
+ r = la base MVAr de la carga
+ W = la carga real calculada en el paso anterior
+ b = la base MW de la carga
+ p = factor de potencia
+ 0 <| p | <1
+ sqrt = raíz cuadrada
+Para la carga a, la carga reactiva es: 5 + [230 x sqrt (1 (.98) ²) / .98] = 52 MVAr.
+Por lo demás, la carga reactiva es: 0 + [10 x sqrt (1 (1) ²) / 1] = 0 MVAr.
+Cuando el voltaje o la frecuencia medida en la carga es nominal, los campos de tipo de carga modifican la cantidad de energía extraída en la carga de acuerdo con las siguientes fórmulas:
+W '= W (V) ^ v (F) ^ f determina la potencia real ajustada.
+R '= R (V) ^ v' (F) ^ f 'determina la potencia reactiva ajustada.
+dónde:
+ W '= el total ajustado de la potencia real de la carga
+ W = la potencia real total de la carga
+ R '= el total ajustado de la potencia reactiva de la carga
+ R = la potencia reactiva total de la carga
+ V = el valor por unidad de la tensión en la carga
+ F = el valor por unidad de la frecuencia en la carga
+ ^ = elevar al poder de
+ v = el valor en el campo WVEXP de los datos del tipo de carga para la carga
+ f = el valor en el campo WFEXP de los datos del tipo de carga para la carga
+ v '= el valor en el campo RVEXP de los datos del tipo de carga para la carga
+ f '= el valor en el campo RFEXP de los datos del tipo de carga para la carga
+El MVAr base y el factor de potencia de la carga se pueden tratar como constantes al ingresar valores constantes para los datos de carga, o se pueden tratar como variables dependientes del tiempo mediante la creación de programas.
+Componentes de la carga MW
+La carga MW de cada área de carga en el árbol se modela como dos componentes: una porción que varía en el tiempo de la carga del área de carga principal y una porción fija de carga. La fracción de la carga de un padre y el valor base fijo se obtienen del programa al que se asigna un área de carga. Debido a que el valor base se obtiene de un programa, puede variar con el tiempo como la fracción, pero representa un valor de MW que se asigna a la carga del área de carga independientemente de cuál sea la carga del área de carga principal. Sin embargo, la parte fraccional de la carga de un área de carga depende de la carga del área de carga principal.
+Cuando el software evalúa el modelo de carga, los valores base de las áreas de carga se resumen primero a través de la jerarquía y se restan de los pronósticos para las áreas de carga de nivel superior. El resto del pronóstico se distribuye luego en la jerarquía de acuerdo con los componentes del área de carga fraccional.
+Al tener dos componentes para la carga en un área de carga, complementados con capacidades de anulación manual, tiene la capacidad de modelar patrones de carga que no siguen estrictamente las condiciones climáticas, como las cargas industriales. Los subárboles del área de carga se pueden definir debajo de un área de carga de nivel superior, que extrae un valor base fijo de un pronóstico y no varía en absoluto con las condiciones climáticas.
+
+Valores de curva de carga (programa)
+Al menos algunos de los valores de programación que defina pueden mejorarse lentamente con el tiempo mediante la aplicación Real Time Network (RTNET) utilizando mediciones SCADA reales. Por lo tanto, los valores que defina inicialmente solo deben ser una "buena primera aproximación". Un punto clave para aprovechar esta característica es asignar todas las cargas en un autobús a la misma área de carga.
+Por otro lado, la estructura del área de carga no se ve afectada por el software. Aunque parte de la información calculada por el software indica dónde se puede mejorar la estructura del modelo, los cambios en la estructura solo se pueden hacer manualmente.
+A largo plazo, la estructura que defina es la parte más importante de su modelo de área de carga, porque incluso los valores de planificación bien identificados no pueden mejorar una estructura mal definida; solo pueden aprovecharlo al máximo.
+
+Modelado de la diversidad de carga
+Cada árbol de carga puede ser tan complejo o tan simple como creas necesario. Un árbol puede tener muchos niveles de áreas de carga, y cualquier área de carga en el árbol puede tener áreas de carga y cargas asignadas. La carga para cada área de carga es la suma de las cargas de sus hijos, independientemente de si los hijos son áreas de carga, cargas o ambas.
+Por otro lado, puede dejar fuera del área de carga a los niños por completo y simplemente definir un área de carga de nivel superior y las cargas. Esta es la estructura de área de carga más básica.
+Por supuesto, hay buenas razones para elegir una estructura sobre otra. Tenga en cuenta que el propósito de tener una jerarquía es permitirle representar los efectos de las cargas "no conformes" dentro de un área de pronóstico. Por ejemplo, supongamos que un área de carga se compone de una carga industrial y una carga residencial. La curva de carga para esa área de carga representa una combinación de ambos tipos de carga.
+Normalmente, sin embargo, la demanda industrial tiene un patrón de tiempo diferente de la demanda residencial. Y puede ser que ninguna de sus curvas de carga, observada individualmente, se ajuste a la curva de área de carga pronosticada. Por esta razón, los elementos secundarios del área de carga deben incluirse en el árbol de carga.
+Al incluir elementos secundarios del área de carga (áreas de carga entre el área de carga de pronóstico de nivel superior y las cargas), puede definir un área de carga para la demanda residencial y otra área de carga para la demanda industrial. Luego, puede definir un cronograma de pronóstico diferente para cada área de carga, uno que modele la demanda residencial y el otro, la demanda industrial. De esta forma, el pronóstico de cada carga se puede modelar como una fracción dependiente del tiempo del pronóstico del área de carga de nivel superior.
+Un enfoque para modelar la diversidad de carga para un área operativa interna es dividir sus modelos de carga por región geográfica y luego por "clase de carga". Con este enfoque, su árbol de carga, o jerarquía, se compone de cuatro niveles, como se muestra en la Figura 28.
+
+Figura 28. Árbol de carga de muestra para área operativa interna

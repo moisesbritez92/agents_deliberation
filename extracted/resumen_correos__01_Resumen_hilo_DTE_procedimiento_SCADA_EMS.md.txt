@@ -1,0 +1,106 @@
+# Resumen: postura de la DTE sobre el procedimiento de actualización de la base SCADA/EMS
+
+**Tema:** Flujo operativo de mantenimiento y actualización del SCADA/EMS y de los aplicativos del EMS (plataforma GE e-terra)
+**Período del hilo:** 17/08/2026 al 21/09/2026
+**Próximo hito:** reunión RI/DTE/GT, martes 22/09/2026, 09:00 h, en la Sala de Reuniones de la RI
+
+---
+
+## 1. Cronología del hilo
+
+| Fecha | Remitente | Qué dice |
+|---|---|---|
+| 17/08 | Aldo Cantero (RI/PRI) | Envía a RI/UT la versión preliminar del procedimiento para que la mesa de trabajo (DTE, GT, RI) la revise y comente. |
+| 20/08 | Alcides Chávez (RI) | Pide a la Dirección de Telemática sus comentarios, por correo o en talleres. La redacción queda en pausa hasta recibirlos. |
+| **04/09** | **Diego Colmán (DTE/ISC)** | **Rechaza la propuesta Versión 00 en su forma actual. Es el correo central del hilo (ver punto 2).** |
+| 05/09 | Alcides Chávez | Agradece el análisis y pide armar en equipo una síntesis razonable. |
+| 14/09 | Alcides Chávez | Propone una reunión de trabajo para el jueves 17/09 a las 09:00. |
+| 16/09 | Juan Ledesma (GT/DAS) | Pide reprogramarla por compromisos que ya tenía asumidos. |
+| 16/09 | Aldo Cantero | Reprograma para el martes 22/09 a las 09:00, con la verificación conjunta de los comentarios como objetivo. |
+| **18/09** | **Diego Colmán** | **Confirma la reunión y adjunta una contrapropuesta de procedimiento "consensuada desde nuestro sector", además del diagrama de flujo.** |
+| 21/09 | Juan Ledesma | Reenvía todo a Moisés Britez. |
+
+---
+
+## 2. Objeciones de la DTE (correo del 04/09)
+
+Diego Colmán expresa una **"profunda preocupación y desacuerdo estructural"**. En su opinión, la Versión 00 fragmenta el proceso de ingeniería de la base de datos.
+
+### 2.1 El modelo e-terra no se puede dividir (SUBTOP/RTUTOP)
+- La Versión 00 separaba el **modelado topológico** del **pareamiento de señalizaciones** en los puntos 9.3, 9.4 y 9.6.
+- Según la DTE, el modelo lógico de la subestación (SUBTOP) y la adquisición de campo (RTUTOP) comparten claves primarias (ISD Keys), así que dividir ese trabajo sería **técnicamente inviable**.
+- Cita "reiterados eventos" en el sistema causados por modificaciones de otras áreas y dice adjuntar un antecedente (no viene en el PDF).
+- Pide que DTE/MCO haga de forma centralizada el modelado topológico, la creación de equipos, la asociación de señales y el ensamblaje del Paquete MAS. Lo considera una "responsabilidad técnica indelegable".
+
+### 2.2 El flujo de calidad queda invertido y cambia el rol de GT/DAS
+- Rechaza que GT/DAS arme el Paquete MAS, aplique sus propios criterios de calidad y después se lo pase a DTE para que asocie señales y lo cargue.
+- Con ese orden, dice, DTE no puede garantizar que el sistema funcione bien.
+- Pone de ejemplo a **Itaipú**, que usa la misma plataforma. Allí Operaciones aporta los parámetros operativos y actúa como **validador funcional** (estimador de estado, flujos de potencia), pero no modifica la base.
+
+### 2.3 Carga en producción (DBSEQ)
+- Considera un "riesgo altísimo" para el SIN que DTE cargue un paquete armado por un área que, según él, "no cuenta con la capacidad técnica".
+- Sostiene que el esquema **sobrecarga el escaso recurso humano técnico** de la DTE.
+- La compilación, la validación y la ejecución del DBSEQ deberían quedar solo en manos de las áreas técnicas especialistas.
+
+### 2.4 Qué pasa si se modifica una clave o un ID en e-terra
+| Capa | Consecuencia que señala la DTE |
+|---|---|
+| Interfaz y displays (e-terrabrowser, Display Builder) | Se pierde la correlación entre fuentes (SCADAMOM y e-terraarchive). Se rompen los enlaces de pantallas compiladas (*.ddl) que usan claves compuestas del tipo SUBSTN.DEVTYP.DEVICE.ANALOG. |
+| Adquisición y comunicaciones (e-terracomm, FEP) | Un ID cambiado se interpreta como una señal nueva: la anterior se borra y se crea otra. |
+| Data Sets ICCP/ELCOM | Se corta el intercambio con otros centros hasta que se actualice a mano el contenido del Data Set. |
+| Hdb, alarmas, histórico | Si el Identifier Mapping Service (IMS) no está sincronizado con el MRID, fallan los textos de alarma y la navegación cruzada (ETNAV). |
+
+**Conclusión del correo:** no comparte ni valida el procedimiento. Advierte sobre inconsistencias topológicas, nodos flotantes y pérdida de telemetría, y deja constancia de que "la forma de trabajo actual constituye un alto riesgo para el sistema".
+
+---
+
+## 3. Contrapropuesta de la DTE (documento adjunto del 18/09)
+
+### 3.1 Idea central
+**Toda la ingeniería de la base queda en la DTE (ISC y MCO).** GT/DAS se limita a consolidar los insumos al principio y a validar analíticamente al final.
+
+### 3.2 Reparto de roles que propone
+
+| Actor | Rol en la contrapropuesta |
+|---|---|
+| GT/GT, GT/MT, GT/TMB | Envían mímicos, planos y datos técnicos. |
+| GT/DEE, GT/DEL | Aportan parámetros de líneas, transformadores y equipos. |
+| **GT/DAS** | **Consolida los insumos, emite el requerimiento formal a la DTE y valida el modelo (estimador de estado y flujo de potencia) en el entorno de Estudio que habilita la DTE.** |
+| **DTE/ISC y DTE/MCO** | **Se encargan del modelado topológico y el pareamiento, simultáneos e "indivisibles", además de ICCP, ruteo, TAGs, pruebas punto a punto, ensamblaje del MAS, control de calidad técnico, carga DBSEQ y rollback.** |
+| GT/ODC | Valida en tiempo real, después de la carga. |
+
+### 3.3 Flujo propuesto (9.1 a 9.10)
+1. **9.1 y 9.2:** GT/DAS consolida los insumos y le pide la ingeniería a la DTE.
+2. **9.3:** la DTE modela la topología y parea las señales en un único proceso.
+3. **9.4:** DTE/ISC hace las pruebas punto a punto (niveles 1, 2 y 3).
+4. **9.5:** DTE/MCO compila el Paquete MAS y hace el control de calidad (sin errores críticos ni nodos flotantes). Si pasa, lo sube a Estudio.
+5. **9.6:** GT/DAS corre el estimador de estado y el flujo de potencia y da el "Visto Bueno" o lo devuelve a la DTE.
+6. **9.7:** validación conjunta de displays, mímicos y alarmas en preproducción.
+7. **9.8:** DTE/MCO carga el DBSEQ **los jueves**.
+8. **9.9:** DTE/ISC y GT/ODC monitorean durante 24 h.
+9. **9.10:** DTE/MCO hace el rollback **"unilateralmente"** si hay inestabilidad.
+
+### 3.4 Normas en las que se apoya
+- **IEC 62443:** el control de configuración debe estar centralizado en la DTE.
+- **IEC 61850:** quien hace las pruebas punto a punto debe ser quien modela la base maestra.
+- **IEC 62264:** separa el nivel 3 (control técnico, a cargo de la DTE) del nivel 4 (análisis y gestión de red, a cargo de GT/DAS).
+
+### 3.5 Condiciones e indicadores que agrega
+- No se actualiza nada sin documentación validada y firmada.
+- Se rechaza cualquier proyecto que supere el límite de warnings o errores del MAS o que tenga fallas de linking.
+- Indicadores: porcentaje de rechazos en el control de calidad, cumplimiento de la carga de los jueves, tiempo de procesamiento, porcentaje de pruebas punto a punto aprobadas y disponibilidad después de la carga.
+
+---
+
+## 4. Lectura rápida para GT/DAS
+
+- **Qué cambia para nosotros:** GT/DAS pasa de modelar a solo tramitar y validar. Dejaría de tener acceso de escritura al modelo de red, que es justamente lo que usan el despacho y los aplicativos EMS.
+- **Puntos con fundamento técnico real:** el acoplamiento de claves en e-terra, el riesgo de cambiar IDs en producción y la necesidad de un único paquete integrado.
+- **Puntos discutibles:**
+  - Pasar de "las claves están acopladas" a "solo la DTE puede tocar el modelo".
+  - La forma en que se usan las normas IEC.
+  - Que el mismo sector modele, se controle a sí mismo, cargue y revierta sin contrapeso.
+  - La contradicción entre reclamar todo el trabajo y admitir al mismo tiempo que tienen poco personal.
+- **Qué falta en el hilo:** el antecedente de los incidentes que menciona la DTE y el texto de la Versión 00 original.
+
+> La postura de GT/DAS está desarrollada en `02_Postura_GT_DAS_modelado_topologico.md`.

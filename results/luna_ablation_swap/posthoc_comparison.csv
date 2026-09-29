@@ -1,0 +1,21 @@
+activity_id,activity,REFERENCE_A,match_individual_especializados_f1,n_individual_especializados_f1,match_neutral_f1,n_neutral_f1,match_post_debate_f2,n_post_debate_f2,match_control_sin_debate_f2c,n_control_sin_debate_f2c,match_arbitro_f3,n_arbitro_f3
+ACT01,Definir el requisito y el alcance del cambio,DAS,0.875,40,0.7,10,nan,0,nan,0,nan,0
+ACT02,Certificar los datos de la instalación (configuración física y parámetros),ORIGIN,0.625,40,0.7,10,nan,0,nan,0,nan,0
+ACT03,"Especificar y aceptar la semántica del modelo (nomenclatura, identificadores, representación)",DAS,0.95,20,1.0,5,nan,0,nan,0,nan,0
+ACT04,"Construir o actualizar el modelo eléctrico (topología, conectividad, parámetros)",DAS,1.0,60,1.0,15,nan,0,nan,0,nan,0
+ACT05,Revisar la calidad topológica y de nomenclatura del modelo construido,ISC,0.025,40,0.0,10,nan,0,nan,0,nan,0
+ACT06,"Configurar la adquisición, la correspondencia señal-modelo y las comunicaciones",ISC,0.025,80,0.05,20,nan,0,nan,0,nan,0
+ACT07,Unificar modelo y adquisición en la base integrada,ISC,0.25,20,0.0,5,nan,0,nan,0,nan,0
+ACT08,Preparar el paquete de implementación,ISC,0.0,20,0.0,5,nan,0,nan,0,nan,0
+ACT09,Aprobar las pruebas FAT/SAT y de integración,ISC,0.9333333333333333,60,0.9333333333333333,15,nan,0,nan,0,nan,0
+ACT10,Administrar y actualizar los aplicativos EMS,DAS,1.0,20,1.0,5,nan,0,nan,0,nan,0
+ACT11,"Validar el estimador de estado, el flujo de potencia y demás aplicaciones",DAS,0.9833333333333333,60,1.0,15,nan,0,nan,0,nan,0
+ACT12,Verificar la correspondencia de mímicos y modelo con la instalación física,ORIGIN,0.0,40,0.0,10,nan,0,nan,0,nan,0
+ACT13,"Aceptar mímicos, alarmas y el uso operativo",ODC,0.725,40,0.8,10,nan,0,nan,0,nan,0
+ACT14,Autorizar la liberación de la versión a producción,NEW_AUTHORITY,0.2833333333333333,60,0.2,15,nan,0,nan,0,nan,0
+ACT15,Habilitar o suspender la ventana de intervención en tiempo real,ODC,1.0,80,1.0,20,nan,0,nan,0,nan,0
+ACT16,Ejecutar el respaldo y la carga en producción,MCO,0.7,40,0.5,10,nan,0,nan,0,nan,0
+ACT17,Mantener el registro técnico de configuración,ISC,0.7,20,0.6,5,nan,0,nan,0,nan,0
+ACT18,Verificar el sistema después de la actualización y cerrar el cambio,DAS,0.95,40,1.0,10,nan,0,nan,0,nan,0
+ACT19,Aprobar los criterios de reversión y su delegación,NEW_AUTHORITY,0.3,40,0.2,10,nan,0,nan,0,nan,0
+ACT20,Ejecutar la reversión,MCO,0.475,40,0.1,10,nan,0,nan,0,nan,0

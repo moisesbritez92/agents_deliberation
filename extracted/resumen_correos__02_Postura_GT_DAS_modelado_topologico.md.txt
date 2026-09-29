@@ -1,0 +1,122 @@
+# Postura del Dpto. de Administración SCADA/EMS (GT/DAS)
+## Participación de GT/DAS en el modelado topológico del SCADA/EMS como apoyo directo al Despacho de Carga
+
+**Referencia:** comentarios de la DTE/ISC (04/09/2026) y la contrapropuesta de procedimiento de la DTE (18/09/2026)
+**Instancia:** Mesa de Trabajo RI/DTE/GT
+
+---
+
+## 1. Resumen de la postura
+
+1. **Coincidimos con la DTE en varias cosas.** La base e-terra tiene claves acopladas. Cada proyecto debe salir como **un único Paquete MAS integrado**. Cambiar IDs en producción es un riesgo que hay que controlar. Además, las pruebas punto a punto, la adquisición, el ICCP y la carga del DBSEQ son competencia de la DTE.
+2. **No coincidimos en la conclusión.** Que las claves estén acopladas obliga a **coordinar y controlar** el trabajo, pero no obliga a que **un solo sector** lo haga todo. "Proceso indivisible" significa un solo proyecto, un solo paquete y una sola secuencia de carga. No significa un solo departamento.
+3. **Proponemos que GT/DAS sea responsable del modelo de red**: topología, conectividad, parámetros eléctricos y aplicativos EMS. La DTE seguiría a cargo de **adquisición, pareamiento, comunicaciones y producción**. Ambos trabajarían sobre el mismo proyecto e-terrasource, con reglas de claves acordadas y control cruzado.
+
+---
+
+## 2. Por qué GT/DAS tiene que estar dentro del modelado topológico
+
+### 2.1 El modelo de red sirve a la operación
+- El estimador de estado, el flujo de potencia, el análisis de contingencias y los mímicos que usa GT/ODC dependen de que la **topología y los parámetros** estén bien. La operación del SIN se decide sobre ese modelo.
+- Cuando el modelo tiene errores (un seccionador mal conectado, una barra partida, un nodo flotante, una impedancia equivocada), **el primero en notarlo es el despacho**, y GT/DAS es el área que diagnostica esas fallas todos los días.
+- Si GT/DAS solo recibe un paquete ya armado para darle o no el "Visto Bueno", cada corrección tiene que volver a la DTE y esperar la siguiente carga de un jueves. Así el ciclo entre detectar un error y corregirlo **se alarga en vez de acortarse**.
+
+### 2.2 El conocimiento que hace falta es de ingeniería eléctrica y de operación
+- Modelar la topología exige saber cómo funciona la instalación y cómo se opera: esquemas de barra, bypass, transferencias, estados normales, equipos que se usan para el estimador de estado y equivalentes externos.
+- Pedir que GT/DAS "provea los parámetros operativos" y que otro sector los modele genera **dos traducciones y dos puntos donde se puede perder información**.
+
+### 2.3 La propia DTE señala un problema de capacidad
+- La DTE dice que el esquema anterior "sobrecarga nuestro escaso Recurso Humano Técnico". Pero su contrapropuesta le suma **toda** la ingeniería del modelo, el control de calidad, la carga y el rollback.
+- Concentrar todo en un sector que ya reconoce falta de personal convierte a ese sector en un **cuello de botella** y en un **punto único de falla** para incorporar obras nuevas, bahías y cambios operativos.
+
+### 2.4 Separación de funciones
+- En la contrapropuesta, la DTE **modela, se controla a sí misma, carga y revierte "unilateralmente"**. Las buenas prácticas de gestión de cambios, incluida la IEC 62443 que cita la DTE, piden **segregar funciones y poner un control de cuatro ojos**: quien hace el cambio no debería ser el único que lo aprueba.
+- Tener un control cruzado entre DTE y GT/DAS **refuerza** la integridad de la base. No la debilita.
+
+---
+
+## 3. Respuesta a los argumentos técnicos de la DTE
+
+| Argumento de la DTE | Posición de GT/DAS |
+|---|---|
+| **SUBTOP y RTUTOP comparten claves, así que no se puede dividir el trabajo.** | Es cierto que están acoplados. Por eso proponemos un **solo proyecto e-terrasource por obra**, con un **diccionario de claves acordado y congelado** antes de empezar. GT/DAS crea los equipos con esa nomenclatura y la DTE vincula las mediciones sobre esos mismos objetos. e-terrasource está pensado para mantener el modelo por proyectos y con varios usuarios. **Proponemos pedirle a Dynamus/GE (Ing. Chaparro) una opinión técnica sobre cómo trabajar en conjunto sobre el mismo proyecto.** |
+| **Cambiar claves, IDs o MRID rompe displays, ICCP, histórico y alarmas.** | Estamos de acuerdo, y el riesgo existe **sin importar qué sector haga el cambio**. La solución es una regla que valga para todos: **en producción no se cambian IDs ni claves sin un procedimiento de cambio aprobado por DTE y GT/DAS**, la sincronización IMS/MRID se verifica siempre y se revisan los Data Sets ICCP afectados. |
+| **"Reiterados eventos" causados por otras áreas.** | Pedimos que se presente el antecedente citado y que se arme un **registro conjunto de incidentes con análisis de causa raíz**. Así las mejoras se basan en datos y no en atribuciones generales. Si hubo errores de GT/DAS, los asumimos y los corregimos con capacitación y controles. |
+| **Itaipú como modelo.** | Pedimos conocer formalmente cómo reparte Itaipú las responsabilidades (RACI) antes de tomarlo como referencia. En la práctica del sector es común que el **modelo de red** esté en un área cercana a la operación y que la **adquisición y las telecomunicaciones** estén en el área de automatización. |
+| **IEC 62443 exige centralizar la configuración en la DTE.** | La norma pide **gestión de cambios, control de accesos y trazabilidad**. No dice qué departamento debe hacerlo, y además recomienda segregar funciones (ver 2.4). |
+| **IEC 61850: quien hace las pruebas punto a punto debe modelar la base maestra.** | La IEC 61850 trata la comunicación y el modelado de datos de los IED en la subestación. No asigna responsabilidades organizacionales sobre el modelo de red del EMS. Las pruebas punto a punto validan la **adquisición**, que sigue siendo de la DTE. |
+| **IEC 62264 separa el nivel 3 (DTE) del nivel 4 (GT/DAS).** | La IEC 62264 (ISA-95) es una norma de integración empresa-control pensada para manufactura, y su uso aquí es analógico. Aun aceptándola, el **modelo de red que usan los aplicativos EMS** encaja naturalmente en las funciones de análisis y gestión de red, que la propia DTE le asigna a GT/DAS. |
+
+> Sugerencia: antes de incluir cualquier norma en el texto final, verificar la cláusula exacta.
+
+---
+
+## 4. Propuesta de GT/DAS: un modelo compartido con límites claros
+
+### 4.1 Reparto de responsabilidades
+
+| Actividad | GT/DAS | DTE/ISC | DTE/MCO | GT/ODC |
+|---|:-:|:-:|:-:|:-:|
+| Consolidar los insumos (mímicos, planos, parámetros) | **R** | C | C | I |
+| Definir el diccionario de claves y la nomenclatura del proyecto | **R** | **A** (conjunto) | C | I |
+| Modelado topológico (subestaciones, barras, equipos, conectividad) | **R** | C | C | C |
+| Parámetros eléctricos y datos para los aplicativos EMS (estimador de estado, flujo de potencia, contingencias) | **R** | I | I | C |
+| Mímicos y displays operativos | **R** (conjunto) | C | **R** (conjunto) | C |
+| Pareamiento de señales, TAGs, ruteo, RTU/FEP, ICCP | C | **R** | **R** | I |
+| Pruebas punto a punto | I | **R** | C | C |
+| Ensamblaje del Paquete MAS | C | C | **R** | I |
+| Control de calidad técnico (linking, warnings, errores) | C | C | **R** | I |
+| Control de calidad del modelo (topología, nodos flotantes, convergencia del estimador) | **R** | I | C | C |
+| Carga del DBSEQ en producción | I | C | **R** | I |
+| Monitoreo durante 24 h | **R** | **R** | C | **R** |
+| Decisión de rollback | **A** (conjunto) | C | **R** (ejecuta) | **A** (conjunto) |
+
+R = responsable · A = aprueba · C = consultado · I = informado
+
+### 4.2 Flujo propuesto
+
+1. **Insumos:** las unidades proveedoras envían la información y GT/DAS la consolida.
+2. **Apertura del proyecto:** se abre un único proyecto e-terrasource por obra. GT/DAS y la DTE firman el **diccionario de claves** del proyecto (subestación, tipo de dispositivo, dispositivo, mediciones).
+3. **Modelado topológico:** GT/DAS lo hace dentro del proyecto, respetando el diccionario.
+4. **Pareamiento y comunicaciones:** la DTE los hace sobre el mismo proyecto. Los pasos 3 y 4 pueden correr en paralelo o en secuencia corta, siempre con un único punto de integración.
+5. **Pruebas punto a punto:** DTE/ISC.
+6. **Ensamblaje del MAS:** DTE/MCO arma **un único paquete**.
+7. **Control de calidad cruzado:** DTE/MCO revisa la parte técnica (compilación, linking, warnings) y GT/DAS revisa el modelo (conectividad, nodos flotantes, estimador de estado y flujo de potencia en Estudio). **El paquete pasa a la etapa siguiente solo con las dos aprobaciones.**
+8. **Validación operativa conjunta:** DTE, GT/DAS y GT/ODC revisan displays, mímicos y alarmas.
+9. **Carga del DBSEQ:** DTE/MCO, en la ventana acordada (jueves).
+10. **Monitoreo durante 24 h:** DTE/ISC, GT/DAS y GT/ODC.
+11. **Rollback:** lo decide el conjunto con GT/ODC y lo ejecuta DTE/MCO. En una emergencia, la DTE puede ejecutarlo de inmediato y avisar a GT/ODC y GT/DAS al mismo tiempo.
+
+### 4.3 Reglas que se aplican a todos
+- **En producción no se cambian claves, IDs ni MRID** sin una solicitud de cambio aprobada por DTE y GT/DAS.
+- **Trazabilidad:** cada cambio queda registrado en el proyecto e-terrasource con autor, fecha y motivo.
+- **Accesos por rol** en e-terrasource, alineados con la matriz RACI.
+- **Vía rápida** para cambios topológicos urgentes que pida el despacho (energizaciones, configuraciones transitorias), con validación simplificada y carga fuera del jueves si hace falta.
+
+### 4.4 Transición gradual para dar garantías a la DTE
+| Fase | Duración sugerida | Qué pasa |
+|---|---|---|
+| 1. Acompañamiento | 1 a 2 meses | GT/DAS modela junto a la DTE sobre proyectos reales. La DTE revisa todo. |
+| 2. Co-modelado | 2 a 3 meses | GT/DAS modela la topología y la DTE hace el control técnico completo antes de integrar. |
+| 3. Régimen normal | Desde entonces | Se aplica el reparto de la sección 4.1 con control cruzado y revisión de indicadores. |
+
+Esto va acompañado de **capacitación formal en e-terrasource y MAS** para el personal de GT/DAS, a cargo del proveedor (Dynamus/GE).
+
+### 4.5 Indicadores que proponemos agregar
+- Porcentaje de convergencia del estimador de estado y errores topológicos que reporta GT/ODC.
+- Tiempo desde la energización de una instalación hasta que queda modelada en producción.
+- Incidentes posteriores a cada DBSEQ, clasificados por causa raíz (no por área).
+- Rechazos en el control de calidad, separados en causas técnicas y causas de modelo.
+
+---
+
+## 5. Qué pedimos en la reunión
+1. Tomar como base la **contrapropuesta de la DTE**, que aceptamos en sus condiciones generales, la frecuencia semanal, las pruebas punto a punto, el monitoreo y el rollback, **y modificar los puntos 9.3, 9.5, 9.6 y 9.10** según las secciones 4.1 y 4.2.
+2. Que la DTE presente el **antecedente de los incidentes** citados, para analizarlo en conjunto.
+3. Pedir a **Dynamus/GE** una opinión técnica sobre el trabajo multiusuario en e-terrasource y sobre la gestión de claves entre el modelo de red y la adquisición.
+4. Pedir formalmente el **esquema de responsabilidades de Itaipú**, si se lo va a usar como referencia.
+5. Acordar el **plan de transición y capacitación** de la sección 4.4.
+
+---
+
+**Nuestra posición en una frase:** el modelo de red es el que usa el despacho para operar el SIN, así que quienes lo usan y lo diagnostican todos los días tienen que participar en construirlo, con controles que protejan la integridad de la base de todos.
